@@ -1,0 +1,109 @@
+.blog{
+    padding: 40px 0;
+    background-color: #ffffff;
+}
+.blog-heading{
+    font-size: 35px;
+    font-family: JuliusSansOne;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+    color: #000000;
+    text-align: center;
+}
+.blog-box {
+    display: flex !important;
+    flex-direction: column;
+    width: 95% !important;
+    margin: 0 auto !important;
+    overflow: hidden;
+}
+.blog-box img{
+    width: 100%;
+}
+.blog-box p {
+    font-family: inter;
+    font-size: 15px;
+    margin: 30px 20px;
+    letter-spacing: 1px;
+    color: #6D7D7D;
+    padding-right: 20px;
+}
+.blog-box button{
+    border: none;
+    background: transparent;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 7px;
+    text-align: left;
+    margin: 0 20px;
+    font-family: Kanit;
+}
+.blog .custom-prev-btn , .blog .custom-next-arrow{
+    top: -66px;
+}
+
+/* blog Page css */
+.blog-details{
+    background-color: #F3F3F3;
+    padding: 40px 0;
+}
+.date{
+    font-family: LightInter !important;
+    margin: 20px 0;
+}
+.blog-details p{
+    font-family: asliInter;
+    color: #22222278;
+    font-size: 15px;
+
+
+}
+.blog-details .blog-heading {
+    font-size: 28px;
+    font-family: JuliusSansOne;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    color: #000000;
+    text-align: left;
+    margin-top: 24px;
+}
+.another-content , .single-blog{
+    width: 70% !important;
+    margin: 0 auto !important;
+}
+.another-content img , .single-blog img{
+    width: 100%;
+}
+
+.another-content h2{
+    font-size: 23px;
+    font-family: asliInter;
+    margin: 35px 0 15px;
+    color: #565C5F;
+}
+.another-content p{
+    font-family: asliInter;
+    color: #22222278;
+    font-size: 13px;
+}
+.another-content .line{
+    background-color: #e79c0782;
+    height: 1px;
+    width: 16%;
+    margin-bottom: 30px;
+    margin-top: 28px;
+}
+@media (max-width:520px) {
+    .blog-heading {
+        font-size: 27px;
+        font-family: JuliusSansOne;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 31px;
+        color: #000000;
+        text-align: left;
+        margin-left: 10px;
+    }
+}

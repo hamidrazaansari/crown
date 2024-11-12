@@ -1,0 +1,98 @@
+.footer {
+    background-color: #fff;
+    padding: 80px 0;
+}
+
+.footer .logo .img {
+    height: 42px;
+}
+
+.footer .logo img {
+    height: 43px;
+
+}
+
+.footer h3 a {
+    font-size: 17px;
+    color: #00000078;
+    text-decoration: none;
+    font-family: 'inter';
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer h2 {
+    font-family: inter;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    font-size: 20px;
+}
+
+.footer p {
+    font-family: LightInter;
+    color: #00000088;
+    padding: 0 10px;
+}
+
+.footer h5 {
+    margin-top: 40px;
+    font-size: 16px;
+    font-family: inter;
+    color: #000000cb;
+}
+
+.footer-bottom {
+    background-color: #D0D0D0;
+    padding: 25px;
+}
+
+.footer-bottom p {
+    margin-bottom: 0;
+    font-family: inter;
+}
+
+.footer ul li {
+    list-style: none;
+    margin: 5px 0;
+}
+
+.footer ul {
+    padding: 0;
+    margin-top: 10px;
+}
+.footer ul li a{
+    font-family: LightInter;
+    color: #000000ab;
+    text-decoration: none;
+}
+
+
+.footer .line {
+    background-color: #000;
+    height: 1px;
+    width: 26%;
+    margin-bottom: 5px;
+}
+
+.company-info {
+    color: #000000ab !important;
+    font-size: 15px;
+    text-align: left !important;
+    margin-top: 43px !important;
+    padding-right: 40px;
+}
+.vertical-line {
+    display: block;
+    height: 16px;
+    width: 2px;
+    background: #000000b3;
+    margin-right: 15px;
+}
+
+@media (max-width:767px) {
+    .resp{
+        margin-left: 35px;
+    }
+}
