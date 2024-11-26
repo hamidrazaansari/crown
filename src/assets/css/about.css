@@ -336,14 +336,26 @@ background:url(../image/why-bg.png);
     font-size: 5rem;
     background-color: #eee;
   }
-  .thank-you-container::before{
+  .thank-you-container::before {
     position: absolute;
     content: '';
-    background: url(../image/homeCreative.png);
-    height: 200px;
-    width: 170px;
-    top: 65%;
-    left: 21%;
+    background: url(/src/assets/image/creative.png);
+    height: 120px;
+    width: 80px;
+    top: 25%;
+    left: 45%;
+    z-index: 4;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+  .thank-you-container .is-2::before{
+    position: absolute;
+    content: '';
+    background: url(/src/assets/image/creative.png);
+    height: 120px;
+    width: 80px;
+    top: 25%;
+    left: 45%;
     z-index: 4;
     background-repeat: no-repeat;
     background-size: contain;

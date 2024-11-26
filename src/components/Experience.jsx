@@ -18,16 +18,18 @@ const Experience = () => {
     // Create the GSAP timeline for the experience animation
     const exp = gsap.timeline();
     exp.to(experienceMiddleRef.current, {
-      scale: 1.5,  // Scale down to create zoom-out effect
+      scale: 3.5,  // Scale down to create zoom-out effect
       duration: 5,
       ease: "power1.out", // Adjust easing for a smooth zoom effect
       scrollTrigger: {
         trigger: experienceRef.current, // Pin the experience section while scrolling
         start: "top top", // Start when the experience section is at the top of the viewport
-        end: "+=600", // End after scrolling 500px
+        end: "+=2000", // End after scrolling 500px
         scrub: true, // Smooth animation based on scroll progress
         markers: false, // Enable for debugging (remove in production)
         pin: experienceRef.current, // Pin the section during scroll
+        ease: "none",
+
       },
     });
   }, {

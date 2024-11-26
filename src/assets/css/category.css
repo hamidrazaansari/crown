@@ -192,7 +192,9 @@
     text-align: center;
 
 }
-
+.category-box .category-btn{
+    display: none;
+}
 .category-box-active {
     height: 500px;
     background-size: cover;
@@ -207,22 +209,60 @@
     /* Increase width on hover */
     transition: transform 0.5s ease-in-out, flex 0.5s ease-in-out;
     position: relative;
+    text-align: start;
 }
 .category-box-active .texts {
     position: absolute;
-    /* top: 45%; */
+    top: unset;
     z-index: 5;
     color: #fff;
-    display: flex
-;
-    justify-content: center;
+    display: block;
     width: 100%;
     left: 0%;
     bottom: 0;
     padding: 0 18px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 44%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+    text-align: start;
 }
-
+.category-box-active h4 {
+    text-align: start;
+    margin-right: 15px;
+    font-family: dionMedium;
+}
+.category-box-active .texts .category-btn{
+    border: none;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 12px;
+    background: #fff;
+    padding: 6px 20px;
+    font-family: 'dionlight';
+    letter-spacing: 2px;
+    float: inline-end;
+    border-radius: 20px;
+    position: relative;
+    top: 40px;
+    display: block;
+}
+.category-box-active .texts .category-btn {
+    border: none;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 12px;
+    background: #fff;
+    padding: 6px 20px;
+    font-family: 'dionlight';
+    letter-spacing: 2px;
+    float: inline-end;
+    border-radius: 20px;
+    position: relative;
+    top: 6px;
+    display: block;
+}
+.category-box-active .texts p{
+    font-size: 10px;
+    font-family: 'LightInter';
+}
 .category-box-active h4 {
     text-align: start;
     font-family: dionMedium;
@@ -232,7 +272,8 @@
     transform: rotate(0deg);
     position: unset;
     font-family: dionMedium;
-    text-align: start;
+    text-align: start !important;
+    font-size: 25px;
 }
 
 .category-box-active p {

@@ -98,17 +98,26 @@
 }
 
 
+.pos{
+    position: relative;
+}
 .newFooter{
     background-color: #000;
     padding: 40px 0;
+    position: absolute;
+    z-index: 4;
+    width: 100%;
+
 }
-.newFooter h1{
+.crown h1{
     font-family: dion;
     font-size: 16rem;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 40px;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
+    z-index: 1;
 }
 .newFooter h2{
     color: #fff;

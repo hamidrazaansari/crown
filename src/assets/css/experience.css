@@ -21,6 +21,10 @@
     justify-content: center;
     align-items: center;
   }
+  .experience .experience-middle-container video{
+    height: 178px;
+
+  }
   
   .experience .experience-middle {
     transform: scale(calc(var(--progress1) * 8.5)) !important;

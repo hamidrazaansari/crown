@@ -3,9 +3,12 @@ import '../assets/css/footer.css'
 import { Link } from 'react-router-dom'
 function NewFooter() {
   return (
+    <div className='pos'>
+    <div className="crown">
+    <h1>Crown</h1>
+    </div>
     <div className='newFooter'>
         <div className="container">
-            <h1>Crown</h1>
             <div className="d-flex align-items-center justify-content-center">
                 <Link><h2>About</h2></Link>
                 <Link><h2>Contacts</h2></Link>
@@ -24,6 +27,7 @@ function NewFooter() {
                 <Link><h2>Pinterest</h2></Link>
             </div> 
         </div>
+    </div>
     </div>
   )
 }
