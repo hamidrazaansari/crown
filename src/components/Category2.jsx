@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { API_URL } from '../utills/BaseUrl';
 
-function Category() {
+function Category2() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -80,4 +80,4 @@ function Category() {
   );
 }
 
-export default Category;
+export default Category2;

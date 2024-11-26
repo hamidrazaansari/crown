@@ -12,6 +12,7 @@ import About from "./pages/About"
 import Certificate from "./pages/Certificate"
 import HorizontalScroll from "./components/HorizontalScroll"
 import Experience from "./components/Experience"
+import Category2 from "./components/Category2"
 function App() {
 
   return (
@@ -28,6 +29,8 @@ function App() {
         <Route path="/order" element={<Order/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/certification" element={<Certificate/>}/>
+        <Route path="/cat" element={<Category2/>}/>
+        
         {/* <Route path="/experience" element={<Experience/>}/> */}
       </Routes>
     </BrowserRouter>
