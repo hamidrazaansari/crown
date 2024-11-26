@@ -6,14 +6,24 @@ import { CounterContext } from '../../src/context/CounterContext';
 import SingInModal from '../components/SingInModal';
 import { FaTrashCan } from "react-icons/fa6";
 import DilevaryImg from '../assets/image/delivery.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Cart() {
   const { count, data, clearCheckedData, toggleItemChecked, removeItemById } = useContext(CounterContext);
   const [showSignin, setShowSignin] = useState(false);
+  const navigate = useNavigate();
 
   const handleSigninModleShow = () => setShowSignin(true);
   const handleSigninModleClose = () => setShowSignin(false);
+
+  const handleCheckOut = () =>{
+    if(count === 0){
+      return
+    }
+    else{
+      navigate('/order'  , {state:data})
+    }
+  }
 
   return (
     <div>
@@ -67,7 +77,7 @@ function Cart() {
               <p className='text-center my-3'>No items in cart</p>
             )}
             <div className="cart-footer p-3">
-             <Link to={'/order'}><button onClick={handleSigninModleShow}>Checkout</button></Link>  
+             <button onClick={handleCheckOut}>Checkout</button> 
             </div>
           </div>
         </NavDropdown>

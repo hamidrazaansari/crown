@@ -9,6 +9,9 @@ import Env from "./pages/Env"
 import {CounterProvider} from '../src/context/CounterContext'
 import Order from "./components/Order"
 import About from "./pages/About"
+import Certificate from "./pages/Certificate"
+import HorizontalScroll from "./components/HorizontalScroll"
+import Experience from "./components/Experience"
 function App() {
 
   return (
@@ -24,6 +27,8 @@ function App() {
         <Route path="/environmental" element={<Env/>}/>
         <Route path="/order" element={<Order/>}/>
         <Route path="/about" element={<About/>}/>
+        <Route path="/certification" element={<Certificate/>}/>
+        {/* <Route path="/experience" element={<Experience/>}/> */}
       </Routes>
     </BrowserRouter>
     </CounterProvider>

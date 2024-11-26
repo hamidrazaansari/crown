@@ -1,0 +1,33 @@
+.certificate img{
+    height: 425px;
+    border: 10px solid #FEEDCA;
+    margin: 30px 0 60px;
+}
+.companies{
+    background-color: #F5F5F5;
+    padding: 50px  0;
+}
+.companies img {
+    height: 120px;
+    width: 136px;
+    margin: 40px 0px;
+}
+.companies{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0 50px;
+}
+.company-box{
+    background-color: #fff;
+    margin: auto;
+    padding: 40px 0;
+    width: 90%;
+}
+.companies .line{
+    background-color: #00000061;
+    height: 1px;
+    width: 85%;
+    margin-bottom: 30px;
+    margin: 24px auto;
+}

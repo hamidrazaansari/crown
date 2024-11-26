@@ -3,6 +3,7 @@ import '../assets/css/about.css'
 import Video from '../assets/image/video4.webm'
 import PlayIcon from '../assets/image/play-icon.png';
 import ScrollAnimation from 'react-animate-on-scroll';
+import { GoArrowUpRight } from "react-icons/go";
 
 
 
@@ -40,16 +41,16 @@ function About() {
                 <div className="col-lg-6 d-flex align-items-center">
                     <div className="about-content">
                         <ScrollAnimation animateIn="fadeInUp">
-                        <h2>About Us</h2>
+                        <h2>About</h2>
                         </ScrollAnimation>
                         <ScrollAnimation animateIn="fadeInUp">
-                        <div className="line" style={{height:"1px"}}></div>
+                        <h3>Where Innovation Meets Craft</h3>
                         </ScrollAnimation>
                         <ScrollAnimation animateIn="fadeInUp">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </ScrollAnimation>
                         <ScrollAnimation animateIn="fadeInUp">
-                        <button>Read More</button>
+                        <button>Read More <GoArrowUpRight/></button>
                         </ScrollAnimation>
                     </div>
                 </div>

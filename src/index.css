@@ -31,3 +31,15 @@ a{
   font-family: asliInter;
   src: url(./assets/fonts/Inter_18pt-Regular.ttf);
 }
+@font-face {
+  font-family: dion;
+  src: url(./assets/fonts/dionasans-bold.otf);
+}
+@font-face {
+  font-family: dionlight;
+  src: url(./assets/fonts/dionasans-light.otf);
+}
+@font-face {
+  font-family: dionMedium;
+  src: url(./assets/fonts/dionasans-medium.otf);
+}

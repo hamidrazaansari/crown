@@ -7,6 +7,8 @@ import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import Slider from 'react-slick'
 import { IoIosArrowForward } from "react-icons/io";
 import ScrollAnimation from 'react-animate-on-scroll'
+import { GoArrowUpRight } from "react-icons/go";
+
 
 // Custom Prev Arrow
 const PrevArrow = (props) => {
@@ -57,28 +59,39 @@ function Blog() {
   return (
     <div className='blog'>
         <div className="container">
-        <ScrollAnimation animateIn="fadeInUp">
-            <h2 className='blog-heading'>LATEST BLOG</h2>
-            </ScrollAnimation>
-            <ScrollAnimation animateIn="fadeInUp">
-            <Slider {...settings}>
-                <div className="blog-box">
+            <h2 className='blog-heading'>BLOG</h2>
+            <h3>Latest Article</h3>
+            <p className='heading-text'>Discover our latest news and articles regarding common HPL knowledge. Having deep
+            understanding about Crown can help you choose the right one for your applications.</p>
+              <div className="d-flex">
+                <div className="blog-box mx-3">
                     <img src={Blog1} alt="blog1" />
-                    <p>Posuere urna nec tincidunt praesent egestas maecenas.</p>
-                    <button>Learn More <IoIosArrowForward/></button>
+                    <div className="d-flex justify-content-between">
+                    <h2>What is the Laminates Sheets
+                    Manufacturing Process</h2>
+                    <button><GoArrowUpRight/> </button>
+                    </div>
+                    <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                 </div>
-                <div className="blog-box">
+                <div className="blog-box mx-3">
                     <img src={Blog2} alt="blog1" />
-                    <p>Posuere urna nec tincidunt praesent egestas maecenas.</p>
-                    <button>Learn More <IoIosArrowForward/></button>
+                    <div className="d-flex justify-content-between">
+                    <h2>What is the Laminates Sheets
+                    Manufacturing Process</h2>
+                    <button><GoArrowUpRight/> </button>
+                    </div>
+                    <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                 </div>
-                <div className="blog-box">
+                <div className="blog-box mx-3">
                     <img src={Blog3} alt="blog1" />
-                    <p>Posuere urna nec tincidunt praesent egestas maecenas.</p>
-                    <button>Learn More <IoIosArrowForward/></button>
+                    <div className="d-flex justify-content-between">
+                    <h2>What is the Laminates Sheets
+                    Manufacturing Process</h2>
+                    <button><GoArrowUpRight/> </button>
+                    </div>
+                    <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                 </div>
-            </Slider>
-            </ScrollAnimation>
+                </div>
 
         </div>
     </div>

@@ -73,6 +73,7 @@
 .order-box img{
     height: 120px;
     margin: 10px;
+    width: 85px;
 }
 .order-box p{
     font-size: 14px;

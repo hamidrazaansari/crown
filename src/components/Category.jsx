@@ -1,83 +1,67 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import '../assets/css/category.css';
-import Category1 from '../assets/image/category1.png';
-import { BsArrowDownRight } from "react-icons/bs";
-import { Link, useNavigate } from 'react-router-dom';
-import ScrollAnimation from 'react-animate-on-scroll';
-import { API_URL } from '../utills/BaseUrl';
+import React, { useState } from "react";
+import "../assets/css/category.css";
 
-function Category() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const Category = () => {
+  const [activeBox, setActiveBox] = useState(0); // Track the active box index
 
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${API_URL}/categories`);
-        setData(response.data.body);
-      } catch (err) {
-        setError('Error fetching data');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-    const navigate = useNavigate();
-
-  const handleOpen = (id)=>{
-    navigate('/products' , {state: id})
-  }
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  const categories = [
+    {
+      id: 1,
+      title: "Decorative Compacts",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      button: "EXPLORE",
+      activeClass: "decorative-active", // Add specific active class for this category
+    },
+    {
+      id: 2,
+      title: "INTERIOR COMPACTS",
+      description:
+        "Explore our wide range of interior compact solutions for your space.",
+      button: "EXPLORE",
+      activeClass: "interior-active", // Add specific active class for this category
+    },
+    {
+      id: 3,
+      title: "EXTERIOR COMPACTS",
+      description:
+        "Discover durable and stylish exterior compact designs.",
+      button: "EXPLORE",
+      activeClass: "exterior-active", // Add specific active class for this category
+    },
+  ];
 
   return (
-    <div className='Category'>
+    <div className="category">
       <div className="container">
-        <ScrollAnimation animateIn="fadeInUp">
-          <h2 className='category-heading'>Category</h2>
-        </ScrollAnimation>
-        <div className="row mt-5">
-          {data && data.map((category ,  ind) => {
-            // Split the textOverImage into first and second word inside map
-            const [firstWord, secondWord] = category.textOverImage.split(' ');
-            const imageUrl = category.image ? category.image.replace('http://localhost:5000', 'http://13.233.121.43:5000') : '';
-
-            
-            return (
-              <div className="col-lg-4 col-sm-6 col-12 d-flex justify-content-end flex-column" key={category._id}>
-                <ScrollAnimation animateIn="fadeInUp">
-                  <div className="category-box box-1">
-                  <img src={imageUrl} alt={category.name} />
-                  <p>{category.textOverImage}</p>
-                      <button className='explore-btn' onClick={()=> handleOpen(category._id)}>Explore <BsArrowDownRight /> </button>
-                  </div>
-                </ScrollAnimation>
-                <div className="category-text d-flex">
-                  <ScrollAnimation animateIn="fadeInUp">
-                    <div className='number'>0{ind + 1}</div>
-                  </ScrollAnimation>
-                  <ScrollAnimation animateIn="fadeInUp">
-                    <div>
-                      <h3>{firstWord}</h3>
-                      <p>{secondWord}</p>
-                    </div>
-                  </ScrollAnimation>
-                </div>
+        <h2>Category</h2>
+        <div className="d-flex align-items-center justify-content-center">
+          {categories.map((category, index) => (
+            <div
+              key={category.id}
+              className={`category-box ${
+                activeBox === index
+                  ? `category-box-active ${category.activeClass}` // Add the specific active class here
+                  : ""
+              }`}
+              onMouseEnter={() => setActiveBox(index)} // Activate box on hover
+              onMouseLeave={() => setActiveBox(0)} // Reset on hover out
+            >
+              <div className={
+                activeBox === index ? `texts` : ""
+              }>
+              <h4>{`0${category.id}`}</h4>
+              <h3>{category.title}</h3>
+              {activeBox === index && category.description && (
+                <p>{category.description}</p>
+              )}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Category;

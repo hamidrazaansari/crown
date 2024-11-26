@@ -1,8 +1,7 @@
 import React , {useState , useEffect} from 'react'
 import '../assets/css/hero.css'
 import Slider from 'react-slick';
-import Banner from '../assets/image/banner.png'
-import Banner2 from '../assets/image/bg2.png'
+
 import axios from 'axios';
 import { API_URL } from '../utills/BaseUrl';
 function Hero() {
@@ -29,8 +28,6 @@ function Hero() {
   
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
-
-    console.log(data)
 
     var settings = {
         dots: true,

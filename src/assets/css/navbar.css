@@ -164,7 +164,28 @@
   .custom-checkbox input[type="checkbox"]:checked + .checkmark::after {
     display: block;
   }
-  
+  .search-box {
+    position: absolute;
+    top: 49px;
+    left: 0;
+    background-color: #fff;
+    padding: 30px;
+}
+.search-box .search-img{
+    height: 40px;
+    width: 40px;
+}
+.search-box p{
+    font-family: inter;
+}
+.search-box h3{
+    font-family: 'inter';
+    font-size: 16px;
+    color: #00000080;
+    position: relative;
+    left: -10px;
+    margin: 23px 0 0;
+}
   @media (min-width: 992px) {
     .cart .dropdown-menu {
         position: absolute !important;

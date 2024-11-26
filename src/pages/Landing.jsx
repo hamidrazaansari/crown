@@ -10,21 +10,33 @@ import DetailsForm from '../components/DetailsForm'
 import Footer from '../components/Footer'
 import ProductSpotlight from '../components/ProductSpotlight'
 import FloatingButton from '../components/FloatingButton'
+import HorizontalScroll from '../components/HorizontalScroll'
+import Spotlights from '../components/Spotlights'
+import VideoGallery from '../components/VideoGallery'
+import VerticalScroll from '../components/VerticalScroll'
+import NewFooter from '../components/NewFooter'
+import Experience from '../components/Experience'
 
 function Landing() {
   return (
     <>
         <NavBar/>
-        <Hero/>
+        <HorizontalScroll/>
+        {/* <Hero/> */}
         <About/>
         <Category/>
-        <Space/>
-        <ProductSpotlight/>
-        <Gallery/>
+        <Spotlights/>
+        {/* <Space/> */}
+        {/* <ProductSpotlight/> */}
+        {/* <Gallery/> */}
+        <Experience/>
+        {/* <VideoGallery/> */}
         <Blog/>
-        <DetailsForm/>
-        <Footer/>
-        <FloatingButton/>
+        {/* <DetailsForm/> */}
+        {/* <VerticalScroll/> */}
+        <NewFooter/>
+        {/* <Footer/> */}
+        {/* <FloatingButton/> */}
     </>
   )
 }

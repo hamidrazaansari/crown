@@ -1,14 +1,16 @@
 .Gallery{
-    background-color: #FFF8F2;
+    background-color: #fff;
     padding: 40px 0;
     padding-bottom: 80px;
 }
-.gallery-heading{
-    font-size: 35px;
+.gallery-heading {
+    font-size: 55px;
     color: #000000;
-    font-family:JuliusSansOne ;
+    font-family: 'dion';
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 20px;
 }
 
 .custom-video {

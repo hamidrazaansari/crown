@@ -1,4 +1,4 @@
-.Category{
+/* .Category{
     background-color: #313131;
     padding:40px 0;
 }
@@ -145,4 +145,117 @@
         font-size: 10px;
         letter-spacing: 13px;
     }
+} */
+
+
+.category {
+    padding: 40px 0;
+    background: #fff;
+}
+
+.category h2 {
+    font-family: dion;
+    font-size: 60px;
+    text-transform: uppercase;
+    margin: 10px 50px;
+}
+
+.category-box {
+    flex: 1;
+    min-width: 200px;
+    height: 500px;
+    background: #E7E7E7;
+    margin: 20px;
+    padding: 20px;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+
+}
+
+.category-box h3 {
+    transform: rotate(270deg);
+    position: absolute;
+    bottom: 175px;
+    left: -115px;
+    width: 451px;
+    text-align: center;
+    font-family: dion;
+    font-size: 41px;
+}
+
+.category-box h4 {
+    font-family: 'dion';
+    font-size: 29px;
+    text-align: center;
+
+}
+
+.category-box-active {
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    color: #fff;
+    padding: 100px;
+    font-family: dionlight;
+    margin: 20px;
+    border-radius: 10px;
+    flex: 3;
+    /* Increase width on hover */
+    transition: transform 0.5s ease-in-out, flex 0.5s ease-in-out;
+    position: relative;
+}
+.category-box-active .texts {
+    position: absolute;
+    /* top: 45%; */
+    z-index: 5;
+    color: #fff;
+    display: flex
+;
+    justify-content: center;
+    width: 100%;
+    left: 0%;
+    bottom: 0;
+    padding: 0 18px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 44%);
+}
+
+.category-box-active h4 {
+    text-align: start;
+    font-family: dionMedium;
+}
+
+.category-box-active h3 {
+    transform: rotate(0deg);
+    position: unset;
+    font-family: dionMedium;
+    text-align: start;
+}
+
+.category-box-active p {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.category-box-active img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+.decorative-active {
+    background: url(../image/caategory1.png);
+}
+
+.interior-active {
+    background: url(../image/category-2.png);
+
+}
+
+.exterior-active {
+    background: url(../image/category-3.png);
+
 }
