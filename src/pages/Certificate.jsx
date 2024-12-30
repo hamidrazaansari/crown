@@ -1,87 +1,124 @@
-import React from 'react'
-import NavBar from '../components/NavBar'
-import DetailsForm from '../components/DetailsForm'
-import Footer from '../components/Footer'
-import Certificate1 from '../assets/image/certificate1.png'
-import company1 from '../assets/image/company1.png'
-import company2 from '../assets/image/company2.png'
-import company3 from '../assets/image/company3.png'
-import company4 from '../assets/image/company4.png'
-import company5 from '../assets/image/company5.png'
-import company6 from '../assets/image/company6.png'
-import company7 from '../assets/image/company7.png'
-import company8 from '../assets/image/company8.png'
-import '../assets/css/certificate.css'
+import React, { useState } from 'react';
+import NavBar from '../components/NavBar';
+import DetailsForm from '../components/DetailsForm';
+import Footer from '../components/Footer';
+import Certificate1 from '../assets/image/certificate1.png';
+import company1 from '../assets/image/company1.png';
+import company2 from '../assets/image/company2.png';
+import company3 from '../assets/image/company3.png';
+import company4 from '../assets/image/company4.png';
+import company5 from '../assets/image/company5.png';
+import company6 from '../assets/image/company6.png';
+import company7 from '../assets/image/company7.png';
+import company8 from '../assets/image/company8.png';
+import '../assets/css/certificate.css';
+import OtherPageFooter from '../components/OtherPageFooter';
 
 function Certificate() {
+    const [visibleImages, setVisibleImages] = useState({});
+
+    const handleButtonClick = (index) => {
+        setVisibleImages((prev) => ({
+            ...prev,
+            [index]: !prev[index], // Toggle visibility for the specific index
+        }));
+    };
+
+    const certificates = [
+        "Certificate of compliance - Traceless premium compact 1",
+        "Certificate of compliance - Traceless premium compact 2",
+        "Certificate of compliance - Traceless premium compact 3",
+        "Certificate of compliance - Traceless premium compact 4",
+        "Certificate of compliance - Traceless premium compact 5",
+    ];
+
     return (
         <div>
             <NavBar />
-            <div className="container mt-5">
-                <div className="breadcrumb">
-                    <p><a href="/">HOME</a><span> / </span> <a href="/" className='ms-2'>Certification</a> </p>
-                </div>
-            </div>
-            <div className="certificate-box">
+            <div className="bgWhite">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-4">
-                            <div className="certificate d-flex align-items-center justify-content-end">
-                                <img src={Certificate1} alt="" />
-                            </div>
-                        </div>
-                        <div className="col-lg-4">
-                            <div className="certificate d-flex align-items-center justify-content-center">
-                                <img src={Certificate1} alt="" />
-                            </div>
-                        </div>
-                        <div className="col-lg-4">
-                            <div className="certificate d-flex align-items-center justify-content-start">
-                                <img src={Certificate1} alt="" />
-                            </div>
-                        </div>
+                    <div className="breadcrumb m-0">
+                        <p>
+                            <a href="/">HOME</a>
+                            <span> / </span>
+                            <a href="/" className="ms-2">Certification</a>
+                        </p>
                     </div>
                 </div>
             </div>
-            <div className="companies">
+            <div className="certificate-box bgWhite py-3">
                 <div className="container">
+                    <h1>QUALITY Certificate</h1>
+                    {certificates.map((cert, index) => (
+                        <div className="certification-box" key={index}>
+                            <p>{cert}</p>
+                            <button onClick={() => handleButtonClick(index)}>
+                                {visibleImages[index] ? "Hide Image" : "Show Image"}
+                            </button>
+                            {visibleImages[index] && (
+                            <div className="display-certificate">
+                                <img src={Certificate1} alt={`Certificate ${index + 1}`} />
+                            </div>
+                            )}
+                        
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="companies bgWhite ">
+                <div className="container">
+                <h2>BRANDS certification</h2>
                     <div className="company-box">
                         <div className="row">
                             <div className="col-3 d-flex align-items-center justify-content-center">
-                                <img src={company1} alt="" />
+                                <div className="company-logo">
+                                    <img src={company1} alt="" />
+                                </div>
                             </div>
                             <div className="col-3 d-flex align-items-center justify-content-center">
-                                <img src={company2} alt="" />
+                                <div className="company-logo">
+                                    <img src={company2} alt="" />
+                                </div>
                             </div>
                             <div className="col-3 d-flex align-items-center justify-content-center">
-                                <img src={company3} alt="" />
+                                <div className="company-logo">
+                                    <img src={company3} alt="" />
+                                </div>
                             </div>
                             <div className="col-3 d-flex align-items-center justify-content-center">
-                                <img src={company4} alt="" />
+                                <div className="company-logo">
+                                    <img src={company4} alt="" />
+                                </div>
                             </div>
                         </div>
-                            <div className="line"></div>
                         <div className="row">
                             <div className="col-3 d-flex align-items-center justify-content-center">
-                                <img src={company5} alt="" />
+                                <div className="company-logo">
+                                    <img src={company5} alt="" />
+                                </div>
                             </div>
                             <div className="col-3 d-flex align-items-center justify-content-center">
-                                <img src={company6} alt="" />
+                                <div className="company-logo">
+                                    <img src={company6} alt="" />
+                                </div>
                             </div>
                             <div className="col-3 d-flex align-items-center justify-content-center">
-                                <img src={company7} alt="" />
+                                <div className="company-logo">
+                                    <img src={company7} alt="" />
+                                </div>
                             </div>
                             <div className="col-3 d-flex align-items-center justify-content-center">
-                                <img src={company8} alt="" />
+                                <div className="company-logo">
+                                    <img src={company8} alt="" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <DetailsForm />
-            <Footer />
+            <OtherPageFooter/>
         </div>
-    )
+    );
 }
 
-export default Certificate
+export default Certificate;

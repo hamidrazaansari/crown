@@ -33,11 +33,10 @@ function SearchBar() {
         fetchCategory();
     }, [searchQuery]);
     
-    console.log(data)
     return (
         <>
             <div className='search-product'>
-                <input type="text" className='search-input' placeholder='search products' value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} />
+                <input type="text" className='search-input' placeholder='Search Products' value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} />
                 <button className='search-btn'> <IoSearchOutline /> </button>
             </div>
             <div className={searchQuery ? "search-box" : 'd-none' }>

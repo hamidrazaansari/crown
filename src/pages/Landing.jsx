@@ -21,8 +21,8 @@ function Landing() {
   return (
     <>
         <NavBar/>
-        <HorizontalScroll/>
         {/* <Hero/> */}
+        <HorizontalScroll/>
         <About/>
         <Category/>
         <Spotlights/>

@@ -51,21 +51,20 @@
     margin-left: 10px;
 }
 .envoirementabout {
-    background-color: #F5F6EF;
+    background-color: #fff;
     padding: 60px 0;
     margin-top: -20px;
+    position: relative;
+    z-index: 10;
 }
 .envoirementabout img{
     height: 450px;
 }
 .envoirementabout h2 {
-    font-size: 35px;
-    font-weight: bold;
-    font-family: Inter;
-    background: linear-gradient(0deg, rgba(132,203,108,1) 0%, rgba(54,118,103,1) 44%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  
+    font-size: 37px;
+    font-family: dion;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 .envoirementabout h3{
     font-size: 25px;
@@ -77,12 +76,10 @@
     margin: 20px 0 40px;
 }
 .envoirementabout p{
-    background: linear-gradient(0deg, rgba(132,203,108,1) 0%, rgba(54,118,103,1) 44%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 17px;
-    font-family: inter;
+    font-size: 14px;
+    font-family: kanit;
     margin: 20px 0;
+    opacity: 0.8;
 }
 .commitment{
     background: url(../image/commit-bg.png);
@@ -283,4 +280,19 @@
     padding: 0;
 }
 
+}
+
+/* new env design */
+.env-banner img{
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+.SUSTAINABILITY{
+    padding: 20px 0;
+}
+.SUSTAINABILITY h2{
+    font-family: dion;
+    letter-spacing: 1.6px;
+    font-size: 35px;
 }

@@ -1,7 +1,11 @@
 .blog{
     padding: 40px 0;
     background-color: #ffffff;
+    position: sticky;
+    top: -450px;
+    z-index: 1;
 }
+
 .blog-heading {
     font-size: 14px;
     font-family: 'inter';
@@ -49,7 +53,7 @@
     padding-right: 20px;
 }
 .blog-box button{
-    border: none; */
+    border: none; 
     background: transparent;
     text-transform: uppercase;
     font-size: 15px;
@@ -72,9 +76,14 @@
 }
 
 /* blog Page css */
-.blog-details{
-    background-color: #F3F3F3;
+.blog-details {
+    background-color: #fff;
     padding: 40px 0;
+    position: relative;
+    z-index: 6;
+}
+.blog-details .blog-box{
+    margin: 20px 0 !important;
 }
 .date{
     font-family: LightInter !important;
@@ -84,8 +93,6 @@
     font-family: asliInter;
     color: #22222278;
     font-size: 15px;
-
-
 }
 .blog-details .blog-heading {
     font-size: 28px;
@@ -123,6 +130,27 @@
     margin-bottom: 30px;
     margin-top: 28px;
 }
+.blog-banner img{
+    width: 100%;
+    border-radius: 20px;
+}
+.blog-banner .banner-text-container {
+    position: relative;
+    left: 38%;
+    bottom: 225px;
+    z-index: 2;
+    background: rgb(0 0 0 / 5%);
+    box-shadow: 0 7px 42px 0 rgb(0 0 0 / 34%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 310px;
+    padding: 22px;
+    /* border-top-right-radius: 0; */
+    text-align: center;
+    text-transform: uppercase;
+}
 @media (max-width:520px) {
     .blog-heading {
         font-size: 27px;
@@ -135,3 +163,72 @@
         margin-left: 10px;
     }
 }
+
+    
+    /* blog details page  */
+    .blog-details-banner img{
+        background-size: cover;
+        width: 100%;
+    }
+    .blog-details-content{
+        background-color: #fff;
+        width: 93%;
+        position: relative;
+        bottom: 40px; 
+        z-index: 7;
+    }
+    .blog-details-content .information p img{
+        height: 25px;
+        width: 25px;
+        margin-right: 15px;
+    }
+    .blog-details-content .information p {
+        font-family: asliInter;
+        color: #000;
+        font-size: 13px;
+        margin: 15px;
+    }
+    .blog-details-content .information .dot{
+        display: inline-block;
+        background-color: #000;
+        height: 7px;
+        width: 7px;
+        margin: 0 10px;
+        border-radius: 50%;
+    }
+    .blog-details-content h1{
+        font-family: 'dion';
+        letter-spacing: .5px;
+        font-size: 30px;
+    }
+    .blog-details-content h2 , .recent-blog h2{
+        font-family: 'dion';
+        letter-spacing: 0.5px;
+        font-size: 25px;
+    }
+    .blog-details-content p{
+        font-size: 13px;
+        color: #000000d9;
+        font-family: LightInter;
+
+    }
+    .rcent-blog-box{
+        padding: 20px 0;
+        margin: 20px 0;
+        border-bottom: 1px solid #00000099;
+    }
+    .rcent-blog-box img{
+        height: 80px;
+        margin-right: 10px;
+    }
+    .rcent-blog-box h3{
+        font-family: Inter;
+        font-size: 20px;
+    }
+    .rcent-blog-box p{
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    .recent-blog{
+        margin-left: 20px;
+    }

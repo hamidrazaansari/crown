@@ -1,11 +1,11 @@
 .breadcrumb p a{
-    color: #565C5F;
-    font-family: 'inter';
+    color: #000000c9;
+    font-family: dionlight;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 13px;
+    margin: 00px 0;
     margin-right: 5px;
 }
 .product-banner{
@@ -59,7 +59,7 @@
 
 }
 .sidebar{
-    /* background-color: ; */
+    background-color: #060606;
     padding: 30px;
     position: sticky;
     top: 95px;
@@ -75,37 +75,42 @@
     letter-spacing: 1px;
     font-family: 'inter';
     font-weight: 600;
+    color: #fff;
 }
 .sidebar input{
     width: 100%;
     height: 38px;
     background: transparent;
-    border: 1px solid #5E5E5E;
+    border: 1px solid #969696;
     padding: 2px 10px;
     border-radius: 3px;
+    color: #fff;
 }
 .sidebar button{
     width: 100%;
     margin: 9px 5px;
     padding: 4px;
-    border: 1px solid #5E5E5E;
+    border: 1px solid #9e9b9b;
     border-radius: 3px;
     background-color: transparent;
+    color: #fff;
+
 }
 .sidebar .active-btn{
-    background-color: #5E5E5E;
-    color: #ffffff;
+    background-color: #fff;
+    color: #000;
 }
 .main h3 {
     font-weight: bold;
     font-family: 'inter';
     letter-spacing: 1px;
     font-size: 30px;
+    color: #fff;
 }
 .main p{
 font-family: inter;
 font-size: 17px;
-color: #827F7F;
+color: #fff;
 margin-bottom: 20px;
 }
 .product-box{
@@ -159,9 +164,11 @@ Link{
 }
 .accordion-item ul li a{
     text-decoration: none;
-    color: #565C5F;
+    color: #fff;
     font-family: inter;
-    font-size: 18px;
+    font-size: 15px;
+    font-weight: 400;
+
 }
 
 /* all products */
@@ -170,11 +177,12 @@ Link{
     padding: 40px 0;
     padding-bottom: 80px;
 }
-.allProduct h2{
-    font-family: 'inter';
-    font-size: 19px;
+.allProduct h2 {
+    font-family: 'dion';
+    font-size: 36px;
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    color: #000;
 }
 .allProduct .custom-prev-btn , .allProduct .custom-next-arrow {
     top: -60px;
@@ -206,4 +214,81 @@ Link{
 .product-box img{
     height: 240px;
     width: 150px;
+}
+
+/* productListing Banner style */
+
+.product-banner {
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    min-width: 2700px;
+    width: 100%;
+
+}
+.product-banner::before{
+    display: none !important;
+}
+.product-banner img {
+    width: 1300px;
+    height: 100%;
+    object-fit: cover;
+    margin-right: 40px ;
+}
+.product-main-banner{
+    position: relative;
+}
+.banner-text-container{
+    position: relative;
+    left: 70%;
+    bottom: 354px;
+    z-index: 2;
+    background: rgb(0 0 0 / 5%);
+    box-shadow: 0 7px 42px 0 rgb(0 0 0 / 34%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 350px;
+    padding: 29px;
+    border-top-right-radius: 0;
+}
+.banner-text-container h2 {
+    font-family: dion;
+    font-size: 57px;
+    color: #fff;
+    text-transform: capitalize;
+}
+.banner-text-container .line{
+    background-color: #fff;
+    width: unset;
+}
+.products-container h2 {
+    font-family: dionMedium;
+    letter-spacing: 1.5px;
+    text-transform: unset !important;
+    font-size: 36px;
+    margin: 0;
+}
+
+.products-container p{
+    font-size: 15px;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+}
+.product-listing{
+    background-color: #fff;
+    position: relative;
+    z-index: 3;
+}
+.bgWhite{
+    background-color: #fff;
+    position: relative;
+    z-index: 3;  
+}
+.view-all{
+    background-color: transparent;
+    border: 1px solid #000;
+    padding: 7px 20px;
+    border-radius: 20px;
 }

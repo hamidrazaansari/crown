@@ -13,6 +13,9 @@ import Certificate from "./pages/Certificate"
 import HorizontalScroll from "./components/HorizontalScroll"
 import Experience from "./components/Experience"
 import Category2 from "./components/Category2"
+import ProductBanner from "./components/ProductBanner"
+import NavModal from "./components/NavModal"
+import BlogDetails from "./pages/BlogDetails"
 function App() {
 
   return (
@@ -25,11 +28,13 @@ function App() {
         <Route path="/products" element={<ProductListing/>}/>
         <Route path="/product-details/:id" element={<ProductDetails/>}/>
         <Route path="/blog" element={<BlogPage/>}/>
+        <Route path="/blog-details" element={<BlogDetails/>}/>
         <Route path="/environmental" element={<Env/>}/>
         <Route path="/order" element={<Order/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/certification" element={<Certificate/>}/>
-        <Route path="/cat" element={<Category2/>}/>
+        <Route path="/cat" element={<ProductBanner/>}/>
+        <Route path="/nav" element={<NavModal/>}/>
         
         {/* <Route path="/experience" element={<Experience/>}/> */}
       </Routes>

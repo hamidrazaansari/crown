@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import HeroBanner from '../assets/image/hero-banner.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,7 +29,7 @@ function HorizontalScroll() {
       tlMain.fromTo(
         ".thank-you.is-2",
         {
-          clipPath: "polygon(69% 0%, 100% 0%, 100% 100%, 69% 100%)",
+          clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
         },
         {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
@@ -44,16 +45,14 @@ function HorizontalScroll() {
   return (
     <div className="thank-you-container" ref={slider}>
       <div className="thank-you-wrapper panel">
-        <div className="thank-you">
-          <div className="content">
-            <div className="textBlock">
-              <p>CROWN</p>
+        <div className="thank-you d-block">
+              <div className="heroBanner">
+                <img src={HeroBanner} alt="Hero Banner" />
             </div>
-          </div>
         </div>
         <div className="thank-you is-2">
           <div className="content">
-            <div className="textBlock">
+            <div className="textBlock ctext">
               <p>CROWN</p>
             </div>
           </div>

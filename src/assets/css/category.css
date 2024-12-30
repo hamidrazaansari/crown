@@ -151,6 +151,8 @@
 .category {
     padding: 40px 0;
     background: #fff;
+    position: relative;
+    z-index: 5;
 }
 
 .category h2 {
@@ -170,7 +172,7 @@
     position: relative;
     border-radius: 10px;
     cursor: pointer;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s linear;
     overflow: hidden;
 
 }
@@ -207,7 +209,7 @@
     border-radius: 10px;
     flex: 3;
     /* Increase width on hover */
-    transition: transform 0.5s ease-in-out, flex 0.5s ease-in-out;
+    transition: transform 0.5s linear, flex 0.5s linear;
     position: relative;
     text-align: start;
 }
@@ -300,3 +302,29 @@
     background: url(../image/category-3.png);
 
 }
+
+
+.product-banner {
+    position: relative;
+    overflow: hidden; /* Ensures content outside the container is not visible */
+    width: 100%;
+    height: auto;
+  }
+  
+  .product-banners-container {
+    display: flex;
+    width: 200%; /* Adjust for the number of images */
+    position: absolute;
+  }
+  
+  .product-banners-container img {
+    width: 50%; /* Adjust width based on your image count */
+    flex-shrink: 0;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 2; /* Ensure it’s on top of the images */
+    text-align: center;
+  }
+  

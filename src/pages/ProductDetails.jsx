@@ -8,9 +8,13 @@ import ShowAllProducts from '../components/ShowAllProducts'
 import InquiryModal from '../components/InquiryModal'
 import SampleReqModal from '../components/SampleReqModal'
 import FullImageView from '../components/FullImageView'
+import Fullscreen from '../assets/image/full-screen.png'
+import File from '../assets/image/file.png'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { API_URL } from '../utills/BaseUrl'
+import OtherPageFooter from '../components/OtherPageFooter'
+import getImageURL from '../utills/getImageURL';
 
 
 function ProductDetails() {
@@ -68,8 +72,8 @@ function ProductDetails() {
         link.click(); // Trigger download
         document.body.removeChild(link); // Remove link after downloading
       };
-      const imageUrl = products.defaultImage ? products.defaultImage.replace('http://localhost:5000', 'http://13.233.121.43:5000') : '';
-
+    const imageUrl = products.defaultImage ? getImageURL(products.defaultImage) : '';
+      
 
     return (
         <div>
@@ -77,12 +81,14 @@ function ProductDetails() {
             <SampleReqModal show={showSample} handleSampleModleClose={handleSampleModleClose} data={products} />
 
             <NavBar />
-            <div className="container mt-5">
-                <div className="breadcrumb">
+            <div className="bgWhite">
+            <div className="container ">
+                <div className="breadcrumb m-0 py-3 pb-0">
                     <p><a href="/">HOME</a><span> / </span> <a href="/" className='ms-2'>Exterior Compacts</a> </p>
                 </div>
             </div>
-            <div className="product-details my-5">
+            </div>
+            <div className="product-details bgWhite py-4 pt-2">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
@@ -92,9 +98,9 @@ function ProductDetails() {
                                 <div className="line"></div>
                                 <h4>{products.name}</h4>
                             </div>
-                            <div className="d-flex align-items-center justify-content-center action-btn">
-                                <button onClick={handleOpenImage}>FULL VIEW</button>
-                                <button onClick={()=> handleDownload(Product1)}>IMAGE DOWNLOAD</button>
+                            <div className="d-flex align-items-center justify-content-between action-btn">
+                                <button onClick={handleOpenImage}><span>FULL VIEW </span><img src={Fullscreen} alt="full screen icon" /></button>
+                                <button onClick={()=> handleDownload(Product1)}><span>IMAGE DOWNLOAD</span> <img src={File} alt="full screen icon" /></button>
                             </div>
                             {showFullImage && (
                                 <FullImageView
@@ -108,22 +114,20 @@ function ProductDetails() {
                             <div className="details-product">
                                 <h1>{products.name}</h1>
                                 <div className="line"></div>
-                                <p>Product Category : <span>Abstract</span> </p>
-                                <p>Decor Number : <span>{products.decorNumber}</span></p>
-                                <p>Decor Name : <span>{products.decorName}</span></p>
-                                <p>Finish : <span>{products.finish}</span></p>
-                                <div className="d-flex">
-                                    <p>Dimensions(mm):</p>
-                                        <span className='size'>
+                                <p><span className='key'>Product Category</span><span>Abstract</span> </p>
+                                <p><span className='key'>Decor Number </span><span>{products.decorNumber}</span></p>
+                                <p><span className='key'>Decor Name </span><span>{products.decorName}</span></p>
+                                <p><span className='key'>Finish </span><span>{products.finish}</span></p>
+                                    <p><span className='key'>Dimensions(mm)</span><span >
                                         {products.sizes && products.sizes.map((size)=>(
                                                 `${size.title} , `
                                     ))}
                                             </span> 
+                                            </p>
                                       
-                                </div>
-                                <div className="d-flex mt-4">
-                                    <button className='sample-btn' onClick={handleSampleModleShow}>Sample Request</button>
+                                <div className=" mt-4">
                                     <button className='enq-btn' onClick={handleShow}>Enquire Now</button>
+                                    <button className='sample-btn' onClick={handleSampleModleShow}>Sample Request</button>
                                 </div>
                             </div>
                         </div>
@@ -131,8 +135,7 @@ function ProductDetails() {
                 </div>
             </div>
             <ShowAllProducts />
-            <DetailsForm />
-            <Footer />
+            <OtherPageFooter/>
         </div>
     )
 }

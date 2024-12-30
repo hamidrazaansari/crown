@@ -109,3 +109,12 @@
         font-size: 32px;
     }
 }
+.heroBanner {
+    position: relative;
+    z-index: 5;
+}
+.heroBanner img{
+    height: 90vh;
+    width: 100%;
+}
+

@@ -97,47 +97,95 @@
     }
 }
 
+.pos {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  height: 38vh;
+}
 
-.pos{
-    position: relative;
+.crown {
+  /* transform: translate(-50%, -50%); */
+  z-index: 2;
 }
-.newFooter{
-    background-color: #000;
-    padding: 40px 0;
-    position: absolute;
-    z-index: 4;
-    width: 100%;
 
+.crown h2 {
+  font-family: dion;
+  font-size: 16rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  color: #000;
 }
-.crown h1{
-    font-family: dion;
-    font-size: 16rem;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 40px;
-    background-color: #fff;
-    color: #000;
-    z-index: 1;
+
+.newFooter {
+  background-color: #000;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
+
 .newFooter h2{
-    color: #fff;
-    font-family: 'dionlight';
-    margin: 20px 20px;
-    text-transform: uppercase;
-    font-size: 25px;
+  font-family: "dionlight";
+  margin: 20px 20px;
+  text-transform: uppercase;
+  font-size: 25px;
+  color: #fff; /* Default black text */
 }
-.newFooter p{
-    color: #fff;
-    text-align: center;
-    font-family: 'dionlight';
-    margin: 10px 0;
+.newFooter p a {
+    font-family: asliInter;
+    text-transform: lowercase;
     font-size: 20px;
+    color: #fff; 
+    margin: 0;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  .newFooter p{
+    text-align: center;
+  }
+
+.newFooter .line {
+  width: 100%;
+  margin: 20px 0;
+  height: 2px;
+  background-color: #000; /* Default black line */
 }
-.newFooter p a{
+
+/* other page footer design  */
+
+.footer-background{
+    margin: 0;
+    margin-bottom: -200px;
+    z-index: 1;
+    position: fixed;
+    bottom: 200px;
+}
+.explore {
+    /* background-color: #fff; */
+    position: relative;
+    z-index: 3;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 450px;
 }
-.newFooter .line{
-    width: 100% !important;
-    background: #fff;
-    margin: 20px 0;
+.explore h2{
+    font-family: 'dion';
+    font-size: 40px;
+    letter-spacing: 1px;
+}
+.explore button {
+    background-color: #E69B00;
+    height: 56px;
+    width: 354px;
+    color: #fff;
+    border: none;
+    font-family: 'Kanit';
+    letter-spacing: 1px;
+    font-size: 19px;
+    margin-top: 30px;
 }

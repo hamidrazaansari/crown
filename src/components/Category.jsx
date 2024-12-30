@@ -1,63 +1,76 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/css/category.css";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { API_URL } from "../utills/BaseUrl";
 
 const Category = () => {
   const [activeBox, setActiveBox] = useState(0); // Track the active box index
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const categories = [
-    {
-      id: 1,
-      title: "Decorative Compacts",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      button: "EXPLORE",
-      activeClass: "decorative-active", // Add specific active class for this category
-    },
-    {
-      id: 2,
-      title: "INTERIOR COMPACTS",
-      description:
-        "Explore our wide range of interior compact solutions for your space.",
-      button: "EXPLORE",
-      activeClass: "interior-active", // Add specific active class for this category
-    },
-    {
-      id: 3,
-      title: "EXTERIOR COMPACTS",
-      description:
-        "Discover durable and stylish exterior compact designs.",
-      button: "EXPLORE",
-      activeClass: "exterior-active", // Add specific active class for this category
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/categories`);
+        setData(response.data.body);
+      } catch (err) {
+        setError("Error fetching data");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+  const navigate = useNavigate();
+
+  const handleOpen = (id) => {
+    navigate("/products", { state: id });
+  };
+
+  // Map active classes manually based on category ID or title
+  const getActiveClass = (id) => {
+    
+    const classMap = {
+      1: "decorative-active",
+      2: "interior-active",
+      3: "exterior-active",
+    };
+    return classMap[id] || "";
+  };
 
   return (
     <div className="category">
       <div className="container">
         <h2>Category</h2>
         <div className="d-flex align-items-center justify-content-center">
-          {categories.map((category, index) => (
+          {data?.map((category, index) => (
             <div
-              key={category.id}
-              className={`category-box ${activeBox === index
-                  ? `category-box-active ${category.activeClass}` // Add the specific active class here
+              key={category._id}
+              className={`category-box ${
+                activeBox === index
+                  ? `category-box-active ${getActiveClass(index + 1)}`
                   : ""
-                }`}
+              }`}
               onMouseEnter={() => setActiveBox(index)} // Activate box on hover
               onMouseLeave={() => setActiveBox(0)} // Reset on hover out
             >
-              <div className={
-                activeBox === index ? `texts` : ""
-              }>
-                <button className="category-btn">Export Now <HiOutlineArrowNarrowRight /></button>
+              <div className={activeBox === index ? `texts` : ""}>
+                <button className="category-btn" onClick={()=> handleOpen(category._id)}>
+                  Export Now <HiOutlineArrowNarrowRight />
+                </button>
                 <div className="d-flex">
-                  <h4>{`0${category.id}`}</h4>
-                  <h3>{category.title}</h3>
+                  <h4>{`0${index + 1}`}</h4>
+                  <h3>{category.name}</h3>
                 </div>
-                {activeBox === index && category.description && (
-                  <p>{category.description}</p>
+                {activeBox === index && category.shortDescription && (
+                  <p>{category.shortDescription}</p>
                 )}
               </div>
             </div>
@@ -69,3 +82,5 @@ const Category = () => {
 };
 
 export default Category;
+
+

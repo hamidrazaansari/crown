@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import DetailsForm from '../components/DetailsForm';
 import '../assets/css/products.css';
-import ProductBanner from '../assets/image/Products-banner.png';
 import { Accordion } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import ScrollAnimation from 'react-animate-on-scroll';
 import { API_URL } from '../utills/BaseUrl';
 import axios from 'axios';
+import Img from '../assets/image/productbanner.png'
+import getImageURL from '../utills/getImageURL';
+import OtherPageFooter from '../components/OtherPageFooter';
 
 function ProductListing() {
     const [products, setProducts] = useState([]);
     const [sizes, setSizes] = useState([]);
     const [types, setTypes] = useState([]);
     const [subCategory, setSubCategory] = useState([]);
-    const [catHeader, setCatHeader] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
     const [selectedSize, setSelectedSize] = useState('');
     const [selectedType, setSelectedType] = useState('');
     const [selectedSubCategory, setSelectedSubCategory] = useState('');
+    const [catHeader, setCatHeader] = useState('')
 
     const location = useLocation();
     const catgoryId = location.state;
@@ -74,24 +72,25 @@ function ProductListing() {
                 setLoading(false);
             }
         };
-
         const fetchHeader = async () => {
+            setLoading(true);
             try {
                 const response = await axios.get(`${API_URL}/categories/${catgoryId}`);
-                setCatHeader(response.data.body);
+                setCatHeader(response.data.body); // Update state with API response
             } catch (err) {
-                setError('Error fetching data');
+                setError("Error fetching category header data"); // Set error message
                 console.error(err);
             } finally {
                 setLoading(false);
             }
         };
+    
 
         fetchProducts();
         fetchSizes();
         fetchTypes();
-        fetchHeader();
         fetchSubCategory();
+        fetchHeader()
     }, []);
 
     const handleSizeFilter = (sizeId) => setSelectedSize(sizeId);
@@ -106,25 +105,35 @@ function ProductListing() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
+console.log(catHeader);
+
     return (
         <div>
             <NavBar />
-            <div className="container mt-5">
-                <div className="breadcrumb">
-                    <p><a href="/">HOME</a><span> / </span> <a href="/" className='ms-2'>Exterior Compacts</a></p>
+            <div className="bgWhite py-4">
+            <div className="container">
+                <div className="breadcrumb mb-0">
+                    <p className='mb-0'><a href="/">HOME</a><span> / </span> <a href="/" className='ms-2'>Exterior Compacts</a></p>
                 </div>
             </div>
+            </div>
+            
+            <div className="bgWhite">
             <div className="container">
-                <div className="product-banner">
-                    <img src={ProductBanner} alt="product banner" />
-                    <div className="content">
-                        <h2>{catHeader.textOverImage}</h2>
-                        <div className="line"></div>
-                        <p>{catHeader.listingDescription || `Default description here.`}</p>
+            <div className='product-main-banner' >
+                <div className="product-banner d-flex">
+                    <div>
+                        <img src={Img} alt="" />
+                        <div className='banner-text-container'>
+                            <h2>{catHeader.textOverImage || "Default Title"}</h2>
+                            <div className="line"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="product-listing mt-5">
+            </div>
+            </div>
+            <div className="product-listing py-5">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-3">
@@ -166,10 +175,13 @@ function ProductListing() {
                                     </Accordion>
                             </div>
                         </div>
-                        <div className="col-lg-9">
+                        <div className="col-lg-9 products-container">
+                        <h2>{catHeader.name || "Default Title"}</h2>
+                        <p>{catHeader.shortDescription || "Lorem ipsum, dolor sit amet consectetur adipisicing elit."}</p>
+
                             <div className="row mt-3">
                                 {filteredProducts.map((product) => {
-                                    const imageUrl = product.defaultImage ? product.defaultImage.replace('http://localhost:5000', 'http://13.233.121.43:5000') : '';
+                                    const imageUrl = product.defaultImage ? getImageURL(product.defaultImage) : '';
                                     
                                     return (
                                         <div className="col-lg-4" key={product._id}>
@@ -188,8 +200,7 @@ function ProductListing() {
                     </div>
                 </div>
             </div>
-            <DetailsForm />
-            <Footer />
+            <OtherPageFooter/>
         </div>
     );
 }
