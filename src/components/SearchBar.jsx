@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { IoSearchOutline } from "react-icons/io5";
 import { API_URL } from '../utills/BaseUrl';
 import '../assets/css/navbar.css'
-
+import getImageURL from '../utills/getImageURL';
+import { Link , useNavigate } from 'react-router-dom';
 
 function SearchBar() {
     const [searchQuery , setSearchQuery] = useState('') 
@@ -32,6 +33,12 @@ function SearchBar() {
         fetchData();
         fetchCategory();
     }, [searchQuery]);
+
+      const navigate = useNavigate();
+    
+      const handleOpen = (id) => {
+        navigate("/products", { state: id });
+      };
     
     return (
         <>
@@ -41,19 +48,21 @@ function SearchBar() {
             </div>
             <div className={searchQuery ? "search-box" : 'd-none' }>
                 {data && data.map((item)=>{
-                    const imageUrl = item.defaultImage ? item.defaultImage.replace('http://localhost:5000', 'http://13.233.121.43:5000') : '';
+                                    const imageUrl = item.defaultImage ? getImageURL(item.defaultImage) : '';
 
                     return(
+                        <Link to={`/product-details/${item._id}`}>
                         <div className='d-flex align-items-center  my-3'>
                             <img src={imageUrl} alt="" className='search-img'/>
                             <p className='mb-0 ms-2'>{item.name}</p>
                         </div>
+                        </Link>
                     )
                 })}
                 <h3>Categories</h3>
                 {category && category.map((item)=>{
                     return(
-                        <div className='d-flex align-items-center  my-3'>
+                        <div className='d-flex align-items-center  my-3' style={{cursor:"pointer"}} onClick={()=>handleOpen(item._id)}>
                             <p className='mb-0 ms-2'>{item.name}</p>
                         </div>
                     )

@@ -6,6 +6,8 @@ import { CounterContext } from '../../src/context/CounterContext';
 import SingInModal from '../components/SingInModal';
 import { FaTrashCan } from "react-icons/fa6";
 import DilevaryImg from '../assets/image/delivery.png';
+import getImageURL from '../utills/getImageURL';
+
 import { Link, useNavigate } from 'react-router-dom';
 
 function Cart() {
@@ -24,6 +26,8 @@ function Cart() {
       navigate('/order'  , {state:data})
     }
   }
+
+console.log(data);
 
   return (
     <div>
@@ -45,8 +49,10 @@ function Cart() {
               <p>We Deliver your free sample of laminates</p>
             </div>
             {data && data.length > 0 ? (
-              data.map((item) => {
-                const imageUrl = item.defaultImage ? item.defaultImage.replace('http://localhost:5000', 'http://13.233.121.43:5000') : '';
+             data && data.map((item) => {
+                // const imageUrl = item.defaultImage ? item.defaultImage.replace('http://localhost:5000', 'http://13.233.121.43:5000') : '';
+                const imageUrl = item.defaultImage ? getImageURL(item.defaultImage) : '';
+                
                 return (
                   <div key={item._id} className="d-flex align-items-center justify-content-between p-3">
                     <div className="d-flex align-items-center px-4">
@@ -60,8 +66,8 @@ function Cart() {
                       </label>
                       <img src={imageUrl} alt="product" className="product-img" />
                       <div>
-                        <h4>{item.name}</h4>
-                        <p>{item.subCategory.name || 'Abstract'}</p>
+                        <h4>{item.name || 'Abstract'}</h4>
+                        <p>{item.type?.title || 'Abstract'}</p>
                       </div>
                     </div>
                     <button

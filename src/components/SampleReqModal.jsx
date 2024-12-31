@@ -5,6 +5,7 @@ import { BsCart3 } from "react-icons/bs";
 import { CounterContext } from '../context/CounterContext';
 import { useContext } from 'react';
 import { RxCross1 } from 'react-icons/rx';
+import getImageURL from '../utills/getImageURL';
 
 
 
@@ -14,7 +15,8 @@ function SampleReqModal({ show, handleSampleModleClose , data }) {
         addData(data);
     }
 
-    const imageUrl = data.defaultImage ? data.defaultImage.replace('http://localhost:5000', 'http://13.233.121.43:5000') : '';
+                                        const imageUrl = data.defaultImage ? getImageURL(data.defaultImage) : '';
+    
 
   return (
       <Modal show={show} onHide={handleSampleModleClose}>

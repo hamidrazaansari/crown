@@ -75,7 +75,7 @@ function ProductListing() {
         const fetchHeader = async () => {
             setLoading(true);
             try {
-                const response = await axios.get(`${API_URL}/categories/${catgoryId}`);
+                const response = await axios.get(`${API_URL}/categories/${catgoryId ? catgoryId : "6724e2e2a0586b2a40e206f8"}`);
                 setCatHeader(response.data.body); // Update state with API response
             } catch (err) {
                 setError("Error fetching category header data"); // Set error message
@@ -95,17 +95,20 @@ function ProductListing() {
 
     const handleSizeFilter = (sizeId) => setSelectedSize(sizeId);
     const handleTypeFilter = (typeId) => setSelectedType(typeId);
-    const handleSubCategoryFilter = (subCategoryId) => setSelectedSubCategory(subCategoryId);
+    const handleSubCategoryFilter = (subCategoryId) =>{
+    console.log(subCategoryId);
+
+        setSelectedSubCategory(subCategoryId);
+    }
 
     const filteredProducts = products
         .filter((product) => (selectedSize ? product.sizes.some(size => size._id === selectedSize) : true))
         .filter((product) => (selectedType ? product.type._id === selectedType : true))
-        .filter((product) => (selectedSubCategory ? product.subCategory._id === selectedSubCategory : true));
+        .filter((product) => (selectedSubCategory ? product.subCategory?._id === selectedSubCategory : true));
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
-console.log(catHeader);
 
     return (
         <div>
@@ -164,9 +167,9 @@ console.log(catHeader);
                                                 <ul className='list-unstyled ms-2'>
                                                     {subCategory.map((item) => (
                                                         <li key={item._id}>
-                                                            <a href="/" onClick={(e) => { e.preventDefault(); handleSubCategoryFilter(item._id); }}>
+                                                            <p onClick={(e) => {handleSubCategoryFilter(item._id) }}>
                                                                 {item.name}
-                                                            </a>
+                                                            </p>
                                                         </li>
                                                     ))}
                                                 </ul>

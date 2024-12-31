@@ -6,6 +6,7 @@ import '../assets/css/order.css';
 import { useLocation } from 'react-router-dom';
 import { API_URL } from '../utills/BaseUrl';
 import axios from 'axios';
+import getImageURL from '../utills/getImageURL';
 
 function Order() {
     const [name, setName] = useState('');
@@ -156,15 +157,15 @@ function Order() {
                             <h3>Orders</h3>
                             <hr />
                             {data.state && data.state.map((item, index) => {
-                                const imageUrl = item.defaultImage ? item.defaultImage.replace('http://localhost:5000', 'http://13.233.121.43:5000') : '';
+                            const imageUrl = item.defaultImage ? getImageURL(item.defaultImage) : '';
 
                                 return (
                                     <div key={index} className="d-flex align-items-center" style={{ background: "#fff", padding: "5px" }}>
                                         <img src={imageUrl} alt="" />
                                         <div className="order-info mx-3">
                                             <h2>{item.name}</h2>
-                                            <p>{item.subCategory.name}</p>
-                                            <p>{item.sizes[0].title}</p>
+                                            <p>{item.type?.title}</p>
+                                            <p>{item.sizes[0]?.title}</p>
                                         </div>
                                     </div>
                                 );
