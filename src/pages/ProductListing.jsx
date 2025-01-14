@@ -8,6 +8,7 @@ import axios from 'axios';
 import Img from '../assets/image/productbanner.png'
 import getImageURL from '../utills/getImageURL';
 import OtherPageFooter from '../components/OtherPageFooter';
+import Product1 from '../assets/image/product1.png'
 
 function ProductListing() {
     const [products, setProducts] = useState([]);
@@ -184,7 +185,8 @@ function ProductListing() {
 
                             <div className="row mt-3">
                                 {filteredProducts.map((product) => {
-                                    const imageUrl = product.defaultImage ? getImageURL(product.defaultImage) : '';
+                                    // const imageUrl = product.defaultImage ? getImageURL(product.defaultImage) : '';
+                                    const imageUrl = Product1;
                                     
                                     return (
                                         <div className="col-lg-4" key={product._id}>

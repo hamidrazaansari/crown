@@ -15,6 +15,8 @@ import axios from 'axios'
 import { API_URL } from '../utills/BaseUrl'
 import OtherPageFooter from '../components/OtherPageFooter'
 import getImageURL from '../utills/getImageURL';
+import Product2 from '../assets/image/product1.png'
+
 
 
 function ProductDetails() {
@@ -72,7 +74,8 @@ function ProductDetails() {
         link.click(); // Trigger download
         document.body.removeChild(link); // Remove link after downloading
       };
-    const imageUrl = products.defaultImage ? getImageURL(products.defaultImage) : '';
+    // const imageUrl = products.defaultImage ? getImageURL(products.defaultImage) : '';
+    const imageUrl = Product2;
       
 
     return (

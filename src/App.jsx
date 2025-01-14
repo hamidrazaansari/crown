@@ -16,6 +16,7 @@ import Category2 from "./components/Category2"
 import ProductBanner from "./components/ProductBanner"
 import NavModal from "./components/NavModal"
 import BlogDetails from "./pages/BlogDetails"
+// import FullViewImg from "./components/FullViewImg"
 function App() {
 
   return (
@@ -36,7 +37,7 @@ function App() {
         <Route path="/cat" element={<ProductBanner/>}/>
         <Route path="/nav" element={<NavModal/>}/>
         
-        {/* <Route path="/experience" element={<Experience/>}/> */}
+        {/* <Route path="/full-img" element={<FullViewImg/>}/> */}
       </Routes>
     </BrowserRouter>
     </CounterProvider>

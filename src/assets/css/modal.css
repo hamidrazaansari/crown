@@ -18,18 +18,18 @@
     width: 100%;
     border-radius:0;
     padding: 20px;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
-    animation: slideUp 0.7s ease; /* Animation applied */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.7s ease; /* Animation applied */
     position: absolute;
-    z-index: 10;
+    z-index: 0;
     /* right: 100px; */
-    background-color: #000 !important;
+    background-color: #fff !important;
   }
   
   /* Slide-Up Animation */
-  @keyframes slideUp {
+  @keyframes slideDown {
     from {
-      transform: translateY(120%); /* Start from bottom */
+      transform: translateY(-50%); /* Start from bottom */
       opacity: 0;
     }
     to {
@@ -51,7 +51,7 @@
     background: transparent;
     border: none;
     color: #fff;
-    font-size: 26px;
+    font-size: 20px;
     margin-bottom: 100px;
   }
   .modal-contents .left{
@@ -72,3 +72,63 @@
     color: #fff;
 
   }
+
+  .product-menu .dropdown-menu.show {
+    display: block;
+    position: relative;
+    padding: 16px 38px !important;
+    left: -1143px !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    width: 1630px !important;
+    top: 35px;
+    box-shadow: 0px 1px 3px #d7d7d7 !important;
+}
+
+.menu-img img{
+  height: 200px;
+    width: 300px;
+    object-fit: cover;
+    margin: 20px;
+}
+
+.menu-cat-button{
+  background: transparent;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 5px 30px;
+  margin-left: 57px;
+}
+.arrow-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000; /* Button background color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-text {
+  transition: opacity 0.3s ease;
+}
+
+.arrow {
+  transition: width 0.3s ease, transform 0.3s ease;
+  width: 24px;
+  height: 24px;
+}
+
+.arrow-button:hover .button-text {
+  opacity: 0; /* Hide the text on hover */
+}
+
+.arrow-button:hover .arrow {
+  width: 100%; /* Expand the arrow to full width */
+}

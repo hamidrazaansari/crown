@@ -7,6 +7,8 @@ import { useLocation } from 'react-router-dom';
 import { API_URL } from '../utills/BaseUrl';
 import axios from 'axios';
 import getImageURL from '../utills/getImageURL';
+import Product1 from '../assets/image/product1.png'
+
 
 function Order() {
     const [name, setName] = useState('');
@@ -21,6 +23,7 @@ function Order() {
 
     const data = useLocation();
     console.log(data.state)
+    
 
     const options = [
         { name: 'India', value: 'India', type: 'country' },
@@ -157,7 +160,8 @@ function Order() {
                             <h3>Orders</h3>
                             <hr />
                             {data.state && data.state.map((item, index) => {
-                            const imageUrl = item.defaultImage ? getImageURL(item.defaultImage) : '';
+                            // const imageUrl = item.defaultImage ? getImageURL(item.defaultImage) : '';
+                            const imageUrl = Product1;
 
                                 return (
                                     <div key={index} className="d-flex align-items-center" style={{ background: "#fff", padding: "5px" }}>

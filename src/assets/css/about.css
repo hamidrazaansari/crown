@@ -358,7 +358,7 @@
   background-size: contain;
 }
 
-/* FZ Style  */
+/* New Style  */
 
 .about-company-section .breadcrumb a,
 .about-company-section .breadcrumb span {
@@ -393,13 +393,16 @@
 }
 
 .heritage-section .banner-item {
-  width: 102% !important;
+  width: 120% !important;
   margin-left: 0px;
+  align-items: start !important;
+
 }
 
 .heritage-section .banner-item p {
   position: unset;
   margin-left: 0px;
+  width: 50%;
 }
 
 .heritage-section .year-highlight {
@@ -428,6 +431,7 @@
   padding: 18px 36px;
   color: #fff;
   border-radius: 2px;
+  margin-top: 44px;
 }
 
 .heritage-btn .circle {
@@ -581,4 +585,37 @@
 .gloabFooterInfo p{
   opacity: 0.6;
   font-family: Kanit;
+}
+.procedure{
+  height: 3px;
+  width: 100px;
+  position: absolute;
+  bottom: 20px;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.procedure-bg{
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  background-color: #333333;
+  z-index: 1;
+}
+/* .procedure-bg::before{
+  content: '';
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  background-color: #333333;
+  border-radius: 50%;
+  z-index: 2;
+  bottom: -3px;
+  left: 40%;
+} */
+
+.banner-item  h1{
+  font-family: dion;
+  font-size: 50px;
 }

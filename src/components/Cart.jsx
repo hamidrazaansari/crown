@@ -7,8 +7,11 @@ import SingInModal from '../components/SingInModal';
 import { FaTrashCan } from "react-icons/fa6";
 import DilevaryImg from '../assets/image/delivery.png';
 import getImageURL from '../utills/getImageURL';
-
 import { Link, useNavigate } from 'react-router-dom';
+import { BsCart3 } from "react-icons/bs";
+import Product1 from '../assets/image/product1.png'
+
+
 
 function Cart() {
   const { count, data, clearCheckedData, toggleItemChecked, removeItemById } = useContext(CounterContext);
@@ -36,7 +39,7 @@ console.log(data);
         <NavDropdown
           title={
             <>
-              <img src={CartIcon} alt="user-icon" />
+              <BsCart3/>
               {count > 0 && <span className='cart-indecator'>{count}</span>}
             </>
           }
@@ -51,7 +54,8 @@ console.log(data);
             {data && data.length > 0 ? (
              data && data.map((item) => {
                 // const imageUrl = item.defaultImage ? item.defaultImage.replace('http://localhost:5000', 'http://13.233.121.43:5000') : '';
-                const imageUrl = item.defaultImage ? getImageURL(item.defaultImage) : '';
+                // const imageUrl = item.defaultImage ? getImageURL(item.defaultImage) : '';
+                const imageUrl = Product1;
                 
                 return (
                   <div key={item._id} className="d-flex align-items-center justify-content-between p-3">

@@ -6,6 +6,7 @@ import { CounterContext } from '../context/CounterContext';
 import { useContext } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import getImageURL from '../utills/getImageURL';
+import Product1 from '../assets/image/product1.png'
 
 
 
@@ -15,7 +16,8 @@ function SampleReqModal({ show, handleSampleModleClose , data }) {
         addData(data);
     }
 
-                                        const imageUrl = data.defaultImage ? getImageURL(data.defaultImage) : '';
+                                        // const imageUrl = data.defaultImage ? getImageURL(data.defaultImage) : '';
+                                        const imageUrl = Product1;
     
 
   return (

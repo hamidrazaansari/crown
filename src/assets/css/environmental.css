@@ -102,27 +102,33 @@
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    padding: 27px;
+    padding: 20px;
     border-radius: 13px;
-    height: 440px;
+    height: 470px;
+    border: 1px solid #00000068;
+    margin:20px 20px 40px;
 }
-.commitment-card img{
-    height: 118px;
+.commitment-card img {
+    height: 90px;
     margin: 20px 0;
 }
 .commitment-card h3{
-    color: #6E9661;
-    font-family: inter;
+    color: #000;
+    font-family: dion;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 27px;
     text-align: center;
-    border-bottom: 1px solid #00000058;
     padding: 0 0px 10px;
-    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase !important;
+    margin:15px 10px;
+    line-height: 30px;
 }
 .commitment-card p{
     padding: 0 10px;
-    font-size: 15px;
+    font-size: 13px;
+    line-height: 25px !important;
 }
 .passports{
     background: linear-gradient(90deg, hsla(194, 100%, 9%, 1) 0%, hsla(166, 37%, 34%, 1) 100%);
@@ -295,4 +301,8 @@
     font-family: dion;
     letter-spacing: 1.6px;
     font-size: 35px;
+}
+.strategy-heading{
+    font-family: dion;
+
 }
