@@ -13,9 +13,16 @@ import company7 from '../assets/image/company7.png';
 import company8 from '../assets/image/company8.png';
 import '../assets/css/certificate.css';
 import OtherPageFooter from '../components/OtherPageFooter';
+import { Modal, Button } from 'react-bootstrap';
+import { RxCross1 } from "react-icons/rx";
+
 
 function Certificate() {
     const [visibleImages, setVisibleImages] = useState({});
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const handleButtonClick = (index) => {
         setVisibleImages((prev) => ({
@@ -34,6 +41,16 @@ function Certificate() {
 
     return (
         <div>
+
+<Modal className='certificate-modal' show={show} onHide={handleClose}>
+        <Modal.Body>
+                <button className='certificate-cancel-btn' onClick={handleClose}><RxCross1/></button>
+        <div className="display-certificate">
+            <img src={Certificate1}  />
+        </div>
+        </Modal.Body>
+
+      </Modal>
             <NavBar />
             <div className="bgWhite">
                 <div className="container">
@@ -52,14 +69,9 @@ function Certificate() {
                     {certificates.map((cert, index) => (
                         <div className="certification-box" key={index}>
                             <p>{cert}</p>
-                            <button onClick={() => handleButtonClick(index)}>
-                                {visibleImages[index] ? "Hide Image" : "Show Image"}
+                            <button onClick={handleShow}>
+                                View
                             </button>
-                            {visibleImages[index] && (
-                            <div className="display-certificate">
-                                <img src={Certificate1} alt={`Certificate ${index + 1}`} />
-                            </div>
-                            )}
                         
                         </div>
                     ))}

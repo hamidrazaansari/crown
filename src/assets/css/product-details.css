@@ -187,14 +187,15 @@
   
   .full-view-image {
     width: 100%;
-    height: auto;
+    height: 525px;
     border-radius: 10px;
   }
   
-  .close-btn {
+  
+  .full-image-view .close-btn {
     position: absolute;
-    top: -80px;
-    right: -630px;
+    top: -6px;
+    right: -583px;
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;

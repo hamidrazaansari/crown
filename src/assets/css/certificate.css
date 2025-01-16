@@ -36,11 +36,12 @@ padding: 20px 40px;
     margin: 20px 0;
     height: 60px;
 }
-.certification-box p{
+.certification-box p {
     margin: 0 15px;
-    font-family: asliInter;
-    font-size: 22px;
+    font-family: 'dion';
+    font-size: 20px;
     color: #000;
+    letter-spacing: 1.5px;
 }
 .certification-box button{
     height: 100%;
@@ -48,7 +49,7 @@ padding: 20px 40px;
     border: none;
     background: #000;
     color: #fff;
-    font-family: 'asliInter';
+    font-family: 'dion';
 }
 .certificate-box h1 , .companies h2{
     font-family: dion;
@@ -72,4 +73,26 @@ padding: 20px 40px;
     background-color: #0000002b;
     left: 0;
 
+}
+.certificate-modal .modal-header{
+    border-bottom:  0 !important;
+}
+.certificate-modal .modal-body {
+    position: relative;
+    right: 146px;
+    top: 40px;
+}
+.certificate-modal .certificate-cancel-btn svg{
+    height: 20px;
+    width: 20px;
+}
+.certificate-modal .certificate-cancel-btn{
+        position: relative;
+        left: 375px;
+        border: none;
+        background: #fff;
+        padding: 5px 8px 6px;
+        top: 22px;
+        z-index: 99998;
+        border-radius: 50%;
 }

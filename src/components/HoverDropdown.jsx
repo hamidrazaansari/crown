@@ -13,7 +13,8 @@ function HoverDropdown() {
     <Dropdown
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      show={show}
+      show={show} 
+      className='navDropdown'
     >
       <Dropdown.Toggle id="dropdown-basic" className='bg-transparent border-0 text-dark'>
         MENU

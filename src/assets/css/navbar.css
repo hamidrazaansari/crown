@@ -480,7 +480,7 @@
       opacity: 1;
     }
   }
-  .navbar .nav-item a:active{
+  .navDropdown  a:active{
     background-color: #000 !important;
     color:#fff !important;
   }

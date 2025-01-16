@@ -60,7 +60,7 @@
     letter-spacing: 7px;
     text-align: left;
     margin: 20px;
-     width: 57px;
+    width: 46px;
     height: 45px;
     display: flex;
     align-items: center;
@@ -229,6 +229,8 @@
         font-size: 18px;
         margin-bottom: 5px;
     }
-    .recent-blog{
+    .recent-blog {
         margin-left: 20px;
+        position: sticky;
+        top: 115px;
     }

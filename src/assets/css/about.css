@@ -402,7 +402,7 @@
 .heritage-section .banner-item p {
   position: unset;
   margin-left: 0px;
-  width: 50%;
+  width: 30%;
 }
 
 .heritage-section .year-highlight {
@@ -537,6 +537,15 @@
   background-color: #e69b00;
   color: white;
 }
+.crownBox:hover{
+  background-color: #e69b00;
+  color: white !important;
+}
+
+.crownBox:hover p{
+  color: white;
+}
+
 
 .crownBox.active p{
   color: white;
