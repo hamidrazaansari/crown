@@ -216,6 +216,7 @@ function ProductListing() {
                                         <Link to={`/product-details/${product._id}`}>
                                             <div className="product-box">
                                                 <img src={Product1} alt="product" />
+                                                <div className="blur"></div>
                                                 <div className="line"></div>
                                                 <h4>{product.name}</h4>
                                             </div>
