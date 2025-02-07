@@ -214,6 +214,7 @@ Link{
 .product-box img{
     height: 240px;
     width: 150px;
+    filter: drop-shadow(0px 11px 9px #797979);
 }
 
 /* productListing Banner style */
@@ -291,4 +292,10 @@ Link{
     border: 1px solid #000;
     padding: 7px 20px;
     border-radius: 20px;
+}
+.product-listing .accordion-button:not(.collapsed) {
+    color: #fff !important;
+}
+.product-listing .accordion-body ul li p{
+    color: #fff !important;
 }

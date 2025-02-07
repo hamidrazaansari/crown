@@ -35,8 +35,6 @@ function ProductListingBanner({ catgoryId }) {
 
     return (
         <div >
-
-
         </div>
     )
 }

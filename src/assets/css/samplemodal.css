@@ -9,30 +9,32 @@
 }
 
 .Sample-modal .img-box {
-    background: #F3F3F3;
-
+    /* background: #F3F3F3; */
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    margin: 20px 30px;
-    height: 260px;
-    width: 200px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 0px;
+    margin: 36px 30px;
+    height: 230px;
+    width: 195px;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
 .Sample-modal .img-box img {
     height: 100%;
+    object-fit: cover;
     width: 100%;
 }
-.Sample-modal .content{
-    padding: 40px;
+.Sample-modal .content {
+    padding: 52px 30px 0;
+    text-align: left;
 }
 
 .Sample-modal .content h3 {
-    background: #E69B00;
-    color: #fff;
+    background: #f3f3f3;
+    color: #000;
     font-size: 18px;
-    text-align: center;
     font-family: 'Kanit';
     letter-spacing: 8px;
     padding: 5px 30px;
@@ -54,20 +56,20 @@
 .Sample-modal .content button {
     display: flex;
     border: 1px solid #00000075;
-    background: transparent;
+    background: #000;
     margin: 21px 0;
-    width: 212px;
+    width: 185px;
     height: 40px;
     align-items: center;
     padding: 0;
     font-family: Kanit;
-    color: #000;
+    color: #fff;
     border-radius: 3px;
+    padding: 0 21px;
 }
 .Sample-modal .content button span{
-    background-color: #f3f3f3;
-    color: #000;
-    margin-right: 30px;
+    background-color: #000;
+    color: #fff;
     height: 100%;
     width: 40px;
     display: flex;

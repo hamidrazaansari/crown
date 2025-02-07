@@ -469,7 +469,21 @@
     top: 35px;
     box-shadow: 0px 1px 2px #d7d7d7 !important;
 }
+.cart-dlt-btn{
+    border: none;
+    background: transparent;
+    font-family: inter;
+    font-size: 12px;
+    box-shadow: 0px 0px 2px 1px #00000014;
+    padding: 4px 8px 3px;
+    color: #EC0000;
+    border-radius: 3px;
+}
 
+.cart-dlt-btn span{
+    position: relative;
+    bottom: 2px;
+}
 @keyframes slideDown {
     from {
       transform: translateY(-25%); /* Start from bottom */
@@ -484,3 +498,94 @@
     background-color: #000 !important;
     color:#fff !important;
   }
+ .modal-backdrop.show {
+    filter: blur(8px) !important;
+    background-color: #9d9d9d !important;
+    opacity: 0.6 !important;
+
+}
+.cart-modal .modal-content{
+    background: #fff !important;
+    top: 160px;
+    height: 100% !important;
+    border-radius: 10px !important;
+}
+.cart-modal .modal-body {
+    width: 93%;
+    padding: 30px 20px;
+}
+
+.cart-btn svg{
+    font-size: 20px;
+    margin: 4px 24px;
+    font-weight: 800;
+}
+.cart-modal{
+    position: relative;
+
+}
+.cart-modal h3{
+    font-family: 'Inter';
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    position: absolute;
+    top: -33px;
+    color: #D24005;
+    left: -13px;
+}
+.emptyCart .cart-btn {
+    background-color: #E69B00;
+    border: none;
+    color: #ffff;
+    font-family: inter;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 9px 30px;
+    border-radius: 22px;
+    letter-spacing: 1px;
+}
+.new-cart .product-img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 7px;
+    margin: 15px 10px 10px;
+}
+.cart-modal h5{
+    font-family: inter;
+    color: #0000008c;
+    font-size: 15px;
+}
+.new-cart p {
+    margin: 0 !important;
+    font-family: inter !important;
+    color: #0000008c;
+    font-size: 15px;
+}
+.new-cart h4{
+    margin: 0;
+    margin-top: 12px;
+    margin-bottom: 0px;
+    font-family: 'Kanit';
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.new-cart .added-product{
+    border-top: 1px solid #5a58586d;
+    margin: 10px 0;
+}
+.chekout-btn{
+    background: rgb(24,138,71);
+background: linear-gradient(90deg, rgba(24,138,71,1) 0%, rgba(11,187,137,1) 100%);
+border: none;
+color: #fff;
+font-family: 'inter';
+font-size: 12px;
+padding: 5px 10px 4px;
+margin: 8px 0;
+font-weight: 400;
+border-radius: 5px;
+letter-spacing: 1px;
+}

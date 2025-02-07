@@ -69,10 +69,7 @@ function Certificate() {
                     {certificates.map((cert, index) => (
                         <div className="certification-box" key={index}>
                             <p>{cert}</p>
-                            <button onClick={handleShow}>
-                                View
-                            </button>
-                        
+                            <button onClick={handleShow}>View</button>
                         </div>
                     ))}
                 </div>

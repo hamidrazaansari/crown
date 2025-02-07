@@ -4,14 +4,15 @@ import { IoSearchOutline } from "react-icons/io5";
 import { API_URL } from '../utills/BaseUrl';
 import '../assets/css/navbar.css'
 import getImageURL from '../utills/getImageURL';
-import { Link , useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function SearchBar() {
-    const [searchQuery , setSearchQuery] = useState('') 
-    const [data , setData] = useState('');
-    const [category , setCategory] = useState('');
+    const [searchQuery, setSearchQuery] = useState('')
+    const [data, setData] = useState('');
+    const [category, setCategory] = useState('');
+    const [display, setDisplay] = useState(false);
 
-    
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -29,45 +30,56 @@ function SearchBar() {
                 console.error("Error fetching data:", error);
             }
         };
-    
+        setDisplay(true)
         fetchData();
         fetchCategory();
     }, [searchQuery]);
 
-      const navigate = useNavigate();
-    
-      const handleOpen = (id) => {
+    const navigate = useNavigate();
+
+    const handleOpen = (id) => {
         navigate("/products", { state: id });
-      };
-    
+    };
+
+    const hadleHideOnBLur = () => {
+        // setData('')
+        // setCategory('')
+        setTimeout(()=>{
+            setDisplay(false)
+        } , 250)
+    }
     return (
         <>
             <div className='search-product'>
-                <input type="text" className='search-input' placeholder='Search Products' value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} />
+                <input type="text" className='search-input' placeholder='Search Products' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onBlur={hadleHideOnBLur} onFocus={()=> setDisplay(true)} />
                 <button className='search-btn'> <IoSearchOutline /> </button>
             </div>
-            <div className={searchQuery ? "search-box" : 'd-none' }>
-                {data && data.map((item)=>{
-                                    const imageUrl = item.defaultImage ? getImageURL(item.defaultImage) : '';
+            {display && (
+                <div className={searchQuery ? "search-box" : 'd-none '}>
+                    {data && data.map((item) => {
+                        const imageUrl = item.defaultImage ? getImageURL(item.defaultImage) : '';
+                        return (
+                            <Link to={`/product-details/${item._id}`}>
+                                <div className='d-flex align-items-center  my-3' >
+                                    <img src={imageUrl} alt="" className='search-img' />
+                                    <p className='mb-0 ms-2'>{item.name}</p>
+                                </div>
+                            </Link>
+                        )
+                    })}
+                    <h3>Categories</h3>
+                    {category && category.map((item) => {
+                        return (
+                            <>
+                                <div className='d-flex align-items-center  my-3' style={{ cursor: "pointer" }} onClick={() => handleOpen(item._id)}>
+                                    <p className='mb-0 ms-2'>{item.name}</p>
+                                </div>
+                            </>
+                        )
+                    })}
+                </div>
+            )}
 
-                    return(
-                        <Link to={`/product-details/${item._id}`}>
-                        <div className='d-flex align-items-center  my-3'>
-                            <img src={imageUrl} alt="" className='search-img'/>
-                            <p className='mb-0 ms-2'>{item.name}</p>
-                        </div>
-                        </Link>
-                    )
-                })}
-                <h3>Categories</h3>
-                {category && category.map((item)=>{
-                    return(
-                        <div className='d-flex align-items-center  my-3' style={{cursor:"pointer"}} onClick={()=>handleOpen(item._id)}>
-                            <p className='mb-0 ms-2'>{item.name}</p>
-                        </div>
-                    )
-                })}
-            </div>
         </>
     )
 }
