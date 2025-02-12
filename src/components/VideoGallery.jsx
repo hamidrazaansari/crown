@@ -18,7 +18,7 @@ const VideoGallery = () => {
         trigger: videoElement, // Target the video
         start: "top center", // Start animation when video is at the center of the viewport
         end: "bottom center", // End after scrolling an additional 500px
-        scrub: true, // Smooth scrolling animation
+        scrub: 3, // Smooth scrolling animation
         markers: false, // Set true for debugging
       },
     })

@@ -84,7 +84,7 @@ function Cart() {
                       </div>
                       <div className='d-flex flex-column align-items-end justify-content-end'>
                         <button className=" cart-dlt-btn" onClick={() => removeItemById(item._id)}><span className='me-1'><FaTrashCan /></span> Delete</button>
-                        <button className="chekout-btn">Checkout</button>
+                        <button className="chekout-btn" onClick={handleCheckOut}>Checkout</button>
                       </div>
                     </div>
 

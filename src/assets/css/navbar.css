@@ -326,6 +326,36 @@
     .search-product {
         height: 35px;
     }
+    .crown h2 {
+        font-size: 11rem !important;
+    }
+    .pos {
+        height: 22vh !important;
+    }
+    .thank-you-container{
+        height: 470px !important;
+    }
+    .thank-you-container .thank-you-wrapper .thank-you p {
+        font-size: 10rem !important;
+    }
+    .thank-you-container .thank-you-wrapper .thank-you {
+        height: 470px !important;
+    }
+    .ctext::before {
+        position: absolute;
+        content: "";
+        background: url(/src/assets/image/creative.png);
+        height: 93px !important;
+        width: 57px !important;
+        top: -24px !important;
+        left: 41% !important;
+        z-index: 999;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .heroBanner img {
+        height: 470px !important;
+    }
 }
 
 @media (max-width:767px) {
@@ -343,6 +373,36 @@
     .search-btn svg {
         font-size: 21px;
     }
+    .crown h2 {
+        font-size: 9rem !important;
+    }
+    .pos {
+        height: 20vh !important;
+    }
+    .thank-you-container{
+        height: 400px !important;
+    }
+    .thank-you-container .thank-you-wrapper .thank-you p {
+        font-size: 8rem !important;
+    }
+    .ctext::before {
+        position: absolute;
+        content: "";
+        background: url(/src/assets/image/creative.png);
+        height: 76px !important;
+        width: 41px !important;
+        top: -16px !important;
+        left: 41% !important;
+        z-index: 999;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .heroBanner img {
+        height: 400px !important;
+    }
+    .thank-you-container .thank-you-wrapper .thank-you {
+        height: 400px !important;
+    }
 }
 
 @media (max-width:500px) {
@@ -356,6 +416,56 @@
         right: 10px;
         top: 100%;
         margin-top: var(--bs-dropdown-spacer);
+    }
+    .crown h2 {
+        font-size: 7rem !important;
+    }
+    .pos {
+        height: 18vh !important;
+    }
+
+    .thank-you-container .thank-you-wrapper .thank-you p {
+        font-size: 5rem !important;
+    }
+    .thank-you-container{
+        height: 350px !important;
+    }
+    .thank-you-container .thank-you-wrapper .thank-you {
+        height: 350px !important;
+    }
+    .heroBanner img {
+        height: 350px !important;
+    }
+    .ctext::before {
+        position: absolute;
+        content: "";
+        background: url(/src/assets/image/creative.png);
+        height: 60px !important;
+        width: 30px !important;
+        top: -14px !important;
+        left: 41% !important;
+        z-index: 999;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+}
+
+@media (max-width:430px) {
+    .crown h2 {
+        font-size: 5rem !important;
+    }
+    .pos {
+        height: 18vh !important;
+    } 
+    .thank-you-container{
+        height: 300px !important;
+    }
+    .thank-you-container .thank-you-wrapper .thank-you {
+        height: 300px !important;
+    }
+    .heroBanner img {
+        height: 300px !important;
     }
 }
 

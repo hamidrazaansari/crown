@@ -8,6 +8,7 @@ import axios from 'axios';
 import Img from '../assets/image/productbanner.png';
 import OtherPageFooter from '../components/OtherPageFooter';
 import Product1 from '../assets/image/product1.png';
+import getImageURL from '../utills/getImageURL';
 
 function ProductListing() {
     const [products, setProducts] = useState([]);
@@ -73,34 +74,62 @@ function ProductListing() {
 
     // **Handle Multi-Select Size Filter**
     const handleSizeFilter = (sizeId) => {
-        
         setSelectedSize(prev =>
             prev.includes(sizeId) ? prev.filter(id => id !== sizeId) : [...prev, sizeId]
         );
     };
 
-    const handleDecorSeriesFilter = (decorId) => setSelectedDecor(decorId);
-    const handleFinishFilter = (finishId) => setSelectedFinish(finishId);
-    const handleSubCategoryFilter = (subCategoryId) => setSelectedSubCategory(subCategoryId);
+    const handleFinishFilter = (finishId) => {
+        setSelectedFinish(prev =>
+            prev.includes(finishId) ? prev.filter(id => id !== finishId) : [...prev, finishId]
 
-    // **Apply Filters to Products**
-    const filteredProducts = products
-        ?.map((product) =>            
-             (product.sizes?.filter(size =>{
-                console.log('size' , size._id);
-                
-             }
-                 )))
-        .filter((product) => (selectedDecor ? product.decorSeries?._id === selectedDecor : true))
-        .filter((product) => (selectedFinish ? product.sizeFinishes?._id === selectedFinish : true))
-        .filter((product) => (selectedSubCategory ? product.subCategory?._id === selectedSubCategory : true));
+        );
+    };
+
+    const handleSubCategoryFilter = (subCategoryId) => {
+        setSelectedSubCategory(prev => prev === subCategoryId ? '' : subCategoryId);
+    };
+
+    const handleDecorSeriesFilter = (decorId) => {
+        setSelectedDecor(prev => prev === decorId ? '' : decorId);
+    };
+
+
+    console.log('sizes', sizes);
+    console.log('finishes', finishes);
+    console.log('subCategory', subCategory);
+    console.log('decorSeries', decorSeries);
+
+    const filteredProducts = products.filter((product) => {
+        const sizeMatch =
+            selectedSize.length === 0 ||
+            product.sizes?.some((size) => selectedSize.includes(size._id));
+
+        const finishMatch =
+            selectedFinish === '' ||
+            product.sizeFinishes?.some((finish) => finish._id === selectedFinish);
+
+        const subCategoryMatch =
+            selectedSubCategory === '' ||
+            product.subCategories?.some((sub) => sub._id === selectedSubCategory);
+
+        const decorSeriesMatch =
+            selectedDecor === '' ||
+            product.decorSeries?._id === selectedDecor;
+
+        return sizeMatch && finishMatch && subCategoryMatch && decorSeriesMatch;
+    });
+
+
+
+
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
-    console.log('selectedSize' ,  selectedSize);
-    console.log( products);
-    
+    console.log('selectedSize', selectedSize);
+    console.log(products);
+
     return (
         <div>
             <NavBar />
@@ -150,7 +179,7 @@ function ProductListing() {
                                     {sizes.map((size) => (
                                         <div className="col-6" key={size._id}>
                                             <button
-                                                onClick={() => handleSizeFilter(size._id , size.title)}
+                                                onClick={() => handleSizeFilter(size._id, size.title)}
                                                 className={selectedSize.includes(size._id) ? 'active-btn' : ''}
                                             >
                                                 {size.title}
@@ -164,9 +193,9 @@ function ProductListing() {
                                 <div className="row">
                                     {finishes.map((finish) => (
                                         <div className="col-6" key={finish._id}>
-                                            <button onClick={() => handleFinishFilter(finish._id)} 
-                                            className={selectedFinish.includes(finish._id) ? 'active-btn' : ''}
-                                                >
+                                            <button onClick={() => handleFinishFilter(finish._id)}
+                                                className={selectedFinish.includes(finish._id) ? 'active-btn' : ''}
+                                            >
                                                 {finish.shortName}
                                             </button>
                                         </div>
@@ -177,7 +206,7 @@ function ProductListing() {
                                 <div className="row">
                                     {decorSeries.map((type) => (
                                         <div className="col-6" key={type._id}>
-                                            <button onClick={() => handleDecorSeriesFilter(type._id)}>
+                                            <button onClick={() => handleDecorSeriesFilter(type._id)} className={selectedDecor.includes(type._id) ? 'active-btn' : ''}>
                                                 {type.title}
                                             </button>
                                         </div>
@@ -211,18 +240,21 @@ function ProductListing() {
                             <p>{catHeader.shortDescription || "Lorem ipsum..."}</p>
 
                             <div className="row mt-3">
-                                {products?.map((product) => (
-                                    <div className="col-lg-4" key={product._id}>
-                                        <Link to={`/product-details/${product._id}`}>
-                                            <div className="product-box">
-                                                <img src={Product1} alt="product" />
-                                                <div className="blur"></div>
-                                                <div className="line"></div>
-                                                <h4>{product.name}</h4>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                ))}
+                                {filteredProducts?.map((product) => {
+                                    const imageUrl = getImageURL(product?.a4Image)
+                                    return (
+                                        <div className="col-lg-4" key={product._id}>
+                                            <Link to={`/product-details/${product._id}`}>
+                                                <div className="product-box">
+                                                    <img src={imageUrl} alt={product.name} />
+                                                    <div className="blur"></div>
+                                                    <div className="line"></div>
+                                                    <h4>{product.name}</h4>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>

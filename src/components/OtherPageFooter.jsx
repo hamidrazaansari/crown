@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "../assets/css/footer.css";
 import { Link } from "react-router-dom";
-import FooterImg from '../assets/image/footerbg.png'
+import FooterImg from '../assets/image/aqua-wall.jpg'
 import { GoArrowUpRight } from "react-icons/go";
 
 function OtherPageFooter() {

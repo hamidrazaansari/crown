@@ -12,8 +12,6 @@ import ProductSpotlight from '../components/ProductSpotlight'
 import FloatingButton from '../components/FloatingButton'
 import HorizontalScroll from '../components/HorizontalScroll'
 import Spotlights from '../components/Spotlights'
-import VideoGallery from '../components/VideoGallery'
-import VerticalScroll from '../components/VerticalScroll'
 import NewFooter from '../components/NewFooter'
 import Experience from '../components/Experience'
 

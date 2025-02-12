@@ -30,14 +30,16 @@ function ProductDetails() {
     const [error, setError] = useState(null);
     const [selected, setSelected] = useState(null);
     const [imageType, setImageType] = useState('A4');
-    const [selectedSize, setSelectedSize] = useState(null); // Store selected size
     const [matchingFinishes, setMatchingFinishes] = useState([]); // Store matching finishes
 
+    const defaultSize = products.sizeFinishes?.length > 0 ? products.sizeFinishes[0]?.size?.title : "";
+    const [selectedSize, setSelectedSize] = useState(defaultSize);
 
-    const sizeOptions = products.sizes && products.sizes.map((size) => ({
-        value: size._id, // Unique identifier
-        name: size.title, // Display text
-    }))
+
+    const sizeOptions = products.sizeFinishes?.map((item) => ({
+        value: item._id,
+        name: item.size?.title, // Display size title
+    }));
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -76,6 +78,8 @@ function ProductDetails() {
 
 
     const handleDownload = (imageUrl) => {
+        console.log(imageUrl);
+
         // Create a temporary anchor element
         const link = document.createElement('a');
         link.href = imageUrl;
@@ -93,20 +97,16 @@ function ProductDetails() {
     };
 
     // Handle size selection
-    const handleSizeChange = (selectedId) => {
-        setSelectedSize(selectedId);
+    const selectedSizeObj = products.sizeFinishes?.find((item) =>
+        item.size?.title === selectedSize);
 
-        // Find the matching size in sizeFinishes
-        const match = products.sizeFinishes?.find((item) => item.size === selectedId);
-        if (match) {
-            setMatchingFinishes(match.finishes); // Update finishes
-        } else {
-            setMatchingFinishes([]); // Clear finishes if no match
-        }
-    };
 
     console.log(products);
-    
+
+    const imgURL = getImageURL(products.a4Image)
+    const imgURLfullsheet = getImageURL(products.fullSheetImage)
+    const imgURLHighresulation = getImageURL(products.highResolutionImage)
+
     return (
         <div>
             <InquiryModal show={show} handleClose={handleClose} />
@@ -130,17 +130,17 @@ function ProductDetails() {
 
                             {/* <h3 className='image-title'>STANDARD GRADE</h3> */}
                             <div className="img-box">
-                                {imageType === 'A4' ? <img src={Product2} alt={products.name} /> : <img src={Product3} alt={products.name} />}
+                                {imageType === 'A4' ? <img src={imgURL} alt={products.name} /> : <img src={imgURLfullsheet} alt={products.name} />}
                                 {imageType === 'A4' ? <div className="a4">A4</div> : <div className="a4">Full Sheet</div>}
                                 {/* <div className="line"></div>
                                 <h4>{products.name}</h4> */}
                             </div>
                             <div className="d-flex align-items-center justify-content-center">
                                 <div className="img-ideecator" onClick={() => { setImageType('A4') }}>
-                                    <img src={Product2} alt="" />
+                                    <img src={imgURL} alt={products.name} />
                                 </div>
                                 <div className="img-ideecator" onClick={() => { setImageType('full-sheet') }}>
-                                    <img src={Product3} alt="" />
+                                    <img src={imgURLfullsheet} alt={''} />
                                 </div>
                             </div>
                             {/* <div className="d-flex align-items-center justify-content-between action-btn">
@@ -160,30 +160,41 @@ function ProductDetails() {
                                     <h1>{products.name}
                                         <div className="line"></div>
                                     </h1>
-                                    <button onClick={() => handleDownload(Product1)} className='d-flex flex-column justify-content-center align-items-center highRegImg'><img src={File} height={"21px"} alt="full screen icon" /><span>Download <br /> High Resolution File</span></button>
+                                    <button onClick={() => handleDownload(products.highResolutionImage)} className='d-flex flex-column justify-content-center align-items-center highRegImg'><img src={File} height={"21px"} alt="full screen icon" /><span>Download <br /> High Resolution File</span></button>
                                 </div>
-                                <p><span className='key'>Product Category</span><span>Abstract</span> </p>
-                                <p><span className='key'>Decor Number </span><span>{products.decorNumber}</span></p>
-                                <p><span className='key'>Decor Name </span><span>{products.decorName}</span></p>
+
+                                <p className='d-flex align-items-center justify-content-between'><span className='key'>Product Category</span>
+                                    <span style={{ position: "relative", right: "55px" }}  >
+                                        {products.categories?.map((cat) => (
+                                            <div className='me-2'>
+                                                {cat.name}
+                                            </div>
+
+                                        )
+                                        )}
+                                    </span>
+                                </p>
+                                <p><span className='key'>Decor Number </span><span className='ms-1'>{products.decorNumber}</span></p>
+                                <p><span className='key'>Decor Name </span><span className='ms-1'>{products.decorSeries?.title}</span></p>
 
                                 <p className='d-flex justify-content-between align-items-center'><span className='key'>Size</span><span>
                                     <SelectSearch
                                         options={sizeOptions}
-                                        value={selected}
-                                        onChange={handleSizeChange}
-                                        placeholder=" "
-                                        search // Enables the search functionality
+                                        value={selectedSize}
+                                        onChange={setSelectedSize}
+                                        search
                                     />
                                 </span></p>
-                                <p><span className='key'>Finish </span><span>
-                                    {matchingFinishes.length > 0 ? (
-                                        <div>
-                                            {matchingFinishes.map((finish, index) => (
-                                                <p key={index}>{finish.shortName}</p>
-                                            ))}
-                                        </div>
-                                    ) : ''}
-                                </span></p>
+                                <p className='d-flex align-middle justify-between'><div className='key'>Finish </div>
+                                    <div className='d-flex justify-baseline'>
+                                        {products.sizeFinishes?.map((finish) =>
+                                            finish.finishes?.map((item) => (
+                                                <p key={item.shortName}>{item.shortName}</p>
+                                            ))
+                                        )}
+
+                                    </div>
+                              </p>
 
                                 {/* <p><span className='key'>Dimensions(mm)</span><span >
                                         {products.sizes && products.sizes.map((size)=>(
@@ -191,7 +202,7 @@ function ProductDetails() {
                                     ))}
                                             </span> 
                                             </p> */}
-                                <p className='desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <p className='desc'></p>
 
                                 <div className=" mt-4">
                                     <button className='enq-btn' onClick={handleShow}>Enquire Now</button>

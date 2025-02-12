@@ -201,3 +201,17 @@
     margin: 0; /* Remove unnecessary margins */
     letter-spacing: 1px;
   }
+  .banner-container {
+    overflow: hidden; /* Prevents unwanted overflow */
+    width: 100%;
+  }
+  
+  .scrolling-banner {
+    display: flex;
+    width: max-content; /* Ensures all images are in a single row */
+    gap: 20px; /* Optional: Adjust spacing between items */
+  }
+  
+  .banner-item {
+    min-width: 100vw; /* Makes each item take full width */
+  }

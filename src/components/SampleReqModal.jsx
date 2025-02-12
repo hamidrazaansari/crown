@@ -6,7 +6,7 @@ import { CounterContext } from '../context/CounterContext';
 import { useContext } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import getImageURL from '../utills/getImageURL';
-import Product1 from '../assets/image/product2.png'
+import Product1 from '../assets/image/product1.png'
 
 
 

@@ -22,7 +22,6 @@ function Order() {
     const [pincode, setPincode] = useState('');
 
     const data = useLocation();
-    console.log(data.state)
     
 
     const options = [

@@ -70,7 +70,7 @@ const NavModal = () => {
                                 </button>
                             </div>
 
-                            {data && data.map((category) => {
+                            {data && data.map((category) => {                                
                                 const imageUrl = category.image ? getImageURL(category.image) : '';
                                 return (
                                     <>

@@ -119,6 +119,19 @@
     .category-box {
         margin-top: 40px;
     }
+        .category-box {
+    flex: 1;
+    min-width: 132px;
+    height: 402px;
+    background: #E7E7E7;
+    margin: 20px;
+    padding: 10px;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s linear;
+    overflow: hidden;
+}
 }
 @media (max-width:767px) {
     .category-box {
@@ -151,8 +164,7 @@
 .category {
     padding: 40px 0;
     background: #fff;
-    position: relative;
-    z-index: 5;
+
 }
 
 .category h2 {
