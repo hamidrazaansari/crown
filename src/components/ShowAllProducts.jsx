@@ -31,7 +31,7 @@ function ShowAllProducts({ relatedProducts }) {
         <ScrollAnimation animateIn="fadeInUp">
           <div className="d-flex align-items-center justify-content-between">
             <h2 className='mb-4'>Related Products</h2>
-            <button className='view-all'>View All <GoArrowUpRight /></button>
+            {/* <button className='view-all'>View All <GoArrowUpRight /></button> */}
           </div>
 
 
