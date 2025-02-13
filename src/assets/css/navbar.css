@@ -641,7 +641,7 @@
     font-weight: 700;
     position: absolute;
     top: -33px;
-    color: #D24005;
+    color: #000;
     left: -13px;
 }
 .emptyCart .cart-btn {
@@ -686,9 +686,10 @@
     border-top: 1px solid #5a58586d;
     margin: 10px 0;
 }
-.chekout-btn{
-    background: rgb(24,138,71);
-    background: linear-gradient(90deg, rgba(24,138,71,1) 0%, rgba(11,187,137,1) 100%);
+.chekout-btn {
+    background: #000;
+    background: rgb(24, 138, 71);
+    /* background: linear-gradient(90deg, rgba(24, 138, 71, 1) 0%, rgba(11, 187, 137, 1) 100%); */
     border: none;
     color: #fff;
     font-family: 'inter';
@@ -696,6 +697,7 @@
     padding: 5px 10px 4px;
     margin: 8px 0;
     font-weight: 400;
-    border-radius: 5px;
+    border-radius: 3px;
     letter-spacing: 1px;
+    background: #000;
 }

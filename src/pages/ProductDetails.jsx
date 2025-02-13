@@ -30,16 +30,33 @@ function ProductDetails() {
     const [error, setError] = useState(null);
     const [selected, setSelected] = useState(null);
     const [imageType, setImageType] = useState('A4');
-    const [matchingFinishes, setMatchingFinishes] = useState([]); // Store matching finishes
-
-    const defaultSize = products.sizeFinishes?.length > 0 ? products.sizeFinishes[0]?.size?.title : "";
-    const [selectedSize, setSelectedSize] = useState(defaultSize);
-
+    const [selectedSize, setSelectedSize] = useState("");
+    const [matchingFinishes, setMatchingFinishes] = useState([])
 
     const sizeOptions = products.sizeFinishes?.map((item) => ({
-        value: item._id,
-        name: item.size?.title, // Display size title
-    }));
+        value: item.size.title,
+        name: item.size.title,
+    })) || [];
+
+    useEffect(() => {
+        if (products.sizeFinishes?.length > 0) {
+            const defaultSize = products.sizeFinishes[0].size.title;
+            setSelectedSize(defaultSize);
+            setMatchingFinishes(products.sizeFinishes[0].finishes);
+        }
+    }, [products.sizeFinishes]);
+
+    const handleSizeChange = (selectedValue) => {
+        setSelectedSize(selectedValue);
+
+        // Find the matching size object
+        const selectedSizeObject = products.sizeFinishes.find(
+            (item) => item.size.title === selectedValue
+        );
+
+        // Update matching finishes
+        setMatchingFinishes(selectedSizeObject ? selectedSizeObject.finishes : []);
+    };
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -55,7 +72,7 @@ function ProductDetails() {
         };
 
         fetchProducts();
-    }, []);
+    }, [, id]);
 
 
     if (loading) return <p>Loading...</p>;
@@ -69,6 +86,8 @@ function ProductDetails() {
     const handleCloseImage = () => {
         setShowFullImage(false);
     };
+
+    console.log(products);
 
 
     const handleShow = () => setShow(true);
@@ -101,7 +120,6 @@ function ProductDetails() {
         item.size?.title === selectedSize);
 
 
-    console.log(products);
 
     const imgURL = getImageURL(products.a4Image)
     const imgURLfullsheet = getImageURL(products.fullSheetImage)
@@ -181,20 +199,20 @@ function ProductDetails() {
                                     <SelectSearch
                                         options={sizeOptions}
                                         value={selectedSize}
-                                        onChange={setSelectedSize}
+                                        onChange={handleSizeChange}
                                         search
                                     />
                                 </span></p>
                                 <p className='d-flex align-middle justify-between'><div className='key'>Finish </div>
-                                    <div className='d-flex justify-baseline'>
-                                        {products.sizeFinishes?.map((finish) =>
-                                            finish.finishes?.map((item) => (
-                                                <p key={item.shortName}>{item.shortName}</p>
-                                            ))
-                                        )}
+                                    <div className='d-flex justify-baseline finish'>
+                                        {matchingFinishes.map((finish) => (
+                                            <div key={finish._id} className="finish-item">
+                                                <p>{finish.fullName}</p>
+                                            </div>
+                                        ))}
 
                                     </div>
-                              </p>
+                                </p>
 
                                 {/* <p><span className='key'>Dimensions(mm)</span><span >
                                         {products.sizes && products.sizes.map((size)=>(

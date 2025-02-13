@@ -79,13 +79,13 @@
     margin-bottom: 20px;
     margin-right: 0px;
 }
-.details-product .key{
+.details-product .key {
     font-size: 20px;
     display: inline-block;
     width: 250px;
     color: #000;
     font-family: asliInter;
-    margin-right: 50px;
+    margin-right: 34px;
 }
 
 .sample-btn {
@@ -169,26 +169,52 @@
 }
 .modal-form{
     background: url(../image/enquiry-modal.png);
+    /* background: #fff; */
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 } 
+.modal-form h4 {
+    font-family: 'dion';
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 10px 0px;
+}
 
 .modal-form .form {
     background-color: #FFFFFF;
     width: 55%;
     margin: 60px auto !important;
-    padding: 40px;
+    padding: 20px 40px;
     border-radius: 10px;
-    box-shadow: 1px 1px 10px #777777;
+    box-shadow: 1px 1px 5px #77777752;
 }
+.modal-form .form input{
+    background: transparent !important;
+    border: 1px solid #000000ac !important;
+    margin-top: 5px;
+    height: 45px;
+    padding:0 14px;
+}
+.modal-form .select-search-container::after {
+    content: '▾';
+    position: absolute;
+    top: 44%;
+    right: 24px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    pointer-events: none;
+}
+
+
 .closeButton {
     position: absolute;
     right: -20px;
     height: 40px;
     width: 40px;
-    top: -20px;
+    top: -5px;
     border: none;
     border-radius: 50%;
     display: flex;
@@ -293,7 +319,7 @@
     background-color: transparent;
     position: relative;
     bottom: 9px;
-    left: 373px;
+    left: 333px;
 }
 .highRegImg span{
     font-family: 'Inter';
@@ -320,7 +346,7 @@
     z-index: 1;
     display: block;
     height: 40px !important;
-    width: 83% !important;
+    width: 91% !important;
     padding: 0 40px 0 16px;
     background: var(--select-search-background);
     border: 1px solid #0000008f !important;
@@ -336,5 +362,30 @@
     -webkit-appearance: none;
     -webkit-font-smoothing: antialiased;
     margin-right: 10px;
-    margin-left: 25px;
+    margin-left: 12px;
+}
+.finish p {
+    border: 1px solid #00000091;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 3px;
+}
+.form .form-btn {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    height: 45px;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-family: inter;
+    font-weight: unset;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
 }

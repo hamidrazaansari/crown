@@ -14,10 +14,12 @@ function SampleReqModal({ show, handleSampleModleClose, data }) {
     const { addData } = useContext(CounterContext);
     const handeAddToCart = () => {
         addData(data);
+        handleSampleModleClose();
+        
     }
 
-    // const imageUrl = data.defaultImage ? getImageURL(data.defaultImage) : '';
-    const imageUrl = Product1;
+    const imageUrl = data.a4Image ? getImageURL(data.a4Image) : '';
+    // const imageUrl = Product1;
 
 
     return (
@@ -33,8 +35,8 @@ function SampleReqModal({ show, handleSampleModleClose, data }) {
                             <h3>ORDER A SAMPLE</h3>
                             <h2>{data.name}</h2>
                             <p>{data.subCategory && data.subCategory.name}</p>
-                            <p className='mb-1'>Product category : Abstarct</p>
-                            <p className='mb-1'>Size : 1235*2000</p>
+                            <p className='mb-1'>Category : {data.categories?.map((cat)=>(<>{cat.name}</>))}</p>
+                            <p className='mb-1'>Size : {data.sizes?.map((cat)=>(<>{cat.title} , </>))}</p>
                             <button onClick={handeAddToCart}><span><BsCart3 /></span> Add to Cart</button>
                         </div>
                     </div>

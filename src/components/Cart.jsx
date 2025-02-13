@@ -67,9 +67,7 @@ function Cart() {
 
             {data && data.length > 0 ? (
               data && data.map((item) => {
-                // const imageUrl = item.defaultImage ? item.defaultImage.replace('http://localhost:5000', 'http://13.233.121.43:5000') : '';
-                // const imageUrl = item.defaultImage ? getImageURL(item.defaultImage) : '';
-                const imageUrl = Product1;
+                const imageUrl = item.a4Image ? getImageURL(item.a4Image) : '';
 
                 return (
                   <div className="new-cart" key={item._id}>
@@ -79,7 +77,7 @@ function Cart() {
                         <div className='ms-2'>
                           <h4>{item.name || 'Abstract'}</h4>
                           <p>Decor Series : {item.decorSeries?.title || 'Abstract'}</p>
-                          <p>Size : {item.sizes[0]?.title || 'Abstract'}</p>
+                          <p>Size : {item.sizes?.map((cat)=>(<>{cat.title} , </>))}</p>
                         </div>
                       </div>
                       <div className='d-flex flex-column align-items-end justify-content-end'>

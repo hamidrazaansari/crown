@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { ToastContainer , toast} from 'react-toastify';
 
 // Create the context
 export const CounterContext = createContext();
@@ -13,7 +14,7 @@ export const CounterProvider = ({ children }) => {
       // Check for duplicates by comparing `_id`
       const isDuplicate = data.some(item => item._id === newData._id);
       if (isDuplicate) {
-        alert('This item is already in the cart!');
+        toast.error('This item is already in the cart!');
         return;
       }
       
@@ -45,8 +46,12 @@ export const CounterProvider = ({ children }) => {
   };
 
   return (
-    <CounterContext.Provider value={{ count, data, addData, clearCheckedData, toggleItemChecked, removeItemById }}>
+    <>
+    <ToastContainer/>
+        <CounterContext.Provider value={{ count, data, addData, clearCheckedData, toggleItemChecked, removeItemById }}>
       {children}
     </CounterContext.Provider>
+    </>
+
   );
 };

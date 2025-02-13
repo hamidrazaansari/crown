@@ -12,7 +12,6 @@ function SearchBar() {
     const [category, setCategory] = useState('');
     const [display, setDisplay] = useState(false);
 
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -35,6 +34,9 @@ function SearchBar() {
         fetchCategory();
     }, [searchQuery]);
 
+    console.log(data);
+    
+
     const navigate = useNavigate();
 
     const handleOpen = (id) => {
@@ -42,11 +44,9 @@ function SearchBar() {
     };
 
     const hadleHideOnBLur = () => {
-        // setData('')
-        // setCategory('')
         setTimeout(()=>{
             setDisplay(false)
-        } , 250)
+        } , 350)
     }
     return (
         <>
@@ -57,14 +57,17 @@ function SearchBar() {
             {display && (
                 <div className={searchQuery ? "search-box" : 'd-none '}>
                     {data && data.map((item) => {
-                        const imageUrl = item.defaultImage ? getImageURL(item.defaultImage) : '';
+                        const imageUrl = item.a4Image ? getImageURL(item.a4Image) : '';
                         return (
+                            <>
                             <Link to={`/product-details/${item._id}`}>
                                 <div className='d-flex align-items-center  my-3' >
                                     <img src={imageUrl} alt="" className='search-img' />
                                     <p className='mb-0 ms-2'>{item.name}</p>
                                 </div>
                             </Link>
+                            </>
+
                         )
                     })}
                     <h3>Categories</h3>
