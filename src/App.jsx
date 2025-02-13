@@ -18,6 +18,7 @@ import NavModal from "./components/NavModal"
 import BlogDetails from "./pages/BlogDetails"
 import Cart from "./pages/Cart"
 import ThankYouPage from "./components/ThankYouPage"
+import ContactUs from "./pages/ContactUs"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/nav" element={<NavModal/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/thank-you" element={<ThankYouPage/>}/>
+        <Route path="/contact" element={<ContactUs/>}/>
       </Routes>
     </BrowserRouter>
     </CounterProvider>
