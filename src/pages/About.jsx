@@ -49,7 +49,7 @@ function About() {
                   </div>
                 </div>
                 <div className="col-4">
-                  <div className="crownBox active">
+                  <div className="crownBox">
                     <h3>Quality</h3>
                     <p>1500+ dealships pan india and abroad</p>
                     <p>1500+product showrooms</p>

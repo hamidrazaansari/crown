@@ -3,14 +3,15 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import "../assets/css/footer.css";
 import { Link } from "react-router-dom";
+import logo from '../assets/image/logo.png'
 
 function NewFooter() {
   return (
     <div>
       {/* Section that triggers the effect */}
       <div className="pos mt-5">
-        <div className="crown">
-          <h2>Crown</h2>
+        <div className="crown d-flex align-items-center justify-content-center">
+          <img src={logo} alt="logo" style={{width:"50%"}} />
         </div>
       </div>
 
@@ -18,16 +19,16 @@ function NewFooter() {
       <div className="newFooter" style={{ backgroundColor: "#000" }}>
         <div className="container" >
           <div className="d-flex align-items-center justify-content-center mt-5">
-            <Link>
+            <Link to={'/about'}>
               <h2>About</h2>
             </Link>
-            <Link>
+            <Link to={'/contact'}>
               <h2>Contacts</h2>
             </Link>
             <Link>
               <h2>Privacy Policy</h2>
             </Link>
-            <Link>
+            <Link to={'/blog'}>
               <h2>Blog</h2>
             </Link>
           </div>

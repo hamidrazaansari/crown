@@ -10,14 +10,15 @@ import axios from "axios";
 import { API_URL } from "../utills/BaseUrl";
 import { toast } from "react-toastify";
 
-function InquiryModal({ show, handleClose , productId }) {
+function InquiryModal({ show, handleClose  , inquiryType , productId }) {
     const [formData, setFormData] = useState({
         country: "",
         name: "",
         email: "",
         mobile: "",
-        inquiryType:'PRODUCT',
-        countryCode:"+91"
+        inquiryType: inquiryType,
+        countryCode:"+91",
+        product:productId
     });
 
     const [errors, setErrors] = useState({
@@ -94,6 +95,7 @@ function InquiryModal({ show, handleClose , productId }) {
               mobile: "",
               inquiryType:'',
               countryCode:" "
+
             }) 
       } catch (error) {
         console.log(error);
@@ -162,7 +164,7 @@ function InquiryModal({ show, handleClose , productId }) {
 
                         {/* mobile Input */}
                         <div className="d-flex flex-column" style={{position:'relative'}}>
-                            <label htmlFor="mobile">mobile Number</label>
+                            <label htmlFor="mobile">Mobile Number</label>
                             <input
                                 type="text"
                                 id="mobile"

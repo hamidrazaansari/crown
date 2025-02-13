@@ -1,17 +1,26 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../assets/css/footer.css";
 import { Link } from "react-router-dom";
 import FooterImg from '../assets/image/aqua-wall.jpg'
 import { GoArrowUpRight } from "react-icons/go";
+import InquiryModal from "./InquiryModal";
 
 function OtherPageFooter() {
+
+  const [show , setShow]=useState(false)
+
+  
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
   return (
     <div>
+           <InquiryModal show={show} handleClose={handleClose} inquiryType={'GENERAL'} />
+
             <div>
                 <div className="explore">
                     <h2>Are you ready to explore our wonderful laminates</h2>
                     <p>we are always working hard and trying to make the best for you</p>
-                    <button>Request a Quote <GoArrowUpRight/></button>
+                    <button onClick={handleShow}>Request a Quote <GoArrowUpRight/></button>
                 </div>
                 <div className="footer-background">
                     <img src={FooterImg} alt="footer image" />
@@ -21,16 +30,16 @@ function OtherPageFooter() {
               <div className="newFooter m-0" style={{ backgroundColor: "#000" }}>
                 <div className="container" >
                   <div className="d-flex align-items-center justify-content-center mt-5">
-                    <Link>
+                    <Link to={'/about'}>
                       <h2>About</h2>
                     </Link>
-                    <Link>
+                    <Link to={'/contact'}>
                       <h2>Contacts</h2>
                     </Link>
                     <Link>
                       <h2>Privacy Policy</h2>
                     </Link>
-                    <Link>
+                    <Link to={'blog'}>
                       <h2>Blog</h2>
                     </Link>
                   </div>

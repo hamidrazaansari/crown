@@ -561,10 +561,10 @@
     left: -43px !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    animation: slideDown 0.4s linear;
+    animation: slide 0.4s linear;
     position: absolute !important;
     z-index: 1 !important;
-    top: 35px;
+    top: 33px;
     box-shadow: 0px 1px 2px #d7d7d7 !important;
 }
 .cart .dropdown-menu.show {
@@ -573,10 +573,10 @@
     left: -380px !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    animation: slideDown 0.4s linear;
+    animation: slide 0.4s linear;
     position: absolute !important;
     z-index: 1 !important;
-    top: 35px;
+    top: 33px;
     box-shadow: 0px 1px 2px #d7d7d7 !important;
 }
 .cart-dlt-btn{
@@ -594,14 +594,16 @@
     position: relative;
     bottom: 2px;
 }
-@keyframes slideDown {
+@keyframes slide {
     from {
-      transform: translateY(-25%); /* Start from bottom */
       opacity: 0;
+      transform: translateY(-10%); /* Start from bottom */
+
     }
     to {
-      transform: translateY(0); /* Slide to normal position */
       opacity: 1;
+      transform: translateY(0%); /* Start from bottom */
+
     }
   }
   .navDropdown  a:active{

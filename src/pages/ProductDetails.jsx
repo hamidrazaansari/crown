@@ -136,7 +136,7 @@ function ProductDetails() {
     
     return (
         <div>
-            <InquiryModal show={show} handleClose={handleClose} productId={products._id} />
+            <InquiryModal show={show} handleClose={handleClose}  inquiryType={'PRODUCT'} productId={products._id}/>
             <SampleReqModal show={showSample} handleSampleModleClose={handleSampleModleClose} data={products} />
 
             <NavBar />

@@ -29,7 +29,9 @@ function Cart() {
   const handleShow = () => setShow(true);
 
   const handleCheckOut = () => {
+    const id ='67ac948d62526b6099c37b59'
     if (count === 0) {
+      navigate('/products', { state: id });
       return
     }
     else {
@@ -97,8 +99,12 @@ function Cart() {
                 <button className='cart-btn' onClick={handleCheckOut}>Add Product</button>
               </div>
             )}
+             {data && data.length > 0 ?
+            <button className="chekout-btn float-end" onClick={handleCheckOut}>Checkout</button> :
+             '' 
+            }
 
-<button className="chekout-btn float-end" onClick={handleCheckOut}>Checkout</button>
+
 
           </Modal.Body>
         </Modal>

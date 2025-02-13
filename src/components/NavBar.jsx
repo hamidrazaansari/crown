@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../assets/css/navbar.css'
 import Logo from '../assets/image/logo.png'
-import Bar from '../assets/image/bar.png'
-import { FaChevronDown } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Cart from './Cart';
 import SearchBar from './SearchBar';
@@ -14,7 +11,6 @@ import { Nav } from 'react-bootstrap';
 import IndianFlag from '../assets/image/indian-flag.png'
 import JapanFlag from '../assets/image/japan-flag.png'
 import UsFlag from '../assets/image/us-flag.png'
-import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import HoverDropdown from './HoverDropdown';
 
@@ -61,8 +57,11 @@ function NavBar() {
 
       <Navbar expand="lg" className="navbar sticky-top">
         <Container>
-          <Navbar.Brand href="/">
+          
+          <Navbar.Brand >
+            <Link to={'/'}>
             <img src={Logo} alt="Crown logo" />
+            </Link>
           </Navbar.Brand>
           <div className="d-flex justify-content-between align-items-center " style={{ width: "80%", position: "relative" }}>
             <SearchBar />

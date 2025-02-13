@@ -16,13 +16,13 @@ const Spotlights = () => {
   useGSAP(() => {
     // GSAP animation for scrolling banner
     gsap.to(".scrolling-banner", {
-      xPercent: -140,
+      xPercent: -100,
       ease: "none",
       scrollTrigger: {
         trigger: bannerRef.current,
         start: "top-=160 top", // Animation starts when the banner section is at 160px from the top
         end: () => `+=${bannerRef.current.offsetWidth}`, // Animation ends based on the width of the banner
-        scrub: 10, // Smooth animation based on scroll progress
+        scrub: 2, // Smooth animation based on scroll progress
         pin: true, // Pin the banner during scroll
         markers: false, // Disable markers (remove for production)
       },

@@ -30,6 +30,7 @@
 }
 .cart-btn{
     cursor: pointer;
+    position: relative;
 }
 
 .goto{
@@ -38,4 +39,19 @@
     border: none;
     padding: 6px 48px;
     font-family: 'Inter';
+}
+.cart-indecator {
+    background-color: #E31B2C;
+    font-family: Kanit;
+    font-size: 12px;
+    position: absolute;
+    bottom: 16px;
+    left: 35px;
+    color: #fff;
+    height: 15px;
+    width: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 }
