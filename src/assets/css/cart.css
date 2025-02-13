@@ -28,3 +28,14 @@
     font-family: 'Kanit';
     letter-spacing: 1px;
 }
+.cart-btn{
+    cursor: pointer;
+}
+
+.goto{
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 6px 48px;
+    font-family: 'Inter';
+}

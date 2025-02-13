@@ -23,9 +23,11 @@ const Category = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
+
+  console.log('category' , data);
+  
 
 
   const navigate = useNavigate();

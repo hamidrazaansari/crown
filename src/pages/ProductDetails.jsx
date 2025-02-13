@@ -26,9 +26,9 @@ function ProductDetails() {
     const [showSample, setShowSample] = useState(false);
     const [showFullImage, setShowFullImage] = useState(false);
     const [products, setProducts] = useState('')
+    const [relatedProducts, setRelatedProducts] = useState('')
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [selected, setSelected] = useState(null);
     const [imageType, setImageType] = useState('A4');
     const [selectedSize, setSelectedSize] = useState("");
     const [matchingFinishes, setMatchingFinishes] = useState([])
@@ -75,19 +75,13 @@ function ProductDetails() {
     }, [, id]);
 
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
+    // if (loading) return <p>Loading...</p>;
+    // if (error) return <p>{error}</p>;
 
-    // function for full image view 
-    const handleOpenImage = () => {
-        setShowFullImage(true);
-    };
 
     const handleCloseImage = () => {
         setShowFullImage(false);
     };
-
-    console.log(products);
 
 
     const handleShow = () => setShow(true);
@@ -96,38 +90,53 @@ function ProductDetails() {
     const handleSampleModleClose = () => setShowSample(false);
 
 
-    const handleDownload = (imageUrl) => {
-        console.log(imageUrl);
-
-        // Create a temporary anchor element
-        const link = document.createElement('a');
-        link.href = imageUrl;
-        link.download = 'downloaded-image.jpg'; // This is the filename for the download
-        document.body.appendChild(link);
-        link.click(); // Trigger download
-        document.body.removeChild(link); // Remove link after downloading
-    };
-    // const imageUrl = products.defaultImage ? getImageURL(products.defaultImage) : '';
-    const imageUrl = Product2;
-
-    const handleChange = (value) => {
-        setSelected(value);
-        console.log('Selected:', value);
-    };
-
-    // Handle size selection
-    const selectedSizeObj = products.sizeFinishes?.find((item) =>
-        item.size?.title === selectedSize);
-
-
-
     const imgURL = getImageURL(products.a4Image)
     const imgURLfullsheet = getImageURL(products.fullSheetImage)
-    const imgURLHighresulation = getImageURL(products.highResolutionImage)
 
+
+    // Fetch related products 
+    
+    useEffect(()=>{
+        async function fetchRelatedProduct(){
+            try {
+                const response = await axios.get(`${API_URL}/products?category=${products.categories[0]?._id}`);
+                setRelatedProducts(response.data.body);
+            } catch (error) {
+                console.error("Error fetching search results:", error);
+            }
+        }
+        fetchRelatedProduct()
+    } , [products])
+
+    console.log('relatedProducts' , relatedProducts);
+    
+
+
+    const handleDownload = async () => {
+        try {
+            const imgURLHighresulation = getImageURL(products.highResolutionImage);
+    
+            // Fetch the image as a Blob
+            const response = await fetch(imgURLHighresulation);
+            const blob = await response.blob();
+    
+            // Create a temporary anchor element
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = "highResolutionImage.jpg"; // Set a default filename
+    
+            document.body.appendChild(link);
+            link.click(); // Trigger download
+            document.body.removeChild(link); // Cleanup
+            URL.revokeObjectURL(link.href); // Free memory
+        } catch (error) {
+            console.error("Error downloading the image:", error);
+        }
+    };
+    
     return (
         <div>
-            <InquiryModal show={show} handleClose={handleClose} />
+            <InquiryModal show={show} handleClose={handleClose} productId={products._id} />
             <SampleReqModal show={showSample} handleSampleModleClose={handleSampleModleClose} data={products} />
 
             <NavBar />
@@ -143,8 +152,7 @@ function ProductDetails() {
                     <div className="row">
                         <div className="col-lg-6">
                             {/* <div className="img-box">
-                                {imageType === 'A4' ? <img src={products.a4Image} alt={products.name} /> : <img src={products.fullSheetImage} alt={products.name} /> }
-                            </div> */}
+
 
                             {/* <h3 className='image-title'>STANDARD GRADE</h3> */}
                             <div className="img-box">
@@ -178,15 +186,14 @@ function ProductDetails() {
                                     <h1>{products.name}
                                         <div className="line"></div>
                                     </h1>
-                                    <button onClick={() => handleDownload(products.highResolutionImage)} className='d-flex flex-column justify-content-center align-items-center highRegImg'><img src={File} height={"21px"} alt="full screen icon" /><span>Download <br /> High Resolution File</span></button>
+                                    <button onClick={() => handleDownload()} className='d-flex flex-column justify-content-center align-items-center highRegImg'><img src={File} height={"21px"} alt="full screen icon" /><span>Download <br /> High Resolution File</span></button>
                                 </div>
 
-                                <p className='d-flex align-items-center justify-content-between'><span className='key'>Product Category</span>
-                                    <span style={{ position: "relative", right: "55px" }}  >
+                                <p><span className='key'>Product Category</span><span  className='ms-1' >
                                         {products.categories?.map((cat) => (
-                                            <div className='me-2'>
+                                            <>
                                                 {cat.name}
-                                            </div>
+                                            </>
 
                                         )
                                         )}
@@ -214,12 +221,6 @@ function ProductDetails() {
                                     </div>
                                 </p>
 
-                                {/* <p><span className='key'>Dimensions(mm)</span><span >
-                                        {products.sizes && products.sizes.map((size)=>(
-                                                `${size.title} , `
-                                    ))}
-                                            </span> 
-                                            </p> */}
                                 <p className='desc'></p>
 
                                 <div className=" mt-4">
@@ -231,7 +232,7 @@ function ProductDetails() {
                     </div>
                 </div>
             </div>
-            <ShowAllProducts />
+            <ShowAllProducts relatedProducts={relatedProducts} />
             <OtherPageFooter />
         </div>
     )

@@ -34,14 +34,11 @@ function SearchBar() {
         fetchCategory();
     }, [searchQuery]);
 
-    console.log(data);
-    
-
     const navigate = useNavigate();
 
     const handleOpen = (id) => {
         navigate("/products", { state: id });
-    };
+      };
 
     const hadleHideOnBLur = () => {
         setTimeout(()=>{

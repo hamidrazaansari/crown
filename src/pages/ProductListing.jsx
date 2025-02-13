@@ -29,18 +29,31 @@ function ProductListing() {
     const categoryId = location.state;
 
     useEffect(() => {
+        async function fetchProduct() {
+            try {
+              const response = await axios.get(`${API_URL}/products?category=${categoryId}`)
+              setProducts(response.data.body);
+
+              
+            } catch (error) {
+
+                console.log(error);
+                
+            }
+        }
+        fetchProduct()
+    },[categoryId])
+
+    useEffect(() => {
         const fetchData = async () => {
             try {
-                const [productsRes, sizesRes, decorRes, finishesRes, subCategoryRes, categoryRes] = await Promise.all([
-                    axios.get(`${API_URL}/products`),
+                const [sizesRes, decorRes, finishesRes, subCategoryRes, categoryRes] = await Promise.all([
                     axios.get(`${API_URL}/sizes`),
                     axios.get(`${API_URL}/decorSeries`),
                     axios.get(`${API_URL}/finishes`),
                     axios.get(`${API_URL}/subCategories`),
                     axios.get(`${API_URL}/categories/${categoryId ? categoryId : "6724e2e2a0586b2a40e206f8"}`)
                 ]);
-
-                setProducts(productsRes.data.body);
                 setSizes(sizesRes.data.body);
                 setDecorSeries(decorRes.data.body);
                 setFinishes(finishesRes.data.body);
@@ -61,7 +74,7 @@ function ProductListing() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${API_URL}/products`, {
+                const response = await axios.get(`${API_URL}/products?category=${categoryId}`, {
                     params: searchQuery ? { searchQuery } : {}
                 });
                 setProducts(response.data.body);
@@ -95,12 +108,8 @@ function ProductListing() {
     };
 
 
-    console.log('sizes', sizes);
-    console.log('finishes', finishes);
-    console.log('subCategory', subCategory);
-    console.log('decorSeries', decorSeries);
-
     const filteredProducts = products.filter((product) => {
+        
         const sizeMatch =
             selectedSize.length === 0 ||
             product.sizes?.some((size) => selectedSize.includes(size._id));
@@ -121,14 +130,10 @@ function ProductListing() {
     });
 
 
-
-
-
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
-    console.log('selectedSize', selectedSize);
-    console.log(products);
+    
 
     return (
         <div>
@@ -237,7 +242,7 @@ function ProductListing() {
                         {/* Product Grid */}
                         <div className="col-lg-9 products-container">
                             <h2>{catHeader.name || "Default Title"}</h2>
-                            <p>{catHeader.shortDescription || "Lorem ipsum..."}</p>
+                            <p>{catHeader.shortDescription || ''}</p>
 
                             <div className="row mt-3">
                                 {filteredProducts?.map((product) => {

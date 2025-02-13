@@ -1,61 +1,49 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { useGSAP } from "@gsap/react";
 import "../assets/css/experience.css";
-import GalleryVideo1 from '../assets/image/video1.mp4';
-import GalleryVideo2 from '../assets/image/video2.mp4';
-import GalleryVideo3 from '../assets/image/video3.mp4';
+import GalleryVideo3 from "../assets/image/video3.mp4";
 
-// Register ScrollTrigger plugin with GSAP
+// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
   const experienceRef = useRef(null);
-  const experienceMiddleRef = useRef(null);
+  const videoRef = useRef(null);
 
-  useGSAP(() => {
-    // Create the GSAP timeline for the experience animation
-    const exp = gsap.timeline();
-    exp.to(experienceMiddleRef.current, {
-      scale: 3.5,  // Scale down to create zoom-out effect
-      duration: 5,
-      ease: "power1.out", // Adjust easing for a smooth zoom effect
-      scrollTrigger: {
-        trigger: experienceRef.current, // Pin the experience section while scrolling
-        start: "top top", // Start when the experience section is at the top of the viewport
-        end: "+=2000", // End after scrolling 500px
-        scrub: true, // Smooth animation based on scroll progress
-        markers: false, // Enable for debugging (remove in production)
-        pin: experienceRef.current, // Pin the section during scroll
-        ease: "none",
-
-      },
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.to(videoRef.current, {
+        scale: 3, // Zoom effect
+        duration: 7,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: experienceRef.current,
+          start: "top top",
+          end: "bottom top", // Ensures it stops zooming at the right moment
+          scrub: true,
+          anticipatePin: 1, // Helps prevent the "jump" issue
+        },
+      });
     });
-  }, {
-    scope: experienceRef, // Scope GSAP animations to the experienceRef container
-  });
+
+    return () => ctx.revert(); // Cleanup on unmount
+  }, []);
 
   return (
     <div ref={experienceRef} className="experience">
-      <div className="experience-show">
       <h2 className="gallery-heading">INSPIRATION GALLERY</h2>
-
-        <div className="experience-middle-container">
-          {/* Replace the h1 with the video */}
-          <video
-            ref={experienceMiddleRef}
-            className="experience-video"
-            autoPlay
-            loop
-            muted
-            playsInline
-            src={GalleryVideo3}
-            type="video/mp4"
-          />
-        </div>
-
-        <div className="spacer-end"></div>
+      <div className="experience-middle-container">
+        <video
+          ref={videoRef}
+          className="experience-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          src={GalleryVideo3}
+          type="video/mp4"
+        />
       </div>
     </div>
   );

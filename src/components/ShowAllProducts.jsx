@@ -12,72 +12,52 @@ import Product5 from '../assets/image/product5.png'
 import { Link } from 'react-router-dom'
 import ScrollAnimation from 'react-animate-on-scroll';
 import { GoArrowUpRight } from "react-icons/go";
+import getImageURL from '../utills/getImageURL';
 
 
 
-function ShowAllProducts() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrow:false
-      };
+function ShowAllProducts({ relatedProducts }) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrow: false
+  };
   return (
     <div className='allProduct bgWhite'>
-        <div className="container">
+      <div className="container">
         <ScrollAnimation animateIn="fadeInUp">
           <div className="d-flex align-items-center justify-content-between">
             <h2 className='mb-4'>Related Products</h2>
-            <button className='view-all'>View All <GoArrowUpRight/></button>
+            <button className='view-all'>View All <GoArrowUpRight /></button>
           </div>
 
 
-            </ScrollAnimation>
-            <ScrollAnimation animateIn="fadeInUp">
-            <Slider {...settings}>
-              <Link to={'/product-details'}>
-                <div className="product-box">
-                    <img src={Product1} alt="product1" />
-                    <div className="line"></div>
-                    <h4>164 - SONOMA OAK</h4>
-                </div>
-              </Link>
-              <Link to={'/product-details'}>
-                <div className="product-box">
-                    <img src={Product2} alt="product1" />
-                    <div className="line"></div>
-                    <h4>164 - SONOMA OAK</h4>
-                </div>
-              </Link>
-              <Link to={'/product-details'}>
-                <div className="product-box">
-                    <img src={Product3} alt="product1" />
-                    <div className="line"></div>
-                    <h4>164 - SONOMA OAK</h4>
-                </div>
-              </Link>
-              <Link to={'/product-details'}>
-                <div className="product-box">
-                    <img src={Product4} alt="product1" />
-                    <div className="line"></div>
-                    <h4>164 - SONOMA OAK</h4>
-                </div>
-              </Link>
-              <Link to={'/product-details'}>
-                <div className="product-box">
-                    <img src={Product5} alt="product1" />
-                    <div className="line"></div>
-                    <h4>164 - SONOMA OAK</h4>
-                </div>
-              </Link>
- 
+        </ScrollAnimation>
+        <ScrollAnimation animateIn="fadeInUp">
+          <Slider {...settings}>
+            {
+              relatedProducts && relatedProducts.map((product) => {
+                const imgUrl = getImageURL(product.a4Image)
+                return (
+                  <>
+                    <Link to={`/product-details/${product._id}`}>
+                      <div className="product-box">
+                        <img src={imgUrl} alt="product1" />
+                        <div className="line"></div>
+                        <h4>{product.name}</h4>
+                      </div>
+                    </Link>
+                  </>
+                )
+              })
+            }
+          </Slider>
+        </ScrollAnimation>
 
-            </Slider>
-            </ScrollAnimation>
-
-        </div>
+      </div>
     </div>
   )
 }

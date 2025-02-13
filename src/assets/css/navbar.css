@@ -701,3 +701,6 @@
     letter-spacing: 1px;
     background: #000;
 }
+.menu-img:hover{
+cursor: pointer;
+}

@@ -6,20 +6,26 @@ import "../assets/css/details.css";
 import SelectSearch from "react-select-search";
 import "react-select-search/style.css";
 import { RxCross1 } from "react-icons/rx";
+import axios from "axios";
+import { API_URL } from "../utills/BaseUrl";
+import { toast } from "react-toastify";
 
-function InquiryModal({ show, handleClose }) {
+function InquiryModal({ show, handleClose , productId }) {
     const [formData, setFormData] = useState({
         country: "",
         name: "",
         email: "",
-        phone: "",
+        mobile: "",
+        inquiryType:'PRODUCT',
+        countryCode:"+91"
     });
 
     const [errors, setErrors] = useState({
         country: "",
         name: "",
         email: "",
-        phone: "",
+        mobile: "",
+        product:''
     });
 
     const options = [
@@ -57,12 +63,12 @@ function InquiryModal({ show, handleClose }) {
             }
         }
 
-        if (field === "phone") {
+        if (field === "mobile") {
             if (!/^\d*$/.test(value)) {
-                newErrors.phone = "Phone number can only contain numbers.";
-                return; // Prevent updating the phone field
+                newErrors.mobile = "mobile number can only contain numbers.";
+                return; // Prevent updating the mobile field
             } else {
-                newErrors.phone = "";
+                newErrors.mobile = "";
             }
         }
 
@@ -74,20 +80,37 @@ function InquiryModal({ show, handleClose }) {
         setFormData({ ...formData, [field]: value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = async(e) => {
+      e.preventDefault();
+
+      try {
+        const res = await axios.post(`${API_URL}/inquiries` , formData )
+          toast.success('Form Submitted...')    
+            handleClose()  
+            setFormData({
+              country: "",
+              name: "",
+              email: "",
+              mobile: "",
+              inquiryType:'',
+              countryCode:" "
+            }) 
+      } catch (error) {
+        console.log(error);
+        
+        
         let newErrors = {
-            country: formData.country ? "" : "Please select a country.",
-            name: formData.name ? errors.name : "Name is required.",
-            email: formData.email ? errors.email : "Email is required.",
-            phone: formData.phone ? errors.phone : "Phone number is required.",
-        };
+          country: formData.country ? "" : "Please select a country.",
+          name: formData.name ? errors.name : "Name is required.",
+          email: formData.email ? errors.email : "Email is required.",
+          mobile: formData.mobile ? errors.mobile : "mobile number is required.",
+      };
 
-        setErrors(newErrors);
+      setErrors(newErrors);
+      }
 
-        if (!newErrors.country && !newErrors.name && !newErrors.email && !newErrors.phone) {
-            alert("Form submitted successfully!");
-        }
+
+
     };
 
     return (
@@ -101,7 +124,7 @@ function InquiryModal({ show, handleClose }) {
                         <h4>Fill The Details</h4>
 
                         {/* Country Selection */}
-                        <div className="d-flex flex-column">
+                        <div className="d-flex flex-column" style={{position:"relative"}}>
                             <label htmlFor="country">Country</label>
                             <SelectSearch
                                 search
@@ -110,11 +133,11 @@ function InquiryModal({ show, handleClose }) {
                                 onChange={(value) => handleChange("country", value)}
                                 placeholder="Select Country"
                             />
-                            {errors.country && <small className="text-danger">{errors.country}</small>}
+                            {errors.country && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.country}</small>}
                         </div>
 
                         {/* Name Input */}
-                        <div className="d-flex flex-column">
+                        <div className="d-flex flex-column" style={{position:'relative'}}>
                             <label htmlFor="name">Name</label>
                             <input
                                 type="text"
@@ -122,11 +145,11 @@ function InquiryModal({ show, handleClose }) {
                                 value={formData.name}
                                 onChange={(e) => handleChange("name", e.target.value)}
                             />
-                            {errors.name && <small className="text-danger">{errors.name}</small>}
+                            {errors.name && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.name}</small>}
                         </div>
 
                         {/* Email Input */}
-                        <div className="d-flex flex-column">
+                        <div className="d-flex flex-column" style={{position:'relative'}}>
                             <label htmlFor="email">Email</label>
                             <input
                                 type="email"
@@ -134,19 +157,19 @@ function InquiryModal({ show, handleClose }) {
                                 value={formData.email}
                                 onChange={(e) => handleChange("email", e.target.value)}
                             />
-                            {errors.email && <small className="text-danger">{errors.email}</small>}
+                            {errors.email && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.email}</small>}
                         </div>
 
-                        {/* Phone Input */}
-                        <div className="d-flex flex-column">
-                            <label htmlFor="phone">Phone Number</label>
+                        {/* mobile Input */}
+                        <div className="d-flex flex-column" style={{position:'relative'}}>
+                            <label htmlFor="mobile">mobile Number</label>
                             <input
                                 type="text"
-                                id="phone"
-                                value={formData.phone}
-                                onChange={(e) => handleChange("phone", e.target.value)}
+                                id="mobile"
+                                value={formData.mobile}
+                                onChange={(e) => handleChange("mobile", e.target.value)}
                             />
-                            {errors.phone && <small className="text-danger">{errors.phone}</small>}
+                            {errors.mobile && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.mobile}</small>}
                         </div>
 
                         <button className="form-btn" onClick={handleSubmit}>

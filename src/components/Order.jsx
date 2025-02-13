@@ -123,6 +123,9 @@ function Order() {
             })
             if (products.length > 0) {
                 toast.success(response.data.message)
+                removeItemById(products._id)
+                navigate('/thank-you')
+
             }
 
         } catch (error) {

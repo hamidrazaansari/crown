@@ -17,6 +17,7 @@ import ProductBanner from "./components/ProductBanner"
 import NavModal from "./components/NavModal"
 import BlogDetails from "./pages/BlogDetails"
 import Cart from "./pages/Cart"
+import ThankYouPage from "./components/ThankYouPage"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
@@ -38,8 +39,7 @@ function App() {
         <Route path="/cat" element={<ProductBanner/>}/>
         <Route path="/nav" element={<NavModal/>}/>
         <Route path="/cart" element={<Cart/>}/>
-        
-        {/* <Route path="/full-img" element={<FullViewImg/>}/> */}
+        <Route path="/thank-you" element={<ThankYouPage/>}/>
       </Routes>
     </BrowserRouter>
     </CounterProvider>

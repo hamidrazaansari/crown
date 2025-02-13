@@ -36,9 +36,6 @@ function Cart() {
       navigate('/order', { state: data })
     }
   }
-  console.log(data);
-
-
 
   return (
     <div>
@@ -70,6 +67,7 @@ function Cart() {
                 const imageUrl = item.a4Image ? getImageURL(item.a4Image) : '';
 
                 return (
+                  <>
                   <div className="new-cart" key={item._id}>
                     <div className="d-flex align-items-center justify-content-between added-product">
                       <div className="d-flex">
@@ -82,12 +80,14 @@ function Cart() {
                       </div>
                       <div className='d-flex flex-column align-items-end justify-content-end'>
                         <button className=" cart-dlt-btn" onClick={() => removeItemById(item._id)}><span className='me-1'><FaTrashCan /></span> Delete</button>
-                        <button className="chekout-btn" onClick={handleCheckOut}>Checkout</button>
                       </div>
                     </div>
 
 
+
+
                   </div>
+               </>
                 );
               })
             ) : (
@@ -97,6 +97,9 @@ function Cart() {
                 <button className='cart-btn' onClick={handleCheckOut}>Add Product</button>
               </div>
             )}
+
+<button className="chekout-btn float-end" onClick={handleCheckOut}>Checkout</button>
+
           </Modal.Body>
         </Modal>
 

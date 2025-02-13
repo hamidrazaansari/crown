@@ -22,8 +22,8 @@ function Landing() {
         {/* <Hero/> */}
         <HorizontalScroll/>
         <About/>
-        <Category/>
         <Spotlights/>
+        <Category/>
         {/* <Space/> */}
         {/* <ProductSpotlight/> */}
         {/* <Gallery/> */}

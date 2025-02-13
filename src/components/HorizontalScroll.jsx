@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import HeroBanner from '../assets/image/hero-banner.png'
+// import Logo from '../assets/image/'
 
 gsap.registerPlugin(ScrollTrigger);
 
