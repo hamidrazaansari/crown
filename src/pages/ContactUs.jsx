@@ -3,7 +3,9 @@ import NavBar from '../components/NavBar'
 import OtherPageFooter from '../components/OtherPageFooter'
 import '../assets/css/contact.css'
 import ContactCreative from '../assets/image/contact-us-creative.png'
-import Call from '../assets/image/box_phone-call.png'
+import Call from '../assets/image/call.png'
+import Mail from '../assets/image/mail.png'
+import Location from '../assets/image/location.png'
 
 function ContactUs() {
   return (
@@ -33,9 +35,9 @@ function ContactUs() {
                                 <div className="contact-info">
                                     <h2> Contact Information</h2>
                                     <p><img src={Call} alt="phone" /> +1012 3456 789</p>
-                                    <p>demo@gmail.com</p>
-                                    <strong>Factory Address</strong>
-                                    <p>Survey no. 419/1, Radhe Industrial Estate, Tajpur Road, Changdor-382 213, Ahmedabad, Gujarat 382213 India</p>
+                                    <p><img src={Mail} alt="mail" style={{height:"15px" , width:'18px'}} /> demo@gmail.com</p>
+                                    <strong><img src={Location}   alt="phone" /> Factory Address</strong>
+                                    <p className='add-para'>Survey no. 419/1, Radhe Industrial Estate, Tajpur Road, Changdor-382 213, Ahmedabad, Gujarat 382213 India</p>
                                 </div>
                             </div>
                         </div>

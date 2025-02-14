@@ -17,7 +17,7 @@ import EmptyCart from '../assets/image/cart-empty.png'
 
 
 function Cart() {
-  const { count, data, clearCheckedData, toggleItemChecked, removeItemById } = useContext(CounterContext);
+  const { count, data, removeItemById } = useContext(CounterContext);
   const [showSignin, setShowSignin] = useState(false);
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
