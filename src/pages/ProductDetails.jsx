@@ -70,7 +70,6 @@ function ProductDetails() {
                 setLoading(false);
             }
         };
-
         fetchProducts();
     }, [, id]);
 
@@ -107,10 +106,7 @@ function ProductDetails() {
         }
         fetchRelatedProduct()
     } , [products])
-
-    console.log('relatedProducts' , relatedProducts);
     
-
 
     const handleDownload = async () => {
         try {

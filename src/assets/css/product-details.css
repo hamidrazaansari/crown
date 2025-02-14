@@ -53,6 +53,7 @@
 .details-product{
     padding-top: 40px;
     padding-left: 60px;
+    position: relative;
 }
 .details-product h1 {
     font-family: 'asliInter';
@@ -317,9 +318,9 @@
 .highRegImg {
     border: none;
     background-color: transparent;
-    position: relative;
-    bottom: 9px;
-    left: 333px;
+    position: absolute;
+    top: 35px;
+    right: -20px;
 }
 .highRegImg span{
     font-family: 'Inter';

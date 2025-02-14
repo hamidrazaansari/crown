@@ -38,34 +38,31 @@ function SearchBar() {
 
     const handleOpen = (id) => {
         navigate("/products", { state: id });
-      };
+    };
 
     const hadleHideOnBLur = () => {
-        setTimeout(()=>{
+        setTimeout(() => {
             setDisplay(false)
-        } , 350)
+        }, 350)
     }
     return (
         <>
             <div className='search-product'>
-                <input type="text" className='search-input' placeholder='Search Products' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onBlur={hadleHideOnBLur} onFocus={()=> setDisplay(true)} />
+                <input type="text" className='search-input' placeholder='Search Products' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onBlur={hadleHideOnBLur} onFocus={() => setDisplay(true)} />
                 <button className='search-btn'> <IoSearchOutline /> </button>
             </div>
             {display && (
                 <div className={searchQuery ? "search-box" : 'd-none '}>
-                    {data && data.map((item) => {
+                    {data && data.slice(0, 5).map((item) => {
                         const imageUrl = item.a4Image ? getImageURL(item.a4Image) : '';
                         return (
-                            <>
-                            <Link to={`/product-details/${item._id}`}>
-                                <div className='d-flex align-items-center  my-3' >
+                            <Link to={`/product-details/${item._id}`} key={item._id}>
+                                <div className='d-flex align-items-center my-3'>
                                     <img src={imageUrl} alt="" className='search-img' />
                                     <p className='mb-0 ms-2'>{item.name}</p>
                                 </div>
                             </Link>
-                            </>
-
-                        )
+                        );
                     })}
                     <h3>Categories</h3>
                     {category && category.map((item) => {
