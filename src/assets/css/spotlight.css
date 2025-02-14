@@ -178,19 +178,21 @@
     position: relative;
     bottom: 300px;
   }
-  .banner-item h2{
+  .banner-item h2 {
     z-index: 20;
     font-family: dion;
     font-size: 55px;
     letter-spacing: 2px;
-    margin-top: -91px;
-  }
+    margin-top: -40px;
+    color: #E69B00;
+}
 
   .spotlightheader {
     position: sticky; /* Make the header sticky */
     top: 100px; /* Stick to the top of the container */
     background: #000; /* Same background color as the scroller for a seamless effect */
     padding: 10px 0; /* Optional padding */
+
   }
   
   .spotlightheader h2 {
@@ -200,7 +202,9 @@
     text-align: center;
     margin: 0; /* Remove unnecessary margins */
     letter-spacing: 1px;
-  }
+    position: relative;
+    bottom: 80px;
+}
   .banner-container {
     overflow: hidden; /* Prevents unwanted overflow */
     width: 100%;
@@ -215,3 +219,39 @@
   .banner-item {
     min-width: 100vw; /* Makes each item take full width */
   }
+  .spotlight {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .spotlightheader {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .banner-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .scrolling-banner {
+    display: flex;
+    gap: 20px;
+    will-change: transform;
+  }
+  
+  .banner-item {
+    min-width: 400px; /* Adjust based on design */
+    text-align: center;
+  }
+  
+  .banner-item img {
+    width: 100%;
+    max-width: 1450px;
+    height: auto;
+    height: 500px;
+    object-fit: cover;
+  }
+  

@@ -6,16 +6,18 @@ import { useNavigate } from "react-router-dom";
 import { API_URL } from "../utills/BaseUrl";
 
 const Category = () => {
-  const [activeBox, setActiveBox] = useState(0); // Track the active box index
+  const [activeBox, setActiveBox] = useState(0); // Always keep the first category active
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API_URL}/categories`);
-        setData(response.data.body);
+        setData(response.data.body || []);
       } catch (err) {
         setError("Error fetching data");
         console.error(err);
@@ -26,19 +28,11 @@ const Category = () => {
     fetchData();
   }, []);
 
-  console.log('category' , data);
-  
-
-
-  const navigate = useNavigate();
-
   const handleOpen = (id) => {
     navigate("/products", { state: id });
   };
 
-  // Map active classes manually based on category ID or title
   const getActiveClass = (id) => {
-    
     const classMap = {
       1: "decorative-active",
       2: "interior-active",
@@ -52,31 +46,27 @@ const Category = () => {
       <div className="container">
         <h2>Category</h2>
         <div className="d-flex align-items-center justify-content-center">
-          {data?.map((category, index) => (
-            <div
-              key={category._id}
-              className={`category-box ${
-                activeBox === index
-                  ? `category-box-active ${getActiveClass(index + 1)}`
-                  : ""
-              }`}
-              onMouseEnter={() => setActiveBox(index)} // Activate box on hover
-              onMouseLeave={() => setActiveBox(0)} // Reset on hover out
-            >
-              <div className={activeBox === index ? `texts` : ""}>
-                <button className="category-btn" onClick={()=> handleOpen(category._id)}>
-                  Export Now <HiOutlineArrowNarrowRight />
-                </button>
-                <div className="d-flex">
-                  <h4>{`0${index + 1}`}</h4>
-                  <h3>{category.name}</h3>
+          {data.map((category, index) => {
+            const isActive = activeBox === index;
+            return (
+              <div
+                key={category._id}
+                className={`category-box ${isActive ? `category-box-active ${getActiveClass(index + 1)}` : ""}`}
+                onMouseEnter={() => setActiveBox(index)}
+              >
+                <div className={`texts ${isActive ? "show-text" : ""}`}>
+                  <button className="category-btn" onClick={() => handleOpen(category._id)}>
+                    Explore Now <HiOutlineArrowNarrowRight />
+                  </button>
+                  <div className="d-flex cat-heading">
+                    <h4>{`0${index + 1}`}</h4>
+                    <h3>{category.name}</h3>
+                  </div>
+                  {isActive && category.shortDescription && <p>{category.shortDescription}</p>}
                 </div>
-                {activeBox === index && category.shortDescription && (
-                  <p>{category.shortDescription}</p>
-                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
@@ -84,5 +74,3 @@ const Category = () => {
 };
 
 export default Category;
-
-

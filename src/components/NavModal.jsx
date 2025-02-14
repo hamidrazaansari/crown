@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "../assets/css/modal.css";
 import Dropdown from 'react-bootstrap/Dropdown';
-import DummyCategory1 from '../assets/image/category1.png'
-import DummyCategory2 from '../assets/image/category2.png'
-import DummyCategory3 from '../assets/image/category3.png'
+import AquaWall from '../assets/image/All-logo/Aqva-Wall.png'
+import CrownXLC from '../assets/image/All-logo/Exterior.png'
+import Fense from '../assets/image/All-logo/Fense.png'
+import Kittop from '../assets/image/All-logo/Kittop.png'
+import Labplus from '../assets/image/All-logo/Labplus.png'
+import Qbiss from '../assets/image/All-logo/Qbiss.png'
+import Tabillo from '../assets/image/All-logo/Tabillo.png'
+// import Qbiss from '../assets/image/All-logo/Qbiss.png'
+
 import { API_URL } from "../utills/BaseUrl";
 import axios from "axios";
 import getImageURL from "../utills/getImageURL";
@@ -54,9 +60,22 @@ const NavModal = () => {
                 <Dropdown.Menu>
                     <div className="container">
                         <div className="row">
-                            <div className="col-3 d-flex align-items-start mt-4 justify-content-center">
-                                <button className="menu-cat-button arrow-button">
+                            <div className="col-3 d-flex align-items-start mt-4 justify-content-start flex-column">
+                                <button className="menu-cat-button arrow-button mb-2">
                                     <span className=" me-3">Products</span>
+                                    <svg className="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path
+                                            d="M4 12h16m0 0l-6-6m6 6l-6 6"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            fill="none"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </button>
+                                <button className="menu-cat-button arrow-button-outline arrow-button">
+                                    <span className=" me-3">Application</span>
                                     <svg className="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                                         <path
                                             d="M4 12h16m0 0l-6-6m6 6l-6 6"
@@ -84,6 +103,13 @@ const NavModal = () => {
                                 )
 
                             })}
+
+                            <div className="application">
+                                <div className="application-box">
+                                    {/* <img src={} alt="" /> */}
+                                    <h3></h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </Dropdown.Menu>

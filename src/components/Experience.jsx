@@ -19,7 +19,7 @@ const Experience = () => {
         ease: "power1.out",
         scrollTrigger: {
           trigger: experienceRef.current,
-          start: "top top",
+          start: "top-=100px top",
           end: "bottom top", // Ensures it stops zooming at the right moment
           scrub: true,
           anticipatePin: 1, // Helps prevent the "jump" issue

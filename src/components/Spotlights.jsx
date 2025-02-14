@@ -1,35 +1,45 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { useGSAP } from "@gsap/react";
 import "../assets/css/spotlight.css";
-import SpotLightImg from '../assets/image/qbiss.jpg';
-import SpotLightImg1 from '../assets/image/tabillo.jpg';
-import SpotLightImg2 from '../assets/image/kittop.jpg';
-import SpotLightImg3 from '../assets/image/aqua-wall.jpg';
+import SpotLightImg from "../assets/image/qbiss.jpg";
+import SpotLightImg1 from "../assets/image/tabillo.jpg";
+import SpotLightImg2 from "../assets/image/kittop.jpg";
+import SpotLightImg3 from "../assets/image/aqua-wall.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Spotlights = () => {
   const bannerRef = useRef(null);
+  const containerRef = useRef(null);
 
-  useGSAP(() => {
-    // GSAP animation for scrolling banner
-    gsap.to(".scrolling-banner", {
-      xPercent: -100,
-      ease: "none",
-      scrollTrigger: {
-        trigger: bannerRef.current,
-        start: "top-=160 top", // Animation starts when the banner section is at 160px from the top
-        end: () => `+=${bannerRef.current.offsetWidth}`, // Animation ends based on the width of the banner
-        scrub: 2, // Smooth animation based on scroll progress
-        pin: true, // Pin the banner during scroll
-        markers: false, // Disable markers (remove for production)
-      },
-    });
-  }, {
-    scope: bannerRef, // Scope the animation to the bannerRef container
-  });
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      const banner = bannerRef.current;
+      const container = containerRef.current;
+
+      if (!banner || !container) return;
+
+      const totalWidth = banner.scrollWidth; // Total scrollable width
+      const viewportWidth = container.clientWidth; // Screen width
+      const scrollDistance = totalWidth - viewportWidth; // Scroll amount
+
+      gsap.to(banner, {
+        x: -scrollDistance, // Move left
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          start: "top-=150 top",
+          end: `+=${scrollDistance}`, // Scroll duration
+          scrub: 2, // Smooth scrolling effect
+          pin: true, // **This now properly pins the section**
+          anticipatePin: 1, // Helps with smoother pinning
+        },
+      });
+    }, containerRef);
+
+    return () => ctx.revert(); // Cleanup on unmount
+  }, []);
 
   return (
     <div className="spotlight">
@@ -38,29 +48,18 @@ const Spotlights = () => {
           <h2>PRODUCT IN THE SPOTLIGHT</h2>
         </div>
       </div>
-      <div className="banner-container" ref={bannerRef}>
-        <div className="scrolling-banner">
-          <div className="banner-item">
-            <img src={SpotLightImg1} alt="" />
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </p>
-            <h2>TABILLO</h2>
-          </div>
-          <div className="banner-item">
-            <img src={SpotLightImg} alt="" />
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </p>
-            <h2>QBISS</h2>
-          </div>
-          <div className="banner-item">
-            <img src={SpotLightImg2} alt="" />
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </p>
-            <h2>KITTOP</h2>
-          </div>
-          <div className="banner-item">
-            <img src={SpotLightImg3} alt="" />
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </p>
-            <h2>AQUA WALL</h2>
-          </div>
-          {/* Repeat banners if needed */}
+
+      {/* 🔹 This is the pinned section */}
+      <div className="banner-container" ref={containerRef}>
+        <div className="scrolling-banner" ref={bannerRef}>
+          {[SpotLightImg1, SpotLightImg, SpotLightImg2, SpotLightImg3].map(
+            (img, index) => (
+              <div className="banner-item" key={index}>
+                <img src={img} alt={`Spotlight ${index + 1}`} />
+                <h2>{["TABILLO", "QBISS", "KITTOP", "AQUA WALL"][index]}</h2>
+              </div>
+            )
+          )}
         </div>
       </div>
     </div>

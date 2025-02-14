@@ -104,15 +104,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #000; /* Button background color */
+  background-color: #E69B00;
   color: white;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   outline: none;
-  transition: background-color 0.3s ease, width 0.3s ease;
+  transition: background-color 0.3sease, width 0.3sease;
   position: relative;
   overflow: hidden;
+  border-radius: 4px;
+  color: #000;
+  width: 180px;
+  border: 1px solid #E69B00 ;
+
+}
+.arrow-button-outline{
+  background-color: transparent;
+  border: 1px solid #E69B00 ;
+}
+.arrow-button-outline:hover{
+  background-color: #E69B00;
 }
 
 .button-text {
@@ -131,4 +143,20 @@
 
 .arrow-button:hover .arrow {
   width: 100%; /* Expand the arrow to full width */
+}
+
+.swal2-html-container{
+  font-family: inter !important;
+  color: #0000009b !important;
+  font-size: 14px !important;
+}
+.swal2-title{
+  font-family: dion !important;
+  color: #000 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-size: 22px !important;
+}
+.swal2-confirm{
+  background-color: #E69B00 !important;
 }

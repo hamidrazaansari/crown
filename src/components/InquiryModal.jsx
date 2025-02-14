@@ -9,6 +9,8 @@ import { RxCross1 } from "react-icons/rx";
 import axios from "axios";
 import { API_URL } from "../utills/BaseUrl";
 import { toast } from "react-toastify";
+import Swal from 'sweetalert2'
+
 
 function InquiryModal({ show, handleClose  , inquiryType , productId }) {
     const [formData, setFormData] = useState({
@@ -17,7 +19,6 @@ function InquiryModal({ show, handleClose  , inquiryType , productId }) {
         email: "",
         mobile: "",
         inquiryType: inquiryType,
-        countryCode:"+91",
         product:productId
     });
 
@@ -86,29 +87,29 @@ function InquiryModal({ show, handleClose  , inquiryType , productId }) {
 
       try {
         const res = await axios.post(`${API_URL}/inquiries` , formData )
-          toast.success('Form Submitted...')    
+        Swal.fire({
+            title: "Thank you for reaching out! ",
+            text: "Your inquiry has been successfully submitted. Our team will review your request and get back to you as soon as possible.",
+            icon: "success"
+          });
             handleClose()  
             setFormData({
-              country: "",
-              name: "",
-              email: "",
-              mobile: "",
-              inquiryType:'',
-              countryCode:" "
-
-            }) 
+                country: "",
+                name: "",
+                email: "",
+                mobile: "",
+                inquiryType: inquiryType, // Keep inquiryType
+                product: productId,       // Keep productId
+              });
       } catch (error) {
-        console.log(error);
-        
-        
-        let newErrors = {
-          country: formData.country ? "" : "Please select a country.",
-          name: formData.name ? errors.name : "Name is required.",
-          email: formData.email ? errors.email : "Email is required.",
-          mobile: formData.mobile ? errors.mobile : "mobile number is required.",
-      };
 
-      setErrors(newErrors);
+        const errrData = error.response?.data?.errors        
+        setErrors({
+            country: errrData.country,
+            name: errrData.name,
+            email: errrData.email,
+            mobile: errrData.mobile 
+        })
       }
 
 
@@ -172,6 +173,7 @@ function InquiryModal({ show, handleClose  , inquiryType , productId }) {
                                 onChange={(e) => handleChange("mobile", e.target.value)}
                             />
                             {errors.mobile && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.mobile}</small>}
+
                         </div>
 
                         <button className="form-btn" onClick={handleSubmit}>

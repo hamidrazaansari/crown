@@ -53,7 +53,7 @@ function NewFooter() {
               <h2>Instagram</h2>
             </Link>
             <Link>
-              <h2>Pinterest</h2>
+              <h2>Linkedin</h2>
             </Link>
           </div>
         </div>

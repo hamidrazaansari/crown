@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import HeroBanner from '../assets/image/hero-banner.png'
+import WhiteLogo from '../assets/image/white-logo-crown.png'
 // import Logo from '../assets/image/'
 
 gsap.registerPlugin(ScrollTrigger);
@@ -54,7 +55,7 @@ function HorizontalScroll() {
         <div className="thank-you is-2">
           <div className="content">
             <div className="textBlock ctext">
-              <p>CROWN</p>
+              <img src={WhiteLogo} alt="white logo" className="w-75" />
             </div>
           </div>
         </div>

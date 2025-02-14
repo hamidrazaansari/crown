@@ -162,7 +162,6 @@
 .category {
     padding: 40px 0;
     background: #fff;
-
 }
 
 .category h2 {
@@ -184,29 +183,35 @@
     cursor: pointer;
     transition: all 0.5s linear;
     overflow: hidden;
-
 }
 
 .category-box h3 {
-    transform: rotate(270deg);
     position: absolute;
-    bottom: 175px;
-    left: -115px;
-    width: 451px;
-    text-align: center;
+    bottom: -100px;
+    left: -40px;
+    width: auto;
+    text-align: left;
     font-family: dion;
-    font-size: 41px;
+    font-size: 47px;
+    transform: none;
+    color: #000;
+    transform: rotate(-90deg);
 }
 
 .category-box h4 {
     font-family: 'dion';
-    font-size: 29px;
+    font-size: 49px;
     text-align: center;
-
+    color: #000;
+    position: absolute;
+    top: -192px;
+    left: 40px;
 }
-.category-box .category-btn{
+
+.category-box .category-btn {
     display: none;
 }
+
 .category-box-active {
     height: 500px;
     background-size: cover;
@@ -218,74 +223,66 @@
     margin: 20px;
     border-radius: 10px;
     flex: 3;
-    /* Increase width on hover */
     transition: transform 0.5s linear, flex 0.5s linear;
     position: relative;
     text-align: start;
 }
+
 .category-box-active .texts {
     position: absolute;
-    top: unset;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     z-index: 5;
     color: #fff;
     display: block;
-    width: 100%;
-    left: 0%;
-    bottom: 0;
-    padding: 0 18px;
+    padding: 18px;
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
     text-align: start;
+    transform: rotate(0deg);
 }
+
 .category-box-active h4 {
     text-align: start;
-    margin-right: 15px;
     font-family: dionMedium;
+    color: #fff;
 }
-.category-box-active .texts .category-btn{
-    border: none;
-    color: #000;
-    text-transform: uppercase;
-    font-size: 12px;
-    background: #fff;
-    padding: 6px 20px;
-    font-family: 'dionlight';
-    letter-spacing: 2px;
-    float: inline-end;
-    border-radius: 20px;
-    position: relative;
-    top: 40px;
-    display: block;
-}
+
 .category-box-active .texts .category-btn {
     border: none;
     color: #000;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 17px;
     background: #fff;
-    padding: 6px 20px;
+    padding: 13px 20px;
     font-family: 'dionlight';
     letter-spacing: 2px;
     float: inline-end;
-    border-radius: 20px;
+    border-radius: 4px;
     position: relative;
-    top: 6px;
+    bottom: -183px;
     display: block;
 }
-.category-box-active .texts p{
+
+.category-box-active .texts p {
     font-size: 10px;
     font-family: 'LightInter';
 }
-.category-box-active h4 {
-    text-align: start;
-    font-family: dionMedium;
-}
 
 .category-box-active h3 {
-    transform: rotate(0deg);
     position: unset;
     font-family: dionMedium;
     text-align: start !important;
-    font-size: 25px;
+    font-size: 26px;
+    transform: none;
+    margin-left: 41px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.category-box-active .cat-heading{
+    position: absolute;
+    bottom: 0;
 }
 
 .category-box-active p {
@@ -298,42 +295,56 @@
     width: 100%;
 }
 
+/* Ensure only one category remains active */
+.category-box:not(.category-box-active) {
+    flex: 1;
+    opacity: 0.9; /* Dim inactive categories */
+    transition: opacity 0.3s ease-in-out;
+}
 
+/* Backgrounds for Active Categories */
 .decorative-active {
     background: url(../image/caategory1.png);
 }
 
 .interior-active {
     background: url(../image/category-2.png);
-
 }
 
 .exterior-active {
     background: url(../image/category-3.png);
-
 }
 
-
+/* Product Banner Styling */
 .product-banner {
     position: relative;
-    overflow: hidden; /* Ensures content outside the container is not visible */
+    overflow: hidden;
     width: 100%;
     height: auto;
-  }
-  
-  .product-banners-container {
+}
+
+.product-banners-container {
     display: flex;
     width: 200%; /* Adjust for the number of images */
     position: absolute;
-  }
-  
-  .product-banners-container img {
-    width: 50%; /* Adjust width based on your image count */
+}
+
+.product-banners-container img {
+    width: 50%; /* Adjust width based on image count */
     flex-shrink: 0;
-  }
-  
-  .content {
+}
+
+.content {
     position: relative;
-    z-index: 2; /* Ensure it’s on top of the images */
+    z-index: 2;
     text-align: center;
-  }
+}
+.category-box-active h4 {
+    font-family: 'dion';
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: -3px;
+    left: -4px;
+}
