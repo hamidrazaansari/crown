@@ -70,14 +70,14 @@ function ContactUs() {
                                 </div>
                                 <div className="contact-info">
                                     <h2> Contact Information</h2>
-                                    <p><img src={Call} alt="phone" /> +1012 3456 789</p>
-                                    <p><img src={Mail} alt="mail" style={{ height: "15px", width: '18px' }} /> demo@gmail.com</p>
+                                    <p><img src={Call} alt="phone" /> +91 8564758228</p>
+                                    <p><img src={Mail} alt="mail" style={{ height: "15px", width: '18px' }} /> crownlaminates@gmail.com</p>
                                     <strong><img src={Location} alt="phone" /> Factory Address</strong>
-                                    <p className='add-para'>Survey no. 419/1, Radhe Industrial Estate, Tajpur Road, Changdor-382 213, Ahmedabad, Gujarat 382213 India</p>
+                                    <p className='add-para'>Survey no. 419/1, Radhe Industrial Estate, Tajpur Road, Changodar-382 213, Ahmedabad, Gujarat 382213</p>
                                 </div>
                                 <div className="socalLinks">
-                                    <Link><img src={FB} alt="Facebook" /></Link>
-                                    <Link><img src={Insta} alt="Instagram" /></Link>
+                                    <Link to='https://www.facebook.com/royalcrownlaminates' target='_blank'><img src={FB} alt="Facebook" /></Link>
+                                    <Link to='https://www.instagram.com/royalcrownlaminates' target='_blank'><img src={Insta} alt="Instagram" /></Link>
                                     <Link><img src={Linkedin} alt="Linkedin" /></Link>
                                 </div>
                             </div>
@@ -161,7 +161,6 @@ function ContactUs() {
                                                     options={options}
                                                     value={country}
                                                     onChange={handleCountryChange}
-                                                    placeholder="Select Country"
                                                 />
                                                 {/* {error.country && (
                                                     <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
@@ -176,7 +175,6 @@ function ContactUs() {
                                                     options={options}
                                                     value={country}
                                                     onChange={handleCountryChange}
-                                                    placeholder="Select Country"
                                                 />
                                             {/* {error.name && (
                                         <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
@@ -206,6 +204,8 @@ function ContactUs() {
                                     )} */}
                                         </div>
                                     </div>
+
+                                    <button className='submit'>Submit</button>
                                 </div>
                             </div>
                         </div>

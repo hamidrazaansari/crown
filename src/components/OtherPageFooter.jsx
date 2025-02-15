@@ -7,69 +7,69 @@ import InquiryModal from "./InquiryModal";
 
 function OtherPageFooter() {
 
-  const [show , setShow]=useState(false)
+  const [show, setShow] = useState(false)
 
-  
+
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   return (
     <div>
-           <InquiryModal show={show} handleClose={handleClose} inquiryType={'GENERAL'} />
+      <InquiryModal show={show} handleClose={handleClose} inquiryType={'GENERAL'} />
 
-            <div>
-                <div className="explore">
-                    <h2>Are you ready to explore our wonderful laminates</h2>
-                    <p>we are always working hard and trying to make the best for you</p>
-                    <button onClick={handleShow}>Request a Quote <GoArrowUpRight/></button>
-                </div>
-                <div className="footer-background">
-                    <img src={FooterImg} alt="footer image" />
-                </div>
-        
-              {/* Footer Section */}
-              <div className="newFooter m-0" style={{ backgroundColor: "#000" }}>
-                <div className="container" >
-                  <div className="d-flex align-items-center justify-content-center mt-5">
-                    <Link to={'/about'}>
-                      <h2>About</h2>
-                    </Link>
-                    <Link to={'/contact'}>
-                      <h2>Contacts</h2>
-                    </Link>
-                    <Link>
-                      <h2>Privacy Policy</h2>
-                    </Link>
-                    <Link to={'blog'}>
-                      <h2>Blog</h2>
-                    </Link>
-                  </div>
-                  <p>
-                    <a href="mailto:crownlaminates@gmail.com" style={{ color: "#fff" }}>
-                      crownlaminates@gmail.com
-                    </a>
-                  </p>
-                  <p>
-                    <a href="tel:+918564758228" style={{ color: "#fff" }}>
-                      +(91) 8564758228
-                    </a>
-                  </p>
-                </div>
-                <div className="line" style={{ backgroundColor: "#fff" }}></div>
-                <div className="container">
-                  <div className="d-flex align-items-center justify-content-center">
-                    <Link>
-                      <h2>Facebook</h2>
-                    </Link>
-                    <Link>
-                      <h2>Instagram</h2>
-                    </Link>
-                    <Link>
-                      <h2>Pinterest</h2>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+      <div>
+        <div className="explore">
+          <h2>Are you ready to explore our wonderful laminates</h2>
+          <p>we are always working hard and trying to make the best for you</p>
+          <button onClick={handleShow}>Request a Quote <GoArrowUpRight /></button>
+        </div>
+        <div className="footer-background">
+          <img src={FooterImg} alt="footer image" />
+        </div>
+
+        {/* Footer Section */}
+        <div className="newFooter m-0" style={{ backgroundColor: "#000" }}>
+          <div className="container" >
+            <div className="d-flex align-items-center justify-content-center mt-5">
+              <Link to={'/about'}>
+                <h2>About</h2>
+              </Link>
+              <Link to={'/contact'}>
+                <h2>Contacts</h2>
+              </Link>
+              <Link>
+                <h2>Privacy Policy</h2>
+              </Link>
+              <Link to={'blog'}>
+                <h2>Blog</h2>
+              </Link>
             </div>
+            <p>
+              <a href="mailto:crownlaminates@gmail.com" style={{ color: "#fff" }}>
+                crownlaminates@gmail.com
+              </a>
+            </p>
+            <p>
+              <a href="tel:+918564758228" style={{ color: "#fff" }}>
+                +(91) 8564758228
+              </a>
+            </p>
+          </div>
+          <div className="line" style={{ backgroundColor: "#fff" }}></div>
+          <div className="container">
+            <div className="d-flex align-items-center justify-content-center">
+              <Link to='https://www.facebook.com/royalcrownlaminates' target='_blank'>
+                <h2>Facebook</h2>
+              </Link>
+              <Link to={'https://www.instagram.com/royalcrownlaminates'} target="_blank">
+                <h2>Instagram</h2>
+              </Link>
+              <Link>
+                <h2>Linkedin</h2>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

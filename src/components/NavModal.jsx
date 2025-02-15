@@ -14,6 +14,7 @@ import { API_URL } from "../utills/BaseUrl";
 import axios from "axios";
 import getImageURL from "../utills/getImageURL";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavModal = () => {
     const [show, setShow] = useState(false);
@@ -93,12 +94,12 @@ const NavModal = () => {
                                 const imageUrl = category.image ? getImageURL(category.image) : '';
                                 return (
                                     <>
-                                        <div className="col-3" onClick={()=>{handleOpen(category._id)}}>
+                                        <Link className="col-3" to={`/${category.slug}`}>
                                             <div className="menu-img">
                                                 <img src={imageUrl} className="img-fluid mb-2" alt={category.name} />
                                                 <h2 className="fs-5 ms-4">{category.name}</h2>
                                             </div>
-                                        </div>
+                                        </Link>
                                     </>
                                 )
 

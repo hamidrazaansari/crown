@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from '../assets/image/logo.png'
 import '../assets/css/footer.css'
 import ScrollAnimation from 'react-animate-on-scroll'
+import { Link } from 'react-router-dom'
 
 function Footer() {
     return (
@@ -89,9 +90,10 @@ function Footer() {
                         </div>
                         <div className="col-lg-4 d-flex flex-column justify-content-start align-items-center">
                                 <div className="d-flex justify-content-between align-items-center">
-                                    <p className='me-3'>Facebook</p>
+                                    <Link to='https://www.facebook.com/royalcrownlaminates' target='_blank'><p className='me-3'>Facebook</p></Link> 
                                     <span className='vertical-line'></span>
-                                    <p className='me-3'>Instagram</p>
+                                    <Link to='https://www.facebook.com/royalcrownlaminates' target='_blank'><p className='me-3'>Instagram</p></Link> 
+
                                     <span className='vertical-line'></span>
                                     <p className='me-3'>Pinterest</p>
                                 </div>

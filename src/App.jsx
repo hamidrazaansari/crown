@@ -28,6 +28,7 @@ function App() {
     <BrowserRouter>
     <ScrollToTop/>
       <Routes>
+
         <Route path="/" element={<Landing/>}/>
         <Route path="/products" element={<ProductListing/>}/>
         <Route path="/product-details/:id" element={<ProductDetails/>}/>
@@ -42,6 +43,10 @@ function App() {
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/thank-you" element={<ThankYouPage/>}/>
         <Route path="/contact" element={<ContactUs/>}/>
+        <Route
+              path="/:categorySlug/:subCategorySlug?"
+              element={<ProductListing />}
+            />
       </Routes>
     </BrowserRouter>
     </CounterProvider>

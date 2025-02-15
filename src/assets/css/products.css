@@ -130,14 +130,14 @@ Link{
     text-decoration: none;
 }
 .product-box h4 {
-    font-size: 20px;
+    font-size: 15px;
     font-family: LightInter;
     margin-top: 10px;
     color: #00000091;
     text-decoration: none !important;
     margin-bottom: 0;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0px;
 }
 .accordion-item{
     background-color: transparent !important;
@@ -221,6 +221,7 @@ Link{
 .product-box img {
     height: 320px;
     width: 190px;
+    transform: skewX(19);
     /* filter: drop-shadow(0px 11px 9px #797979); */
 }
 .blur {
@@ -315,4 +316,13 @@ Link{
 }
 .product-listing .accordion-body ul li p{
     color: #fff !important;
+}
+.active>.page-link, .page-link.active{
+    background-color: #E69B00 !important;
+    color: #fff !important;
+}
+.page-link{
+    color: #E69B00 !important;
+    border: none !important;
+    box-shadow: none !important;
 }

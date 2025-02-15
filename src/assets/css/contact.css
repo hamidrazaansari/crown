@@ -99,3 +99,15 @@
     border-bottom: 1px solid #0000007a !important;
 
 }
+.submit{
+    border: none;
+    background: #E69B00;
+    padding: 10px 40px;
+    color: #fff;
+    font-family: 'Inter';
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    float: inline-end;
+    margin-right: 78px;
+    border-radius: 4px;
+}

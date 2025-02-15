@@ -46,10 +46,10 @@ function NewFooter() {
         <div className="line" style={{ backgroundColor: "#fff" }}></div>
         <div className="container">
           <div className="d-flex align-items-center justify-content-center">
-            <Link>
+            <Link  to='https://www.facebook.com/royalcrownlaminates' target='_blank'>
               <h2>Facebook</h2>
             </Link>
-            <Link>
+            <Link to={'https://www.instagram.com/royalcrownlaminates'} target="_blank">
               <h2>Instagram</h2>
             </Link>
             <Link>

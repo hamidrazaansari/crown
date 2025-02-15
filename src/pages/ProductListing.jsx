@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import "../assets/css/products.css";
 import { Accordion } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { API_URL } from "../utills/BaseUrl";
 import axios from "axios";
 import Img from "../assets/image/productbanner.png";
@@ -22,11 +22,14 @@ function ProductListing() {
   const [selectedFinish, setSelectedFinish] = useState("");
   const [selectedDecor, setSelectedDecor] = useState("");
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
+
   const [catHeader, setCatHeader] = useState("");
+
   const [searchQuery, setSearchQuery] = useState("");
 
   const location = useLocation();
   const categoryId = location.state;
+  const { categorySlug, subCategorySlug } = useParams();
 
   const [pagination, setPagination] = useState({
     page: 1,
@@ -38,7 +41,7 @@ function ProductListing() {
   useEffect(() => {
     async function fetchProduct() {
       try {
-        let url = `${API_URL}/products?category=${categoryId}&limit=${5}&page=${
+        let url = `${API_URL}/products?categorySlug=${categorySlug}&limit=${5}&page=${
           pagination.page
         }`;
 
@@ -56,6 +59,10 @@ function ProductListing() {
           }
         }
 
+        if (subCategorySlug) {
+          url += `&subCategorySlug=${subCategorySlug}`;
+        }
+
         const response = await axios.get(url);
         setPagination({
           page: Number(response.data.page),
@@ -68,7 +75,42 @@ function ProductListing() {
       }
     }
     fetchProduct();
-  }, [categoryId, pagination.page, decorNumber, selectedSizes, selectedDecor]);
+  }, [
+    categorySlug,
+    subCategorySlug,
+    pagination.page,
+    decorNumber,
+    selectedSizes,
+    selectedDecor,
+  ]);
+
+  useEffect(() => {
+    async function fetchCategory() {
+      try {
+        let url = `${API_URL}/categories?slug=${categorySlug}`;
+        const response = await axios.get(url);
+        setCatHeader(response?.data?.body[0]);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCategory();
+  }, [categorySlug]);
+
+  useEffect(() => {
+    async function fetchSubCategory(categoryId) {
+      try {
+        let url = `${API_URL}/subCategories?category=${categoryId}&limit=0`;
+        const response = await axios.get(url);
+        setSubCategory(response?.data?.body);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    if (catHeader) {
+      fetchSubCategory(catHeader._id);
+    }
+  }, [catHeader]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,17 +121,17 @@ function ProductListing() {
             axios.get(`${API_URL}/decorSeries`),
             axios.get(`${API_URL}/finishes`),
             axios.get(`${API_URL}/subCategories`),
-            axios.get(
-              `${API_URL}/categories/${
-                categoryId ? categoryId : "6724e2e2a0586b2a40e206f8"
-              }`
-            ),
+            // axios.get(
+            //   `${API_URL}/categories/${
+            //     categoryId ? categoryId : "6724e2e2a0586b2a40e206f8"
+            //   }`
+            // ),
           ]);
         setSizes(sizesRes.data.body);
         setDecorSeries(decorRes.data.body);
         setFinishes(finishesRes.data.body);
-        setSubCategory(subCategoryRes.data.body);
-        setCatHeader(categoryRes.data.body);
+        // setSubCategory(subCategoryRes.data.body);
+        // setCatHeader(categoryRes.data.body);
       } catch (err) {
         setError("Error fetching data");
         console.error(err);
@@ -99,7 +141,7 @@ function ProductListing() {
     };
 
     fetchData();
-  }, [categoryId]);
+  }, [categorySlug]);
 
   // **Handle Multi-Select Size Filter**
   const handleSizeFilter = (sizeId) => {
@@ -185,7 +227,7 @@ function ProductListing() {
               <div>
                 <img src={Img} alt="" />
                 <div className="banner-text-container">
-                  <h2>{catHeader.textOverImage || "Default Title"}</h2>
+                  <h2>{catHeader?.textOverImage || "Default Title"}</h2>
                   <div className="line"></div>
                 </div>
               </div>
@@ -269,13 +311,14 @@ function ProductListing() {
                     <Accordion.Header>Subcategory</Accordion.Header>
                     <Accordion.Body>
                       <ul className="list-unstyled ms-2">
-                        {subCategory.map((item) => (
+                        {subCategory?.map((item) => (
                           <li key={item._id}>
-                            <p
+                            <Link
+                              to={`/${categorySlug}/${item.slug}`}
                               onClick={() => handleSubCategoryFilter(item._id)}
                             >
                               {item.name}
-                            </p>
+                            </Link>
                           </li>
                         ))}
                       </ul>
@@ -287,8 +330,8 @@ function ProductListing() {
 
             {/* Product Grid */}
             <div className="col-lg-8 products-container">
-              <h2>{catHeader.name || "Default Title"}</h2>
-              <p>{catHeader.shortDescription || ""}</p>
+              <h2>{catHeader?.name || "Default Title"}</h2>
+              <p>{catHeader?.shortDescription || ""}</p>
 
               <div className="row mt-3">
                 {products?.map((product) => {
