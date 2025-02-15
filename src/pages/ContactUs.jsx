@@ -11,19 +11,52 @@ import Insta from '../assets/image/insta.png'
 import Linkedin from '../assets/image/linkedin.png'
 import { Link } from 'react-router-dom'
 import SelectSearch from 'react-select-search'
+import axios from 'axios'
+import { API_URL } from '../utills/BaseUrl'
+import Swal from 'sweetalert2'
+
 
 function ContactUs() {
 
-    const [country , setCountry] = useState('');
+        const [formData, setFormData] = useState({
+            name: "",
+            email: "",
+            mobile: "",
+            country: "",
+            message: "",
+            inquiryType: '',
+            visitorType:''
+        });
+
+            const [errors, setErrors] = useState({
+                name: "",
+                email: "",
+                mobile: "",
+                country: "",
+                message: "",
+                inquiryType: '',
+                visitorType:''
+            });
 
     const options = [
-        { name: 'Career', value: 'India', type: 'country' },
-        { name: 'Complains', value: 'United States', type: 'country' },
-        { name: 'Export', value: 'Canada', type: 'country' },
-        { name: 'Price', value: 'United Kingdom', type: 'country' },
-        { name: 'Product', value: 'Australia', type: 'country' },
-        { name: 'Sampling', value: 'Germany', type: 'country' },
-        { name: 'Supplier', value: 'France', type: 'country' },
+        { name: 'General', value: 'GENERAL', type: 'country' },
+        { name: 'Product', value: 'PRODUCT', type: 'country' },
+        { name: 'Career', value: 'CAREER', type: 'country' },
+        { name: 'Complains', value: 'COMPLAINS', type: 'country' },
+        { name: 'Export', value: 'EXPORT', type: 'country' },
+        { name: 'Price', value: 'PRICE', type: 'country' },
+        { name: 'Sampling', value: 'SAMPLING', type: 'country' },
+        { name: 'Supplier', value: 'SUPPLIER', type: 'country' },
+
+    ];
+    const visitorOptions = [
+        { name: 'Architect', value: 'Architect', type: 'country' },
+        { name: 'Builder', value: 'Builder', type: 'country' },
+        { name: 'Contractor', value: 'Contractor', type: 'country' },
+        { name: 'Dealer', value: 'Dealer', type: 'country' },
+        { name: 'Home Owner', value: 'Home Owner', type: 'country' },
+        { name: 'Interior Designer', value: 'Interior Designer', type: 'country' },
+        { name: 'Oems', value: 'France', type: 'Oems' },
 
     ];
     const countryOptions = [
@@ -41,8 +74,89 @@ function ContactUs() {
         { name: 'Russia', value: 'Russia', type: 'country' }
     ];
 
-    const handleCountryChange = (selectedCountry) => {
-        setCountry(selectedCountry);
+    const handleChange = (field, value) => {
+        let newErrors = { ...errors };
+
+        if (field === "name") {
+            if (!/^[a-zA-Z\s]*$/.test(value)) {
+                newErrors.name = "Name cannot contain numbers or special characters.";
+                return; // Prevent updating the name field
+            } else {
+                newErrors.name = "";
+            }
+        }
+
+        if (field === "email") {
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                newErrors.email = "Enter a valid email address.";
+            } else {
+                newErrors.email = "";
+            }
+        }
+
+        if (field === "mobile") {
+            if (!/^\d*$/.test(value)) {
+                newErrors.mobile = "mobile number can only contain numbers.";
+                return; // Prevent updating the mobile field
+            } else {
+                newErrors.mobile = "";
+            }
+        }
+
+        if (field === "country") {
+            newErrors.country = value ? "" : "Please select a country.";
+        }
+        if (field === "visitorType") {
+            newErrors.visitorType = value ? "" : "Please select a visitorType.";
+        }
+        if (field === "inquiryType") {
+            newErrors.inquiryType = value ? "" : "Please select a inquiryType.";
+        }
+
+        setErrors(newErrors);
+        setFormData({ ...formData, [field]: value });
+    };
+
+    
+
+    const handleSubmit = async(e) => {
+      e.preventDefault();
+
+      try {
+        const res = await axios.post(`${API_URL}/inquiries` , formData )
+        Swal.fire({
+            title: "Thank you for reaching out! ",
+            text: "Your inquiry has been successfully submitted. Our team will review your request and get back to you as soon as possible.",
+            icon: "success"
+          });
+            setFormData({
+                name: "",
+                email: "",
+                mobile: "",
+                country: "",
+                message: "",
+                inquiryType: '',
+                visitorType:''
+              });
+
+              console.log(res);
+              
+      } catch (error) {
+
+        const errrData = error.response?.data?.errors        
+        setErrors({
+            name: errrData?.name,
+            email: errrData?.email,
+            mobile: errrData?.mobile ,
+            country: errrData?.country,
+            message: errrData?.message,
+            inquiryType: errrData?.inquiryType,
+            visitorType:errrData?.visitorType
+        })
+      }
+
+
+
     };
     return (
         <div>
@@ -89,31 +203,20 @@ function ContactUs() {
                                             <input
                                                 type="text"
                                                 id="name"
-                                            // value={name}
-                                            // onChange={(e) => {
-                                            //     const value = e.target.value;
-                                            //     if (/^[A-Za-z\s]*$/.test(value)) {
-                                            //         setName(value);
-                                            //     }
-                                            // }}
+                                                value={formData.name}
+                                                 onChange={(e) => handleChange("name", e.target.value)}
                                             />
-                                            {/* {error.name && (
-                                        <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
-                                            {error.name}
-                                        </div>
-                                    )} */}
+                                            {errors.name && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.name}</small>}
+
                                         </div>
                                         <div className="col-6 d-flex flex-column" style={{ position: 'relative' }}>
                                             <label htmlFor="email">Email*</label>
-
                                             <input type="email" id='email'
-                                            //  onChange={(e) => setEmail(e.target.value)}
+                                            value={formData.email}
+                                            onChange={(e) => handleChange("email", e.target.value)}
                                             />
-                                            {/* {error.email && (
-                                        <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
-                                            {error.email}
-                                        </div>
-                                    )} */}
+                                            {errors.email && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.email}</small>}
+
                                         </div>
                                     </div>
                                     <div className="row">
@@ -122,34 +225,23 @@ function ContactUs() {
                                             <input
                                                 type="text"
                                                 id="mobile"
-                                            // value={name}
-                                            // onChange={(e) => {
-                                            //     const value = e.target.value;
-                                            //     if (/^[A-Za-z\s]*$/.test(value)) {
-                                            //         setName(value);
-                                            //     }
-                                            // }}
+                                                value={formData.mobile}
+                                                onChange={(e) => handleChange("mobile", e.target.value)}
                                             />
-                                            {/* {error.name && (
-                                        <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
-                                            {error.name}
-                                        </div>
-                                    )} */}
+                                            {errors.mobile && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.mobile}</small>}
+
                                         </div>
                                         <div className="col-6" style={{ position: 'relative' }}>
                                             <div className='d-flex flex-column country'>
                                                 <label htmlFor="country">Country</label>
                                                 <SelectSearch
                                                     options={countryOptions}
-                                                    value={country}
-                                                    onChange={handleCountryChange}
+                                                    value={formData.country}
+                                                    onChange={(value) => handleChange("country", value)}
                                                     placeholder="Select Country"
                                                 />
-                                                {/* {error.country && (
-                                                    <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
-                                                        {error.country}
-                                                    </div>
-                                                )} */}
+                                            {errors.country && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.country}</small>}
+
                                             </div>
                                         </div>
                                     </div>
@@ -159,53 +251,43 @@ function ContactUs() {
                                                 <label htmlFor="country">Inquiry Type</label>
                                                 <SelectSearch
                                                     options={options}
-                                                    value={country}
-                                                    onChange={handleCountryChange}
+                                                    value={formData.inquiryType}
+                                                    onChange={(value) => handleChange("inquiryType", value)}
+                                                    placeholder="Select Inquiry Type"
+
                                                 />
-                                                {/* {error.country && (
-                                                    <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
-                                                        {error.country}
-                                                    </div>
-                                                )} */}
+                                            {errors.inquiryType && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.inquiryType}</small>}
+
                                             </div>
                                         </div>
                                         <div className="col-6 d-flex flex-column " style={{ position: 'relative'}}>
                                             <label htmlFor="mobile">Visitor Type</label>
                                             <SelectSearch
-                                                    options={options}
-                                                    value={country}
-                                                    onChange={handleCountryChange}
+                                                    options={visitorOptions}
+                                                    value={formData.visitorType}
+                                                    onChange={(value) => handleChange("visitorType", value)}
+                                                    placeholder="Select Visitor Type"
+
                                                 />
-                                            {/* {error.name && (
-                                        <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
-                                            {error.name}
-                                        </div>
-                                    )} */}
+                                            {errors.visitorType && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.visitorType}</small>}
+
                                         </div>
                                     </div>
                                     <div className="row mt-2">
                                     <div className="col-12 d-flex flex-column" style={{ position: 'relative' }}>
-                                            <label htmlFor="name">Message</label>
+                                            <label htmlFor="message">Message</label>
                                             <input
                                                 type="text"
-                                                id="name"
-                                            // value={name}
-                                            // onChange={(e) => {
-                                            //     const value = e.target.value;
-                                            //     if (/^[A-Za-z\s]*$/.test(value)) {
-                                            //         setName(value);
-                                            //     }
-                                            // }}
+                                                id="message"
+                                                value={formData.message}
+                                                onChange={(e) => handleChange("message", e.target.value)}
                                             />
-                                            {/* {error.name && (
-                                        <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
-                                            {error.name}
-                                        </div>
-                                    )} */}
+                                            {errors.message && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.message}</small>}
+
                                         </div>
                                     </div>
 
-                                    <button className='submit'>Submit</button>
+                                    <button className='submit' onClick={handleSubmit}>Submit</button>
                                 </div>
                             </div>
                         </div>

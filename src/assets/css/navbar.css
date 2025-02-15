@@ -706,3 +706,11 @@
 .menu-img:hover{
 cursor: pointer;
 }
+.application-box img{
+    height: 40px;
+    width: 40px;
+}
+.application{
+    width: 80%;
+    margin-left: 28%;
+}

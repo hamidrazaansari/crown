@@ -201,7 +201,6 @@ function ProductListing() {
     }
   }
 
-  console.log(selectedSizes);
 
   return (
     <div>

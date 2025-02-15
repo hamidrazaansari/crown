@@ -105,12 +105,52 @@ const NavModal = () => {
 
                             })}
 
-                            <div className="application">
-                                <div className="application-box">
-                                    {/* <img src={} alt="" /> */}
-                                    <h3></h3>
+                            {/* <div className="application">
+                                <div className="row">
+                                    <div className="col-3">
+                                    <div className="application-box">
+                                    <img src={AquaWall} alt="aqua wall" />
+                                    <h3>AQUA WALL</h3>
                                 </div>
-                            </div>
+                                    </div>
+                                    <div className="col-3">
+                                    <div className="application-box">
+                                    <img src={CrownXLC} alt="aqua wall" />
+                                    <h3>CROWN XLC</h3>
+                                </div>
+                                    </div>
+                                    <div className="col-3">
+                                    <div className="application-box">
+                                    <img src={Fense} alt="aqua wall" />
+                                    <h3>FENSE</h3>
+                                </div>
+                                    </div>
+                                    <div className="col-3">
+                                    <div className="application-box">
+                                    <img src={Kittop} alt="aqua wall" />
+                                    <h3>KITTOP</h3>
+                                </div>
+                                    </div>
+                                    <div className="col-3">
+                                    <div className="application-box">
+                                    <img src={Labplus} alt="aqua wall" />
+                                    <h3>LAB PLUS</h3>
+                                </div>
+                                    </div>
+                                    <div className="col-3">
+                                    <div className="application-box">
+                                    <img src={Qbiss} alt="aqua wall" />
+                                    <h3>QBISS</h3>
+                                </div>
+                                    </div>
+                                    <div className="col-6">
+                                    <div className="application-box">
+                                    <img src={Tabillo} alt="aqua wall" />
+                                    <h3>TABILLO</h3>
+                                </div>
+                                    </div>
+                                </div>
+                            </div> */}
                         </div>
                     </div>
                 </Dropdown.Menu>
