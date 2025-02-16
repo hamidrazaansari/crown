@@ -654,7 +654,7 @@
     font-size: 16px;
     text-transform: uppercase;
     padding: 9px 30px;
-    border-radius: 22px;
+    border-radius: 5px;
     letter-spacing: 1px;
 }
 .new-cart .product-img {
@@ -706,11 +706,29 @@
 .menu-img:hover{
 cursor: pointer;
 }
-.application-box img{
-    height: 40px;
-    width: 40px;
+.application-box img {
+    width: 70%;
 }
 .application{
     width: 80%;
-    margin-left: 28%;
+    margin-left: 18%;
+}
+.app-heading{
+    font-family: inter;
+    font-size: 16px;
+    color: #000;
+    background-color: #F5F5F5;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 0;
+}
+.application-box{
+    box-shadow: 0px 0px 3px 1px #d8d7d78f;
+    margin: 15px 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

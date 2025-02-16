@@ -119,12 +119,18 @@
   border: 1px solid #E69B00 ;
 
 }
-.arrow-button-outline{
+.arrow-button-outline {
   background-color: transparent;
-  border: 1px solid #E69B00 ;
+  border: 1px solid #E69B00;
+  color: #000;
+  border-radius: 4px;
+  padding: 10px 20px;
+width: 180px;
 }
 .arrow-button-outline:hover{
   background-color: #E69B00;
+  color: #000;
+
 }
 
 .button-text {

@@ -186,16 +186,17 @@
 }
 
 .category-box h3 {
-    position: absolute;
-    bottom: -100px;
-    left: -40px;
-    width: auto;
-    text-align: left;
+    position: relative;
+    bottom: -45px;
+    left: 0px;
+    text-align: center;
     font-family: dion;
-    font-size: 47px;
+    font-size: 35px;
     transform: none;
     color: #000;
     transform: rotate(-90deg);
+    white-space: nowrap;
+    letter-spacing: 1px;
 }
 
 .category-box h4 {
@@ -304,15 +305,20 @@
 
 /* Backgrounds for Active Categories */
 .decorative-active {
-    background: url(../image/caategory1.png);
+    background: url(../image/interrior.png);
+    background-size: contain;
 }
 
 .interior-active {
-    background: url(../image/category-2.png);
+    background: url(../image/exterior.jpg);
+    background-size: contain;
+
 }
 
 .exterior-active {
-    background: url(../image/category-3.png);
+    background: url(../image/decorative.jpg);
+    background-size: contain;
+
 }
 
 /* Product Banner Styling */

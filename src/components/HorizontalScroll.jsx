@@ -49,7 +49,17 @@ function HorizontalScroll() {
       <div className="thank-you-wrapper panel">
         <div className="thank-you d-block">
               <div className="heroBanner">
-                <img src={HeroBanner} alt="Hero Banner" />
+                {/* <img src={HeroBanner} alt="Hero Banner" /> */}
+                        <video
+                          className="experience-video"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          src={'https://videocdn.cdnpk.net/videos/5550ee59-5c97-4dcd-ad4d-31ba4b8a0e9b/horizontal/previews/watermarked/large.mp4'}
+                          type="video/mp4"
+                          style={{width:"100%" , height:"90vh" , objectFit:"cover"}}
+                        />
             </div>
         </div>
         <div className="thank-you is-2">

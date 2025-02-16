@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../assets/css/category.css";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { API_URL } from "../utills/BaseUrl";
 
 const Category = () => {
@@ -55,9 +55,9 @@ const Category = () => {
                 onMouseEnter={() => setActiveBox(index)}
               >
                 <div className={`texts ${isActive ? "show-text" : ""}`}>
-                  <button className="category-btn" onClick={() => handleOpen(category._id)}>
+                  <Link className="category-btn" to={`/${category.slug}`}>
                     Explore Now <HiOutlineArrowNarrowRight />
-                  </button>
+                  </Link>
                   <div className="d-flex cat-heading">
                     <h4>{`0${index + 1}`}</h4>
                     <h3>{category.name}</h3>

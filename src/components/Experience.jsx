@@ -19,7 +19,7 @@ const Experience = () => {
         ease: "power1.out",
         scrollTrigger: {
           trigger: experienceRef.current,
-          start: "top-=100px top",
+          start: "top top",
           end: "bottom top", // Ensures it stops zooming at the right moment
           scrub: true,
           anticipatePin: 1, // Helps prevent the "jump" issue
@@ -41,7 +41,7 @@ const Experience = () => {
           loop
           muted
           playsInline
-          src={GalleryVideo3}
+          src={'https://videocdn.cdnpk.net/videos/817ba419-38b3-4032-bd17-84ef6733a6af/horizontal/previews/watermarked/large.mp4'}
           type="video/mp4"
         />
       </div>
