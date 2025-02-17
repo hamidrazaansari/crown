@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "../assets/css/product-details.css";
@@ -13,11 +13,13 @@ import Swal from 'sweetalert2'
 
 
 function InquiryModal({ show, handleClose  , inquiryType , productId }) {
+    const [countries , setCountries] = useState([])
     const [formData, setFormData] = useState({
         country: "",
         name: "",
         email: "",
         mobile: "",
+        message: "",
         inquiryType: inquiryType,
         product:productId
     });
@@ -27,23 +29,10 @@ function InquiryModal({ show, handleClose  , inquiryType , productId }) {
         name: "",
         email: "",
         mobile: "",
+        message: "",
         product:''
     });
 
-    const options = [
-        { name: "India", value: "India", type: "country" },
-        { name: "United States", value: "United States", type: "country" },
-        { name: "Canada", value: "Canada", type: "country" },
-        { name: "United Kingdom", value: "United Kingdom", type: "country" },
-        { name: "Australia", value: "Australia", type: "country" },
-        { name: "Germany", value: "Germany", type: "country" },
-        { name: "France", value: "France", type: "country" },
-        { name: "Spain", value: "Spain", type: "country" },
-        { name: "Sweden", value: "Sweden", type: "country" },
-        { name: "Japan", value: "Japan", type: "country" },
-        { name: "China", value: "China", type: "country" },
-        { name: "Russia", value: "Russia", type: "country" },
-    ];
 
     const handleChange = (field, value) => {
         let newErrors = { ...errors };
@@ -116,6 +105,18 @@ function InquiryModal({ show, handleClose  , inquiryType , productId }) {
 
     };
 
+    useEffect(() => {
+        axios.get("https://restcountries.com/v3.1/all")
+            .then((response) => {
+                const countryOptions = response.data.map((country) => ({
+                    value: country.name.common, // Country code
+                    name: country.name.common, // Country name
+                }));
+                setCountries(countryOptions.sort((a, b) => a.name.localeCompare(b.name)));
+            })
+            .catch((error) => console.error("Error fetching countries:", error));
+    }, []);
+
     return (
         <div className="inquiry-modal">
             <Modal show={show} onHide={handleClose}>
@@ -131,7 +132,7 @@ function InquiryModal({ show, handleClose  , inquiryType , productId }) {
                             <label htmlFor="country">Country</label>
                             <SelectSearch
                                 search
-                                options={options}
+                                options={countries}
                                 value={formData.country}
                                 onChange={(value) => handleChange("country", value)}
                                 placeholder="Select Country"
@@ -174,6 +175,17 @@ function InquiryModal({ show, handleClose  , inquiryType , productId }) {
                             />
                             {errors.mobile && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.mobile}</small>}
 
+                        </div>
+
+                        <div className="d-flex flex-column" style={{position:'relative'}}>
+                            <label htmlFor="message">Meassge</label>
+                            <input
+                                type="text"
+                                id="message"
+                                value={formData.message}
+                                onChange={(e) => handleChange("message", e.target.value)}
+                            />
+                            {errors.message && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.message}</small>}
                         </div>
 
                         <button className="form-btn" onClick={handleSubmit}>

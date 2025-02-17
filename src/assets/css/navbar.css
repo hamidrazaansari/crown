@@ -579,15 +579,17 @@
     top: 33px;
     box-shadow: 0px 1px 2px #d7d7d7 !important;
 }
-.cart-dlt-btn{
+.cart-dlt-btn {
     border: none;
     background: transparent;
     font-family: inter;
-    font-size: 12px;
-    box-shadow: 0px 0px 2px 1px #00000014;
+    font-size: 15px;
+    /* box-shadow: 0px 0px 2px 1px #00000014; */
     padding: 4px 8px 3px;
     color: #EC0000;
     border-radius: 3px;
+    position: relative;
+    bottom: 27px;
 }
 
 .cart-dlt-btn span{
@@ -689,19 +691,17 @@
     margin: 10px 0;
 }
 .chekout-btn {
-    background: #000;
-    background: rgb(24, 138, 71);
+    background: #E69B00;
     /* background: linear-gradient(90deg, rgba(24, 138, 71, 1) 0%, rgba(11, 187, 137, 1) 100%); */
     border: none;
     color: #fff;
     font-family: 'inter';
     font-size: 12px;
-    padding: 5px 10px 4px;
+    padding: 5px 20px 6px;
     margin: 8px 0;
     font-weight: 400;
-    border-radius: 3px;
+    border-radius: 5px;
     letter-spacing: 1px;
-    background: #000;
 }
 .menu-img:hover{
 cursor: pointer;

@@ -11,33 +11,41 @@ const OurHeritage = () => {
   useEffect(() => {
     if (!bannerRef.current || !bannerContainerRef.current) return;
 
-    const bannerWidth = bannerRef.current.scrollWidth; // Get total scrollable width
-    const containerWidth = bannerContainerRef.current.offsetWidth;
+    const banner = bannerRef.current;
+    const container = bannerContainerRef.current;
 
-    // Ensure that animation happens smoothly
-    gsap.to(bannerRef.current, {
-      x: -(bannerWidth - containerWidth), // Move only the required distance
+    const bannerWidth = banner.scrollWidth;
+    const containerWidth = container.offsetWidth;
+    const scrollDistance = bannerWidth - containerWidth;
+
+    // Horizontal Scrolling Animation
+    gsap.to(banner, {
+      x: -scrollDistance,
       ease: "none",
       scrollTrigger: {
-        trigger: bannerContainerRef.current,
+        trigger: container,
         start: "top top",
-        end: `+=${bannerWidth}`,
-        scrub: 1, // Reduced scrub for smoother effect
+        end: `+=${scrollDistance}`,
+        scrub: 1, // Smooth scroll effect
         pin: true,
-        markers: false, 
+        anticipatePin: 1, // Prevent flickering
       },
     });
 
+    // Width Animation for `.procedure`
     gsap.to(".procedure", {
-      width: "+=1210px",
+      width: "1210px", // Directly setting width instead of +=
       scrollTrigger: {
-        trigger: bannerContainerRef.current,
-        start: "top-=180 top",
-        end: `+=${bannerWidth}`,
+        trigger: container,
+        start: "top top",
+        end: `+=${scrollDistance}`,
         scrub: true,
-        snap: { snapTo: 1, duration: 0.5 },
       },
     });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   return (
@@ -58,13 +66,13 @@ const OurHeritage = () => {
                   nisi ut aliquip ex ea commodo consequat.
                 </p>
                 <button className="heritage-btn">
-                  1955<span className="circle d-inline-block"></span>Our Heritage
+                  1955<span className="circles"></span>Our Heritage
                 </button>
               </div>
             </div>
           ))}
         </div>
-        <div className="procedure d-block"></div>
+        <div className="procedure"></div>
         <div className="procedure-bg"></div>
       </div>
     </div>

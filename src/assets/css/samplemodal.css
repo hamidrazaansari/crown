@@ -55,21 +55,21 @@
 }
 .Sample-modal .content button {
     display: flex;
-    border: 1px solid #00000075;
-    background: #000;
+    border: none;
+    background: #E69B00;
     margin: 21px 0;
     width: 185px;
     height: 40px;
     align-items: center;
     padding: 0;
     font-family: Kanit;
-    color: #fff;
-    border-radius: 3px;
+    color: #000;
+    border-radius: 5px;
     padding: 0 21px;
 }
 .Sample-modal .content button span{
-    background-color: #000;
-    color: #fff;
+    background-color: #E69B00;
+    color: #000;
     height: 100%;
     width: 40px;
     display: flex;

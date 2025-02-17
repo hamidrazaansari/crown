@@ -90,23 +90,26 @@
 }
 
 .sample-btn {
-    background-color: #000;
+    background-color: #E69B00;
     font-family: inter;
     border: none;
-    color: #fff;
+    color: #000;
     width: 100%;
     height: 45px;
     margin-right: 20px;
+    border-radius: 5px;
+
 }
 .enq-btn{
     background-color:transparent;
     font-family: inter;
-    border: 1px solid #000;
+    border: 1px solid #E69B00;
     color: #000;
     width: 100%;
     height: 45px;
     margin-right:20px ;
     margin-bottom: 20px;
+    border-radius: 5px;
 }
 .size{
     font-family: 'Inter';
@@ -175,6 +178,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
 } 
 .modal-form h4 {
     font-family: 'dion';
@@ -212,10 +216,10 @@
 
 .closeButton {
     position: absolute;
-    right: -20px;
+    right: -16px;
     height: 40px;
     width: 40px;
-    top: -5px;
+    top: -15px;
     border: none;
     border-radius: 50%;
     display: flex;

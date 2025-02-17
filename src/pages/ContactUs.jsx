@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import OtherPageFooter from '../components/OtherPageFooter'
 import '../assets/css/contact.css'
@@ -17,7 +17,7 @@ import Swal from 'sweetalert2'
 
 
 function ContactUs() {
-
+        const [countries , setCountries] = useState([])
         const [formData, setFormData] = useState({
             name: "",
             email: "",
@@ -27,7 +27,7 @@ function ContactUs() {
             inquiryType: '',
             visitorType:''
         });
-
+        
             const [errors, setErrors] = useState({
                 name: "",
                 email: "",
@@ -38,7 +38,7 @@ function ContactUs() {
                 visitorType:''
             });
 
-    const options = [
+    const inquiryOptions = [
         { name: 'General', value: 'GENERAL', type: 'country' },
         { name: 'Product', value: 'PRODUCT', type: 'country' },
         { name: 'Career', value: 'CAREER', type: 'country' },
@@ -49,6 +49,20 @@ function ContactUs() {
         { name: 'Supplier', value: 'SUPPLIER', type: 'country' },
 
     ];
+
+
+    useEffect(() => {
+        axios.get("https://restcountries.com/v3.1/all")
+            .then((response) => {
+                const countryOptions = response.data.map((country) => ({
+                    value: country.name.common, // Country code
+                    name: country.name.common, // Country name
+                }));
+                setCountries(countryOptions.sort((a, b) => a.name.localeCompare(b.name)));
+            })
+            .catch((error) => console.error("Error fetching countries:", error));
+    }, []);
+
     const visitorOptions = [
         { name: 'Architect', value: 'Architect', type: 'country' },
         { name: 'Builder', value: 'Builder', type: 'country' },
@@ -58,20 +72,6 @@ function ContactUs() {
         { name: 'Interior Designer', value: 'Interior Designer', type: 'country' },
         { name: 'Oems', value: 'France', type: 'Oems' },
 
-    ];
-    const countryOptions = [
-        { name: 'India', value: 'India', type: 'country' },
-        { name: 'United States', value: 'United States', type: 'country' },
-        { name: 'Canada', value: 'Canada', type: 'country' },
-        { name: 'United Kingdom', value: 'United Kingdom', type: 'country' },
-        { name: 'Australia', value: 'Australia', type: 'country' },
-        { name: 'Germany', value: 'Germany', type: 'country' },
-        { name: 'France', value: 'France', type: 'country' },
-        { name: 'Spain', value: 'Spain', type: 'country' },
-        { name: 'Sweden', value: 'Sweden', type: 'country' },
-        { name: 'Japan', value: 'Japan', type: 'country' },
-        { name: 'China', value: 'China', type: 'country' },
-        { name: 'Russia', value: 'Russia', type: 'country' }
     ];
 
     const handleChange = (field, value) => {
@@ -231,18 +231,16 @@ function ContactUs() {
                                             {errors.mobile && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.mobile}</small>}
 
                                         </div>
-                                        <div className="col-6" style={{ position: 'relative' }}>
-                                            <div className='d-flex flex-column country'>
-                                                <label htmlFor="country">Country</label>
-                                                <SelectSearch
-                                                    options={countryOptions}
-                                                    value={formData.country}
-                                                    onChange={(value) => handleChange("country", value)}
-                                                    placeholder="Select Country"
-                                                />
-                                            {errors.country && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.country}</small>}
-
-                                            </div>
+                                        <div className="col-6">
+                                            <label htmlFor="country">Country*</label>
+                                            <SelectSearch
+                                                options={countries}
+                                                value={formData.country}
+                                                onChange={(value) => handleChange("country", value)}
+                                                placeholder="Select a country"
+                                                search
+                                            />
+                                            {errors.country && <small style={{ color: 'red' }}>{errors.country}</small>}
                                         </div>
                                     </div>
                                     <div className="row">
@@ -250,7 +248,7 @@ function ContactUs() {
                                             <div className='d-flex flex-column country'>
                                                 <label htmlFor="country">Inquiry Type</label>
                                                 <SelectSearch
-                                                    options={options}
+                                                    options={inquiryOptions}
                                                     value={formData.inquiryType}
                                                     onChange={(value) => handleChange("inquiryType", value)}
                                                     placeholder="Select Inquiry Type"
@@ -301,3 +299,5 @@ function ContactUs() {
 }
 
 export default ContactUs
+
+

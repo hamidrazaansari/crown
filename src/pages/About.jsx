@@ -11,7 +11,7 @@ function About() {
     <div>
       <NavBar />
       <AboutCompany />
-      {/* <OurHeritage /> */}
+      <OurHeritage />
       <Vison />
       <div className="crownSection">
         <div className="container">

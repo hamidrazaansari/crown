@@ -15,13 +15,13 @@ const Experience = () => {
     let ctx = gsap.context(() => {
       gsap.to(videoRef.current, {
         scale: 3, // Zoom effect
-        duration: 7,
+        duration: 5,
         ease: "power1.out",
         scrollTrigger: {
           trigger: experienceRef.current,
-          start: "top top",
+          start: "top-=500 top",
           end: "bottom top", // Ensures it stops zooming at the right moment
-          scrub: true,
+          scrub: 1,
           anticipatePin: 1, // Helps prevent the "jump" issue
         },
       });
