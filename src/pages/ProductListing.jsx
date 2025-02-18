@@ -25,7 +25,6 @@ function ProductListing() {
 
   const [catHeader, setCatHeader] = useState("");
 
-  const [searchQuery, setSearchQuery] = useState("");
 
   const location = useLocation();
   const categoryId = location.state;
@@ -268,25 +267,6 @@ function ProductListing() {
                   ))}
                 </div>
 
-                {/* Other Filters */}
-                <h3 className="mt-3">FILTER BY FINISHES</h3>
-                <div className="row">
-                  {finishes.map((finish) => (
-                    <div className="col-6" key={finish._id}>
-                      <button
-                        onClick={() => handleFinishFilter(finish._id)}
-                        className={
-                          selectedFinish.includes(finish._id)
-                            ? "active-btn"
-                            : ""
-                        }
-                      >
-                        {finish.shortName}
-                      </button>
-                    </div>
-                  ))}
-                </div>
-
                 <h3 className="mt-3">FILTER BY Decor Series</h3>
                 <div className="row">
                   {decorSeries.map((type) => (
@@ -298,6 +278,25 @@ function ProductListing() {
                         }
                       >
                         {type.title}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                                {/* Other Filters */}
+                                <h3 className="mt-3">FILTER BY FINISHES</h3>
+                <div className="row">
+                  {finishes.map((finish) => (
+                    <div className="col-6" key={finish._id}>
+                      <button
+                        onClick={() => handleFinishFilter(finish._id)}
+                        className={
+                          selectedFinish.includes(finish._id)
+                            ? "active-btn"
+                            : ""
+                        }
+                      >
+                        {finish.fullName}
                       </button>
                     </div>
                   ))}
