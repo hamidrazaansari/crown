@@ -68,7 +68,7 @@ const NavModal = () => {
                             {/* Render Products Section */}
                             {activeSection === "products" && (
                                 <div className="col-lg-9">
-                                    <div className="row d-lg-block d-none ">
+                                    <div className="row d-lg-flex d-none ">
                                         {data && data.map((category) => {
                                             const imageUrl = category.image ? getImageURL(category.image) : '';
                                             return (
