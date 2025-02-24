@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import NavBar from './NavBar';
-import SelectSearch from 'react-select-search';
 import 'react-select-search/style.css';
 import '../assets/css/order.css';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -13,9 +12,6 @@ import { CounterContext } from '../context/CounterContext';
 import { useFormik } from "formik";
 import Select from "react-select";
 import { Country, State, City } from "country-state-city";
-
-
-
 
 function Order() {
     const [name, setName] = useState('');
@@ -40,9 +36,6 @@ function Order() {
         pincode: '',
     })
     const data = useLocation();
-
-    
-
 
     const [orderData, setOrderData] = useState([]);
 
@@ -162,7 +155,7 @@ function Order() {
 
             <div className="container placeOrder">
                 <div className="row">
-                    <div className="col-md-8">
+                    <div className="col-md-8 order-md-0 order-1">
                         <div className="order-form">
                             <h2>Delivery Address</h2>
                             <div className="row">
@@ -188,7 +181,7 @@ function Order() {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-6" style={{ position: 'relative' }}>
+                                <div className="col-lg-6" style={{ position: 'relative' }}>
                                     <input
                                         type="text"
                                         id="name"
@@ -207,7 +200,7 @@ function Order() {
                                         </div>
                                     )}
                                 </div>
-                                <div className="col-6" style={{ position: 'relative' }}>
+                                <div className="col-lg-6" style={{ position: 'relative' }}>
                                     <input type="email" id='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
                                     {error.email && (
                                         <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
@@ -238,7 +231,7 @@ function Order() {
                             </div>
                             <div className="row" >
 
-                                <div className="col-4 state" style={{ position: 'relative' }}>
+                                <div className="col-lg-4 state" style={{ position: 'relative' }}>
                                     <Select
                                         options={states}
                                         onChange={(option) => {
@@ -258,7 +251,7 @@ function Order() {
                                         </div>
                                     )}
                                 </div>
-                                <div className="col-4" style={{ position: 'relative' }}>
+                                <div className="col-lg-4  " style={{ position: 'relative' }}>
                                     <Select
                                         options={cities}
                                         onChange={(option) => setFieldValue("city", option.value)}
@@ -273,7 +266,7 @@ function Order() {
                                         </div>
                                     )}
                                 </div>
-                                <div className="col-4" style={{ position: 'relative' }}>
+                                <div className="col-lg-4  " style={{ position: 'relative' }}>
                                     <input
                                         type="text"
                                         placeholder="PIN code"
@@ -320,7 +313,7 @@ function Order() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4 order-md-1 order-0">
                         <div className="order-box">
                             <h3>Orders</h3>
                             <hr />

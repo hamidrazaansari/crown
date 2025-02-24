@@ -12,10 +12,10 @@ const AboutCompany = () => {
         </p>
       </div>
       <div className="row about-company">
-        <div className="col-5">
+        <div className="col-lg-5">
           <h1>ABOUT COMPANY</h1>
         </div>
-        <div className="col-7">
+        <div className="col-lg-7">
           <p>
             Crown Decor, a Royale Touche Laminate group company, is a niche
             Luxury Laminate brand from India and was launched in 1978 with the

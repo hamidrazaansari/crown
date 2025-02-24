@@ -1,18 +1,38 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const OurHeritage = () => {
   const bannerRef = useRef(null);
   const bannerContainerRef = useRef(null);
+  const procedureRef = useRef(null);
+  const [bannerItemWidth, setBannerItemWidth] = useState(0);
 
   useEffect(() => {
-    if (!bannerRef.current || !bannerContainerRef.current) return;
+    if (!bannerRef.current || !bannerContainerRef.current || !procedureRef.current) return;
 
     const banner = bannerRef.current;
     const container = bannerContainerRef.current;
+    const procedure = procedureRef.current;
+
+    // **Get Single Banner Item Width after DOM fully loads**
+    setTimeout(() => {
+      const bannerItem = banner.querySelector(".banner-item");
+      if (bannerItem) {
+        setBannerItemWidth(bannerItem.offsetWidth);
+      }
+    }, 100);
+
+  }, []);
+
+  useEffect(() => {
+    if (!bannerRef.current || !bannerContainerRef.current || !procedureRef.current || bannerItemWidth === 0) return;
+
+    const banner = bannerRef.current;
+    const container = bannerContainerRef.current;
+    const procedure = procedureRef.current;
 
     const bannerWidth = banner.scrollWidth;
     const containerWidth = container.offsetWidth;
@@ -32,9 +52,10 @@ const OurHeritage = () => {
       },
     });
 
-    // Width Animation for `.procedure`
-    gsap.to(".procedure", {
-      width: "1210px", // Directly setting width instead of +=
+    // **Set `.procedure` width equal to one `.banner-item` width**
+    gsap.to(procedure, {
+      width: bannerItemWidth, // Set width dynamically
+      duration: 0.5,
       scrollTrigger: {
         trigger: container,
         start: "top top",
@@ -46,7 +67,7 @@ const OurHeritage = () => {
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, []);
+  }, [bannerItemWidth]); // **Wait until bannerItemWidth is available**
 
   return (
     <div className="heritage-section">
@@ -72,7 +93,7 @@ const OurHeritage = () => {
             </div>
           ))}
         </div>
-        <div className="procedure"></div>
+        <div className="procedure" ref={procedureRef}></div>
         <div className="procedure-bg"></div>
       </div>
     </div>

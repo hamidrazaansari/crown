@@ -4,6 +4,7 @@ import Video from '../assets/image/video4.webm'
 import PlayIcon from '../assets/image/play-icon.png';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { GoArrowUpRight } from "react-icons/go";
+import { Link } from 'react-router-dom';
 
 
 
@@ -20,11 +21,12 @@ function About() {
 
                     <video
                     controls
+                    autoPlay
                     className="custom-video"
                     onPlay={() => setShowPlayIcon1(false)}
                     onPause={() => setShowPlayIcon1(true)}
                   >
-                    <source src={Video} type="video/webm" />
+                    <source src={'https://media.istockphoto.com/id/1428253293/video/modern-european-complex-of-apartment-buildings-aerial-view.mp4?s=mp4-640x640-is&k=20&c=CrUZ4TKmLybyF1Lzf7RKiTh6KL7SX74ePBU_pOmwjaM='} type="video/webm" />
                     Your browser does not support the video tag.
                   </video>
                   {showPlayIcon1 && (
@@ -50,7 +52,7 @@ function About() {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </ScrollAnimation>
                         <ScrollAnimation animateIn="fadeInUp">
-                        <button>Read More <GoArrowUpRight/></button>
+                        <button><Link to={'/about'}>Read More <GoArrowUpRight/></Link></button>
                         </ScrollAnimation>
                     </div>
                 </div>

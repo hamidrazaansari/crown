@@ -49,7 +49,7 @@ const NavModal = () => {
                     <div className="container">
                         <div className="row">
                             {/* Section Toggle Buttons */}
-                            <div className="col-3 d-flex align-items-start mt-4 justify-content-start flex-column">
+                            <div className="col-lg-3 d-flex align-items-start mt-4 justify-content-start flex-column">
                                 <button 
                                     className={`menu-cat-button mb-2 ${activeSection === "products" ? "arrow-button" : "arrow-button-outline"}`} 
                                     onClick={() => setActiveSection("products")}
@@ -67,12 +67,12 @@ const NavModal = () => {
 
                             {/* Render Products Section */}
                             {activeSection === "products" && (
-                                <div className="col-9">
-                                    <div className="row">
+                                <div className="col-lg-9">
+                                    <div className="row d-lg-block d-none ">
                                         {data && data.map((category) => {
                                             const imageUrl = category.image ? getImageURL(category.image) : '';
                                             return (
-                                                <Link key={category._id} className="col-4" to={`/${category.slug}`}>
+                                                <Link key={category._id} className="col-lg-4" to={`/${category.slug}`}>
                                                     <div className="menu-img">
                                                         <img src={imageUrl} className="img-fluid mb-2" alt={category.name} />
                                                         <h2 className="fs-5 ms-4">{category.name}</h2>

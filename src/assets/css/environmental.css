@@ -284,7 +284,43 @@
 .footer p{
     padding: 0;
 }
-
+.env-banner img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: contain !important;
+}
+.SUSTAINABILITY h2 {
+    font-family: dion;
+    letter-spacing: 1.6px !important;
+    font-size: 30px !important;
+}
+.envoirementabout img {
+    height: 244px;
+    width: 100%;
+    object-fit: cover;
+}
+.blog-banner .banner-text-container {
+    position: relative;
+    left: 30%;
+    bottom: 68px;
+    border-radius: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 120px;
+    padding: 5px;
+}
+.blog-details .blog-box {
+    margin: 20px 7px !important;
+}
+.certification-box p {
+    margin: 0 15px;
+    font-family: 'dion';
+    font-size: 10px;
+    color: #000;
+    letter-spacing: 1.5px;
+}
+.certificate-box h1, .companies h2{
+    font-size: 30px;
+}
 }
 
 /* new env design */

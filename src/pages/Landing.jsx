@@ -7,13 +7,13 @@ import Space from '../components/Space'
 import Gallery from '../components/Gallery'
 import Blog from '../components/Blog'
 import DetailsForm from '../components/DetailsForm'
-import Footer from '../components/Footer'
 import ProductSpotlight from '../components/ProductSpotlight'
 import FloatingButton from '../components/FloatingButton'
 import HorizontalScroll from '../components/HorizontalScroll'
 import Spotlights from '../components/Spotlights'
 import NewFooter from '../components/NewFooter'
 import Experience from '../components/Experience'
+import Footer from '../components/Footer'
 
 function Landing() {
   return (

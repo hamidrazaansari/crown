@@ -10,15 +10,13 @@ import {CounterProvider} from '../src/context/CounterContext'
 import Order from "./components/Order"
 import About from "./pages/About"
 import Certificate from "./pages/Certificate"
-import HorizontalScroll from "./components/HorizontalScroll"
-import Experience from "./components/Experience"
-import Category2 from "./components/Category2"
 import ProductBanner from "./components/ProductBanner"
 import NavModal from "./components/NavModal"
 import BlogDetails from "./pages/BlogDetails"
 import Cart from "./pages/Cart"
 import ThankYouPage from "./components/ThankYouPage"
 import ContactUs from "./pages/ContactUs"
+import Catalogue from "./pages/Catalogue"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
@@ -46,6 +44,10 @@ function App() {
         <Route
               path="/:categorySlug/:subCategorySlug?"
               element={<ProductListing />}
+            />
+        <Route
+              path="/catalouge"
+              element={<Catalogue />}
             />
       </Routes>
     </BrowserRouter>

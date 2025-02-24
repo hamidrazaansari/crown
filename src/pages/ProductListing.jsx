@@ -9,6 +9,10 @@ import Img from "../assets/image/productbanner.png";
 import OtherPageFooter from "../components/OtherPageFooter";
 import Product1 from "../assets/image/product1.png";
 import getImageURL from "../utills/getImageURL";
+import { FaFilter } from "react-icons/fa6";
+
+import { RxCross2 } from "react-icons/rx";
+
 
 function ProductListing() {
   const [products, setProducts] = useState([]);
@@ -24,6 +28,8 @@ function ProductListing() {
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
 
   const [catHeader, setCatHeader] = useState("");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
 
 
   const location = useLocation();
@@ -221,7 +227,7 @@ function ProductListing() {
       <div className="bgWhite">
         <div className="container">
           <div className="product-main-banner">
-            <div className="product-banner d-flex">
+            <div className="product-banner d-lg-flex">
               <div>
                 <img src={Img} alt="" />
                 <div className="banner-text-container">
@@ -240,7 +246,7 @@ function ProductListing() {
           <div className="row">
             {/* Sidebar Filters */}
             <div className="col-lg-4">
-              <div className="sidebar">
+              <div className={`sidebar d-lg-block  ${isSidebarOpen ? "d-block" : "d-none"}`}>
                 <h3>Search by decor code</h3>
                 <input
                   type="text"
@@ -324,6 +330,9 @@ function ProductListing() {
                   </Accordion.Item>
                 </Accordion>
               </div>
+              <button className="sidebar-toggle d-lg-none d-block" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+        {isSidebarOpen ? <RxCross2/> : <FaFilter/>}
+      </button>
             </div>
 
             {/* Product Grid */}
@@ -335,12 +344,11 @@ function ProductListing() {
                 {products?.map((product) => {
                   const imageUrl = getImageURL(product?.a4Image);
                   return (
-                    <div className="col-lg-4" key={product._id}>
+                    <div className="col-lg-4 col-6" key={product._id}>
                       <Link to={`/product-details/${product._id}`}>
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />
                           <div className="blur"></div>
-                          <div className="line"></div>
                           <h4>{product.name}</h4>
                         </div>
                       </Link>

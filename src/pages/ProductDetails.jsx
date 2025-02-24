@@ -185,7 +185,7 @@ function ProductDetails() {
                                     <button onClick={() => handleDownload()} className='d-flex flex-column justify-content-center align-items-center highRegImg'><img src={File} height={"21px"} alt="full screen icon" /><span>Download <br /> High Resolution File</span></button>
                                 </div>
 
-                                <p><span className='key'>Product Category</span><span  className='ms-1' >
+                                <p><span className='key'>Product Category</span><span  className='ms-1 value' >
                                         {products.categories?.map((cat) => (
                                             <>
                                                 {cat.name}
@@ -195,8 +195,8 @@ function ProductDetails() {
                                         )}
                                     </span>
                                 </p>
-                                <p><span className='key'>Decor Number </span><span className='ms-1'>{products.decorNumber}</span></p>
-                                <p><span className='key'>Decor Name </span><span className='ms-1'>{products.decorSeries?.title}</span></p>
+                                <p><span className='key'>Decor Number </span><span className='ms-1 value'>{products.decorNumber}</span></p>
+                                <p><span className='key'>Decor Name </span><span className='ms-1 value'>{products.decorSeries?.title}</span></p>
 
                                 <p className='d-flex justify-content-between align-items-center'><span className='key'>Size</span><span>
                                     <SelectSearch

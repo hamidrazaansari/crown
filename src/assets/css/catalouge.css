@@ -1,0 +1,21 @@
+.catalogue-banner{
+    background-color: #8F8749;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+.catalouge-btn button{
+    background-color: #FFFAF1;
+    border: 1px solid #E69B00;
+    color: #000;
+    width: 140px;
+    height: 40px;
+    margin: 20px 10px ;
+    border-radius: 5px;
+    font-family: inter;
+}
+.catalouge-btn button:hover{
+    background-color: #E69B00;
+    
+}

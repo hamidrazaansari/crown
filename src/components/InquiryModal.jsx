@@ -179,11 +179,12 @@ function InquiryModal({ show, handleClose  , inquiryType , productId }) {
 
                         <div className="d-flex flex-column" style={{position:'relative'}}>
                             <label htmlFor="message">Meassge</label>
-                            <input
+                            <textarea
                                 type="text"
                                 id="message"
                                 value={formData.message}
                                 onChange={(e) => handleChange("message", e.target.value)}
+                                rows={3}
                             />
                             {errors.message && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.message}</small>}
                         </div>

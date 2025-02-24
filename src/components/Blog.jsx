@@ -64,7 +64,7 @@ function Blog() {
             <h3>Latest Article</h3>
             <p className='heading-text'>Discover our latest news and articles regarding common HPL knowledge. Having deep
             understanding about Crown can help you choose the right one for your applications.</p>
-              <div className="d-flex">
+              <div className="d-flex flex-wrap ">
                 <div className="blog-box mx-3">
                     <img src={Blog1} alt="blog1" />
                     <div className="d-flex justify-content-between">

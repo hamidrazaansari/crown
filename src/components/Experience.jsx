@@ -14,21 +14,21 @@ const Experience = () => {
   useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.to(videoRef.current, {
-        scale: 3, // Zoom effect
+        scale: 5, // Reduce scale to prevent excessive overlap
         duration: 5,
         ease: "power1.out",
         scrollTrigger: {
           trigger: experienceRef.current,
-          start: "top-=500 top",
-          end: "bottom top", // Ensures it stops zooming at the right moment
+          start: "top+=400 center",
+          end: "bottom top",
           scrub: 1,
-          anticipatePin: 1, // Helps prevent the "jump" issue
         },
       });
     });
 
     return () => ctx.revert(); // Cleanup on unmount
   }, []);
+
 
   return (
     <div ref={experienceRef} className="experience">

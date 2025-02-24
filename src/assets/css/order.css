@@ -144,3 +144,10 @@
     position: relative;
     bottom: 5px !important;
 }
+@media (max-width:500px) {
+    .order-form p {
+        font-family: inter;
+        color: #000000bd;
+        font-size: 13px;
+    }
+}

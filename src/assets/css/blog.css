@@ -30,7 +30,7 @@
 .blog-box {
     display: flex !important;
     flex-direction: column;
-    width: 95% !important;
+    width: 400px !important;
     margin: 0 auto !important;
     overflow: hidden;
 }

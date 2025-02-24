@@ -58,7 +58,7 @@ function HorizontalScroll() {
                           playsInline
                           src={'https://videocdn.cdnpk.net/videos/5550ee59-5c97-4dcd-ad4d-31ba4b8a0e9b/horizontal/previews/watermarked/large.mp4'}
                           type="video/mp4"
-                          style={{width:"100%" , height:"90vh" , objectFit:"cover"}}
+                          style={{width:"100%" , height:"90vh " , objectFit:"cover"}}
                         />
             </div>
         </div>

@@ -326,3 +326,64 @@ Link{
     border: none !important;
     box-shadow: none !important;
 }
+
+@media (max-width:500px) {
+    .product-box img {
+        height: 232px;
+        width: 160px;
+        transform: skewX(19);
+    }
+    .product-box{
+        padding: 20px;
+    }
+    .blur {
+        z-index: 8;
+        height: 35px;
+        width: 100%;
+        background-position: top;
+        bottom: 5px;
+    }
+    .sidebar{
+        position: absolute;
+        z-index: 2;
+        left: 0;
+    }
+    .sidebar-toggle{
+        background: transparent;
+        border: none;
+        position: absolute;
+        right: 26px;
+        font-size: 25px;
+        color: #7c7c7c;
+    }
+    .products-container h2{
+        font-size: 25px;
+        letter-spacing: 1px;
+    } 
+    .banner-text-container {
+        position: relative;
+        left: 70%;
+        bottom: 125px;
+        z-index: 2;
+        background: rgb(0 0 0 / 5%);
+        box-shadow: 0 7px 42px 0 rgb(0 0 0 / 34%);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        width: 119px;
+        padding: 29px;
+        height: 96px;
+    } 
+    .banner-text-container h2 {
+        font-family: dion;
+        font-size: 15px;
+        color: #fff;
+        text-transform: capitalize;
+    }
+    .product-listing {
+        padding-top: 0px !important;
+    }
+}
+
+
+

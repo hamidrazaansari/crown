@@ -238,7 +238,7 @@
     color: #fff;
     display: block;
     padding: 18px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 90%);
     text-align: start;
     transform: rotate(0deg);
 }
@@ -248,7 +248,6 @@
     font-family: dionMedium;
     color: #fff;
 }
-
 .category-box-active .texts .category-btn {
     border: none;
     color: #000;
@@ -353,4 +352,74 @@
     position: absolute;
     top: -3px;
     left: -4px;
+}
+
+@media (max-width:992px) {
+    .category-box{
+        min-width: 150px !important;
+        height: 357px !important;
+        margin: 5px !important;
+      
+      }
+      .category-box h3 {
+        bottom: -90px !important;
+        font-size: 25px !important;
+      }
+      .category-box h4 {
+        font-family: 'dion';
+        font-size: 30px !important;
+        text-align: center;
+        color: #000;
+        position: absolute;
+        top: -94px !important;
+        left: 32px !important;
+      }
+      .category-box-active h3{
+        margin-left: 0 !important;
+        font-size: 15px !important;
+      }
+      .category-box-active .texts .category-btn {
+        font-size: 13px;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width:500px) {
+    .category-box {
+        min-width: 100px !important;
+        height: 250px !important;
+        margin: 5px !important;
+    }
+    .category h2 {
+        font-family: dion;
+        font-size: 30px !important;
+        text-transform: uppercase;
+        margin: 10px 50px;
+        text-align: center;
+    }
+    .gallery-heading {
+        font-size: 30px !important;
+        margin-bottom: 20px;
+    }
+    .blog h3 {
+        font-family: dion;
+        font-size: 30px !important;
+    }
+    .blog .heading-text{
+        width: 100% !important;
+    }
+}
+
+@media (max-width:400px) {
+    .category-box {
+        min-width: 62px !important;
+        height: 250px !important;
+        margin: 5px !important;
+        padding: 0;
+    }
+    .category-box h4 {
+        font-size: 17px !important;
+        top: -61px !important;
+        left: 19px;
+    }
 }

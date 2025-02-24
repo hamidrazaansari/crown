@@ -23,7 +23,27 @@ function ShowAllProducts({ relatedProducts }) {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    arrow: false
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1200, // Large screens
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 992, // Tablets
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 768, // Mobile (small screens)
+        settings: {
+          slidesToShow: 2
+        }
+      }
+    ]
   };
   return (
     <div className='allProduct bgWhite'>
@@ -46,7 +66,6 @@ function ShowAllProducts({ relatedProducts }) {
                     <Link to={`/product-details/${product._id}`}>
                       <div className="product-box">
                         <img src={imgUrl} alt="product1" />
-                        <div className="line"></div>
                         <h4>{product.name}</h4>
                       </div>
                     </Link>

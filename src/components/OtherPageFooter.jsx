@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import FooterImg from '../assets/image/aqua-wall.jpg'
 import { GoArrowUpRight } from "react-icons/go";
 import InquiryModal from "./InquiryModal";
+import Footer from "./Footer";
 
 function OtherPageFooter() {
 
@@ -25,49 +26,8 @@ function OtherPageFooter() {
         <div className="footer-background">
           <img src={FooterImg} alt="footer image" />
         </div>
-
-        {/* Footer Section */}
-        <div className="newFooter m-0" style={{ backgroundColor: "#000" }}>
-          <div className="container" >
-            <div className="d-flex align-items-center justify-content-center mt-5">
-              <Link to={'/about'}>
-                <h2>About</h2>
-              </Link>
-              <Link to={'/contact'}>
-                <h2>Contacts</h2>
-              </Link>
-              <Link>
-                <h2>Privacy Policy</h2>
-              </Link>
-              <Link to={'blog'}>
-                <h2>Blog</h2>
-              </Link>
-            </div>
-            <p>
-              <a href="mailto:crownlaminates@gmail.com" style={{ color: "#fff" }}>
-                crownlaminates@gmail.com
-              </a>
-            </p>
-            <p>
-              <a href="tel:+918564758228" style={{ color: "#fff" }}>
-                +(91) 8564758228
-              </a>
-            </p>
-          </div>
-          <div className="line" style={{ backgroundColor: "#fff" }}></div>
-          <div className="container">
-            <div className="d-flex align-items-center justify-content-center">
-              <Link to='https://www.facebook.com/royalcrownlaminates' target='_blank'>
-                <h2>Facebook</h2>
-              </Link>
-              <Link to={'https://www.instagram.com/royalcrownlaminates'} target="_blank">
-                <h2>Instagram</h2>
-              </Link>
-              <Link>
-                <h2>Linkedin</h2>
-              </Link>
-            </div>
-          </div>
+        <div className="newFooter">
+          <Footer />
         </div>
       </div>
     </div>

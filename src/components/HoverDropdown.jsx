@@ -25,6 +25,7 @@ function HoverDropdown() {
         <Dropdown.Item ><Link to={'/blog'}>Blog </Link></Dropdown.Item>
         <Dropdown.Item ><Link to={'/environmental'}>Envoirmental </Link></Dropdown.Item>
         <Dropdown.Item ><Link to={'/certification'}>Certification </Link></Dropdown.Item>
+        <Dropdown.Item ><Link to={'/catalouge'}>Catalogue </Link></Dropdown.Item>
         <Dropdown.Item ><Link to={'/contact'}>Contact Us </Link></Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

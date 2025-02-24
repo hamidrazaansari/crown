@@ -13,13 +13,17 @@ import JapanFlag from '../assets/image/japan-flag.png'
 import UsFlag from '../assets/image/us-flag.png'
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import HoverDropdown from './HoverDropdown';
+import { FaBars } from "react-icons/fa";
 
 
 
 function NavBar() {
   const [showModal, setShowModal] = useState(false);
   const [show, setShow] = useState(false);
+  const [showNav, setShowNav] = useState(false);
 
+  const handleNavClose = () => setShowNav(false);
+  const handleShowNav = () => setShowNav(true);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -57,23 +61,24 @@ function NavBar() {
 
       <Navbar expand="lg" className="navbar sticky-top">
         <Container>
-          
+
           <Navbar.Brand >
             <Link to={'/'}>
-            <img src={Logo} alt="Crown logo" />
+              <img src={Logo} alt="Crown logo" />
             </Link>
           </Navbar.Brand>
           <div className="d-flex justify-content-between align-items-center " style={{ width: "80%", position: "relative" }}>
             <SearchBar />
-            <div className='d-flex align-items-center'>
+            
+            <div className='d-lg-flex align-items-center d-none'>
 
               <Nav.Item href="/">
                 {/* <Link onMouseEnter={openModal}>Products</Link> */}
-                <NavModal/>
+                <NavModal />
               </Nav.Item>
 
               <Nav.Item href="/">
-                <HoverDropdown/>
+                <HoverDropdown />
               </Nav.Item>
 
               <Cart />
@@ -84,6 +89,34 @@ function NavBar() {
                 </Link>
               </Nav.Item>
             </div>
+            {/* Add Toggle Button for Mobile View */}
+            <div className='d-lg-none d-block' >
+            <Cart />
+            </div>
+
+            <button onClick={handleShowNav} className='bar d-lg-none d-block' > <FaBars/> </button>
+
+            <Offcanvas show={showNav} placement={'end'} onHide={handleNavClose} className='nav-col  d-lg-none d-block'>
+              <Offcanvas.Body>
+                <div className="d-flex justify-content-center align-items-center flex-column  w-100 ">
+                    <div className="d-flex justify-center-between">
+                    <Nav.Item>
+                      <Link onClick={handleShow}>
+                        <img src={IndianFlag} alt="Indian Flag" className='flagImg' />
+                      </Link>
+                    </Nav.Item>
+                    </div>
+                  <div className='d-flex align-items-center flex-column'>
+                    <Nav.Item>
+                      <NavModal />
+                    </Nav.Item>
+                    <Nav.Item>
+                      <HoverDropdown />
+                    </Nav.Item>
+                  </div>
+                </div>
+              </Offcanvas.Body>
+            </Offcanvas>
           </div>
         </Container>
       </Navbar>

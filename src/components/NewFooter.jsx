@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/all";
 import "../assets/css/footer.css";
 import { Link } from "react-router-dom";
 import logo from '../assets/image/logo.png'
+import Footer from "./Footer";
 
 function NewFooter() {
   return (
@@ -14,9 +15,9 @@ function NewFooter() {
           <img src={logo} alt="logo" style={{width:"50%"}} />
         </div>
       </div>
-
+      <Footer/>
       {/* Footer Section */}
-      <div className="newFooter" style={{ backgroundColor: "#000" }}>
+      {/* <div className="newFooter" style={{ backgroundColor: "#000" }}>
         <div className="container" >
           <div className="d-flex align-items-center justify-content-center mt-5">
             <Link to={'/about'}>
@@ -57,7 +58,7 @@ function NewFooter() {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

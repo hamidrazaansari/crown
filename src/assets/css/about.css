@@ -2,24 +2,29 @@
   background-color: #fbfbfb;
   padding: 60px 0;
 }
+
 .about-vid-box {
   height: 550px;
   width: 550px;
   position: relative;
 }
+
 .about-vid-box img {
   height: 100%;
   width: 100%;
 }
+
 .Space-box {
   height: 500px;
   width: 500px;
   position: relative;
 }
+
 .Space-box img {
   height: 100%;
   width: 100%;
 }
+
 .playIcon {
   position: absolute;
   left: 43%;
@@ -36,6 +41,7 @@
   margin-bottom: 25px;
   color: #000;
 }
+
 .space-heading {
   font-size: 35px;
   font-family: inter !important;
@@ -44,9 +50,11 @@
   margin-bottom: 25px;
   color: #333333;
 }
+
 .about-content {
   width: 90%;
 }
+
 .about-content h3 {
   font-size: 42px;
   font-family: dion;
@@ -54,6 +62,7 @@
   margin-bottom: 20px;
   color: #000;
 }
+
 .about-content p {
   font-size: 13px;
   font-family: dion;
@@ -63,6 +72,7 @@
   font-weight: 400;
   letter-spacing: 1px;
 }
+
 .about-content button {
   border: 1px solid #000;
   color: #232323;
@@ -75,12 +85,18 @@
   margin-top: 10px;
   border-radius: 5px;
 }
+
+.about-content button a {
+  color: #000;
+}
+
 .line {
   background-color: #e79c0782;
   height: 1px;
   width: 50%;
   margin-bottom: 30px;
 }
+
 .about .custom-video {
   width: 100%;
   height: 100%;
@@ -95,21 +111,26 @@
   height: 400px;
   max-width: 590px;
 }
+
 .About-us .image-box img {
   height: 100%;
   width: 100%;
 }
+
 .About-us .content-box h2 {
   font-family: JuliusSansOne;
 }
+
 .About-us .content-box p {
   font-family: inter;
   font-size: 14px;
   color: #00000054;
 }
+
 .About-us .content-box {
   padding: 20px;
 }
+
 .About-us .content-box .line {
   background-color: #e79c0782;
   height: 1px;
@@ -117,12 +138,14 @@
   margin-bottom: 20px;
   margin-top: 15px;
 }
+
 .why {
   background-color: #f5f5f5;
   padding: 40px 0;
   margin: 40px 0;
   position: relative;
 }
+
 .why::before {
   position: absolute;
   content: "";
@@ -132,6 +155,7 @@
   z-index: 1;
   background: url(../image/why-bg.png);
 }
+
 .why h2,
 .globle h2 {
   font-family: JuliusSansOne;
@@ -141,6 +165,7 @@
   letter-spacing: 2px;
   margin-bottom: 30px;
 }
+
 .why .image-box {
   height: 100px;
   width: 100px;
@@ -150,10 +175,12 @@
   align-items: center;
   justify-content: center;
 }
+
 .why .image-box img {
   height: 60%;
   width: 60%;
 }
+
 .why .points-box {
   background-color: #fff;
   position: relative;
@@ -162,22 +189,26 @@
   margin: 10px;
   width: 70%;
 }
+
 .why .points-box h3 {
   font-family: "inter";
   font-size: 17px;
   margin: 10px 0;
 }
+
 .why .points-box span {
   position: absolute;
   right: 21px;
   color: #00000073;
   font-size: 19px;
 }
+
 .why .points-box p {
   color: #00000059;
   margin-bottom: 10px;
   font-family: "Kanit";
 }
+
 .img-container {
   height: 600px;
   display: flex;
@@ -185,94 +216,11 @@
   justify-content: center;
   margin: 20px 0;
 }
+
 .img-container img {
   height: 100%;
 }
 
-@media (max-width:1200px) {
-  .about-vid-box {
-    height: 501px !important;
-    width: 425px !important;
-    position: relative;
-}
-.about .about-content h2 {
-  font-size: 65px;
-  margin-bottom: 15px;
-}
-}
-
-@media (max-width: 992px) {
-  .about-content {
-    width: 100%;
-    margin: 0 0px;
-    margin-top: 28px;
-}
-  .Space-box {
-    height: 435px;
-    position: relative;
-    margin: 34px;
-    width: 500px;
-  }
-  .about-vid-box {
-    height: 423px !important;
-    width: 600px !important;
-    position: relative;
-}
-.about-content h3 {
-  font-size: 33px;
-}
-}
-@media (max-width: 767px) {
-  .Space-box {
-    height: 400px;
-    position: relative;
-    margin: 34px;
-    width: 416px;
-  }
-  .about-vid-box {
-    height: 400px !important;
-    width: 480px !important;
-    position: relative;
-}
-}
-@media (max-width: 500px) {
-  .about-vid-box {
-    height: 300px !important;
-    width: 380px !important;
-    position: relative;
-}
-.about .about-content h2 {
-  font-size: 40px;
-  margin-bottom: 5px;
-}
-.about-content h3 {
-  font-size: 26px;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
-  .Space-box {
-    height: 330px;
-    position: relative;
-    margin: 34px;
-    width: 325px;
-  }
-}
-@media (max-width: 400px) {
-  .about-vid-box {
-    height: 368px;
-    width: 300px;
-    position: relative;
-  }
-  .about-content {
-    margin: 20px;
-  }
-  .Space-box {
-    height: 290px;
-    position: relative;
-    margin: 10px;
-    width: 279px;
-  }
-}
 
 /* App Navbar Starts Here */
 .appBar {
@@ -282,6 +230,7 @@
   display: flex;
   z-index: 10;
 }
+
 .appBar .navbarContainer {
   position: relative;
   width: 100%;
@@ -299,11 +248,13 @@
   justify-content: center;
   z-index: 1;
 }
+
 .appBar .navbarContainer .navbarWrapper .mainNavbar a {
   padding: 20px;
   text-decoration: none;
   color: #000;
 }
+
 .appBar .navbarContainer .navbarWrapper .mainNavbar.is-2 a {
   color: #fff;
 }
@@ -312,14 +263,16 @@
 
 .thank-you-container {
   position: relative;
-  width: 100%;
+  width: 100% !important;
   height: 90vh;
   z-index: 3;
 }
+
 .thank-you-container .thank-you-wrapper {
   width: 100%;
   height: 90vh;
 }
+
 .thank-you-container .thank-you-wrapper .thank-you {
   position: relative;
   display: flex;
@@ -329,6 +282,7 @@
   color: #000;
   z-index: 1;
 }
+
 .thank-you-container .thank-you-wrapper .thank-you.is-2,
 .appBar .navbarContainer .navbarWrapper .mainNavbar.is-2 {
   position: absolute;
@@ -341,6 +295,7 @@
   color: #fff;
   height: 100%;
 }
+
 .thank-you-container .thank-you-wrapper .thank-you .content {
   display: flex;
   width: 100%;
@@ -348,6 +303,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .thank-you-container .thank-you-wrapper .thank-you p {
   font-size: 16rem;
   line-height: 0.9;
@@ -365,9 +321,11 @@
   font-size: 5rem;
   background-color: #eee;
 }
-.ctext{
+
+.ctext {
   position: relative;
 }
+
 .ctext::before {
   position: absolute;
   content: "";
@@ -380,18 +338,8 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-.thank-you-container .is-2::before {
-  position: absolute;
-  content: "";
-  background: url(/crown/src/assets/image/creative.png);
-  height: 120px;
-  width: 80px;
-  top: 25%;
-  left: 45%;
-  z-index: 4;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
+
+
 
 
 /* New Style  */
@@ -400,7 +348,8 @@
 .about-company-section .breadcrumb span {
   font-size: 11px !important;
 }
-.about-company-section  {
+
+.about-company-section {
   position: relative;
   z-index: 10;
   background-color: #fff;
@@ -412,6 +361,7 @@
   color: #000000;
   font-family: dion;
 }
+
 .about-company p {
   font-size: 14px;
   opacity: 0.6;
@@ -425,7 +375,7 @@
   background-attachment: fixed;
   position: relative;
   z-index: 10;
-  overflow-y:unset ;
+  overflow-y: unset;
 
 }
 
@@ -441,11 +391,19 @@
   text-align: left;
   text-wrap: auto;
   margin-top: 10px;
-  width: 40% !important;
+  width: 47% !important;
+  font-size: 14px;
+  color: #fff;
 }
-.heritage-section .banner-item h1{
+
+.heritage-section .banner-item h1 {
   text-align: left !important;
   margin-left: 50px;
+  color: #fff;
+}
+
+.banner-item {
+  min-width: 140px;
 }
 
 .heritage-section .year-highlight {
@@ -453,13 +411,14 @@
   font-size: 14px;
   font-weight: 400;
   position: relative;
-  display: flex
-;
+  display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-left: 55px;
+  color: #fff;
 }
-.heritage-section .banner-item{
+
+.heritage-section .banner-item {
   text-align: left !important;
   position: relative;
 }
@@ -472,6 +431,7 @@
   display: block;
   margin-right: 19px;
 }
+
 .heritage-section .circles {
   width: 19px;
   height: 19px;
@@ -503,11 +463,13 @@
   height: 8px;
   margin: auto 8px;
 }
-.visionContainer{
+
+.visionContainer {
   position: relative;
   z-index: 10;
   background-color: #fff;
 }
+
 .visionContainer h1 {
   font-size: 40px;
   margin-bottom: 30px;
@@ -542,11 +504,15 @@
   left: 50%;
   top: 50%;
   transform: translate(-40%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .crownSpecialize h3 {
   font-size: 55px;
-    color: #fff;
+  color: #fff;
   font-weight: 700;
   margin-bottom: 40px;
   font-family: dion;
@@ -571,25 +537,26 @@
   background-color: #fff;
   position: relative;
   z-index: 10;
-  
+
 }
-.crowLaminationSection h1{
+
+.crowLaminationSection h1 {
   font-family: dion;
   letter-spacing: 1.6px;
   font-size: 46px;
   text-transform: uppercase;
 }
 
-.crowLaminationSection > .container{
-  border-bottom:1px solid #1f1f1f69;
-  padding:80px 0px;
+.crowLaminationSection>.container {
+  border-bottom: 1px solid #1f1f1f69;
+  padding: 80px 0px;
 }
 
 .crowLaminationSection .crownBox {
   background-color: #000;
   padding: 30px;
   width: 99%;
-  height:100%;
+  height: 100%;
   color: white;
   padding-top: 40px;
   font-family: dion;
@@ -602,17 +569,18 @@
   background-color: #e69b00;
   color: white;
 }
-.crownBox:hover{
+
+.crownBox:hover {
   background-color: #e69b00;
   color: white !important;
 }
 
-.crownBox:hover p{
+.crownBox:hover p {
   color: white;
 }
 
 
-.crownBox.active p{
+.crownBox.active p {
   color: white;
 }
 
@@ -628,26 +596,27 @@
   opacity: 0.7;
 
 }
-.globeSection{
+
+.globeSection {
   padding: 30px 0px;
   position: relative;
   z-index: 10;
   background-color: #fff;
 }
 
-.globeSection h2{
-  margin-bottom:20px;
+.globeSection h2 {
+  margin-bottom: 20px;
   font-family: dion;
 }
 
 .globeImageContainer img {
   width: 90%;
   margin: 0 5%;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 
 }
 
-.gloabFooterInfo{
+.gloabFooterInfo {
   text-align: center;
   font-family: dion;
   letter-spacing: 1.8px;
@@ -656,11 +625,13 @@
   z-index: 10;
 
 }
-.gloabFooterInfo p{
+
+.gloabFooterInfo p {
   opacity: 0.6;
   font-family: Kanit;
 }
-.procedure{
+
+.procedure {
   height: 3px;
   width: 100px;
   position: absolute;
@@ -669,7 +640,7 @@
   z-index: 2;
 }
 
-.procedure-bg{
+.procedure-bg {
   height: 3px;
   width: 100%;
   position: absolute;
@@ -677,6 +648,7 @@
   background-color: #333333;
   z-index: 1;
 }
+
 /* .procedure-bg::before{
   content: '';
   position: absolute;
@@ -689,7 +661,471 @@
   left: 40%;
 } */
 
-.banner-item  h1{
+.banner-item h1 {
   font-family: dion;
   font-size: 50px;
+}
+
+/* 
+@media (max-width:1200px) {
+  .about-vid-box {
+    height: 501px !important;
+    width: 425px !important;
+    position: relative;
+  }
+
+  .about .about-content h2 {
+    font-size: 65px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    width: 100%;
+    margin: 0 0px;
+    margin-top: 28px;
+  }
+
+  .Space-box {
+    height: 435px;
+    position: relative;
+    margin: 34px;
+    width: 500px;
+  }
+
+  .about-vid-box {
+    height: 423px !important;
+    width: 600px !important;
+    position: relative;
+  }
+
+  .about-content h3 {
+    font-size: 33px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Space-box {
+    height: 400px;
+    position: relative;
+    margin: 34px;
+    width: 416px;
+  }
+
+  .about-vid-box {
+    height: 400px !important;
+    width: 480px !important;
+    position: relative;
+  }
+} */
+/* 
+@media (max-width: 500px) {
+  .about-vid-box {
+    height: 300px !important;
+    width: 380px !important;
+    position: relative;
+  }
+
+  .about .about-content h2 {
+    font-size: 40px;
+    margin-bottom: 5px;
+  }
+
+  .about-content h3 {
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .Space-box {
+    height: 330px;
+    position: relative;
+    margin: 34px;
+    width: 325px;
+  }
+
+  .crowLaminationSection .crownBox {
+    width: 90%;
+    margin: 20px auto;
+    padding: 18px;
+  }
+
+  .crowLaminationSection .crownBox {
+    width: 90%;
+    margin: auto;
+    padding: 18px;
+    height: 94%;
+  }
+
+  .crowLaminationSection>.container {
+    padding: 10px 0px;
+  }
+
+  .crowLaminationSection h1 {
+    font-family: dion;
+    letter-spacing: 1.6px;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .about-company h1 {
+    font-size: 30px;
+  }
+
+  .about-company p {
+    font-size: 13px;
+  }
+
+  .crownSection {
+    height: 45vh;
+  }
+
+  .crownSpecialize h3 {
+    font-size: 30px;
+  }
+
+  .crownSpecialize {
+    width: 75%;
+  }
+
+  .heritage-section .year-highlight {
+    margin-left: 10px;
+    width: 22%;
+  }
+
+  .heritage-section .banner-item h1 {
+    margin-left: 10px;
+    width: 22%;
+    font-size: 35px;
+  }
+
+  .heritage-section .banner-item p {
+    position: unset;
+    margin-left: 14px;
+    text-align: left;
+    text-wrap: auto;
+    margin-top: 10px;
+    width: 50% !important;
+    font-size: 15px;
+  }
+
+  .heritage-btn {
+    font-size: 14px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 12px 27px;
+    color: #fff;
+    border-radius: 2px;
+    margin-top: 44px;
+    margin-left: 13px;
+  }
+
+  .crowLaminationSection .crownBox {
+    width: 100%;
+    margin: 20px;
+    padding: 18px;
+    height: 82%;
+  }
+
+  .procedure-bg {
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: 78px;
+    background-color: #333333;
+    z-index: 1;
+  }
+
+  .procedure {
+    height: 3px;
+    width: 100px;
+    position: absolute;
+    bottom: 78px;
+    background-color: #fff;
+    z-index: 2;
+  }
+
+  .heritage-section .circles {
+    width: 19px;
+    height: 19px;
+    background-color: white;
+    border-radius: 100%;
+    display: block;
+    margin-right: 19px;
+    position: absolute;
+    bottom: -87px;
+    right: 74px;
+    z-index: 10;
+  }
+
+  .heritage-section .banner-item {
+    width: 30% !important;
+    margin-left: 0px;
+    align-items: start !important;
+  }
+
+}
+
+@media (max-width: 400px) {
+  .about-vid-box {
+    height: 368px;
+    width: 300px;
+    position: relative;
+  }
+
+  .about-content {
+    margin: 20px;
+  }
+
+  .Space-box {
+    height: 290px;
+    position: relative;
+    margin: 10px;
+    width: 279px;
+  }
+
+  .crownBox h3 {
+    margin-bottom: 10px;
+    font-size: 17px;
+  }
+
+  .crownBox p {
+    font-size: 12px;
+    color: #969595;
+    font-family: kanit;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin-bottom: 7px;
+  }
+
+  .heritage-section .circles {
+    bottom: -22px;
+}
+
+} */
+.crownSection {
+  color: #fff;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.crownSpecialize {
+  max-width: 800px;
+  margin: auto;
+}
+
+.crownSpecialize h3 {
+  font-size: 60px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.crownBtn {
+  background: #ff6f00;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.crownBtn:hover {
+  background: #e65c00;
+}
+
+/* 🔹 Crown Laminates Section */
+.crowLaminationSection {
+  padding: 60px 0;
+  background: #f8f8f8;
+}
+
+.crowLaminationSection h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.crownBox {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.crownBox:hover {
+  transform: translateY(-5px);
+}
+
+.crownBox h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.crownBox p {
+  font-size: 16px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.crowLaminationSection .crownBox {
+  height: 87%;
+  margin: 20px !important;
+}
+
+@media (max-width:1200px) {
+  .crownSpecialize {
+    position: absolute;
+    width: 69%;
+    z-index: 13;
+    left: 39%;
+    top: 50%;
+    transform: translate(-40%, -50%);
+  }
+}
+
+/* 🔹 Responsive Styles */
+@media screen and (max-width: 992px) {
+
+
+  .crowLaminationSection h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .about-vid-box {
+    height: 550px;
+    width: 550px;
+    position: relative;
+    margin-top: 220px;
+  }
+
+  .about-vid-box {
+    height: 420px;
+    width: 575px;
+    position: relative;
+    margin-top: 570px;
+  }
+  .banner-item {
+    height: 529px;
+    width: 614px;
+}
+}
+
+@media screen and (max-width: 768px) {
+  .crownSpecialize h3 {
+    font-size: 22px;
+  }
+
+  .crownBtn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .crowLaminationSection {
+    padding: 40px 0;
+  }
+
+  .crowLaminationSection h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .crownBox {
+    padding: 15px;
+  }
+
+  .crownBox h3 {
+    font-size: 20px;
+  }
+
+  .crownBox p {
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .crownSpecialize {
+    position: absolute;
+    width: 76%;
+    z-index: 13;
+    left: 41%;
+    top: 50%;
+  }
+
+  .crownSpecialize h3 {
+    font-size: 40px;
+  }
+
+  .crownBtn {
+    font-size: 14px;
+    padding: 8px 16px;
+    margin-left: 82px;
+  }
+
+  .crowLaminationSection {
+    padding: 30px 0;
+  }
+
+
+  .crowLaminationSection h1 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .crownBox h3 {
+    font-size: 18px;
+  }
+
+  .crownBox p {
+    font-size: 13px;
+  }
+
+  .crownSection {
+    height: 60vh;
+  }
+
+  .about .about-content h2 {
+    font-size: 40px;
+    margin-top: 20px;
+  }
+
+  .about-content h3 {
+    font-size: 30px;
+    font-family: dion;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #000;
+  }
+
+  .about-vid-box {
+    height: 224px;
+    position: relative;
+    min-width: 288px;
+    width: 100%;
+    margin-top: 494px !important;
+  }
+}
+
+@media (max-width:400px) {
+  .about-vid-box {
+    height: 224px;
+    position: relative;
+    min-width: 288px;
+    width: 100%;
+    margin-top: 420px !important;
+
+  }
 }

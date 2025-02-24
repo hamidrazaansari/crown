@@ -215,7 +215,7 @@ function ContactUs() {
                                             value={formData.email}
                                             onChange={(e) => handleChange("email", e.target.value)}
                                             />
-                                            {errors.email && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.email}</small>}
+                                            {errors.email && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "62px" }}>{errors.email}</small>}
 
                                         </div>
                                     </div>
@@ -228,7 +228,7 @@ function ContactUs() {
                                                 value={formData.mobile}
                                                 onChange={(e) => handleChange("mobile", e.target.value)}
                                             />
-                                            {errors.mobile && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.mobile}</small>}
+                                            {errors.mobile && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "62px" }}>{errors.mobile}</small>}
 
                                         </div>
                                         <div className="col-6">

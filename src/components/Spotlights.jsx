@@ -20,25 +20,25 @@ const Spotlights = () => {
 
       if (!banner || !container) return;
 
-      const totalWidth = banner.scrollWidth; // Total scrollable width
-      const viewportWidth = container.clientWidth; // Screen width
-      const scrollDistance = totalWidth - viewportWidth; // Scroll amount
+      const totalWidth = banner.scrollWidth;
+      const viewportWidth = container.clientWidth;
+      const scrollDistance = totalWidth - viewportWidth;
 
       gsap.to(banner, {
-        x: -scrollDistance, // Move left
+        x: -scrollDistance,
         ease: "none",
         scrollTrigger: {
           trigger: container,
           start: "top-=150 top",
-          end: `+=${scrollDistance}`, // Scroll duration
-          scrub: 2, // Smooth scrolling effect
-          pin: true, // **This now properly pins the section**
-          anticipatePin: 1, // Helps with smoother pinning
+          end: `+=${scrollDistance}`,
+          scrub: 2,
+          pin: true,
+          anticipatePin: 1,
         },
       });
     }, containerRef);
 
-    return () => ctx.revert(); // Cleanup on unmount
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -49,14 +49,13 @@ const Spotlights = () => {
         </div>
       </div>
 
-      {/* 🔹 This is the pinned section */}
       <div className="banner-container" ref={containerRef}>
         <div className="scrolling-banner" ref={bannerRef}>
           {[SpotLightImg1, SpotLightImg, SpotLightImg2, SpotLightImg3].map(
             (img, index) => (
               <div className="banner-item" key={index}>
                 <img src={img} alt={`Spotlight ${index + 1}`} />
-                <h2>{["TABILLO", "QBISS", "KITTOP", "AQUA WALL"][index]}</h2>
+                <h3>{["TABILLO", "QBISS", "KITTOP", "AQUA WALL"][index]}</h3>
               </div>
             )
           )}
