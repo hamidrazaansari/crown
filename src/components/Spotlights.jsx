@@ -30,16 +30,17 @@ const Spotlights = () => {
         scrollTrigger: {
           trigger: container,
           start: "top-=150 top",
-          end: `+=${scrollDistance}`,
-          scrub: 2,
+          end: `+=${scrollDistance + 800}`,
+          scrub: 1,
           pin: true,
-          anticipatePin: 1,
         },
       });
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
+
+  
 
   return (
     <div className="spotlight">

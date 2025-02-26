@@ -118,7 +118,7 @@
     position: relative;
     width: 100%;
     background: transparent;
-    height: 55vh;
+    height: 80vh !important;
   }
   .footer-background {
     margin: 0;
@@ -285,8 +285,8 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 60vh !important;
-  transition: background-color 0.3s ease;
+  height: 43vh !important;
+  transition: background-color 0.3sease;
 }
 
 
@@ -347,11 +347,16 @@
     letter-spacing: 1px;
     margin-left: 30px;
   }
+  .explore {
+    height: 450px;
+    top: 300px;
+}
 
   .explore p {
     margin-left: 0px;
     width: 80%;
   }
+  
 
   .explore button {
     background-color: #E69B00;

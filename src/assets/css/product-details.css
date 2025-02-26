@@ -532,8 +532,10 @@
     }
     .Sample-modal .content h2 {
         font-family: 'Kanit';
-        font-size: 17px;
+        font-size: 14px;
         margin: 10px 0;
+        letter-spacing: 1.5px;
+        margin-bottom: 0 !important;
     }
     .content p{
         font-size: 14px;
@@ -543,6 +545,9 @@
     }
     .new-cart p{
         font-size: 13px;
+    }
+    .Sample-modal .img-box{
+        width: 220px;
     }
 }
 .finish{

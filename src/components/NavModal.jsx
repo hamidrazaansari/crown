@@ -20,6 +20,8 @@ const NavModal = () => {
     const [data, setData] = useState([]);
     const [activeSection, setActiveSection] = useState("products"); // Tracks which section is active
 
+    console.log(data);
+    
     const navigate = useNavigate();
 
     const handleMouseEnter = () => setShow(true);
@@ -68,7 +70,7 @@ const NavModal = () => {
                             {/* Render Products Section */}
                             {activeSection === "products" && (
                                 <div className="col-lg-9">
-                                    <div className="row d-lg-flex d-none ">
+                                    <div className="row">
                                         {data && data.map((category) => {
                                             const imageUrl = category.image ? getImageURL(category.image) : '';
                                             return (
@@ -98,10 +100,10 @@ const NavModal = () => {
                                             { img: Tabillo, name: "TABILLO" }
                                         ].map((item, index) => (
                                             <div key={index} className="col-3">
-                                                <div className="application-box">
+                                                <Link className="application-box" to={'/application'}>
                                                     <img src={item.img} alt={item.name} />
                                                     <h3 className="app-heading">{item.name}</h3>
-                                                </div>
+                                                </Link>
                                             </div>
                                         ))}
                                     </div>

@@ -17,6 +17,7 @@ import Cart from "./pages/Cart"
 import ThankYouPage from "./components/ThankYouPage"
 import ContactUs from "./pages/ContactUs"
 import Catalogue from "./pages/Catalogue"
+import Application from "./components/Application"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
@@ -49,6 +50,11 @@ function App() {
               path="/catalouge"
               element={<Catalogue />}
             />
+        <Route
+              path="/application"
+              element={<Application/>}
+            />
+      
       </Routes>
     </BrowserRouter>
     </CounterProvider>

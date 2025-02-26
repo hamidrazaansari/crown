@@ -67,11 +67,11 @@ function SearchBar() {
                     <h3>Categories</h3>
                     {category && category.map((item) => {
                         return (
-                            <>
-                                <div className='d-flex align-items-center  my-3' style={{ cursor: "pointer" }} onClick={() => handleOpen(item._id)}>
+                            <Link to={`/${item.slug}`}>
+                                <div className='d-flex align-items-center  my-3' style={{ cursor: "pointer" }}>
                                     <p className='mb-0 ms-2'>{item.name}</p>
                                 </div>
-                            </>
+                            </Link>
                         )
                     })}
                 </div>
