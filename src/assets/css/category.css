@@ -415,21 +415,35 @@
     .category-box-active h3{
         font-size: 12px !important;
         margin-left: 20px !important;
+        margin-bottom: 50px !important;
         
     }
-
+    .category-box-active .texts .category-btn {
+        font-size: 12px;
+        padding: 6px 26px;
+        bottom: -114px;
+        width: 100% !important;
+    }
     .category-box h4 {
         font-family: 'dion';
         font-size: 20px !important;
         top: -61px !important;
         left: 32px !important;
     }
+    .highRegImg span{
+        font-size: 10px !important;
+    }
     .category-box-active h4{
         font-family: 'dion';
         font-size: 14px !important;
-        top: -3px !important;
+        top: 0px !important;
         left: -6px !important;
         color: #fff;
+    }
+
+    .category-box h3 {
+        bottom: -59px !important;
+        font-size: 15px !important;
     }
 }
 

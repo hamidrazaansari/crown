@@ -488,8 +488,8 @@
         border-radius: 10px;
         box-shadow: 1px 1px 5px #77777752;
     }
-    .modal-content{
-        height: 75vh;
+    .modal-content {
+        height: 92vh;
         margin-top: 60px;
     }
     .closeButton{
