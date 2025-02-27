@@ -10,7 +10,9 @@ import "animate.css/animate.compat.css"
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  // <StrictMode>
+  //   <App />
+    
+  // </StrictMode>,
+  <h1> Welcome</h1>,
 )
