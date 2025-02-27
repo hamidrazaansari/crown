@@ -42,7 +42,7 @@ function Footer() {
 
                                 <div className="d-flex align-items-center">
                                     <div className="footer-img">
-                                        <img src={Mail} alt="mail" style={{ height: "12px", width: "18px" }} />
+                                        <img src={Mail} alt="mail" style={{ height: "12px", width: "18px" , margin: "0 10px "}} />
                                     </div>
                                     <p className='mb-0'> crownlaminates@gmail.com</p>
                                 </div>

@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 function BlogPage() {
     return (
         <div className='blogpage'>
-            <NavBar />
+            {/* <NavBar /> */}
             <div className="blog-details">
                 <div className="container px-5">
                     <div className="breadcrumb">

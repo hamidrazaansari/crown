@@ -423,6 +423,8 @@
         padding: 6px 26px;
         bottom: -114px;
         width: 100% !important;
+        position: relative;
+        z-index: 5;
     }
     .category-box h4 {
         font-family: 'dion';
@@ -445,6 +447,10 @@
         bottom: -59px !important;
         font-size: 15px !important;
     }
+    .about-content {
+        width: 100%;
+        padding: 0 25px;
+    }
 }
 
 @media (max-width:400px) {
@@ -459,4 +465,44 @@
         top: -61px !important;
         left: 19px;
     }
+
+    .category-box h3 {
+        bottom: -61px !important;
+        font-size: 15px !important;
+    }
+    .category-box-active h3{
+        font-size: 12px !important;
+        margin-left: 20px !important;
+        margin-bottom: 50px !important;
+        
+    }
+    .category-box-active .texts .category-btn {
+        font-size: 8px;
+        padding: 6px 9px;
+        bottom: -114px;
+        width: 100% !important;
+        text-align: center;
+    }
+    .category-box h4 {
+        font-family: 'dion';
+        font-size: 15px !important;
+        top: -61px !important;
+        left: 20px !important;
+    }
+    .highRegImg span{
+        font-size: 10px !important;
+    }
+    .category-box-active h4{
+        font-family: 'dion';
+        font-size: 14px !important;
+        top: 0px !important;
+        left: -6px !important;
+        color: #fff;
+    }
+
+    .category-box h3 {
+        bottom: -59px !important;
+        font-size: 12px !important;
+    }
+
 }

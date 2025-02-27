@@ -385,6 +385,17 @@ Link{
     }
 }
 
+@media (max-width:400px) {
+    .product-box img {
+        height: 182px;
+        width: 100%;
+        transform: skewX(19);
+    }
+    .product-box h4 {
+        font-size: 12px;
+    }
+}
+
 
 .listingHeader{
     padding: 20px 0;

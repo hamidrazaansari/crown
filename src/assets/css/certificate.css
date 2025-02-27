@@ -164,5 +164,16 @@
     left: 465px;
 }
 
-
-
+.company-logo {
+    margin: 11px 0;
+    border: 1px solid #000;
+    padding: 20px 20px;
+    height: 220px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0px 2px 6px #00000014;
+    border-radius: 5px;
+}

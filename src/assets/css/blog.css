@@ -167,9 +167,87 @@
         text-align: left;
         margin-left: 10px;
     }
+    .blog-details-content {
+        background-color: #fff;
+        width: 100%;
+        position: relative;
+        bottom: 40px;
+        z-index: 7;
+    }
+    .blog-details-content .information p img {
+        height: 15px;
+        width: 15px;
+        margin-right: 6px;
+    }
+    .blog-details-content h1 {
+        font-family: 'dion';
+        letter-spacing: .5px;
+        font-size: 20px !important;
+    }
+    .blog-details-content h2, .recent-blog h2{
+        font-size: 18px !important;
+    }
+    .blog-details-content img{
+        width: 100%;
+    }
+    .recent-blog {
+        margin-left: 0px !important;
+        position: sticky;
+        top: 62px;
+    }
+    .rcent-blog-box h3 {
+        font-family: Inter;
+        font-size: 15px !important;
+    }
+    .blog-details{
+        padding: 0 !important;
+    }
+    .blog-details .container{
+        padding: 0 10px !important;
+    }
 }
-
-    
+@media (max-width:400px) {
+    .blog-banner .banner-text-container {
+height: 100% !important;
+    }
+    .blog-details .blog-box {
+        margin: 20px 0 !important;
+        width: 95% !important;
+    }
+    .blog-box h2 {
+        font-family: dionMedium;
+        font-size: 15px !important;
+        margin: 20px 0 !important;
+    }
+    .blog-box button{
+        height: 35px !important;
+        width: 35px !important;
+    }
+    .blog-details p {
+        font-size: 12px !important;
+        padding: 0 !important;
+    }
+    .contact-box .contact-info img {
+        margin-right: 10px !important;
+    }
+    .contact-info h2 {
+        font-size: 20px !important;
+    }
+    .contactForm label{
+        font-size: 13px !important;
+    }
+    .contactForm input{
+        line-height: 28px !important;
+        font-size: 12px !important;
+    }
+    .select-search-container::after{
+        right: 0 !important;
+    }
+    .submit {
+        margin-right: 65px !important;
+    }
+}
+ 
     /* blog details page  */
     .blog-details-banner img{
         background-size: cover;
@@ -239,3 +317,4 @@
         position: sticky;
         top: 115px;
     }
+

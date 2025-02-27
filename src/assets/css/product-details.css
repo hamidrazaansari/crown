@@ -575,4 +575,24 @@
       .search-btn svg {
         font-family: 13px !important;
       }
+      .img-box img{
+        height: 300px !important;
+      }
+      .details-product h1{
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+      .details-product p .value {
+        font-size: 11px;
+        margin-left: -106px !important;
+    }
+    .finish {
+width: 90%;
+margin: 0px;
+    }
+    .crowLaminationSection .crownBox {
+        height: 85%;
+        padding: 10px !important;
+        padding-top: 15px !important ;
+    }
 }

@@ -326,21 +326,6 @@
   position: relative;
 }
 
-.ctext::before {
-  position: absolute;
-  content: "";
-  background: url(/src/assets/image/creative.png);
-  height: 120px;
-  width: 80px;
-  top: -40px;
-  left: 42%;
-  z-index: 999;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-
-
 
 /* New Style  */
 

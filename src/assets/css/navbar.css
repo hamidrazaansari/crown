@@ -343,18 +343,6 @@
         font-size: 10rem !important;
     }
 
-    .ctext::before {
-        position: absolute;
-        content: "";
-        background: url(/src/assets/image/creative.png);
-        height: 93px !important;
-        width: 57px !important;
-        top: -24px !important;
-        left: 41% !important;
-        z-index: 999;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
 
     .heroBanner img {
         height: 470px !important;
@@ -391,19 +379,6 @@
 
     .thank-you-container .thank-you-wrapper .thank-you p {
         font-size: 8rem !important;
-    }
-
-    .ctext::before {
-        position: absolute;
-        content: "";
-        background: url(/src/assets/image/creative.png);
-        height: 76px !important;
-        width: 41px !important;
-        top: -16px !important;
-        left: 41% !important;
-        z-index: 999;
-        background-repeat: no-repeat;
-        background-size: contain;
     }
 
     .heroBanner img {
@@ -450,19 +425,6 @@
 
     .heroBanner img , .heroBanner video {
         height: 60vh !important;
-    }
-
-    .ctext::before {
-        position: absolute;
-        content: "";
-        background: url(/src/assets/image/creative.png);
-        height: 60px !important;
-        width: 30px !important;
-        top: -14px !important;
-        left: 41% !important;
-        z-index: 999;
-        background-repeat: no-repeat;
-        background-size: contain;
     }
 
     .navbar-brand {
