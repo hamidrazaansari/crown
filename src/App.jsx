@@ -13,7 +13,6 @@ import Certificate from "./pages/Certificate"
 import ProductBanner from "./components/ProductBanner"
 import NavModal from "./components/NavModal"
 import BlogDetails from "./pages/BlogDetails"
-import Cart from "./pages/Cart"
 import ThankYouPage from "./components/ThankYouPage"
 import ContactUs from "./pages/ContactUs"
 import Catalogue from "./pages/Catalogue"
@@ -39,7 +38,7 @@ function App() {
         <Route path="/certification" element={<Certificate/>}/>
         <Route path="/cat" element={<ProductBanner/>}/>
         <Route path="/nav" element={<NavModal/>}/>
-        <Route path="/cart" element={<Cart/>}/>
+        {/* <Route path="/cart" element={<Cart/>}/> */}
         <Route path="/thank-you" element={<ThankYouPage/>}/>
         <Route path="/contact" element={<ContactUs/>}/>
         <Route

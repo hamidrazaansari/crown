@@ -42,10 +42,10 @@ function Order() {
     const { removeItemById } = useContext(CounterContext);
 
     useEffect(() => {
-        if (Array.isArray(data.state)) {
+        if (Array.isArray(data?.state)) {
             setOrderData(data.state);
         }
-    }, [data.state]);
+    }, [data?.state]);
 
 
     const handleRemoveItem = (indexToRemove, id) => {

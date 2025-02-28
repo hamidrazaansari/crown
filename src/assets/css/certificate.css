@@ -119,6 +119,11 @@
     .certification-box{
         width: 100%;
     }
+    .certificate-btn{
+        font-size: 12px !important;
+        border: 1px solid #e69b00 !important;
+
+    }
 }
 
 /* new design  */

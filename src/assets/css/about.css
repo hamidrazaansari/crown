@@ -978,6 +978,15 @@
     top: 50%;
     transform: translate(-40%, -50%);
   }
+  .about-vid-box {
+    height: 450px;
+    width: 430px;
+    position: relative;
+}
+.pos, .footer, .footer-bottom {
+  position: relative !important;
+  top: 841px;
+}
 }
 
 /* 🔹 Responsive Styles */
@@ -1038,6 +1047,11 @@
   .crownBox p {
     font-size: 14px;
   }
+  .about-vid-box {
+    height: 420px;
+    width: 538px;
+    position: relative;
+}
 
 }
 
@@ -1096,21 +1110,24 @@
   }
 
   .about-vid-box {
-    height: 224px;
+    height: 224px !important;
     position: relative;
-    min-width: 288px;
-    width: 100%;
+    width: 100% !important;
     margin-top: 494px !important;
   }
+  
 }
 
 @media (max-width:400px) {
   .about-vid-box {
-    height: 224px;
+    height: 224px !important;
     position: relative;
-    min-width: 288px;
+    min-width: 348px !important;
     width: 100%;
     margin-top: 420px !important;
 
+  }
+  .about .custom-video {
+    border-radius: 14px !important;
   }
 }

@@ -121,11 +121,12 @@
         padding: 0px 20px;
         border: 1px solid #d2d2d2;
         position: relative;
-        height: 939px;
+        height: 1039px;
     }
     .contact-us {
         padding-bottom: 40px;
-        height: 1107px;
+        height: 1207px;
+        
     }
     .contact-box img {
         position: absolute;
@@ -165,6 +166,9 @@
     }
     .contactForm small{
         font-size: 9px !important;
+    }
+    .select-search-option, .select-search-not-found{
+        font-size: 13px !important;
     }
     
 }

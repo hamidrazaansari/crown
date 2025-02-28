@@ -58,20 +58,23 @@ function ProductDetails() {
         setMatchingFinishes(selectedSizeObject ? selectedSizeObject.finishes : []);
     };
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await axios.get(`${API_URL}/products/${id}`);
-                setProducts(response.data.body);
-            } catch (err) {
-                setError('Error fetching data');
-                console.error(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchProducts();
-    }, [, id]);
+    const fetchProducts = async (id, setProducts, setError, setLoading) => {
+        try {
+          setLoading(true); // Ensure loading starts before fetching
+          const response = await axios.get(`${API_URL}/products/${id}`);
+          setProducts(response.data.body);
+        } catch (err) {
+          setError("Error fetching data");
+          console.error(err);
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+      useEffect(() => {
+        if (!id) return; // Prevent API call if id is undefined/null
+        fetchProducts(id, setProducts, setError, setLoading);
+      }, [id]);
 
 
     // if (loading) return <p>Loading...</p>;

@@ -383,11 +383,23 @@
         padding: 8px 20px;
     }
 }
+@media (max-width:768px) {
+    .decorative-active , .interior-active , .exterior-active  {
+        background-size: cover;
+    }
+
+}
 
 @media (max-width:500px) {
     .category-box {
         min-width: 100px !important;
         height: 250px !important;
+        margin: 5px !important;
+    }
+    .category-box {
+        min-width: 73px !important;
+        height: 357px !important;
+        /* padding: 0 !important; */
         margin: 5px !important;
     }
     .category h2 {
@@ -409,48 +421,43 @@
         width: 100% !important;
     }
     .category-box h3 {
-        bottom: -61px !important;
-        font-size: 15px !important;
+        bottom: -96px !important;
+        font-size: 21px !important;
     }
-    .category-box-active h3{
-        font-size: 12px !important;
+    .category-box-active h3 {
+        font-size: 16px !important;
         margin-left: 20px !important;
         margin-bottom: 50px !important;
-        
     }
     .category-box-active .texts .category-btn {
-        font-size: 12px;
-        padding: 6px 26px;
-        bottom: -114px;
-        width: 100% !important;
+        font-size: 10px;
+        padding: 4px 9px;
+        bottom: -194px;
         position: relative;
         z-index: 5;
+        left: -43px;
     }
     .category-box h4 {
         font-family: 'dion';
-        font-size: 20px !important;
-        top: -61px !important;
-        left: 32px !important;
+        font-size: 25px !important;
+        top: -77px !important;
+        left: 18px !important;
     }
     .highRegImg span{
         font-size: 10px !important;
     }
-    .category-box-active h4{
+    .category-box-active h4 {
         font-family: 'dion';
-        font-size: 14px !important;
-        top: 0px !important;
-        left: -6px !important;
+        font-size: 18px !important;
+        top: -2px !important;
+        left: -5px !important;
         color: #fff;
-    }
-
-    .category-box h3 {
-        bottom: -59px !important;
-        font-size: 15px !important;
     }
     .about-content {
         width: 100%;
         padding: 0 25px;
     }
+
 }
 
 @media (max-width:400px) {
@@ -471,17 +478,17 @@
         font-size: 15px !important;
     }
     .category-box-active h3{
-        font-size: 12px !important;
+        font-size: 13px !important;
         margin-left: 20px !important;
-        margin-bottom: 50px !important;
+        margin-bottom: 46px !important;
         
     }
     .category-box-active .texts .category-btn {
         font-size: 8px;
-        padding: 6px 9px;
-        bottom: -114px;
-        width: 100% !important;
+        padding: 5px 9px;
+        bottom: -122px;
         text-align: center;
+        left: -32px;
     }
     .category-box h4 {
         font-family: 'dion';
@@ -495,7 +502,7 @@
     .category-box-active h4{
         font-family: 'dion';
         font-size: 14px !important;
-        top: 0px !important;
+        top: -2px !important;
         left: -6px !important;
         color: #fff;
     }

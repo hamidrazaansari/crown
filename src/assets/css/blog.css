@@ -151,12 +151,95 @@
     text-align: center;
     text-transform: uppercase;
 }
+
+@media (max-width:1400px) {
+    .blog-box{
+        width: 300px !important;
+    }
+    .blog-box h2 {
+        font-size: 15px !important;
+    }
+    .blog-box button {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .blog-details p{
+        font-size: 13px !important;
+        padding: 0 !important;
+    }
+    .blog-banner .banner-text-container {
+        position: relative;
+        left: 34%;
+        bottom: 182px;
+    }
+    .footer-bottom .socal p {
+        text-transform: uppercase;
+        font-size: 14px;
+        margin: 0px 10px;
+    }
+}
 @media (max-width:992px) {
     .blog h3{
         font-size: 35px;
     }
+    .blog-banner .banner-text-container {
+        position: relative;
+        left: 29%;
+        bottom: 158px;
+    }
+    .socal-link {
+        position: relative !important;
+        top: -17px !important;
+        left: 304px !important;
+        width: 48% !important;
+    }
+    .about-vid-box {
+        height: 420px;
+        width: 669px;
+        position: relative;
+    }
+
+}
+
+@media (max-width:768px) {
+    .blog-banner .banner-text-container {
+        position: relative;
+        left: 29% !important;
+        bottom: 101px !important;
+        width: 200px !important;
+        padding: 10px !important;
+        border-radius: 15px !important;
+    }
+    .blog-banner .banner-text-container h2{
+        font-size: 30px !important;
+    }
+    .blog-box {
+        width: 250px !important;
+        margin: 10px auto !important;
+    }
+
+    .blog .blog-box {
+        width: 240px !important;
+        margin: 10px 5px !important;
+    } 
+   
+    .blog .heading-text{
+        width: 100%;
+    }
+
+    .banner-item img{
+        height: 200px !important;
+    }
+    .spotlight h3{
+        font-size: 30px;
+    }
+    
+
 }
 @media (max-width:520px) {
+    .playIcon{
+        display: none !important;
+    }
     .blog-heading {
         font-size: 27px;
         font-family: JuliusSansOne;
@@ -204,6 +287,27 @@
     }
     .blog-details .container{
         padding: 0 10px !important;
+    }
+    .blog-details .blog-box {
+        margin: 20px 7px !important;
+        width: 95% !important;
+    }
+    .blog-banner img {
+        width: 100%;
+        border-radius: 20px;
+        height: 184px !important;
+    }
+    .blog-banner .banner-text-container {
+        position: relative;
+        left: 29% !important;
+        bottom: 137px !important;
+        width: 173px !important;
+        padding: 7px !important;
+        height: 62px !important;
+        border-radius: 15px !important;
+    }
+    .blog .blog-box{
+        width: 100% !important;
     }
 }
 @media (max-width:400px) {

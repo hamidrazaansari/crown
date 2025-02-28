@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 function BlogPage() {
     return (
         <div className='blogpage'>
-            {/* <NavBar /> */}
+            <NavBar />
             <div className="blog-details">
                 <div className="container px-5">
                     <div className="breadcrumb">
@@ -29,7 +29,7 @@ function BlogPage() {
                 </div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
                                 <img src={Blog1} alt="blog1" />
                                 <div className="d-flex justify-content-between">
@@ -39,7 +39,7 @@ function BlogPage() {
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
 
                             <div className="blog-box mx-3">
                                 <img src={Blog2} alt="blog1" />
@@ -51,7 +51,7 @@ function BlogPage() {
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
                                 <img src={Blog3} alt="blog1" />
                                 <div className="d-flex justify-content-between">
@@ -62,7 +62,7 @@ function BlogPage() {
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
                                 <img src={Blog3} alt="blog1" />
                                 <div className="d-flex justify-content-between">
@@ -73,7 +73,7 @@ function BlogPage() {
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
                                 <img src={Blog3} alt="blog1" />
                                 <div className="d-flex justify-content-between">
@@ -84,7 +84,7 @@ function BlogPage() {
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
                                 <img src={Blog3} alt="blog1" />
                                 <div className="d-flex justify-content-between">
@@ -95,7 +95,7 @@ function BlogPage() {
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
                                 <img src={Blog3} alt="blog1" />
                                 <div className="d-flex justify-content-between">
@@ -106,7 +106,7 @@ function BlogPage() {
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
                                 <img src={Blog3} alt="blog1" />
                                 <div className="d-flex justify-content-between">
@@ -117,7 +117,7 @@ function BlogPage() {
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
                                 <img src={Blog3} alt="blog1" />
                                 <div className="d-flex justify-content-between">
@@ -128,7 +128,7 @@ function BlogPage() {
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
                                 <img src={Blog3} alt="blog1" />
                                 <div className="d-flex justify-content-between">
@@ -139,7 +139,7 @@ function BlogPage() {
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
                                 <img src={Blog3} alt="blog1" />
                                 <div className="d-flex justify-content-between">
@@ -150,7 +150,62 @@ function BlogPage() {
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-sm-6 col-12">
+                            <div className="blog-box mx-3">
+                                <img src={Blog3} alt="blog1" />
+                                <div className="d-flex justify-content-between">
+                                    <h2>What is the Laminates Sheets
+                                        Manufacturing Process</h2>
+                                    <Link to={'/blog-details'}><button><GoArrowUpRight /> </button></Link>
+                                </div>
+                                <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-sm-6 col-12">
+                            <div className="blog-box mx-3">
+                                <img src={Blog3} alt="blog1" />
+                                <div className="d-flex justify-content-between">
+                                    <h2>What is the Laminates Sheets
+                                        Manufacturing Process</h2>
+                                    <Link to={'/blog-details'}><button><GoArrowUpRight /> </button></Link>
+                                </div>
+                                <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-sm-6 col-12">
+                            <div className="blog-box mx-3">
+                                <img src={Blog3} alt="blog1" />
+                                <div className="d-flex justify-content-between">
+                                    <h2>What is the Laminates Sheets
+                                        Manufacturing Process</h2>
+                                    <Link to={'/blog-details'}><button><GoArrowUpRight /> </button></Link>
+                                </div>
+                                <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-sm-6 col-12">
+                            <div className="blog-box mx-3">
+                                <img src={Blog3} alt="blog1" />
+                                <div className="d-flex justify-content-between">
+                                    <h2>What is the Laminates Sheets
+                                        Manufacturing Process</h2>
+                                    <Link to={'/blog-details'}><button><GoArrowUpRight /> </button></Link>
+                                </div>
+                                <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-sm-6 col-12">
+                            <div className="blog-box mx-3">
+                                <img src={Blog3} alt="blog1" />
+                                <div className="d-flex justify-content-between">
+                                    <h2>What is the Laminates Sheets
+                                        Manufacturing Process</h2>
+                                    <Link to={'/blog-details'}><button><GoArrowUpRight /> </button></Link>
+                                </div>
+                                <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
                                 <img src={Blog3} alt="blog1" />
                                 <div className="d-flex justify-content-between">

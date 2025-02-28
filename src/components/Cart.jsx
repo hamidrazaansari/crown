@@ -15,7 +15,6 @@ import EmptyCart from '../assets/image/cart-empty.png'
 
 
 
-
 function Cart() {
   const { count, data, removeItemById } = useContext(CounterContext);
   const [showSignin, setShowSignin] = useState(false);
@@ -29,15 +28,16 @@ function Cart() {
   const handleShow = () => setShow(true);
 
   const handleCheckOut = () => {
-    const id ='67ac948d62526b6099c37b59'
+    const id = '67ac948d62526b6099c37b59';
     if (count === 0) {
       navigate('/products', { state: id });
-      return
+    } else {
+      navigate('/order', { state: data });
     }
-    else {
-      navigate('/order', { state: data })
-    }
-  }
+    handleClose(); // Close modal on checkout
+  };
+
+  const hasItems = data.length > 0;
 
   return (
     <div>
@@ -48,67 +48,51 @@ function Cart() {
           {count > 0 && <span className='cart-indecator'>{count}</span>}
         </div>
 
-
         <Modal className="cart-modal" show={show} onHide={handleClose}>
-
           <Modal.Body>
-            {data && data.length > 0 ? (
-              <h3>Cart</h3>
-            ) : ''
-            }
+            {hasItems && <h3>Cart</h3>}
+            {hasItems && (
+              <div className="header d-flex">
+                <h5 className='me-3'>Product Image</h5>
+                <h5>Details</h5>
+              </div>
+            )}
 
-            {data && data.length > 0 ?         
-            <div className="header d-flex">
-              <h5 className='me-3'>Product Image </h5>
-              <h5>Details </h5>
-            </div> : ''
-            }
-
-            {data && data.length > 0 ? (
-              data && data.map((item) => {
-                const imageUrl = item.a4Image ? getImageURL(item.a4Image) : '';
+            {hasItems ? (
+              data.map((item) => {
+                const imageUrl = item.a4Image ? getImageURL(item.a4Image) : Product1;
 
                 return (
-                  <>
                   <div className="new-cart" key={item._id}>
                     <div className="d-flex align-items-center justify-content-between added-product">
                       <div className="d-flex">
                         <img src={imageUrl} alt="product" className="product-img" />
                         <div className='ms-2'>
                           <h4>{item.name || 'Abstract'}</h4>
-                          <p>Decor Series : {item.decorSeries?.title || 'Abstract'}</p>
-                          <p>Size : {item.sizes?.map((cat)=>(<>{cat.title} , </>))}</p>
+                          <p>Decor Series: {item.decorSeries?.title || 'Abstract'}</p>
+                          <p>Size: {item.sizes?.map((cat) => (<span key={cat.title}>{cat.title}, </span>))}</p>
                         </div>
                       </div>
                       <div className='d-flex flex-column align-items-end justify-content-end'>
-                        <button className=" cart-dlt-btn" onClick={() => removeItemById(item._id)}><span className='me-1'><FaTrashCan /></span></button>
+                        <button className="cart-dlt-btn" onClick={() => removeItemById(item._id)}>
+                          <span className='me-1'><FaTrashCan /></span>
+                        </button>
                       </div>
                     </div>
-
-
-
-
                   </div>
-               </>
                 );
               })
             ) : (
               <div className='d-flex align-items-center justify-content-center flex-column emptyCart pt-4'>
                 <img src={EmptyCart} alt="Empty Cart" height={"115px"} />
-                <p className='text-center my-3'>Your cart is currently empty. Start adding  the products</p>
-                <button className='cart-btn' onClick={handleCheckOut}>Add Product</button>
+                <p className='text-center my-3'>Your cart is currently empty. Start adding products</p>
+                <button className='cart-btn' onClick={() => navigate('/products')}>Add Product</button>
               </div>
             )}
-             {data && data.length > 0 ?
-            <button className="chekout-btn float-end" onClick={handleCheckOut}>Checkout</button> :
-             '' 
-            }
 
-
-
+            {hasItems && <button className="chekout-btn float-end" onClick={handleCheckOut}>Checkout</button>}
           </Modal.Body>
         </Modal>
-
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { ToastContainer , toast} from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 // Create the context
 export const CounterContext = createContext();
@@ -9,32 +9,35 @@ export const CounterProvider = ({ children }) => {
   const [count, setCount] = useState(0);
   const [data, setData] = useState([]);
 
-    // Functions to modify data
-    const addData = (newData) => {
-      // Check for duplicates by comparing `_id`
-      const isDuplicate = data.some(item => item._id === newData._id);
-      if (isDuplicate) {
-        toast.error('This item is already in the cart!');
-        return;
-      }
-      
-      // Increment count and add new data if it's not a duplicate
-      setCount(count + 1);
-      setData([...data, newData]);
-    };
+  // Functions to modify data
+  const addData = (newData) => {
+    console.log("Adding Data:", newData);
+    
+    // Check for duplicates by comparing `_id`
+    const isDuplicate = data.some(item => item._id === newData._id);
+    if (isDuplicate) {
+      toast.error('This item is already in the cart!');
+      return;
+    }
+
+    // Update state safely
+    setData(prevData => [...prevData, newData]);
+    setCount(prevCount => prevCount + 1);
+  };
 
   // Function to clear checked data
   const clearCheckedData = () => {
     const checkedCount = data.filter(item => item.checked).length;
     setData(prevData => prevData.filter(item => !item.checked));
-    setCount(prevCount => Math.max(prevCount - checkedCount, 0)); // Decrement count by checked items
+    setCount(prevCount => Math.max(prevCount - checkedCount, 0)); // Ensure count doesn't go below 0
   };
 
   // Function to toggle item checked state
   const toggleItemChecked = (id) => {
+    console.log("Toggling item checked:", id);
     setData(prevData =>
       prevData.map(item =>
-        item._id === id ? { ...item, checked: !item.checked } : item
+        item._id === id ? { ...item, checked: item.checked ?? false } : item
       )
     );
   };
@@ -42,16 +45,17 @@ export const CounterProvider = ({ children }) => {
   // Function to remove an item by its id and decrement count
   const removeItemById = (id) => {
     setData(prevData => prevData.filter(item => item._id !== id));
-    setCount(prevCount => Math.max(prevCount - 1, 0)); // Decrement count by 1, ensuring it doesn't go below 0
+    setCount(prevCount => Math.max(prevCount - 1, 0)); // Ensure count doesn't go below 0
   };
 
   return (
     <>
-    <ToastContainer/>
-        <CounterContext.Provider value={{ count, data, addData, clearCheckedData, toggleItemChecked, removeItemById }}>
-      {children}
-    </CounterContext.Provider>
+      <ToastContainer />
+      <CounterContext.Provider value={{ count, data, addData, clearCheckedData, toggleItemChecked, removeItemById }}>
+        {children}
+      </CounterContext.Provider>
     </>
-
   );
 };
+
+export default CounterProvider;

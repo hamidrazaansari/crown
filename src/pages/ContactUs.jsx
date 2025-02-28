@@ -220,7 +220,7 @@ function ContactUs() {
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-6 d-flex flex-column " style={{ position: 'relative' , marginTop:"14px" }}>
+                                        <div className="col-lg-6 d-flex flex-column " style={{ position: 'relative' , marginTop:"14px" }}>
                                             <label htmlFor="mobile">Mobile*</label>
                                             <input
                                                 type="text"
@@ -231,7 +231,7 @@ function ContactUs() {
                                             {errors.mobile && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "62px" }}>{errors.mobile}</small>}
 
                                         </div>
-                                        <div className="col-6">
+                                        <div className="col-lg-6">
                                             <label htmlFor="country">Country*</label>
                                             <SelectSearch
                                                 options={countries}
