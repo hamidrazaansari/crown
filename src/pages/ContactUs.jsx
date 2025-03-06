@@ -39,14 +39,14 @@ function ContactUs() {
             });
 
     const inquiryOptions = [
-        { name: 'General', value: 'GENERAL', type: 'country' },
         { name: 'Product', value: 'PRODUCT', type: 'country' },
-        { name: 'Career', value: 'CAREER', type: 'country' },
-        { name: 'Complains', value: 'COMPLAINS', type: 'country' },
-        { name: 'Export', value: 'EXPORT', type: 'country' },
         { name: 'Price', value: 'PRICE', type: 'country' },
-        { name: 'Sampling', value: 'SAMPLING', type: 'country' },
+        { name: 'Samples', value: 'SAMPLING', type: 'country' },
+        { name: 'Export', value: 'EXPORT', type: 'country' },
+        { name: 'General', value: 'GENERAL', type: 'country' },
         { name: 'Supplier', value: 'SUPPLIER', type: 'country' },
+        { name: 'Career', value: 'CAREER', type: 'country' },
+        { name: 'Feedback/Concerns', value: 'FEEDBACK/CONCERNS', type: 'country' },
 
     ];
 
@@ -67,10 +67,10 @@ function ContactUs() {
         { name: 'Architect', value: 'Architect', type: 'country' },
         { name: 'Builder', value: 'Builder', type: 'country' },
         { name: 'Contractor', value: 'Contractor', type: 'country' },
-        { name: 'Dealer', value: 'Dealer', type: 'country' },
+        { name: 'Trade Partner', value: 'TRADE PARTNER', type: 'country' },
         { name: 'Home Owner', value: 'Home Owner', type: 'country' },
         { name: 'Interior Designer', value: 'Interior Designer', type: 'country' },
-        { name: 'Oems', value: 'France', type: 'Oems' },
+        { name: 'Oem', value: 'OEM', type: 'Oems' },
 
     ];
 
@@ -184,8 +184,15 @@ function ContactUs() {
                                 </div>
                                 <div className="contact-info">
                                     <h2> Contact Information</h2>
-                                    <p><img src={Call} alt="phone" /> +91 8564758228</p>
+                                    <p><img src={Call} alt="phone" /> +917940017979</p>
                                     <p><img src={Mail} alt="mail" style={{ height: "15px", width: '18px' }} /> crownlaminates@gmail.com</p>
+                                    <strong><img src={Location} alt="phone" />CROWN DECOR PRIVATE LTD</strong>
+                                    <p className='add-para'>One42, North Tower
+Suite 401-403, 4th Floor
+Ambali Bhopal Road, 
+B/H Ashok Vatika
+Ahmedabad 380058
+Gujarat, India</p>
                                     <strong><img src={Location} alt="phone" /> Factory Address</strong>
                                     <p className='add-para'>Survey no. 419/1, Radhe Industrial Estate, Tajpur Road, Changodar-382 213, Ahmedabad, Gujarat 382213</p>
                                 </div>

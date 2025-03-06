@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
-import Product1 from '../assets/image/product1.png'
 import '../assets/css/product-details.css'
 import ShowAllProducts from '../components/ShowAllProducts'
 import InquiryModal from '../components/InquiryModal'
@@ -12,8 +11,6 @@ import axios from 'axios'
 import { API_URL } from '../utills/BaseUrl'
 import OtherPageFooter from '../components/OtherPageFooter'
 import getImageURL from '../utills/getImageURL';
-import Product2 from '../assets/image/product1.png'
-import Product3 from '../assets/image/product3.png'
 import SelectSearch from 'react-select-search';
 
 
@@ -32,6 +29,10 @@ function ProductDetails() {
     const [imageType, setImageType] = useState('A4');
     const [selectedSize, setSelectedSize] = useState("");
     const [matchingFinishes, setMatchingFinishes] = useState([])
+    const [showAll, setShowAll] = useState(false);
+
+    const visibleFinishes = showAll ? matchingFinishes : matchingFinishes.slice(0, 3);
+    const remainingCount = matchingFinishes.length - 3;
 
     const sizeOptions = products.sizeFinishes?.map((item) => ({
         value: item.size.title,
@@ -60,21 +61,21 @@ function ProductDetails() {
 
     const fetchProducts = async (id, setProducts, setError, setLoading) => {
         try {
-          setLoading(true); // Ensure loading starts before fetching
-          const response = await axios.get(`${API_URL}/products/${id}`);
-          setProducts(response.data.body);
+            setLoading(true); // Ensure loading starts before fetching
+            const response = await axios.get(`${API_URL}/products/${id}`);
+            setProducts(response.data.body);
         } catch (err) {
-          setError("Error fetching data");
-          console.error(err);
+            setError("Error fetching data");
+            console.error(err);
         } finally {
-          setLoading(false);
+            setLoading(false);
         }
-      };
-      
-      useEffect(() => {
+    };
+
+    useEffect(() => {
         if (!id) return; // Prevent API call if id is undefined/null
         fetchProducts(id, setProducts, setError, setLoading);
-      }, [id]);
+    }, [id]);
 
 
     // if (loading) return <p>Loading...</p>;
@@ -97,9 +98,9 @@ function ProductDetails() {
 
 
     // Fetch related products 
-    
-    useEffect(()=>{
-        async function fetchRelatedProduct(){
+
+    useEffect(() => {
+        async function fetchRelatedProduct() {
             try {
                 const response = await axios.get(`${API_URL}/products?category=${products.categories[0]?._id}`);
                 setRelatedProducts(response.data.body);
@@ -108,22 +109,22 @@ function ProductDetails() {
             }
         }
         fetchRelatedProduct()
-    } , [products])
-    
+    }, [products])
+
 
     const handleDownload = async () => {
         try {
             const imgURLHighresulation = getImageURL(products.highResolutionImage);
-    
+
             // Fetch the image as a Blob
             const response = await fetch(imgURLHighresulation);
             const blob = await response.blob();
-    
+
             // Create a temporary anchor element
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
             link.download = "highResolutionImage.jpg"; // Set a default filename
-    
+
             document.body.appendChild(link);
             link.click(); // Trigger download
             document.body.removeChild(link); // Cleanup
@@ -132,10 +133,10 @@ function ProductDetails() {
             console.error("Error downloading the image:", error);
         }
     };
-    
+
     return (
         <div>
-            <InquiryModal show={show} handleClose={handleClose}  inquiryType={'PRODUCT'} productId={products._id}/>
+            <InquiryModal show={show} handleClose={handleClose} inquiryType={'PRODUCT'} productId={products._id} />
             <SampleReqModal show={showSample} handleSampleModleClose={handleSampleModleClose} data={products} />
 
             <NavBar />
@@ -168,9 +169,6 @@ function ProductDetails() {
                                     <img src={imgURLfullsheet} alt={''} />
                                 </div>
                             </div>
-                            {/* <div className="d-flex align-items-center justify-content-between action-btn">
-                                <button onClick={handleOpenImage}><span>FULL VIEW </span><img src={Fullscreen} alt="full screen icon" /></button>
-                            </div> */}
                             {showFullImage && (
                                 <FullImageView
                                     imageUrl={imageUrl}
@@ -188,15 +186,15 @@ function ProductDetails() {
                                     <button onClick={() => handleDownload()} className='d-flex flex-column justify-content-center align-items-center highRegImg'><img src={File} height={"21px"} alt="full screen icon" /><span>Download <br /> High Resolution File</span></button>
                                 </div>
 
-                                <p><span className='key'>Product Category</span><span  className='ms-1 value' >
-                                        {products.categories?.map((cat) => (
-                                            <>
-                                                {cat.name}
-                                            </>
+                                <p><span className='key'>Product Category</span><span className='ms-1 value' >
+                                    {products.categories?.map((cat) => (
+                                        <>
+                                            {cat.name}
+                                        </>
 
-                                        )
-                                        )}
-                                    </span>
+                                    )
+                                    )}
+                                </span>
                                 </p>
                                 <p><span className='key'>Decor Number </span><span className='ms-1 value'>{products.decorNumber}</span></p>
                                 <p><span className='key'>Decor Name </span><span className='ms-1 value'>{products.decorSeries?.title}</span></p>
@@ -209,18 +207,24 @@ function ProductDetails() {
                                         search
                                     />
                                 </span></p>
-                                <p className='d-flex align-middle justify-between'><div className='key'>Finish </div>
-                                    <div className='d-flex justify-baseline finish'>
-                                        {matchingFinishes.map((finish) => (
+                                <div className="d-flex align-middle justify-between">
+                                    <div className="key">Finish</div>
+                                    <div className="d-flex justify-baseline finish">
+                                        {visibleFinishes.map((finish) => (
                                             <div key={finish._id} className="finish-item">
                                                 <p>{finish.fullName}</p>
                                             </div>
                                         ))}
 
+                                        {matchingFinishes.length > 3 && (
+                                            <button className="toggle-btn border-0 bg-transparent" onClick={() => setShowAll(!showAll)}>
+                                                {showAll ? "See Less" : `${remainingCount} More`}
+                                            </button>
+                                        )}
                                     </div>
-                                </p>
+                                </div>
 
-                                <p className='desc'></p>
+                                <p className='desc'>{products.shortDescription}</p>
 
                                 <div className=" mt-4">
                                     <button className='enq-btn' onClick={handleShow}>Enquire Now</button>

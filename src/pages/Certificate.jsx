@@ -108,7 +108,7 @@ function Certificate() {
                                 <p>{cert.name}</p>
                             </div>
                             <button className='certificate-btn' onClick={() => handleShow(cert.file)}>
-                                View <img src={Eye} alt="eye" />
+                                View 
                             </button>
                         </div>
                     ))}

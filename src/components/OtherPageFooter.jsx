@@ -19,8 +19,8 @@ function OtherPageFooter() {
 
       <div>
         <div className="explore">
-          <h2>Are you ready to explore our wonderful laminates</h2>
-          <p>we are always working hard and trying to make the best for you</p>
+          <h2 style={{textTransform:"capitalize"}}>ARE YOU READY TO REDEFINE SURFACES WITH OUR INNOVATIVE, NEXT GEN LAMINATES?</h2>
+          {/* <p>we are always working hard and trying to make the best for you</p> */}
           <button onClick={handleShow}>Request a Quote <GoArrowUpRight /></button>
         </div>
         <div className="footer-background">

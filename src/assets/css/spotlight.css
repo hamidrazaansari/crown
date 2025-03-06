@@ -233,14 +233,14 @@
     height: 60vh;
   }
   .banner-item {
-    height: 550px;
+    height: 540px !important;
     width: 400px;
 
   }
   .banner-item img {
-    height: 550px;
-    width: 400px;
-
+    height: 560px !important;
+    width: 360px !important;
+    margin-top: 40px !important;
 }
   .scrolling-banner {
     gap: 10px;

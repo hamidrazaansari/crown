@@ -61,10 +61,10 @@ function Blog() {
     <div className='blog'>
         <div className="container">
             <h2 className='blog-heading'>BLOG</h2>
-            <h3>Latest Article</h3>
+            <h3>INDUSTRY SPEAK/WORLD OF LAMINATES/LAMINATE NEWS</h3>
             <p className='heading-text'>Discover our latest news and articles regarding common HPL knowledge. Having deep
             understanding about Crown can help you choose the right one for your applications.</p>
-              <div className="d-flex flex-wrap align-items-center justify-content-sm-start justify-content-center">
+              <div className="d-flex flex-wrap align-items-center justify-content-sm-start">
                 <div className="blog-box mx-3">
                     <img src={Blog1} alt="blog1" />
                     <div className="d-flex justify-content-between">

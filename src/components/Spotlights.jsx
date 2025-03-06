@@ -5,7 +5,7 @@ import "../assets/css/spotlight.css";
 import SpotLightImg from "../assets/image/qbiss.jpg";
 import SpotLightImg1 from "../assets/image/tabillo.jpg";
 import SpotLightImg2 from "../assets/image/kittop.jpg";
-import SpotLightImg3 from "../assets/image/aqua-wall.jpg";
+import SpotLightImg3 from "../assets/image/aqua-wall.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,7 +46,7 @@ const Spotlights = () => {
     <div className="spotlight">
       <div className="spotlightheader">
         <div className="container">
-          <h2>PRODUCT IN THE SPOTLIGHT</h2>
+          <h2>SPOTLIGHT</h2>
         </div>
       </div>
 

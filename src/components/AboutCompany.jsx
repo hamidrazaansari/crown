@@ -1,3 +1,5 @@
+import logo from '../assets/image/logo.png'
+
 const AboutCompany = () => {
   return (
     <div className="about-company-section pt-4">
@@ -13,20 +15,14 @@ const AboutCompany = () => {
       </div>
       <div className="row about-company">
         <div className="col-lg-5">
-          <h1>ABOUT COMPANY</h1>
+          <h1>ABOUT THE COMPANY</h1>
         </div>
         <div className="col-lg-7">
           <p>
-            Crown Decor, a Royale Touche Laminate group company, is a niche
-            Luxury Laminate brand from India and was launched in 1978 with the
-            idea that a laminate has unlimited potential in surface décor. They
-            made people look at laminates as a resilient and flexible product.
+          Whether for joinery or furniture production, laminates for interior/exterior use or any other advanced application, our versatile range offers elegant solutions for every design concept. 
           </p>
           <p>
-            The group has seven production lines of high pressure laminates
-            producing over 18 million sq mtr annually in 4 different sizes and
-            in thickness ranging from 0.6 mm to 25 mm which are made of 100%
-            phenolic resin.
+          Our curated collections inspired by the five elements — earth, water, fire, air, and aether — invite you into a realm of boundless creativity. At Crown Décor, innovation is at the heart of everything we do. Challenging conventions daily, we create exclusive, trend setting designs that redefine the essence of luxury.
           </p>
         </div>
       </div>

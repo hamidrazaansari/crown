@@ -3,9 +3,8 @@ const Vison = () => {
   return (
     <div className="visionContainer">
     <div className="container py-4 " >
-        <h1>VISION</h1>
-        <p>At Crown Lam, we envision a world where laminates do more than cover surfaces—they elevate them. We strive to be the go-to choice for architects, designers, and clients worldwide who seek luxury and longevity in every detail. Our commitment is to be a trusted supplier in every sense: delivering excellence in quality, aesthetics, and innovation across all our products.</p>
-        <p>Our mission is to blend artistry with durability, infusing timeless appeal into each laminate we create. We aim to redefine interiors and exteriors with laminates that are as resilient as they are refined. As a single-source manufacturer, we cater to all laminate needs, whether they’re for sleek interior spaces or robust exterior façades</p>
+      <p>Using premium décor paper imported from Europe's finest manufacturers, we take pride in delivering the crème de la crème of surface aesthetics — a harmonious blend of visual appeal combined with robust, functional utility.</p>
+      <p>Our uncompromising commitment to quality is validated by our certifications including EN-438:4, CE, NEMA-LD3-2005, BIS, Green Label, Green Guard, Green Building, and FSC. Fully compliant with stringent European health, safety, and environmental regulations, our laminates embody sustainable excellence.</p>
     </div>
     </div>
   )

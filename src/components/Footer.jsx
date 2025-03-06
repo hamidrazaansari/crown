@@ -83,7 +83,7 @@ function Footer() {
                                     <div className="col-6">
                                             <li> <a href="/">AQVA WALL</a></li>
                                             <li> <a href="/">CROWN XCL</a></li>
-                                            <li> <a href="/">FEASE</a></li>
+                                            <li> <a href="/">FENSE</a></li>
                                             <li> <a href="/">KITTOP</a></li>
                                     </div>
                                     <div className="col-6">

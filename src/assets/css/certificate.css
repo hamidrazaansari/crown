@@ -104,6 +104,10 @@
         z-index: 99998;
         border-radius: 50%;
 }
+.certificate-btn{
+    background-color:  #ededed !important;
+
+}
 @media (max-width:500px) {
     .company-logo img {
         height: 76px;

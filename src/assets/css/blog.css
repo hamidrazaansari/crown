@@ -16,7 +16,7 @@
 }
 .blog h3{
     font-family: dion;
-    font-size: 70px;
+    font-size: 40px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -306,8 +306,22 @@
         height: 62px !important;
         border-radius: 15px !important;
     }
-    .blog .blog-box{
-        width: 100% !important;
+    .blog .blog-box {
+        width: 45% !important;
+    }
+    .blog-box button {
+        height: 25px !important;
+        width: 25px !important;
+        margin: 15px 0 0 !important;
+    }
+    .blog-box p {
+        font-family: 'dionlight';
+        font-size: 10px;
+        margin: 0px 0px;
+        letter-spacing: 1px;
+        color: #7a7a7a;
+        padding-right: 0px;
+        line-height: 12px;
     }
 }
 @media (max-width:400px) {
@@ -320,13 +334,11 @@ height: 100% !important;
     }
     .blog-box h2 {
         font-family: dionMedium;
-        font-size: 15px !important;
-        margin: 20px 0 !important;
+        font-size: 12px !important;
+        margin: 9px 0 !important;
+        letter-spacing: 0;
     }
-    .blog-box button{
-        height: 35px !important;
-        width: 35px !important;
-    }
+
     .blog-details p {
         font-size: 12px !important;
         padding: 0 !important;

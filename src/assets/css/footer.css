@@ -147,7 +147,7 @@
     position: relative;
     width: 100%;
     background: transparent;
-    height: 80vh !important;
+    height: 80vh ;
   }
 
   .footer-background {
@@ -354,7 +354,8 @@
 .explore h2 {
   font-family: 'dion';
   font-size: 40px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  text-align: center;
 }
 
 .explore button {
@@ -423,12 +424,7 @@
     font-size: 15px;
   }
 
-  .pos,
-  .footer,
-  .footer-bottom {
-    position: relative !important;
-    top: 913px;
-  }
+
 
   .logo img {
     position: absolute !important;
@@ -463,19 +459,21 @@
     bottom: 2px;
   }
 
-  .pos,
-  .footer,
-  .footer-bottom {
+  .pos, .footer, .footer-bottom {
     position: relative !important;
-    top: 841px;
-  }
+    top: 724px;
+}
+.pos{
+  height: 35vh !important;
+}
 
   .footer h2 {
     font-size: 15px;
   }
-  .pos{
-    display: none !important;
-}
+  .crown img{
+    width: 65% !important;
+  }
+
 }
 
 .resp {

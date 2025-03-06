@@ -34,7 +34,7 @@
 }
 
 .about .about-content h2 {
-  font-size: 80px;
+  font-size: 60px;
   font-family: dion;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -56,17 +56,18 @@
 }
 
 .about-content h3 {
-  font-size: 42px;
+  font-size: 25px;
   font-family: dion;
   text-transform: uppercase;
   margin-bottom: 20px;
   color: #000;
+  letter-spacing: 1.8px;
 }
 
 .about-content p {
   font-size: 13px;
   font-family: dion;
-  color: #00000078;
+  color: #000000ad;
   line-height: 21px;
   padding-right: 22px;
   font-weight: 400;
@@ -968,6 +969,10 @@
   height: 87%;
   margin: 20px !important;
 }
+.about-content img{
+  height: 80px;
+  margin-bottom: 10px;
+}
 
 @media (max-width:1200px) {
   .crownSpecialize {
@@ -1052,6 +1057,9 @@
     width: 538px;
     position: relative;
 }
+.about-company h1 {
+  font-size: 25px;
+}
 
 }
 
@@ -1071,7 +1079,6 @@
   .crownBtn {
     font-size: 14px;
     padding: 8px 16px;
-    margin-left: 82px;
   }
 
   .crowLaminationSection {
@@ -1097,16 +1104,19 @@
   }
 
   .about .about-content h2 {
-    font-size: 40px;
+    font-size: 30px;
     margin-top: 20px;
+    margin-bottom: 10px !important;
   }
 
   .about-content h3 {
-    font-size: 30px;
+    font-size: 20px;
     font-family: dion;
     text-transform: uppercase;
     margin-bottom: 20px;
     color: #000;
+    letter-spacing: 1px;
+    line-height: 25px;
   }
 
   .about-vid-box {
@@ -1115,6 +1125,10 @@
     width: 100% !important;
     margin-top: 494px !important;
   }
+  .about-content {
+    width: 100%;
+    padding: 0 10px !important;
+}
   
 }
 

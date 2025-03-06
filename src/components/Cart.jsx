@@ -19,6 +19,12 @@ function Cart() {
   const { count, data, removeItemById } = useContext(CounterContext);
   const [showSignin, setShowSignin] = useState(false);
   const [show, setShow] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+  
+  const sizes = data.sizes || [];
+  const visibleSizes = showAll ? sizes : sizes.slice(0, 3);
+  const remainingCount = sizes.length - 3;
+
   const navigate = useNavigate();
 
   const handleSigninModleShow = () => setShowSignin(true);
@@ -70,7 +76,20 @@ function Cart() {
                         <div className='ms-2'>
                           <h4>{item.name || 'Abstract'}</h4>
                           <p>Decor Series: {item.decorSeries?.title || 'Abstract'}</p>
-                          <p>Size: {item.sizes?.map((cat) => (<span key={cat.title}>{cat.title}, </span>))}</p>
+                          {/* <p>Size: {item.sizes?.map((cat) => (<span key={cat.title}>{cat.title}, </span>))}</p> */}
+                          <p className="mb-1">
+                                <strong>Size :</strong> {item.sizes?.map((cat, index) => (
+                                    <span key={index}>
+                                        {cat.title}{index !== item.sizes?.length - 1 ? ", " : ""}
+                                    </span>
+                                ))}
+
+                                {sizes.length > 3 && (
+                                    <button className="toggle-btn" onClick={() => setShowAll(!showAll)}>
+                                        {showAll ? "See Less" : `${remainingCount} More`}
+                                    </button>
+                                )}
+                            </p>     
                         </div>
                       </div>
                       <div className='d-flex flex-column align-items-end justify-content-end'>

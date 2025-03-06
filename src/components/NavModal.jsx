@@ -41,7 +41,8 @@ const NavModal = () => {
     }, []);
 
     return (
-        <div className="product-menu">
+        <>
+        <div className="product-menu d-lg-block d-none">
             <Dropdown onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} show={show}>
                 <Dropdown.Toggle id="dropdown-basic" className='bg-transparent border-0 text-dark'>
                     PRODUCTS
@@ -114,6 +115,84 @@ const NavModal = () => {
                 </Dropdown.Menu>
             </Dropdown>
         </div>
+        <div className="d-lg-none d-block ">
+        <Dropdown
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      show={show} 
+      className='product-dropdown'
+    >
+      <Dropdown.Toggle id="dropdown-basic" className='bg-transparent border-0 text-dark'>
+        PRODUCTS
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+            <Dropdown.Item >     
+            <div className="row">
+                            {/* Section Toggle Buttons */}
+                            <div className="col-lg-3 d-flex align-items-start mt-4 justify-content-start flex-column">
+                                <button 
+                                    className={`menu-cat-button mb-2 ${activeSection === "products" ? "arrow-button" : "arrow-button-outline"}`} 
+                                    onClick={() => setActiveSection("products")}
+                                >
+                                    <span className="me-3">Products</span>
+                                </button>
+
+                                <button 
+                                    className={`menu-cat-button ${activeSection === "application" ? "arrow-button" : "arrow-button-outline"}`} 
+                                    onClick={() => setActiveSection("application")}
+                                >
+                                    <span className="me-3">Application</span>
+                                </button>
+                            </div>
+
+                            {/* Render Products Section */}
+                            {activeSection === "products" && (
+                                <div className="col-lg-9">
+                                    <div className="row">
+                                        {data && data.map((category) => {
+                                            const imageUrl = category.image ? getImageURL(category.image) : '';
+                                            return (
+                                                <Link key={category._id} className="col-lg-4" to={`/${category.slug}`}>
+                                                    <div className="menu-img">
+                                                        <img src={imageUrl} className="img-fluid mb-2" alt={category.name} />
+                                                        <h2 className="fs-5 ms-4">{category.name}</h2>
+                                                    </div>
+                                                </Link>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Render Applications Section */}
+                            {activeSection === "application" && (
+                                <div className="col-lg-9">
+                                    <div className="row">
+                                        {[ 
+                                            { img: AquaWall, name: "AQUA WALL" },
+                                            { img: CrownXLC, name: "CROWN XLC" },
+                                            { img: Fense, name: "FENSE" },
+                                            { img: Kittop, name: "KITTOP" },
+                                            { img: Labplus, name: "LAB PLUS" },
+                                            { img: Qbiss, name: "QBISS" },
+                                            { img: Tabillo, name: "TABILLO" }
+                                        ].map((item, index) => (
+                                            <div key={index} className="col-lg-3">
+                                                <Link className="application-box" to={'/application'}>
+                                                    <img src={item.img} alt={item.name} />
+                                                    <h3 className="app-heading">{item.name}</h3>
+                                                </Link>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+            </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>        </div>
+        </>
     );
 };
 
