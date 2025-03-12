@@ -46,9 +46,9 @@ function About() {
                         <ScrollAnimation animateIn="fadeInUp">
                           <h2>About Us</h2>
                         </ScrollAnimation>
-                        <ScrollAnimation animateIn="fadeInUp">
+                        {/* <ScrollAnimation animateIn="fadeInUp">
                         <h3>preferably something with combination of “luxury”, “aesthetic appeal” and “durability”</h3>
-                        </ScrollAnimation>
+                        </ScrollAnimation> */}
                         <ScrollAnimation animateIn="fadeInUp">
                           <p>Crown Décor is a premier Indian brand, crafting a range of stylish, durable laminates for both interior and exterior applications.</p>
                         </ScrollAnimation>

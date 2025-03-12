@@ -80,7 +80,7 @@ function Blog() {
                     </div>
                     <p>For premium decorative surfaces, quality is the ultimate criteria. An ideal laminate should be one that combines visual appeal with functional utility, consumer safety and environmental sustainability. </p>
                 </div>
-                <div className="blog-box mx-3">
+                {/* <div className="blog-box mx-3">
                     <img src={Blog3} alt="blog1" />
                     <div className="d-flex justify-content-between">
                     <h2>What is the Laminates Sheets
@@ -88,7 +88,7 @@ function Blog() {
                     <Link to={'/blog-details'}><button><GoArrowUpRight/> </button></Link> 
                     </div>
                     <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
-                </div>
+                </div> */}
                 </div>
         </div>
     </div>
