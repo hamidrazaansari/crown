@@ -17,6 +17,7 @@ import ThankYouPage from "./components/ThankYouPage"
 import ContactUs from "./pages/ContactUs"
 import Catalogue from "./pages/Catalogue"
 import Application from "./components/Application"
+import NewBlogDetails from "./pages/NewBlogDetails"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
@@ -52,6 +53,10 @@ function App() {
         <Route
               path="/application"
               element={<Application/>}
+            />
+        <Route
+              path="/new-blog"
+              element={<NewBlogDetails/>}
             />
       
       </Routes>

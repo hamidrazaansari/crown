@@ -61,27 +61,24 @@ function Blog() {
     <div className='blog'>
         <div className="container">
             <h2 className='blog-heading'>BLOG</h2>
-            <h3>INDUSTRY SPEAK/WORLD OF LAMINATES/LAMINATE NEWS</h3>
-            <p className='heading-text'>Discover our latest news and articles regarding common HPL knowledge. Having deep
-            understanding about Crown can help you choose the right one for your applications.</p>
+            <h3>WORLD OF LAMINATES</h3>
+            <p className='heading-text'>Explore our latest insights and expert articles on high-pressure laminates (HPL). Gain in-depth knowledge of Crown to make informed choices for premium, durable applications.</p>
               <div className="d-flex flex-wrap align-items-center justify-content-sm-start">
                 <div className="blog-box mx-3">
                     <img src={Blog1} alt="blog1" />
                     <div className="d-flex justify-content-between">
-                    <h2>What is the Laminates Sheets
-                    Manufacturing Process</h2>
+                    <h2>The Rise of Thin Laminates: Light Weight Luxury</h2>
                     <Link to={'/blog-details'}><button><GoArrowUpRight/> </button></Link> 
                     </div>
-                    <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
+                    <p>In the ever-evolving world of interior design, the demand for visually appealing  yet functional material is at an all-time high. Homeowners, designers, and architects are seeking solutions that look great  without compromising on practicality. </p>
                 </div>
                 <div className="blog-box mx-3">
                     <img src={Blog2} alt="blog1" />
                     <div className="d-flex justify-content-between">
-                    <h2>What is the Laminates Sheets
-                    Manufacturing Process</h2>
-                    <Link to={'/blog-details'}><button><GoArrowUpRight/> </button></Link> 
+                    <h2>Quality Certification in Luxury Laminates: Standards of Excellence & Compliance</h2>
+                    <Link to={'/new-blog'}><button><GoArrowUpRight/> </button></Link> 
                     </div>
-                    <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
+                    <p>For premium decorative surfaces, quality is the ultimate criteria. An ideal laminate should be one that combines visual appeal with functional utility, consumer safety and environmental sustainability. </p>
                 </div>
                 <div className="blog-box mx-3">
                     <img src={Blog3} alt="blog1" />
@@ -93,7 +90,6 @@ function Blog() {
                     <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                 </div>
                 </div>
-
         </div>
     </div>
   )

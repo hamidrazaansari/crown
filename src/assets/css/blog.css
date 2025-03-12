@@ -151,6 +151,19 @@
     text-align: center;
     text-transform: uppercase;
 }
+.blog-details-content h3{
+    font-size: 20px;
+    font-family: 'dion';
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+.blog-details-content img{
+    width: 100%;
+}
+.rcent-blog-box h3 {
+    font-family: Inter;
+    font-size: 16px !important;
+}
 
 @media (max-width:1400px) {
     .blog-box{

@@ -974,6 +974,9 @@
   margin-bottom: 10px;
 }
 
+.about-company img{
+  height: 65px;
+}
 @media (max-width:1200px) {
   .crownSpecialize {
     position: absolute;
@@ -992,10 +995,13 @@
   position: relative !important;
   top: 841px;
 }
+.heritage-section .circles {
+  bottom: -66px;
+}
 }
 
 /* 🔹 Responsive Styles */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
 
 
   .crowLaminationSection h1 {
@@ -1019,6 +1025,9 @@
   .banner-item {
     height: 529px;
     width: 614px;
+}
+.heritage-section .circles {
+  bottom: -334px;
 }
 }
 

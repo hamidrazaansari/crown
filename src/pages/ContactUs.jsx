@@ -253,12 +253,11 @@ Gujarat, India</p>
                                     <div className="row">
                                     <div className="col-6" style={{ position: 'relative' }}>
                                             <div className='d-flex flex-column country'>
-                                                <label htmlFor="country">Inquiry Type</label>
+                                                <label htmlFor="country">Feedback</label>
                                                 <SelectSearch
                                                     options={inquiryOptions}
                                                     value={formData.inquiryType}
                                                     onChange={(value) => handleChange("inquiryType", value)}
-                                                    placeholder="Select Inquiry Type"
 
                                                 />
                                             {errors.inquiryType && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.inquiryType}</small>}

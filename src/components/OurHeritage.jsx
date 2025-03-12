@@ -45,7 +45,7 @@ const OurHeritage = () => {
       scrollTrigger: {
         trigger: container,
         start: "top top",
-        end: `+=${scrollDistance}`,
+        end: `+=${scrollDistance }`,
         scrub: 1, // Smooth scroll effect
         pin: true,
         anticipatePin: 1, // Prevent flickering

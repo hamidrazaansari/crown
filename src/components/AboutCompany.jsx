@@ -15,7 +15,8 @@ const AboutCompany = () => {
       </div>
       <div className="row about-company">
         <div className="col-lg-5">
-          <h1>ABOUT THE COMPANY</h1>
+          {/* <h1>ABOUT THE COMPANY</h1> */}
+          <img src={logo} alt="crown logo" />
         </div>
         <div className="col-lg-7">
           <p>
