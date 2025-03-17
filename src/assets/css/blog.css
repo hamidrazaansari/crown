@@ -47,7 +47,6 @@
     border-radius: 10px;
 }
 .blog-box p {
-    font-family: 'dionlight';
     font-size: 11px;
     margin: 5px 0px;
     letter-spacing: 1px;
@@ -343,7 +342,6 @@
         margin: 15px 0 0 !important;
     }
     .blog-box p {
-        font-family: 'dionlight';
         font-size: 10px;
         margin: 0px 0px;
         letter-spacing: 1px;
