@@ -20,11 +20,11 @@ function Catalogue() {
 
     const certificates = [
         { name: "01.  Crownlam laminates lab guardian collection", file: Certificate1 },
-        { name: "01.  Crownlam laminates lab guardian collection", file: Certificate1 },
-        { name: "01.  Crownlam laminates lab guardian collection", file: Certificate1 },
-        { name: "01.  Crownlam laminates lab guardian collection", file: Certificate1 },
-        { name: "01.  Crownlam laminates lab guardian collection", file: Certificate1 },
-        { name: "01.  Crownlam laminates lab guardian collection", file: Certificate1 },
+        { name: "02.  Crownlam laminates lab guardian collection", file: Certificate1 },
+        { name: "03.  Crownlam laminates lab guardian collection", file: Certificate1 },
+        { name: "04.  Crownlam laminates lab guardian collection", file: Certificate1 },
+        { name: "05.  Crownlam laminates lab guardian collection", file: Certificate1 },
+        { name: "06.  Crownlam laminates lab guardian collection", file: Certificate1 },
 
     ];
 

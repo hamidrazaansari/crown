@@ -117,7 +117,6 @@
     }
     .certification-box p {
         margin: 0 15px;
-        font-family: 'dion';
         font-size: 17px;
         color: #000;
         letter-spacing: 1px;
@@ -136,7 +135,6 @@
 
 .certification-box p {
     margin: 0 15px;
-    font-family: dion !important;
     font-size: 17px;
     color: #000000be;
     letter-spacing: 2px !important;
