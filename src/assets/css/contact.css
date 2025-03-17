@@ -23,7 +23,7 @@
 }
 .contact-box img{
     position: absolute;
-    height: 80%;
+    height: 85%;
     top: 60px;
     left: 41px;
 }
@@ -37,12 +37,13 @@
 }
 .contact-info p , .contact-info strong {
     color: #fff;
-    margin: 30px 10px;
+    margin: 20px 10px;
     margin-right: 0px;
-    font-size: 15px;
+    font-size: 13px;
 }
 .contact-info strong{
     color: #FFBA3A;
+    margin-top: 20px !important;
 }
 .add-para{
     font-family: 'LightInter';
@@ -50,14 +51,17 @@
     margin-left: 50px !important;
 }
 .contact-info h2{
-    margin: 10px;
-    font-size: 27px;
+    margin: 0 10px 10px;
+    font-size: 20px;
     font-family: 'Inter';
     font-weight: 700;
 }
 .contact-info p{
     font-size: 14px !important;
 
+}
+.add-para{
+    margin-bottom: 10px !important;
 }
 .contact-box .contact-info  img{
     position: unset;
@@ -66,7 +70,7 @@
 }
 .socalLinks {
     position: absolute;
-    bottom: 99px;
+    bottom: 59px;
     left: 68px;
 }
 .socalLinks img {
@@ -139,8 +143,7 @@
         height: 632px;
     }
     .contact-info h2 {
-        margin: 10px;
-        font-size: 23px;
+        margin: 0 10px;
         font-family: 'Inter';
         font-weight: 700;
     }

@@ -43,10 +43,10 @@
 }
 .certification-box p {
     margin: 0 15px;
-    font-family: 'dion';
-    font-size: 20px;
-    color: #000;
-    letter-spacing: 1.5px;
+    font-family: 'Inter';
+    font-size: 17px;
+    color: #000000be;
+    letter-spacing: 2px;
 }
 .certification-box button{
     height: 100%;
@@ -106,7 +106,9 @@
 }
 .certificate-btn{
     background-color:  #ededed !important;
-
+}
+.certificate-btn:hover{
+    background-color: #e69b00 !important;
 }
 @media (max-width:500px) {
     .company-logo img {
@@ -116,7 +118,7 @@
     .certification-box p {
         margin: 0 15px;
         font-family: 'dion';
-        font-size: 15px;
+        font-size: 17px;
         color: #000;
         letter-spacing: 1px;
     }
@@ -134,10 +136,10 @@
 
 .certification-box p {
     margin: 0 15px;
-    font-family: inter;
-    font-size: 16px;
+    font-family: dion !important;
+    font-size: 17px;
     color: #000000be;
-    letter-spacing: 1px;
+    letter-spacing: 2px !important;
 }
 .certification-box {
     background-color: #FFFCF6;

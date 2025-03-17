@@ -104,6 +104,9 @@
     height: 45px;
     margin-right: 20px;
     border-radius: 5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 17px;
 
 }
 
@@ -116,7 +119,11 @@
     height: 45px;
     margin-right: 20px;
     margin-bottom: 20px;
-    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 17px;
+
+    border-radius: 3px;
 }
 
 .size {
@@ -409,6 +416,7 @@
     font-size: 13px;
     border-radius: 3px;
     white-space: nowrap;
+    height: 30px;
 }
 
 .form .form-btn {
@@ -429,6 +437,49 @@
 
 .modal-form textarea {
     border-radius: 4px;
+}
+@media (max-width:1400px) {
+    .details-product {
+        padding-top: 40px;
+        padding-left: 18px;
+        position: relative;
+    }
+    .details-product h1 {
+        font-size: 22px;
+        margin-left: 10px;
+    }
+    .finish {
+
+        width: 66% !important;
+    }
+}
+@media (max-width:1200px) {
+    .details-product .key {
+        width: 184px;
+    }
+    .finish {
+        margin-left: 72px !important;
+    }
+    .details-product h1 {
+        font-size: 17px;
+        margin-left: 10px;
+    }
+}
+@media (max-width:992px) {
+    .finish {
+        margin-left: 18px !important;
+    }
+}
+@media (max-width:768px) {
+    .finish {
+        margin-left: 54px !important;
+    }
+    .highRegImg {
+        right: 10px;
+    }
+    .img-box img{
+        height: 600px !important;
+    }
 }
 
 @media (max-width:500px) {
@@ -495,7 +546,7 @@
 
     .details-product p .value {
         font-size: 13px;
-        margin-left: -66px !important;
+        margin-left: 0 !important;
     }
 
     .finish-item {
@@ -545,7 +596,7 @@
     }
 
     .finish {
-        margin-left: 10px !important;
+        margin-left: 52px !important;
     }
 
     .Sample-modal {
@@ -612,7 +663,7 @@
         padding: 0 10px 0 16px !important;
         font-size: 11px !important;
         margin-right: 10px !important;
-        margin-left: -21px !important;
+        margin-left: 0px !important;
         height: 35px !important;
     }
      
@@ -625,7 +676,7 @@
     flex-wrap: wrap;
     justify-content: start !important;
     width: 74%;
-    margin-left: 80px;
+    margin-left: 92px;
 }
 
 .finish .finish-item {
@@ -662,13 +713,13 @@
 
     .details-product p .value {
         font-size: 11px;
-        margin-left: -106px !important;
     }
 
     .finish {
         width: 90%;
         margin: 0px;
     }
+    
 
     .crowLaminationSection .crownBox {
         height: 85%;
@@ -681,5 +732,12 @@
     } 
     .select-search-container::after {
         right: 20px !important;
+    }
+    .details-product .key {
+        width: 150px;
+        margin-right: 0;
+    }
+    .finish {
+        margin-left: 14px !important;
     }
 }

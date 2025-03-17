@@ -75,7 +75,7 @@ function Cart() {
                         <img src={imageUrl} alt="product" className="product-img" />
                         <div className='ms-2'>
                           <h4>{item.name || 'Abstract'}</h4>
-                          <p>Decor Series: {item.decorSeries?.title || 'Abstract'}</p>
+                          <p><strong>Decor Series : </strong> {item.decorSeries?.title || 'Abstract'}</p>
                           {/* <p>Size: {item.sizes?.map((cat) => (<span key={cat.title}>{cat.title}, </span>))}</p> */}
                           <p className="mb-1">
                                 <strong>Size :</strong> {item.sizes?.map((cat, index) => (

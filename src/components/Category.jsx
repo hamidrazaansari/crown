@@ -59,7 +59,7 @@ const Category = () => {
                     Explore Now <HiOutlineArrowNarrowRight />
                   </Link>
                   <div className="d-flex cat-heading">
-                    <h4>{`0${index + 1}`}</h4>
+                    {/* <h4>{`0${index + 1}`}</h4> */}
                     <h3>{category.name}</h3>
                   </div>
                   {isActive && category.shortDescription && <p>{category.shortDescription}</p>}

@@ -7,6 +7,7 @@ import User from '../assets/image/admin.png'
 import Calendar from '../assets/image/calender.png'
 import BlogImage from '../assets/image/blogimage.png'
 import RecentBlog from '../assets/image/recent-blog.png'
+import { Link } from 'react-router-dom'
 
 function NewBlogDetails() {
     return (
@@ -15,7 +16,7 @@ function NewBlogDetails() {
             <div className="blog-details">
                 <div className="container px-5">
                     <div className="breadcrumb">
-                        <p><a href="/">HOME</a><span> / </span> <a href="/" className='ms-2'>BLog</a> </p>
+                        <p><Link to="/">HOME</Link><span> / </span> <Link to="/" className='ms-2'>BLog</Link> </p>
                     </div>
                 </div>
                 <div className="container">

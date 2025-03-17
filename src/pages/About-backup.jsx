@@ -11,6 +11,7 @@ import Plants from '../assets/image/planet-earth.png'
 import Globle from '../assets/image/global.png'
 import Footer from '../components/Footer'
 import DetailsForm from '../components/DetailsForm'
+import { Link } from 'react-router-dom'
 
 function About() {
     return (
@@ -18,7 +19,7 @@ function About() {
             <NavBar />
             <div className="container mt-5">
                 <div className="breadcrumb">
-                    <p><a href="/">HOME</a><span> / </span> <a href="/" className='ms-2'>About Us</a> </p>
+                    <p><Link to="/">HOME</Link><span> / </span> <Link to="/" className='ms-2'>About Us</Link> </p>
                 </div>
             </div>
             <div className="About-us">

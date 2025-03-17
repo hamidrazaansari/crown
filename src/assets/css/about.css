@@ -4,8 +4,8 @@
 }
 
 .about-vid-box {
-  height: 550px;
-  width: 550px;
+  height: 480px;
+  width: 530px;
   position: relative;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .about .about-content h2 {
-  font-size: 60px;
+  font-size: 50px;
   font-family: dion;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -65,13 +65,14 @@
 }
 
 .about-content p {
-  font-size: 13px;
-  font-family: dion;
-  color: #000000ad;
-  line-height: 21px;
+  font-size: 18px;
+  font-family: 'LightInter';
+  color: #4f4e4e;
+  line-height: 30px;
   padding-right: 22px;
   font-weight: 400;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
+  font-weight: 400;
 }
 
 .about-content button {
@@ -339,6 +340,7 @@
   position: relative;
   z-index: 10;
   background-color: #fff;
+  padding: 30px 0;
 }
 
 .about-company h1 {
@@ -349,7 +351,7 @@
 }
 
 .about-company p {
-  font-size: 14px;
+  font-size: 16px;
   opacity: 0.6;
   line-height: 21px;
   font-family: kanit;
@@ -362,6 +364,7 @@
   position: relative;
   z-index: 10;
   overflow-y: unset;
+  height: 550px;
 
 }
 
@@ -378,7 +381,7 @@
   text-wrap: auto;
   margin-top: 10px;
   width: 47% !important;
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
 }
 
@@ -407,6 +410,7 @@
 .heritage-section .banner-item {
   text-align: left !important;
   position: relative;
+  padding: 50px 0;
 }
 
 .heritage-section .circle {
@@ -449,6 +453,49 @@
   height: 8px;
   margin: auto 8px;
 }
+.heritage-section .slick-next {
+  right: -9px !important;
+  top: 201px !important;
+}
+.heritage-section .slick-prev {
+  left: -41px !important;
+  background: #0000 !important;
+  top: 200px !important;
+}
+.progress-bar-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.progress-bar-wrapper {
+  width: 271px;
+  height: 2px;
+  background: #7d7d7d;
+  border-radius: 5px;
+  position: relative;
+}
+.progress-bar-wrapper::after {
+  position: absolute;
+  content: '';
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  top: -7px;
+  left: -12px;
+  border-radius: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #fff !important;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+.progress-btn.active {
+  color: #ff6600;
+}
 
 .visionContainer {
   position: relative;
@@ -464,7 +511,7 @@
 }
 
 .visionContainer p {
-  font-size: 15px;
+  font-size: 16px;
   font-family: Kanit;
   letter-spacing: 0.7px;
   opacity: 0.7;
@@ -485,12 +532,13 @@
 
 .crownSpecialize {
   position: absolute;
-  width: 40%;
+  width: 50%;
   z-index: 13;
-  left: 50%;
+  left: 44%;
   top: 50%;
   transform: translate(-40%, -50%);
-  display: flex;
+  display: flex
+;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -975,7 +1023,7 @@
 }
 
 .about-company img{
-  height: 65px;
+  height: 115px;
 }
 @media (max-width:1200px) {
   .crownSpecialize {

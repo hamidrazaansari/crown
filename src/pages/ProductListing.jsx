@@ -124,8 +124,8 @@ function ProductListing() {
       try {
         const [sizesRes, decorRes, finishesRes, subCategoryRes, categoryRes] =
           await Promise.all([
-            axios.get(`${API_URL}/sizes`),
-            axios.get(`${API_URL}/decorSeries`),
+            axios.get(`${API_URL}/sizes?priority=ASC&limit=0&status=true`),
+            axios.get(`${API_URL}/decorSeries?priority=ASC&limit=0&status=true`),
             axios.get(`${API_URL}/finishes`),
             axios.get(`${API_URL}/subCategories`),
             // axios.get(
@@ -307,11 +307,11 @@ function ProductListing() {
         <div className="container">
           <div className="breadcrumb mb-0">
             <p className="mb-0">
-              <a href="/">HOME</a>
+              <Link to="/">HOME</Link>
               <span> / </span>{" "}
-              <a href="/" className="ms-2">
+              <Link to="/" className="ms-2">
                 Exterior Compacts
-              </a>
+              </Link>
             </p>
           </div>
         </div>
@@ -324,7 +324,7 @@ function ProductListing() {
               <div>
                 <img src={Img} alt="" />
                 <div className="banner-text-container">
-                  <h2>{catHeader?.textOverImage || "Default Title"}</h2>
+                  <h2>{catHeader?.name || "Default Title"}</h2>
                   <div className="line"></div>
                 </div>
               </div>
@@ -447,7 +447,7 @@ function ProductListing() {
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />
                           <div className="blur"></div>
-                          <h4>{product.name}</h4>
+                          <h4>{product.name} - {product.decorNumber}</h4>
                         </div>
                       </Link>
                     </div>

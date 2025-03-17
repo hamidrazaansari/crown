@@ -7,6 +7,9 @@ import Call from '../assets/image/call.png'
 import Mail from '../assets/image/mail.png'
 import axios from 'axios'
 import { API_URL } from '../utills/BaseUrl'
+import FB from '../assets/image/fb.png'
+import Insta from '../assets/image/insta.png'
+import Linkedin from '../assets/image/linkedin.png'
 
 
 function Footer() {
@@ -53,10 +56,10 @@ function Footer() {
                                 <h2>Quick Links</h2>
                                 <div className="line"></div>
                             <ul>
-                                    <li> <a href="/about">ABOUT</a></li>
-                                   <li> <a href="/blog">BLOG</a></li>
-                                    <li> <a href="/contact">CONTACT US</a></li>
-                                    <li> <a href="/">PRIVACY POLICY</a></li>
+                                    <li> <Link to="/about">ABOUT</Link></li>
+                                   <li>  <Link to="/blog">BLOG</Link></li>
+                                    <li> <Link to="/contact">CONTACT US</Link></li>
+                                    <li> <Link to="/">PRIVACY POLICY</Link></li>
                             </ul>
                         </div>
                         <div className="col-lg-3  col-6 d-flex flex-column resp">
@@ -66,7 +69,7 @@ function Footer() {
                                 {data && data.map((item) => {
                                     return (
                                         <Link to={`/${item.slug}`}>
-                                                <li> <a href="/">{item.name}</a></li>
+                                                <li> <Link to="/">{item.name}</Link></li>
                                         </Link>
                                     )
 
@@ -81,16 +84,16 @@ function Footer() {
                             <ul>
                                 <div className="row">
                                     <div className="col-6">
-                                            <li> <a href="/">AQVA WALL</a></li>
-                                            <li> <a href="/">CROWN XCL</a></li>
-                                            <li> <a href="/">FENSE</a></li>
-                                            <li> <a href="/">KITTOP</a></li>
+                                            <li> <Link to="/">AQVA WALL</Link></li>
+                                            <li> <Link to="/">CROWN XCL</Link></li>
+                                            <li> <Link to="/">FENSE</Link></li>
+                                            <li> <Link to="/">KITTOP</Link></li>
                                     </div>
                                     <div className="col-6">
-                                            <li> <a href="/">LABPLUS</a></li>
-                                            <li> <a href="/">QBISS</a></li>
-                                            <li> <a href="/">TABILLO</a></li>
-                                            <li> <a href="/">texpanel</a></li>
+                                            <li> <Link to="/">LABPLUS</Link></li>
+                                            <li> <Link to="/">QBISS</Link></li>
+                                            <li> <Link to="/">TABILLO</Link></li>
+                                            <li> <Link to="/">texpanel</Link></li>
                                     </div>
                                 </div>
                             </ul>
@@ -105,14 +108,12 @@ function Footer() {
                         <div className="col-lg-8 col-12 d-flex flex-column justify-content-center ">
                             <p>Copyright 2025 © Crown Laminates & Beyond. All rights reserved.</p>
                         </div>
-                        <div className="col-lg-4 d-flex flex-column justify-content-start align-items-center socal">
+                        <div className="col-lg-4 d-flex flex-column justify-content-end align-items-end socal">
                             <div className="d-flex justify-content-between align-items-center">
-                                <Link to='https://www.facebook.com/royalcrownlaminates' target='_blank'><p className='me-3'>Facebook</p></Link>
-                                {/* <span className='vertical-line'></span> */}
-                                <Link to='https://www.facebook.com/royalcrownlaminates' target='_blank'><p className='me-3'>Instagram</p></Link>
+                                <Link to='https://www.facebook.com/crownlamination/' target='_blank'><div className='me-3'><img src={FB} alt="Fb" /></div></Link>
+                                <Link to='https://www.instagram.com/crown_laminates_compacts/' target='_blank'><div className='me-3'><img src={Insta} alt="Insta" /></div></Link>
+                                <Link to='https://www.linkedin.com/company/42304530' target='_blank'><div className='me-3'><img src={Linkedin} alt="Linkedin" /></div></Link>
 
-                                {/* <span className='vertical-line'></span> */}
-                                <p className='me-3'>Linkedin</p>
                             </div>
                         </div>
                     </div>

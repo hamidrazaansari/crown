@@ -212,11 +212,11 @@ function Application() {
                 <div className="container">
                     <div className="breadcrumb mb-0">
                         <p className="mb-0">
-                            <a href="/">HOME</a>
+                            <Link to="/">HOME</Link>
                             <span> / </span>{" "}
-                            <a href="/" className="ms-2">
+                            <Link to="/" className="ms-2">
                                 Exterior Compacts
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </div>
@@ -368,7 +368,7 @@ function Application() {
                                         <li className="page-item">
                                             <button
                                                 className="page-link"
-                                                href="#"
+                                                to="#"
                                                 disabled={pagination.page == 1 ? true : false}
                                                 onClick={handlePrevious}
                                             >
@@ -387,7 +387,7 @@ function Application() {
                                                         }}
                                                         className={`page-link ${pagination.page == index ? "active" : ""
                                                             }`}
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         {index}
                                                     </button>

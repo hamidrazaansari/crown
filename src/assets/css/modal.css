@@ -126,6 +126,7 @@
   border-radius: 4px;
   padding: 10px 20px;
   width: 180px;
+  margin-top: 15px;
 }
 .arrow-button-outline:hover{
   background-color: #E69B00;
@@ -153,7 +154,7 @@
 .swal2-html-container{
   font-family: inter !important;
   color: #0000009b !important;
-  font-size: 14px !important;
+  font-size: 15px !important;
 }
 .swal2-title{
   font-family: dion !important;

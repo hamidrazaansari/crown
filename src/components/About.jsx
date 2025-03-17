@@ -55,9 +55,9 @@ function About() {
                         <ScrollAnimation animateIn="fadeInUp">
                           <p>Crown Decor goes much beyond being a trusted manufacturer. We offer solutions that transform all your decorative surfaces into timeless expressions of sophistication and elegance. </p>
                         </ScrollAnimation>
-                        <ScrollAnimation animateIn="fadeInUp">
+                        {/* <ScrollAnimation animateIn="fadeInUp">
                           <p>Our 10 advanced production lines produce over 30 million square meters of high pressure laminates (HPL) annually. We offer laminated sheets and compacts in 6 sizes, with thicknesses ranging from 0.6 mm to 25 mm. Featuring 1200+ captivating decors and 120+ distinctive textures, our collection ensures an ideal match to complement every decorative surface you envision. </p>
-                        </ScrollAnimation>
+                        </ScrollAnimation> */}
                         <ScrollAnimation animateIn="fadeInUp">
                         <Link to={'/about'}><button>Read More <GoArrowUpRight/></button></Link>
                         </ScrollAnimation>

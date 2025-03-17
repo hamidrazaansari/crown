@@ -187,11 +187,11 @@
 
 .category-box h3 {
     position: relative;
-    bottom: -45px;
+    bottom: -15px;
     left: 0px;
     text-align: center;
     font-family: dion;
-    font-size: 35px;
+    font-size: 40px;
     transform: none;
     color: #000;
     transform: rotate(-90deg);
@@ -277,7 +277,7 @@
     transform: none;
     margin-left: 41px;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .category-box-active .cat-heading{

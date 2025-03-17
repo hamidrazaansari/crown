@@ -12,6 +12,7 @@ import File from '../assets/image/file.png'
 
 import '../assets/css/certificate.css';
 import '../assets/css/catalouge.css';
+import { Link } from 'react-router-dom';
 
 function Catalogue() {
     const [show, setShow] = useState(false);
@@ -64,9 +65,9 @@ function Catalogue() {
                 <div className="container">
                     <div className="breadcrumb m-0">
                         <p>
-                            <a href="/">HOME</a>
+                            <Link to="/">HOME</Link>
                             <span> / </span>
-                            <a href="/" className="ms-2">Certification</a>
+                            <Link to="/" className="ms-2">Catalouge</Link>
                         </p>
                     </div>
                 </div>
@@ -78,9 +79,9 @@ function Catalogue() {
             </div>
             <div className='bgWhite'>
             <div className="catalouge-btn  container d-flex flex-wrap justify-normal">
-                <button>AQUA WALL</button>
+                <button>Aqua Wall</button>
                 <button>Crown XCL</button>
-                <button>Fease</button>
+                <button>Fense</button>
                 <button>Kittop</button>
                 <button>Lab Plus</button>
                 <button>QBISS</button>

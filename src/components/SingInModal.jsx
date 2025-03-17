@@ -2,6 +2,7 @@ import Modal from 'react-bootstrap/Modal';
 import 'react-select-search/style.css';  
 import '../assets/css/samplemodal.css'
 import google from '../assets/image/google.png'
+import { Link } from 'react-router-dom';
 
 
 function SingInModal({ show, handleSigninModleClose }) {
@@ -35,8 +36,8 @@ function SingInModal({ show, handleSigninModleClose }) {
                 </div>
                 <div className="others">
                 <label>Forgot Your Password?</label>
-                <p>By creating an account you agree with our <a href=""> Terms of service, Privacy Policy,</a>
-                and our default <a href=""> Notification Settings. </a></p>
+                <p>By creating an account you agree with our <Link to="/"> Terms of service, Privacy Policy,</Link>
+                and our default <Link to={''}> Notification Settings. </Link></p>
                 <button>Sign In</button>
                 <h5>Don`t have an account? <span>Sign Up</span></h5>
                 </div>

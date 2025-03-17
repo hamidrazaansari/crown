@@ -274,9 +274,11 @@ Link{
 }
 .banner-text-container h2 {
     font-family: dion;
-    font-size: 57px;
+    font-size: 35px;
     color: #fff;
     text-transform: capitalize;
+    text-transform: uppercase;
+
 }
 .banner-text-container .line{
     background-color: #fff;

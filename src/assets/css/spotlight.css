@@ -207,9 +207,13 @@
   }
   .banner-item {
     height: 350px;
+    padding-bottom: 20px;
   }
   .banner-item img {
     height: 400px;
+  }
+  .spotlight h3{
+    font-size: 30px;
   }
 }
 

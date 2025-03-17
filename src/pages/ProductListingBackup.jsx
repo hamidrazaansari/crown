@@ -141,7 +141,7 @@ function ProductListing() {
             <div className="bgWhite py-4">
                 <div className="container">
                     <div className="breadcrumb mb-0">
-                        <p className='mb-0'><a href="/">HOME</a><span> / </span> <a href="/" className='ms-2'>Exterior Compacts</a></p>
+                        <p className='mb-0'><Link to="/">HOME</Link><span> / </span> <Link to="/" className='ms-2'>Exterior Compacts</Link></p>
                     </div>
                 </div>
             </div>

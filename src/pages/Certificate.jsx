@@ -17,9 +17,9 @@ import company8 from '../assets/image/company8.png';
 // Import PDF files
 import Certificate1 from '../assets/image/certificates/20. CE CGS.pdf';
 import Certificate2 from '../assets/image/certificates/21. CE EDF - 6mm to 22 mm.pdf';
-import Certificate3 from '../assets/image/certificates/23. CE - EGS (6-19 MM).pdf';
-import Certificate4 from '../assets/image/certificates/24.  CHEMICAL RESISTANCE CERT 9 1.2 - 12 MM).pdf';
-import Certificate5 from '../assets/image/certificates/25. IGBC MEMBERSHIP.pdf';
+import Certificate3 from '../assets/image/certificates/CE - EGS (6-19 MM)-Crown Decor_131_a (3).pdf';
+import Certificate4 from '../assets/image/certificates/24.  CHEMICAL RESISTANCE CERT (1.2 & 12 MM).pdf';
+import Certificate5 from '../assets/image/certificates/CCF_000015 (3).pdf';
 import Certificate6 from '../assets/image/certificates/26. EPD (0.8 - 20 MM).pdf';
 import Certificate7 from '../assets/image/certificates/29. GREEN LABEL SINGAPORE.pdf';
 import Certificate8 from '../assets/image/certificates/32. GREEN LEAF.pdf';
@@ -31,6 +31,7 @@ import Certificate13 from '../assets/image/certificates/37. UKCA - EDF (6 - 22 M
 import Certificate14 from '../assets/image/certificates/38. UKCA - EGF (6 TO 8 MM).pdf';
 
 import '../assets/css/certificate.css';
+import { Link } from 'react-router-dom';
 
 function Certificate() {
     const [show, setShow] = useState(false);
@@ -41,16 +42,16 @@ function Certificate() {
         { name: "CE EDF - 6mm to 22 mm", file: Certificate2 },
         { name: "CE - EGS (6-19 MM)", file: Certificate3 },
         { name: "CHEMICAL RESISTANCE CERT 9 1.2 - 12 MM)", file: Certificate4 },
-        { name: "EPD (0.8 - 20 MM)", file: Certificate5 },
-        { name: "IGBC MEMBERSHIP", file: Certificate6 },
+        { name: "EPD (0.8 - 20 MM)", file: Certificate6 },
+        { name: "IGBC MEMBERSHIP", file: Certificate5 },
         { name: "GREEN LABEL SINGAPORE", file: Certificate7 },
         { name: "GREEN LEAF", file: Certificate8 },
         { name: "HYGIENIC CERTIFICATE", file: Certificate9 },
         { name: "ISO 9001-2015", file: Certificate10 },
         { name: "ISO 14001-2015", file: Certificate11 },
         { name: "ISO 45001- 2018", file: Certificate12 },
-        { name: "UKCA - EDF (6 - 22 MM)", file: Certificate13 },
-        { name: "UKCA - EGF (6 TO 8 MM)", file: Certificate14 },
+        { name: "EN 438-7:2005 (6 to 22 MM)", file: Certificate13 },
+        { name: "EN 438-7:2005 (6 to 8 MM)", file: Certificate14 },
     ];
 
     const handleShow = (pdfFile) => {
@@ -90,9 +91,9 @@ function Certificate() {
                 <div className="container">
                     <div className="breadcrumb m-0">
                         <p>
-                            <a href="/">HOME</a>
+                            <Link to="/">HOME</Link>
                             <span> / </span>
-                            <a href="/" className="ms-2">Certification</a>
+                            <Link to="/" className="ms-2">Certification</Link>
                         </p>
                     </div>
                 </div>
@@ -101,7 +102,7 @@ function Certificate() {
             {/* Certificate List Section */}
             <div className="certificate-box bgWhite py-3">
                 <div className="container px-5">
-                    <h1>QUALITY Certificate</h1>
+                    <h1>Global Certification</h1>
                     {certificates.map((cert, index) => (
                         <div className='d-flex align-items-center' key={index}>
                             <div className="certification-box">
@@ -117,7 +118,6 @@ function Certificate() {
 
             <div className="companies bgWhite ">
                 <div className="container">
-                    <h2>BRANDS certification</h2>
                     <div className="company-box">
                         <div className="row">
                             <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">

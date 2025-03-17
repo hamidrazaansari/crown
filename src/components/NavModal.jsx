@@ -19,8 +19,6 @@ const NavModal = () => {
     const [show, setShow] = useState(false);
     const [data, setData] = useState([]);
     const [activeSection, setActiveSection] = useState("products"); // Tracks which section is active
-
-    console.log(data);
     
     const navigate = useNavigate();
 
@@ -171,7 +169,7 @@ const NavModal = () => {
                                     <div className="row">
                                         {[ 
                                             { img: AquaWall, name: "AQUA WALL" },
-                                            { img: CrownXLC, name: "CROWN XLC" },
+                                            { img: CrownXLC, name: "CROWN XCL" },
                                             { img: Fense, name: "FENSE" },
                                             { img: Kittop, name: "KITTOP" },
                                             { img: Labplus, name: "LAB PLUS" },

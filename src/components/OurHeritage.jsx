@@ -1,100 +1,124 @@
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import { useRef, useEffect, useState } from "react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useState, useEffect, useRef } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const OurHeritage = () => {
-  const bannerRef = useRef(null);
-  const bannerContainerRef = useRef(null);
-  const procedureRef = useRef(null);
-  const [bannerItemWidth, setBannerItemWidth] = useState(0);
+  const sliderRef = useRef(null);
+  const totalSlides = 3; // Update based on actual slides
+  const [progress, setProgress] = useState(Array(totalSlides).fill(0));
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const settings = {
+    dots: false, // Hide default dots
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    beforeChange: (_, newIndex) => {
+      setCurrentSlide(newIndex);
+      resetProgress(newIndex);
+    },
+  };
 
   useEffect(() => {
-    if (!bannerRef.current || !bannerContainerRef.current || !procedureRef.current) return;
+    const interval = setInterval(() => {
+      setProgress((prevProgress) => {
+        const updatedProgress = [...prevProgress];
 
-    const banner = bannerRef.current;
-    const container = bannerContainerRef.current;
-    const procedure = procedureRef.current;
+        if (updatedProgress[currentSlide] >= 100) {
+          clearInterval(interval); // Stop interval once progress completes
+          if (sliderRef.current && currentSlide < totalSlides - 1) {
+            sliderRef.current.slickNext();
+          }
+          return updatedProgress;
+        }
 
-    // **Get Single Banner Item Width after DOM fully loads**
-    setTimeout(() => {
-      const bannerItem = banner.querySelector(".banner-item");
-      if (bannerItem) {
-        setBannerItemWidth(bannerItem.offsetWidth);
-      }
-    }, 100);
+        updatedProgress[currentSlide] += 1; // Increment progress
+        return updatedProgress;
+      });
+    }, 50); // Adjust timing for smooth progress
 
-  }, []);
+    return () => clearInterval(interval);
+  }, [currentSlide]);
 
-  useEffect(() => {
-    if (!bannerRef.current || !bannerContainerRef.current || !procedureRef.current || bannerItemWidth === 0) return;
-
-    const banner = bannerRef.current;
-    const container = bannerContainerRef.current;
-    const procedure = procedureRef.current;
-
-    const bannerWidth = banner.scrollWidth;
-    const containerWidth = container.offsetWidth;
-    const scrollDistance = bannerWidth - containerWidth;
-
-    // Horizontal Scrolling Animation
-    gsap.to(banner, {
-      x: -scrollDistance,
-      ease: "none",
-      scrollTrigger: {
-        trigger: container,
-        start: "top top",
-        end: `+=${scrollDistance }`,
-        scrub: 1, // Smooth scroll effect
-        pin: true,
-        anticipatePin: 1, // Prevent flickering
-      },
+  const resetProgress = (newIndex) => {
+    setProgress((prev) => {
+      const resetProgress = [...prev];
+      resetProgress[newIndex] = 0; // Reset only the next slide's progress
+      return resetProgress;
     });
-
-    // **Set `.procedure` width equal to one `.banner-item` width**
-    gsap.to(procedure, {
-      width: bannerItemWidth, // Set width dynamically
-      duration: 0.5,
-      scrollTrigger: {
-        trigger: container,
-        start: "top top",
-        end: `+=${scrollDistance}`,
-        scrub: true,
-      },
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, [bannerItemWidth]); // **Wait until bannerItemWidth is available**
+  };
 
   return (
     <div className="heritage-section">
-      <div className="banner-container container" ref={bannerContainerRef}>
-        <div className="scrolling-banner" ref={bannerRef}>
-          {[...Array(4)].map((_, index) => (
-            <div className="banner-item" key={index}>
-              <div className="heritage-info-container">
-                <div className="year-highlight">
-                  <span className="circle"></span>1995
-                </div>
-                <h1>Our Heritage</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                  enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                  nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <button className="heritage-btn">
-                  1955<span className="circles"></span>Our Heritage
-                </button>
+      <div className="container">
+        <Slider ref={sliderRef} {...settings}>
+          <div className="banner-item">
+            <div className="heritage-info-container">
+              <div className="year-highlight">
+                <span className="circle"></span>1995
               </div>
+              <h1>Our Heritage</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <button className="heritage-btn">
+                1955<span className="circles"></span>Our Heritage
+              </button>
+            </div>
+          </div>
+
+          <div className="banner-item">
+            <div className="heritage-info-container">
+              <div className="year-highlight">
+                <span className="circle"></span>2000
+              </div>
+              <h1>Our Legacy</h1>
+              <p>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <button className="heritage-btn">
+                2000<span className="circles"></span>Our Legacy
+              </button>
+            </div>
+          </div>
+
+          <div className="banner-item">
+            <div className="heritage-info-container">
+              <div className="year-highlight">
+                <span className="circle"></span>2010
+              </div>
+              <h1>Modern Era</h1>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur.
+              </p>
+              <button className="heritage-btn">
+                2010<span className="circles"></span>Modern Era
+              </button>
+            </div>
+          </div>
+        </Slider>
+
+        {/* Progress Bars for Each Slide */}
+        <div className="progress-bar-container">
+          {progress.map((prog, index) => (
+            <div key={index} className="progress-bar-wrapper">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `${prog}%`,
+                  backgroundColor: index === currentSlide ? "#FF6600" : "#ccc",
+                  transition: "width 0.1s ease-in-out",
+                }}
+              ></div>
             </div>
           ))}
         </div>
-        <div className="procedure" ref={procedureRef}></div>
-        <div className="procedure-bg"></div>
       </div>
     </div>
   );

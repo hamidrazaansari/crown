@@ -6,7 +6,7 @@ import InquiryModal from '../components/InquiryModal'
 import SampleReqModal from '../components/SampleReqModal'
 import FullImageView from '../components/FullImageView'
 import File from '../assets/image/file.png'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { API_URL } from '../utills/BaseUrl'
 import OtherPageFooter from '../components/OtherPageFooter'
@@ -21,7 +21,6 @@ function ProductDetails() {
 
     const [show, setShow] = useState(false);
     const [showSample, setShowSample] = useState(false);
-    const [showFullImage, setShowFullImage] = useState(false);
     const [products, setProducts] = useState('')
     const [relatedProducts, setRelatedProducts] = useState('')
     const [loading, setLoading] = useState(true);
@@ -82,10 +81,6 @@ function ProductDetails() {
     // if (error) return <p>{error}</p>;
 
 
-    const handleCloseImage = () => {
-        setShowFullImage(false);
-    };
-
 
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
@@ -102,7 +97,7 @@ function ProductDetails() {
     useEffect(() => {
         async function fetchRelatedProduct() {
             try {
-                const response = await axios.get(`${API_URL}/products?category=${products.categories[0]?._id}`);
+                const response = await axios.get(`${API_URL}/products?category=${products?.categories[0]._id}`);
                 setRelatedProducts(response.data.body);
             } catch (error) {
                 console.error("Error fetching search results:", error);
@@ -114,25 +109,27 @@ function ProductDetails() {
 
     const handleDownload = async () => {
         try {
-            const imgURLHighresulation = getImageURL(products.highResolutionImage);
-
-            // Fetch the image as a Blob
-            const response = await fetch(imgURLHighresulation);
+            const imgURLHighResolution = getImageURL(products.highResolutionImage);
+            const proxyURL = "https://cors-anywhere.herokuapp.com/";
+    
+            const response = await fetch(proxyURL + imgURLHighResolution, { mode: "cors" });
             const blob = await response.blob();
-
-            // Create a temporary anchor element
-            const link = document.createElement('a');
+    
+            const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
-            link.download = "highResolutionImage.jpg"; // Set a default filename
-
+            link.download = "highResolutionImage.jpg";
+    
             document.body.appendChild(link);
-            link.click(); // Trigger download
-            document.body.removeChild(link); // Cleanup
-            URL.revokeObjectURL(link.href); // Free memory
+            link.click();
+            document.body.removeChild(link);
         } catch (error) {
-            console.error("Error downloading the image:", error);
+            console.error("Error downloading the image:", error.message);
+            alert("Failed to download image. Please check the console.");
         }
     };
+    
+    
+    
 
     return (
         <div>
@@ -143,7 +140,7 @@ function ProductDetails() {
             <div className="bgWhite">
                 <div className="container ">
                     <div className="breadcrumb m-0 py-3 pb-0">
-                        <p><a href="/">HOME</a><span> / </span> <a href="/" className='ms-2'>Exterior Compacts</a> </p>
+                        <p><Link to="/">HOME</Link><span> / </span> <Link to="/" className='ms-2'>Exterior Compacts</Link> </p>
                     </div>
                 </div>
             </div>
@@ -158,8 +155,6 @@ function ProductDetails() {
                             <div className="img-box">
                                 {imageType === 'A4' ? <img src={imgURL} alt={products.name} /> : <img src={imgURLfullsheet} alt={products.name} />}
                                 {imageType === 'A4' ? <div className="a4">A4</div> : <div className="a4">Full Sheet</div>}
-                                {/* <div className="line"></div>
-                                <h4>{products.name}</h4> */}
                             </div>
                             <div className="d-flex align-items-center justify-content-center">
                                 <div className="img-ideecator" onClick={() => { setImageType('A4') }}>
@@ -169,12 +164,6 @@ function ProductDetails() {
                                     <img src={imgURLfullsheet} alt={''} />
                                 </div>
                             </div>
-                            {showFullImage && (
-                                <FullImageView
-                                    imageUrl={imageUrl}
-                                    onClose={handleCloseImage}
-                                />
-                            )}
 
                         </div>
                         <div className="col-lg-6">
@@ -185,31 +174,43 @@ function ProductDetails() {
                                     </h1>
                                     <button onClick={() => handleDownload()} className='d-flex flex-column justify-content-center align-items-center highRegImg'><img src={File} height={"21px"} alt="full screen icon" /><span>Download <br /> High Resolution File</span></button>
                                 </div>
-
-                                <p><span className='key'>Product Category</span><span className='ms-1 value' >
+                                <div className="d-flex justify-content-start align-items-end">
+                                    <p><span className='key'>Product Category</span></p>
+                                    <p><span className='ms-1 value' >
                                     {products.categories?.map((cat) => (
-                                        <>
+                                        <div key={cat._id}>
                                             {cat.name}
-                                        </>
-
+                                        </div>
                                     )
                                     )}
                                 </span>
                                 </p>
-                                <p><span className='key'>Decor Number </span><span className='ms-1 value'>{products.decorNumber}</span></p>
-                                <p><span className='key'>Decor Name </span><span className='ms-1 value'>{products.decorSeries?.title}</span></p>
+                                </div>
+                                <div className="d-flex justify-content-start align-items-start">
+                                    <p><span className='key'>Decor Number </span></p>
+                                    <p><span className='ms-1 value'>{products.decorNumber}</span></p>
 
-                                <p className='d-flex justify-content-between align-items-center'><span className='key'>Size</span><span>
+                                </div>
+
+                                <div className="d-flex justify-content-start align-items-start">
+                                    <p><span className='key'>Decor Name </span></p>
+                                    <p><span className='ms-1 value'>{products.decorSeries?.title}</span></p>
+
+                                </div>
+
+                                <div className="d-flex justify-content-start align-items-start">
+                                    <p><span className='key'>Size</span></p>
                                     <SelectSearch
                                         options={sizeOptions}
                                         value={selectedSize}
                                         onChange={handleSizeChange}
                                         search
                                     />
-                                </span></p>
-                                <div className="d-flex align-middle justify-between">
-                                    <div className="key">Finish</div>
-                                    <div className="d-flex justify-baseline finish">
+                                </div>
+
+                                <div className="d-flex justify-content-start align-items-start">
+                                <div className="key" style={{marginLeft:"13px"}}>Finish</div>
+                                          <div className="d-flex  finish">
                                         {visibleFinishes.map((finish) => (
                                             <div key={finish._id} className="finish-item">
                                                 <p>{finish.fullName}</p>
@@ -217,12 +218,16 @@ function ProductDetails() {
                                         ))}
 
                                         {matchingFinishes.length > 3 && (
-                                            <button className="toggle-btn border-0 bg-transparent" onClick={() => setShowAll(!showAll)}>
-                                                {showAll ? "See Less" : `${remainingCount} More`}
-                                            </button>
+                                            <div className="finish-item">
+                                            <p onClick={() => setShowAll(!showAll)}>
+                                                {showAll ? "See Less" : `+${remainingCount} More`}
+                                            </p>
+                                            </div>
+
                                         )}
                                     </div>
                                 </div>
+
 
                                 <p className='desc'>{products.shortDescription}</p>
 

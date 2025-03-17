@@ -353,9 +353,10 @@
 
 .explore h2 {
   font-family: 'dion';
-  font-size: 40px;
+  font-size: 35px;
   letter-spacing: 2px;
   text-align: center;
+  width: 69%;
 }
 
 .explore button {
@@ -369,6 +370,9 @@
   font-size: 19px;
   margin-top: 30px;
   border-radius: 5px;
+}
+.footer-bottom .socal{
+  margin-left: -40px;
 }
 
 

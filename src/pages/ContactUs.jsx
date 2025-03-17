@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import OtherPageFooter from '../components/OtherPageFooter'
 import '../assets/css/contact.css'
@@ -17,26 +17,26 @@ import Swal from 'sweetalert2'
 
 
 function ContactUs() {
-        const [countries , setCountries] = useState([])
-        const [formData, setFormData] = useState({
-            name: "",
-            email: "",
-            mobile: "",
-            country: "",
-            message: "",
-            inquiryType: '',
-            visitorType:''
-        });
-        
-            const [errors, setErrors] = useState({
-                name: "",
-                email: "",
-                mobile: "",
-                country: "",
-                message: "",
-                inquiryType: '',
-                visitorType:''
-            });
+    const [countries, setCountries] = useState([])
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        mobile: "",
+        country: "",
+        message: "",
+        inquiryType: '',
+        visitorType: ''
+    });
+
+    const [errors, setErrors] = useState({
+        name: "",
+        email: "",
+        mobile: "",
+        country: "",
+        message: "",
+        inquiryType: '',
+        visitorType: ''
+    });
 
     const inquiryOptions = [
         { name: 'Product', value: 'PRODUCT', type: 'country' },
@@ -67,10 +67,10 @@ function ContactUs() {
         { name: 'Architect', value: 'Architect', type: 'country' },
         { name: 'Builder', value: 'Builder', type: 'country' },
         { name: 'Contractor', value: 'Contractor', type: 'country' },
-        { name: 'Trade Partner', value: 'TRADE PARTNER', type: 'country' },
         { name: 'Home Owner', value: 'Home Owner', type: 'country' },
         { name: 'Interior Designer', value: 'Interior Designer', type: 'country' },
-        { name: 'Oem', value: 'OEM', type: 'Oems' },
+        { name: 'OEM', value: 'OEM', type: 'Oems' },
+        { name: 'Trade Partner', value: 'TRADE PARTNER', type: 'country' },
 
     ];
 
@@ -117,18 +117,18 @@ function ContactUs() {
         setFormData({ ...formData, [field]: value });
     };
 
-    
 
-    const handleSubmit = async(e) => {
-      e.preventDefault();
 
-      try {
-        const res = await axios.post(`${API_URL}/inquiries` , formData )
-        Swal.fire({
-            title: "Thank you for reaching out! ",
-            text: "Your inquiry has been successfully submitted. Our team will review your request and get back to you as soon as possible.",
-            icon: "success"
-          });
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const res = await axios.post(`${API_URL}/inquiries`, formData)
+            Swal.fire({
+                title: "Thank you for reaching out! ",
+                text: "Your inquiry has been successfully submitted. Our team will review your request and get back to you as soon as possible.",
+                icon: "success"
+            });
             setFormData({
                 name: "",
                 email: "",
@@ -136,24 +136,24 @@ function ContactUs() {
                 country: "",
                 message: "",
                 inquiryType: '',
-                visitorType:''
-              });
+                visitorType: ''
+            });
 
-              console.log(res);
-              
-      } catch (error) {
+            console.log(res);
 
-        const errrData = error.response?.data?.errors        
-        setErrors({
-            name: errrData?.name,
-            email: errrData?.email,
-            mobile: errrData?.mobile ,
-            country: errrData?.country,
-            message: errrData?.message,
-            inquiryType: errrData?.inquiryType,
-            visitorType:errrData?.visitorType
-        })
-      }
+        } catch (error) {
+
+            const errrData = error.response?.data?.errors
+            setErrors({
+                name: errrData?.name,
+                email: errrData?.email,
+                mobile: errrData?.mobile,
+                country: errrData?.country,
+                message: errrData?.message,
+                inquiryType: errrData?.inquiryType,
+                visitorType: errrData?.visitorType
+            })
+        }
 
 
 
@@ -165,9 +165,9 @@ function ContactUs() {
                 <div className="container">
                     <div className="breadcrumb m-0">
                         <p>
-                            <a href="/">HOME</a>
+                            <Link to="/">HOME</Link>
                             <span> / </span>
-                            <a href="/" className="ms-2">CONTACT US</a>
+                            <Link to="/" className="ms-2">CONTACT US</Link>
                         </p>
                     </div>
                 </div>
@@ -178,7 +178,7 @@ function ContactUs() {
                     <p>Any question or remarks? Just write us a message!</p>
                     <div className="contact-box">
                         <div className="row">
-                            <div className="col-lg-4">
+                            <div className="col-lg-5">
                                 <div className="image-box">
                                     <img src={ContactCreative} alt="Creative" />
                                 </div>
@@ -186,23 +186,30 @@ function ContactUs() {
                                     <h2> Contact Information</h2>
                                     <p><img src={Call} alt="phone" /> +917940017979</p>
                                     <p><img src={Mail} alt="mail" style={{ height: "15px", width: '18px' }} /> crownlaminates@gmail.com</p>
-                                    <strong><img src={Location} alt="phone" />CROWN DECOR PRIVATE LTD</strong>
+
+                                    <strong ><img src={Location} alt="phone" />Global Contact Point</strong>
+                                    <p className='add-para'>The Regency, Unit 3, 2nd Floor,
+                                        6 Hungerford Street, Kolkata-700017, India
+                                    </p>
+
+
+                                    <strong><img src={Location} alt="phone" />Corporate Office</strong>
                                     <p className='add-para'>One42, North Tower
-Suite 401-403, 4th Floor
-Ambali Bhopal Road, 
-B/H Ashok Vatika
-Ahmedabad 380058
-Gujarat, India</p>
-                                    <strong><img src={Location} alt="phone" /> Factory Address</strong>
+                                        Suite 401-403, 4th Floor
+                                        Ambali Bhopal Road,
+                                        B/H Ashok Vatika
+                                        Ahmedabad 380058
+                                        Gujarat, India</p>
+                                    <strong><img src={Location} alt="phone" />Factory Address</strong>
                                     <p className='add-para'>Survey no. 419/1, Radhe Industrial Estate, Tajpur Road, Changodar-382 213, Ahmedabad, Gujarat 382213</p>
                                 </div>
                                 <div className="socalLinks">
-                                    <Link to='https://www.facebook.com/royalcrownlaminates' target='_blank'><img src={FB} alt="Facebook" /></Link>
-                                    <Link to='https://www.instagram.com/royalcrownlaminates' target='_blank'><img src={Insta} alt="Instagram" /></Link>
-                                    <Link><img src={Linkedin} alt="Linkedin" /></Link>
+                                    <Link to='https://www.facebook.com/crownlamination/' target='_blank'><img src={FB} alt="Facebook" /></Link>
+                                    <Link to='https://www.instagram.com/crown_laminates_compacts/' target='_blank'><img src={Insta} alt="Instagram" /></Link>
+                                    <Link to={'https://www.linkedin.com/company/42304530'} target='_blank'><img src={Linkedin} alt="Linkedin" /></Link>
                                 </div>
                             </div>
-                            <div className="col-lg-8">
+                            <div className="col-lg-7">
                                 <div className="contactForm mt-5">
                                     <div className="row">
                                         <div className="col-6 d-flex flex-column input-field" style={{ position: 'relative' }}>
@@ -211,7 +218,7 @@ Gujarat, India</p>
                                                 type="text"
                                                 id="name"
                                                 value={formData.name}
-                                                 onChange={(e) => handleChange("name", e.target.value)}
+                                                onChange={(e) => handleChange("name", e.target.value)}
                                             />
                                             {errors.name && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.name}</small>}
 
@@ -219,15 +226,15 @@ Gujarat, India</p>
                                         <div className="col-6 d-flex flex-column" style={{ position: 'relative' }}>
                                             <label htmlFor="email">Email*</label>
                                             <input type="email" id='email'
-                                            value={formData.email}
-                                            onChange={(e) => handleChange("email", e.target.value)}
+                                                value={formData.email}
+                                                onChange={(e) => handleChange("email", e.target.value)}
                                             />
                                             {errors.email && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "62px" }}>{errors.email}</small>}
 
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-lg-6 d-flex flex-column " style={{ position: 'relative' , marginTop:"14px" }}>
+                                        <div className="col-lg-6 d-flex flex-column " style={{ position: 'relative', marginTop: "14px" }}>
                                             <label htmlFor="mobile">Mobile*</label>
                                             <input
                                                 type="text"
@@ -251,7 +258,7 @@ Gujarat, India</p>
                                         </div>
                                     </div>
                                     <div className="row">
-                                    <div className="col-6" style={{ position: 'relative' }}>
+                                        <div className="col-6" style={{ position: 'relative' }}>
                                             <div className='d-flex flex-column country'>
                                                 <label htmlFor="country">Feedback</label>
                                                 <SelectSearch
@@ -260,25 +267,25 @@ Gujarat, India</p>
                                                     onChange={(value) => handleChange("inquiryType", value)}
 
                                                 />
-                                            {errors.inquiryType && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.inquiryType}</small>}
+                                                {errors.inquiryType && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.inquiryType}</small>}
 
                                             </div>
                                         </div>
-                                        <div className="col-6 d-flex flex-column " style={{ position: 'relative'}}>
+                                        <div className="col-6 d-flex flex-column " style={{ position: 'relative' }}>
                                             <label htmlFor="mobile">Visitor Type</label>
                                             <SelectSearch
-                                                    options={visitorOptions}
-                                                    value={formData.visitorType}
-                                                    onChange={(value) => handleChange("visitorType", value)}
-                                                    placeholder="Select Visitor Type"
+                                                options={visitorOptions}
+                                                value={formData.visitorType}
+                                                onChange={(value) => handleChange("visitorType", value)}
+                                                placeholder="Select Visitor Type"
 
-                                                />
+                                            />
                                             {errors.visitorType && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.visitorType}</small>}
 
                                         </div>
                                     </div>
                                     <div className="row mt-2">
-                                    <div className="col-12 d-flex flex-column" style={{ position: 'relative' }}>
+                                        <div className="col-12 d-flex flex-column" style={{ position: 'relative' }}>
                                             <label htmlFor="message">Message</label>
                                             <input
                                                 type="text"

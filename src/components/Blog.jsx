@@ -60,8 +60,8 @@ function Blog() {
   return (
     <div className='blog'>
         <div className="container">
-            <h2 className='blog-heading'>BLOG</h2>
-            <h3>WORLD OF LAMINATES</h3>
+            {/* <h2 className='blog-heading'>BLOG</h2> */}
+            <h3>WORLD OF CROWN LAMINATES</h3>
             <p className='heading-text'>Explore our latest insights and expert articles on high-pressure laminates (HPL). Gain in-depth knowledge of Crown to make informed choices for premium, durable applications.</p>
               <div className="d-flex flex-wrap align-items-center justify-content-sm-start">
                 <div className="blog-box mx-3">

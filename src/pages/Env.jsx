@@ -11,6 +11,7 @@ import Trash from '../assets/image/trash.png'
 import Footer from '../components/Footer';
 import EnvImg from '../assets/image/envImg.png'
 import OtherPageFooter from '../components/OtherPageFooter'
+import { Link } from 'react-router-dom'
 
 export default function Env() {
     return (
@@ -20,9 +21,9 @@ export default function Env() {
                 <div className="container">
                     <div className="breadcrumb m-0">
                         <p>
-                            <a href="/">HOME</a>
+                            <Link to="/">HOME</Link>
                             <span> / </span>
-                            <a href="/" className="ms-2">Environment</a>
+                            <Link to="/" className="ms-2">Environment</Link>
                         </p>
                     </div>
                 </div>

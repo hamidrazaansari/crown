@@ -1,4 +1,5 @@
 import logo from '../assets/image/logo.png'
+import { Link } from 'react-router-dom';
 
 const AboutCompany = () => {
   return (
@@ -6,19 +7,19 @@ const AboutCompany = () => {
     <div className="container ">
       <div className="breadcrumb">
         <p>
-          <a href="/">HOME</a>
+          <Link href="/">HOME</Link>
           <span> / </span>{" "}
-          <a href="/" className="ms-2">
+          <Link href="/" className="ms-2">
             About Us
-          </a>{" "}
+          </Link>{" "}
         </p>
       </div>
       <div className="row about-company">
-        <div className="col-lg-5">
+        <div className="col-lg-4">
           {/* <h1>ABOUT THE COMPANY</h1> */}
           <img src={logo} alt="crown logo" />
         </div>
-        <div className="col-lg-7">
+        <div className="col-lg-8">
           <p>
           Whether for joinery or furniture production, laminates for interior/exterior use or any other advanced application, our versatile range offers elegant solutions for every design concept. 
           </p>

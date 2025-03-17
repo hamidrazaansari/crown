@@ -66,7 +66,7 @@ function ShowAllProducts({ relatedProducts }) {
                     <Link to={`/product-details/${product._id}`}>
                       <div className="product-box">
                         <img src={imgUrl} alt="product1" />
-                        <h4>{product.name}</h4>
+                        <h4>{product.name} - {product.decorNumber}</h4>
                       </div>
                     </Link>
                   </>

@@ -61,7 +61,7 @@ function About() {
         </div>
       </div>
 
-      <GlobeComponent />
+      {/* <GlobeComponent /> */}
       <OtherPageFooter />
     </div>
   );

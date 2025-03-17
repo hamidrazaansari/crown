@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../assets/css/spotlight.css";
 import SpotLightImg from "../assets/image/qbiss.jpg";
 import SpotLightImg1 from "../assets/image/tabillo.jpg";
@@ -10,37 +10,27 @@ import SpotLightImg3 from "../assets/image/aqua-wall.png";
 gsap.registerPlugin(ScrollTrigger);
 
 const Spotlights = () => {
-  const bannerRef = useRef(null);
-  const containerRef = useRef(null);
+  const [images] = useState([
+    { src: SpotLightImg1, title: "TABILLO" },
+    { src: SpotLightImg, title: "QBISS" },
+    { src: SpotLightImg2, title: "KITTOP" },
+    { src: SpotLightImg3, title: "AQUA WALL" },
+  ]);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      const banner = bannerRef.current;
-      const container = containerRef.current;
-
-      if (!banner || !container) return;
-
-      const totalWidth = banner.scrollWidth;
-      const viewportWidth = container.clientWidth;
-      const scrollDistance = totalWidth - viewportWidth;
-
-      gsap.to(banner, {
-        x: -scrollDistance,
-        ease: "none",
-        scrollTrigger: {
-          trigger: container,
-          start: "top-=150 top",
-          end: `+=${scrollDistance + 800}`,
-          scrub: 1,
-          pin: true,
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
+    const sections = gsap.utils.toArray(".banner-item");
+    gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".banner-container",
+        start: "top-=140 top",
+        pin: true,
+        scrub: 3,
+        end: () => "+=" + document.querySelector(".banner-container").offsetWidth ,
+      },
+    });
   }, []);
-
-  
 
   return (
     <div className="spotlight">
@@ -50,16 +40,14 @@ const Spotlights = () => {
         </div>
       </div>
 
-      <div className="banner-container" ref={containerRef}>
-        <div className="scrolling-banner" ref={bannerRef}>
-          {[SpotLightImg1, SpotLightImg, SpotLightImg2, SpotLightImg3].map(
-            (img, index) => (
-              <div className="banner-item" key={index}>
-                <img src={img} alt={`Spotlight ${index + 1}`} />
-                <h3>{["TABILLO", "QBISS", "KITTOP", "AQUA WALL"][index]}</h3>
-              </div>
-            )
-          )}
+      <div className="banner-container">
+        <div className="scrolling-banner">
+          {images.map((item, index) => (
+            <div className="banner-item" key={index}>
+              <img src={item.src} alt={item.title} />
+              <h3>{item.title}</h3>
+            </div>
+          ))}
         </div>
       </div>
     </div>
