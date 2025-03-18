@@ -333,12 +333,6 @@ function ProductListing() {
           </div>
         </div>
       </div>
-      <div className="bgWhite listingHeader">
-                <div className="container">
-                <h1>QBISS Washroom Cubicles</h1>
-                <p className="mb-0"> a premium solution backed by 45 years of expertise in High Pressure Laminates. Designed for durability, hygiene, and aesthetics, QBISS offers cost-effective, high-quality washroom partitions with superior materials and international safety standards.</p>
-                </div>
-            </div>
       {/* Product Listing Section */}
       <div className="product-listing py-5">
         <div className="container">
