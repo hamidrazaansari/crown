@@ -184,16 +184,16 @@ function ProductDetails() {
                                     </h1>
                                     <button onClick={() => handleDownload(products.name)} className='d-flex flex-column justify-content-center align-items-center highRegImg'><img src={File} height={"21px"} alt="full screen icon" /><span>Download <br /> High Resolution File</span></button>
                                 </div>
-                                <div className="d-flex justify-content-start align-items-center">
+                                <div className="d-flex justify-content-start align-items-start">
                                     <p><span className='key'>Product Category</span></p>
-                                    <p><span className='ms-1 value' >
+                                    <p>
                                         {products.categories?.map((cat) => (
                                             <div key={cat._id}>
                                                 {cat.name}
                                             </div>
                                         )
                                         )}
-                                    </span>
+                               
                                     </p>
                                 </div>
                                 <div className="d-flex justify-content-start align-items-start">
