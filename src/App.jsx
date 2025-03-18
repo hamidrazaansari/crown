@@ -51,7 +51,7 @@ function App() {
               element={<Catalogue />}
             />
         <Route
-              path="/application"
+              path="/application/:subCategorySlug"
               element={<Application/>}
             />
         <Route

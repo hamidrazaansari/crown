@@ -243,10 +243,11 @@
   }
   .banner-item img {
     height: 560px !important;
-    width: 360px !important;
+    width: 100% !important;
     margin-top: 40px !important;
 }
   .scrolling-banner {
     gap: 10px;
   }
+
 }

@@ -2,7 +2,6 @@ import React from 'react'
 
 import '../assets/css/blog.css'
 import '../assets/css/products.css'
-import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import Slider from 'react-slick'
 import Product1 from '../assets/image/product1.png'
 import Product2 from '../assets/image/product2.png'
@@ -14,16 +13,43 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import { GoArrowUpRight } from "react-icons/go";
 import getImageURL from '../utills/getImageURL';
 
+import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
+
+// Custom Prev Arrow
+const PrevArrow = (props) => {
+    const { onClick } = props;
+    return (
+      <button className="custom-prev-btn" onClick={onClick}>
+        <FaArrowLeftLong />
+      </button>
+    );
+  };
+  
+  // Custom Next Arrow
+  const NextArrow = (props) => {
+    const { onClick } = props;
+    return (
+      <button className="custom-next-arrow" onClick={onClick}>
+        <FaArrowRightLong />
+      </button>
+    );
+  };
 
 
 function ShowAllProducts({ relatedProducts }) {
   const settings = {
     dots: true,
-    infinite: true,
-    speed: 500,
+    infinite: false,
+    speed: 800,
     slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: false,
+    slidesToScroll: 4,
+    arrows: true,
+    draggable: true, 
+    swipe: true,      
+    touchMove: true,  
+    cssEase: "ease-in-out",
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
     responsive: [
       {
         breakpoint: 1200, // Large screens
@@ -34,7 +60,8 @@ function ShowAllProducts({ relatedProducts }) {
       {
         breakpoint: 992, // Tablets
         settings: {
-          slidesToShow: 2
+          slidesToShow: 2,
+          dots:false
         }
       },
       {
@@ -66,7 +93,8 @@ function ShowAllProducts({ relatedProducts }) {
                     <Link to={`/product-details/${product._id}`}>
                       <div className="product-box">
                         <img src={imgUrl} alt="product1" />
-                        <h4>{product.name} - {product.decorNumber}</h4>
+                        <h4>{product.name}</h4>
+                        <h4 className='text-start'>{product.decorNumber}</h4>
                       </div>
                     </Link>
                   </>

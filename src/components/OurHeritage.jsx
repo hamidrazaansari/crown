@@ -45,8 +45,7 @@ const OurHeritage = () => {
 
   const resetProgress = (newIndex) => {
     setProgress((prev) => {
-      const resetProgress = [...prev];
-      resetProgress[newIndex] = 0; // Reset only the next slide's progress
+      const resetProgress = prev.map((_, index) => (index === newIndex ? 0 : 100));
       return resetProgress;
     });
   };

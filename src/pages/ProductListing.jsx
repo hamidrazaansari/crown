@@ -7,7 +7,6 @@ import { API_URL } from "../utills/BaseUrl";
 import axios from "axios";
 import Img from "../assets/image/productbanner.png";
 import OtherPageFooter from "../components/OtherPageFooter";
-import Product1 from "../assets/image/product1.png";
 import getImageURL from "../utills/getImageURL";
 import { FaFilter } from "react-icons/fa6";
 
@@ -37,7 +36,7 @@ function ProductListing() {
 
   const location = useLocation();
   const categoryId = location.state;
-  const { categorySlug, subCategorySlug } = useParams();
+  const { categorySlug, subCategorySlug } = useParams();  
 
   const [pagination, setPagination] = useState({
     page: 1,
@@ -68,6 +67,7 @@ function ProductListing() {
 
         if (subCategorySlug) {
           url += `&subCategorySlug=${subCategorySlug}`;
+          
         }
 
         const response = await axios.get(url);
@@ -107,7 +107,7 @@ function ProductListing() {
   useEffect(() => {
     async function fetchSubCategory(categoryId) {
       try {
-        let url = `${API_URL}/subCategories?category=${categoryId}&limit=0`;
+        let url = `${API_URL}/subCategories?category=${categoryId}&limit=0&slug=${subCategorySlug}`;
         const response = await axios.get(url);
         setSubCategory(response?.data?.body);
       } catch (error) {
@@ -208,6 +208,7 @@ function ProductListing() {
     }
   }
 
+  
 
   return (
     <div>
@@ -332,7 +333,12 @@ function ProductListing() {
           </div>
         </div>
       </div>
-
+      <div className="bgWhite listingHeader">
+                <div className="container">
+                <h1>QBISS Washroom Cubicles</h1>
+                <p className="mb-0"> a premium solution backed by 45 years of expertise in High Pressure Laminates. Designed for durability, hygiene, and aesthetics, QBISS offers cost-effective, high-quality washroom partitions with superior materials and international safety standards.</p>
+                </div>
+            </div>
       {/* Product Listing Section */}
       <div className="product-listing py-5">
         <div className="container">
@@ -447,7 +453,8 @@ function ProductListing() {
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />
                           <div className="blur"></div>
-                          <h4>{product.name} - {product.decorNumber}</h4>
+                          <h4>{product.name}</h4>
+                          <h4>{product.decorNumber}</h4>
                         </div>
                       </Link>
                     </div>

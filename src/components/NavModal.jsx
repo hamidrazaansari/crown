@@ -19,6 +19,8 @@ const NavModal = () => {
     const [show, setShow] = useState(false);
     const [data, setData] = useState([]);
     const [activeSection, setActiveSection] = useState("products"); // Tracks which section is active
+    const [category , setCategory]= useState('');
+
     
     const navigate = useNavigate();
 
@@ -37,6 +39,21 @@ const NavModal = () => {
 
         fetchData();
     }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`${API_URL}/subCategories`);
+                setCategory(response.data.body);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    console.log(category);
+    
 
     return (
         <>
@@ -89,22 +106,20 @@ const NavModal = () => {
                             {activeSection === "application" && (
                                 <div className="col-9">
                                     <div className="row">
-                                        {[ 
-                                            { img: AquaWall, name: "AQUA WALL" },
-                                            { img: CrownXLC, name: "CROWN XLC" },
-                                            { img: Fense, name: "FENSE" },
-                                            { img: Kittop, name: "KITTOP" },
-                                            { img: Labplus, name: "LAB PLUS" },
-                                            { img: Qbiss, name: "QBISS" },
-                                            { img: Tabillo, name: "TABILLO" }
-                                        ].map((item, index) => (
-                                            <div key={index} className="col-3">
-                                                <Link className="application-box" to={'/application'}>
-                                                    <img src={item.img} alt={item.name} />
-                                                    <h3 className="app-heading">{item.name}</h3>
-                                                </Link>
-                                            </div>
-                                        ))}
+                                        {category && category.map((item, index) =>
+                                        {
+                                            const imgUrl = getImageURL(item.image)
+                                            if(item.isAddedToNavigation == true)
+                                                return(
+                                                    <div key={index} className="col-3">
+                                                    <Link className="application-box" to={`/application/${item.slug}`}>
+                                                        <img src={imgUrl} alt={item.name} />
+                                                        <h3 className="app-heading">{item.name}</h3>
+                                                    </Link>
+                                                </div>
+                                            )
+                                        }
+                                        )}
                                     </div>
                                 </div>
                             )}
@@ -137,7 +152,7 @@ const NavModal = () => {
                                 </button>
 
                                 <button 
-                                    className={`menu-cat-button ${activeSection === "application" ? "arrow-button" : "arrow-button-outline"}`} 
+                                    className={`menu-cat-button mt-2 ${activeSection === "application" ? "arrow-button" : "arrow-button-outline"}`} 
                                     onClick={() => setActiveSection("application")}
                                 >
                                     <span className="me-3">Application</span>
@@ -168,16 +183,16 @@ const NavModal = () => {
                                 <div className="col-lg-9">
                                     <div className="row">
                                         {[ 
-                                            { img: AquaWall, name: "AQUA WALL" },
-                                            { img: CrownXLC, name: "CROWN XCL" },
-                                            { img: Fense, name: "FENSE" },
-                                            { img: Kittop, name: "KITTOP" },
-                                            { img: Labplus, name: "LAB PLUS" },
-                                            { img: Qbiss, name: "QBISS" },
-                                            { img: Tabillo, name: "TABILLO" }
+                            { img: AquaWall, name: "AQUA WALL" , slug: 'aqua-wall' },
+                            { img: CrownXLC, name: "CROWN XLC" , slug: 'qbiss' },
+                            { img: Fense, name: "FENSE" , slug: 'fense' },
+                            { img: Kittop, name: "KITTOP", slug: 'kittop' },
+                            { img: Labplus, name: "LAB PLUS" , slug: 'labplus' },
+                            { img: Qbiss, name: "QBISS" , slug: 'qbiss' },
+                            { img: Tabillo, name: "TABILLO" , slug: 'tabillo' }
                                         ].map((item, index) => (
                                             <div key={index} className="col-lg-3">
-                                                <Link className="application-box" to={'/application'}>
+                                                <Link className="application-box" to={`/exterior-leminate/${item.slug}`}>
                                                     <img src={item.img} alt={item.name} />
                                                     <h3 className="app-heading">{item.name}</h3>
                                                 </Link>

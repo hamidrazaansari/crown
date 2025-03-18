@@ -3,13 +3,13 @@ import Blog1 from '../assets/image/blog1.png'
 import Blog2 from '../assets/image/blog2.png'
 import Blog3 from '../assets/image/blog3.png'
 import '../assets/css/blog.css'
-import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import Slider from 'react-slick'
 import { IoIosArrowForward } from "react-icons/io";
 import ScrollAnimation from 'react-animate-on-scroll'
-import { GoArrowUpRight } from "react-icons/go";
 import { Link } from 'react-router-dom'
+import { GoArrowUpRight } from "react-icons/go";
 
+import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 
 // Custom Prev Arrow
 const PrevArrow = (props) => {
@@ -61,9 +61,12 @@ function Blog() {
     <div className='blog'>
         <div className="container">
             {/* <h2 className='blog-heading'>BLOG</h2> */}
+            <div className="d-flex align-items-center justify-content-between">
             <h3>WORLD OF CROWN LAMINATES</h3>
+            <Link className='blog-btn' to={'/blog'}>View All <GoArrowUpRight className='ms-1'/></Link>
+            </div>
             <p className='heading-text'>Explore our latest insights and expert articles on high-pressure laminates (HPL). Gain in-depth knowledge of Crown to make informed choices for premium, durable applications.</p>
-              <div className="d-flex flex-wrap align-items-center justify-content-sm-start">
+              <div className="d-flex flex-wrap align-items-sm-center align-items-start justify-content-sm-start">
                 <div className="blog-box mx-3">
                     <img src={Blog1} alt="blog1" />
                     <div className="d-flex justify-content-between">

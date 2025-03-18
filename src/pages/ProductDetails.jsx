@@ -12,6 +12,7 @@ import { API_URL } from '../utills/BaseUrl'
 import OtherPageFooter from '../components/OtherPageFooter'
 import getImageURL from '../utills/getImageURL';
 import SelectSearch from 'react-select-search';
+import { saveAs } from 'file-saver'
 
 
 
@@ -90,6 +91,7 @@ function ProductDetails() {
 
     const imgURL = getImageURL(products.a4Image)
     const imgURLfullsheet = getImageURL(products.fullSheetImage)
+    const highResolutionImage = getImageURL(products.highResolutionImage)
 
 
     // Fetch related products 
@@ -107,29 +109,37 @@ function ProductDetails() {
     }, [products])
 
 
-    const handleDownload = async () => {
-        try {
-            const imgURLHighResolution = getImageURL(products.highResolutionImage);
-            const proxyURL = "https://cors-anywhere.herokuapp.com/";
-    
-            const response = await fetch(proxyURL + imgURLHighResolution, { mode: "cors" });
-            const blob = await response.blob();
-    
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = "highResolutionImage.jpg";
-    
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        } catch (error) {
-            console.error("Error downloading the image:", error.message);
-            alert("Failed to download image. Please check the console.");
-        }
+    // const handleDownload = async () => {
+    //     try {
+    //         const imgURLHighResolution = getImageURL(products.highResolutionImage);
+    //         const proxyURL = "https://cors-anywhere.herokuapp.com/";
+
+    //         const response = await fetch(proxyURL + imgURLHighResolution, { mode: "cors" });
+    //         const blob = await response.blob();
+
+    //         const link = document.createElement("a");
+    //         link.href = URL.createObjectURL(blob);
+    //         link.download = "highResolutionImage.jpg";
+
+    //         document.body.appendChild(link);
+    //         link.click();
+    //         document.body.removeChild(link);
+    //     } catch (error) {
+    //         console.error("Error downloading the image:", error.message);
+    //         alert("Failed to download image. Please check the console.");
+    //     }
+    // };
+
+    const handleDownload = () => {
+        let url = imgURL
+        console.log(url);
+
+        let fileExtension = url.split(".").pop(); // Get the file extension dynamically
+        saveAs(url, `${products.name}.${fileExtension}`); // Saves with correct extension
     };
-    
-    
-    
+
+
+
 
     return (
         <div>
@@ -172,19 +182,19 @@ function ProductDetails() {
                                     <h1>{products.name}
                                         <div className="line"></div>
                                     </h1>
-                                    <button onClick={() => handleDownload()} className='d-flex flex-column justify-content-center align-items-center highRegImg'><img src={File} height={"21px"} alt="full screen icon" /><span>Download <br /> High Resolution File</span></button>
+                                    <button onClick={() => handleDownload(products.name)} className='d-flex flex-column justify-content-center align-items-center highRegImg'><img src={File} height={"21px"} alt="full screen icon" /><span>Download <br /> High Resolution File</span></button>
                                 </div>
                                 <div className="d-flex justify-content-start align-items-center">
                                     <p><span className='key'>Product Category</span></p>
                                     <p><span className='ms-1 value' >
-                                    {products.categories?.map((cat) => (
-                                        <div key={cat._id}>
-                                            {cat.name}
-                                        </div>
-                                    )
-                                    )}
-                                </span>
-                                </p>
+                                        {products.categories?.map((cat) => (
+                                            <div key={cat._id}>
+                                                {cat.name}
+                                            </div>
+                                        )
+                                        )}
+                                    </span>
+                                    </p>
                                 </div>
                                 <div className="d-flex justify-content-start align-items-start">
                                     <p><span className='key'>Decor Number </span></p>
@@ -209,8 +219,8 @@ function ProductDetails() {
                                 </div>
 
                                 <div className="d-flex justify-content-start align-items-start">
-                                <div className="key" style={{marginLeft:"13px"}}>Finish</div>
-                                          <div className="d-flex  finish">
+                                    <div className="key" style={{ marginLeft: "13px" }}>Finish</div>
+                                    <div className="d-flex  finish">
                                         {visibleFinishes.map((finish) => (
                                             <div key={finish._id} className="finish-item">
                                                 <p>{finish.fullName}</p>
@@ -219,9 +229,9 @@ function ProductDetails() {
 
                                         {matchingFinishes.length > 3 && (
                                             <div className="finish-item">
-                                            <p onClick={() => setShowAll(!showAll)}>
-                                                {showAll ? "See Less" : `+${remainingCount} More`}
-                                            </p>
+                                                <p onClick={() => setShowAll(!showAll)}>
+                                                    {showAll ? "See Less" : `+${remainingCount} More`}
+                                                </p>
                                             </div>
 
                                         )}
@@ -229,7 +239,7 @@ function ProductDetails() {
                                 </div>
 
 
-                                <p className='desc'>{products.shortDescription}</p>
+                                <p className='desc'>{products.sortDescriptopns}</p>
 
                                 <div className=" mt-4">
                                     <button className='enq-btn' onClick={handleShow}>Enquire Now</button>

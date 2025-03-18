@@ -166,7 +166,7 @@
 
 .category h2 {
     font-family: dion;
-    font-size: 60px;
+    font-size: 40px;
     text-transform: uppercase;
     margin: 10px 50px;
 }
@@ -191,12 +191,12 @@
     left: 0px;
     text-align: center;
     font-family: dion;
-    font-size: 40px;
+    font-size: 35px;
     transform: none;
     color: #000;
     transform: rotate(-90deg);
     white-space: nowrap;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .category-box h4 {
@@ -479,7 +479,7 @@
     }
     .category-box-active h3{
         font-size: 13px !important;
-        margin-left: 20px !important;
+        margin-left: 0px !important;
         margin-bottom: 46px !important;
         
     }

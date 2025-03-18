@@ -26,11 +26,13 @@ const Spotlights = () => {
         trigger: ".banner-container",
         start: "top-=140 top",
         pin: true,
-        scrub: 3,
-        end: () => "+=" + document.querySelector(".banner-container").offsetWidth ,
+        scrub: 1,
+        anticipatePin: 2,
+        end: () => "+=" + document.querySelector(".banner-container").offsetWidth,
       },
     });
   }, []);
+  
 
   return (
     <div className="spotlight">
