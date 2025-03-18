@@ -279,13 +279,6 @@
     .blog .heading-text{
         width: 100%;
     }
-
-    .banner-item img{
-        height: 200px !important;
-    }
-    .spotlight h3{
-        font-size: 30px;
-    }
     .blog-btn {
         font-family: 'LightInter';
         background: transparent;

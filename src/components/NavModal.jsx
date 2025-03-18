@@ -182,22 +182,20 @@ const NavModal = () => {
                             {activeSection === "application" && (
                                 <div className="col-lg-9">
                                     <div className="row">
-                                        {[ 
-                            { img: AquaWall, name: "AQUA WALL" , slug: 'aqua-wall' },
-                            { img: CrownXLC, name: "CROWN XLC" , slug: 'qbiss' },
-                            { img: Fense, name: "FENSE" , slug: 'fense' },
-                            { img: Kittop, name: "KITTOP", slug: 'kittop' },
-                            { img: Labplus, name: "LAB PLUS" , slug: 'labplus' },
-                            { img: Qbiss, name: "QBISS" , slug: 'qbiss' },
-                            { img: Tabillo, name: "TABILLO" , slug: 'tabillo' }
-                                        ].map((item, index) => (
-                                            <div key={index} className="col-lg-3">
-                                                <Link className="application-box" to={`/exterior-leminate/${item.slug}`}>
-                                                    <img src={item.img} alt={item.name} />
-                                                    <h3 className="app-heading">{item.name}</h3>
-                                                </Link>
-                                            </div>
-                                        ))}
+                                    {category && category.map((item, index) =>
+                                        {
+                                            const imgUrl = getImageURL(item.image)
+                                            if(item.isAddedToNavigation == true)
+                                                return(
+                                                    <div key={index} className="col-lg-3">
+                                                    <Link className="application-box" to={`/application/${item.slug}`}>
+                                                        <img src={imgUrl} alt={item.name} />
+                                                        <h3 className="app-heading">{item.name}</h3>
+                                                    </Link>
+                                                </div>
+                                            )
+                                        }
+                                        )}
                                     </div>
                                 </div>
                             )}

@@ -108,7 +108,7 @@ function Footer() {
                         <div className="col-lg-8 col-12 d-flex flex-column justify-content-center ">
                             <p>Copyright 2025 © Crown Laminates & Beyond. All rights reserved.</p>
                         </div>
-                        <div className="col-lg-4 d-flex flex-column justify-content-end align-items-end socal">
+                        <div className="col-lg-4 d-flex flex-column socal">
                             <div className="d-flex justify-content-between align-items-center">
                                 <Link to='https://www.facebook.com/crownlamination/' target='_blank'><div className='me-3'><img src={FB} alt="Fb" /></div></Link>
                                 <Link to='https://www.instagram.com/crown_laminates_compacts/' target='_blank'><div className='me-3'><img src={Insta} alt="Insta" /></div></Link>

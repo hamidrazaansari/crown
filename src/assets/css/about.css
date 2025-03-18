@@ -1117,6 +1117,11 @@
 .about-company h1 {
   font-size: 25px;
 }
+.about-vid-box {
+  height: 400px !important;
+  width: 523px !important;
+  position: relative;
+}
 
 }
 

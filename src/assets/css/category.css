@@ -387,6 +387,31 @@
     .decorative-active , .interior-active , .exterior-active  {
         background-size: cover;
     }
+    .category h2 {
+        font-size: 30px;
+        margin: 10px 0px;
+    }
+    .category-box {
+        min-width: 110px !important;
+        height: 330px !important;
+        margin: 5px !important;
+    }
+    .category-box h3 {
+        bottom: -62px !important;
+        font-size: 22px !important;
+    }
+    .category-box-active h3 {
+        margin-left: 23px !important;
+        font-size: 15px !important;
+        margin-bottom: 52px;
+        text-align: center !important;
+    }
+    .category-box-active .texts .category-btn {
+        font-size: 11px;
+        padding: 5px 16px;
+        left: -72px;
+        bottom: -173px;
+    }
 
 }
 

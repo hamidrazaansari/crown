@@ -106,6 +106,10 @@
   background: #fff;
   margin-right: 15px;
 }
+.footer-bottom .socal{
+  align-items: end !important;
+  justify-content: end !important;
+}
 
 @media (max-width:1200px) {
   .pos,
@@ -149,6 +153,9 @@
     background: transparent;
     height: 80vh ;
   }
+  .footer-bottom .socal {
+    margin-left: 0px !important;
+}
 
   .footer-background {
     margin: 0;
@@ -289,7 +296,10 @@
   .footer-img img {
     width: 80%;
   }
-
+.footer-bottom .socal{
+  align-items: center !important;
+  justify-content: center !important;
+}
 
 }
 

@@ -28,8 +28,8 @@ const Spotlights = () => {
         pin: true,
         scrub: 1,
         anticipatePin: 2,
-        end: () => "+=" + document.querySelector(".banner-container").offsetWidth,
-      },
+        end: () => "+=" + (document.querySelector(".banner-container").offsetWidth), 
+       },
     });
   }, []);
   
