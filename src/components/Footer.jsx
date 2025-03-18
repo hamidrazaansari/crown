@@ -13,19 +13,33 @@ import Linkedin from '../assets/image/linkedin.png'
 
 
 function Footer() {
-    const [data, setData] = useState('')
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`${API_URL}/categories`);
-                setData(response.data.body);
-            } catch (err) {
-                console.error(err);
-            }
-        };
+    const [category, setCategory] = useState('');
+    const [subCategory, setSubCategory] = useState('');
 
-        fetchData();
-    }, []);
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const response = await axios.get(`${API_URL}/categories`);
+                    setCategory(response.data.body);
+                } catch (err) {
+                    console.error(err);
+                }
+            };
+    
+            fetchData();
+        }, []);
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const response = await axios.get(`${API_URL}/subCategories`);
+                    setSubCategory(response.data.body);
+                } catch (err) {
+                    console.error(err);
+                }
+            };
+    
+            fetchData();
+        }, []);
     return (
         <>
             <div className='footer'>
@@ -66,10 +80,10 @@ function Footer() {
                                 <h2>PRODUCTS</h2>
                                 <div className="line"></div>
                             <ul>
-                                {data && data.map((item) => {
+                                {category && category.map((item) => {
                                     return (
                                         <Link to={`/${item.slug}`}>
-                                                <li> <Link to="/">{item.name}</Link></li>
+                                                <li className='text-light my-2'>{item.name}</li>
                                         </Link>
                                     )
 
@@ -83,18 +97,35 @@ function Footer() {
                                 <div className="line"></div>
                             <ul>
                                 <div className="row">
-                                    <div className="col-6">
-                                            <li> <Link to="/">AQVA WALL</Link></li>
-                                            <li> <Link to="/">CROWN XCL</Link></li>
-                                            <li> <Link to="/">FENSE</Link></li>
-                                            <li> <Link to="/">KITTOP</Link></li>
-                                    </div>
-                                    <div className="col-6">
+                                    {subCategory && subCategory.map((item , index) => {
+                                        if(index <= 4){
+                                            return (
+                                                <div className="col-6">
+                                                <Link to={`/application/${item.slug}`}>
+                                                        <li className='text-light'>{item.name}</li>
+                                                </Link>
+                                            </div>
+                                            )
+                                        }
+                                        else{
+                                            return (
+                                                <div className="col-6">
+                                                <Link to={`/application/${item.slug}`}>
+                                                        <li className='text-light'>{item.name}</li>
+                                                </Link>
+                                            </div>
+                                            )
+                                        }
+
+
+                                })
+                                }
+                                    {/* <div className="col-6">
                                             <li> <Link to="/">LABPLUS</Link></li>
                                             <li> <Link to="/">QBISS</Link></li>
                                             <li> <Link to="/">TABILLO</Link></li>
                                             <li> <Link to="/">texpanel</Link></li>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </ul>
 
@@ -113,7 +144,6 @@ function Footer() {
                                 <Link to='https://www.facebook.com/crownlamination/' target='_blank'><div className='me-3'><img src={FB} alt="Fb" /></div></Link>
                                 <Link to='https://www.instagram.com/crown_laminates_compacts/' target='_blank'><div className='me-3'><img src={Insta} alt="Insta" /></div></Link>
                                 <Link to='https://www.linkedin.com/company/42304530' target='_blank'><div className='me-3'><img src={Linkedin} alt="Linkedin" /></div></Link>
-
                             </div>
                         </div>
                     </div>

@@ -6,19 +6,11 @@ import axios from "axios";
 import getImageURL from "../utills/getImageURL";
 import { useNavigate, Link } from "react-router-dom";
 
-// Import Images
-import AquaWall from '../assets/image/All-logo/Aqva-Wall.png';
-import CrownXLC from '../assets/image/All-logo/Exterior.png';
-import Fense from '../assets/image/All-logo/Fense.png';
-import Kittop from '../assets/image/All-logo/Kittop.png';
-import Labplus from '../assets/image/All-logo/Labplus.png';
-import Qbiss from '../assets/image/All-logo/Qbiss.png';
-import Tabillo from '../assets/image/All-logo/Tabillo.png';
 
 const NavModal = () => {
     const [show, setShow] = useState(false);
-    const [data, setData] = useState([]);
     const [activeSection, setActiveSection] = useState("products"); // Tracks which section is active
+    const [data, setData] = useState([]);
     const [category , setCategory]= useState('');
 
     
@@ -51,8 +43,6 @@ const NavModal = () => {
 
         fetchData();
     }, []);
-
-    console.log(category);
     
 
     return (
