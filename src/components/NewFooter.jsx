@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import logo from '../assets/image/logo.png'
 import Footer from "./Footer";
 
+
 function NewFooter() {
   return (
     <div>
@@ -14,6 +15,7 @@ function NewFooter() {
         <div className="crown d-flex align-items-center justify-content-center">
           <img src={logo} alt="logo" style={{width:"50%"}} />
         </div>
+
       </div>
       <Footer/>
       {/* Footer Section */}

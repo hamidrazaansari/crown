@@ -32,7 +32,9 @@ function Landing() {
         <Blog/>
         {/* <DetailsForm/> */}
         {/* <VerticalScroll/> */}
+        <div className="landing-footer">
         <NewFooter/>
+        </div>
         {/* <Footer/> */}
         {/* <FloatingButton/> */}
     </>

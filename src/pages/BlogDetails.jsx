@@ -58,36 +58,19 @@ function BlogDetails() {
                                 <div className="rcent-blog-box d-flex">
                                     <img src={RecentBlog} alt="blog image" />
                                     <div>
-                                        <p>November 10, 2024</p>
-                                        <h3>What are the Laminates use laminates and their types</h3>
+                                        <p>March 10, 2025</p>
+                                        <Link to={'/blog-details'}>
+                                        <h3>The Rise of Thin Laminates: Light Weight Luxury</h3>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="rcent-blog-box d-flex">
                                     <img src={RecentBlog} alt="blog image" />
                                     <div>
-                                        <p>November 10, 2024</p>
-                                        <h3>What are the Laminates use laminates and their types</h3>
-                                    </div>
-                                </div>
-                                <div className="rcent-blog-box d-flex">
-                                    <img src={RecentBlog} alt="blog image" />
-                                    <div>
-                                        <p>November 10, 2024</p>
-                                        <h3>What are the Laminates use laminates and their types</h3>
-                                    </div>
-                                </div>
-                                <div className="rcent-blog-box d-flex">
-                                    <img src={RecentBlog} alt="blog image" />
-                                    <div>
-                                        <p>November 10, 2024</p>
-                                        <h3>What are the Laminates use laminates and their types</h3>
-                                    </div>
-                                </div>
-                                <div className="rcent-blog-box d-flex">
-                                    <img src={RecentBlog} alt="blog image" />
-                                    <div>
-                                        <p>November 10, 2024</p>
-                                        <h3>What are the Laminates use laminates and their types</h3>
+                                        <p>March 10, 2024</p>
+                                        <Link to={'/new-blog'}>
+                                        <h3>What is the Laminates Sheets Manufacturing Process</h3>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

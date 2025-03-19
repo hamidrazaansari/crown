@@ -1,9 +1,11 @@
 .footer {
   background-color: #000;
-  padding: 40px 0;
-  height: 334px;
+  padding: 40px 0 40px;
 }
+.landing-footer .footer{
+  padding: 0px 0 40px;
 
+}
 
 
 .footer .logo .img {
@@ -113,16 +115,70 @@
   align-items: center !important;
   justify-content: center !important;
 }
-
-.pos {
+.pos,
+.footer,
+.footer-bottom {
   position: relative !important;
-  top: 0px;
+  top: 763px;
 }
 .pos {
   position: relative;
   width: 100%;
   background: transparent;
-  height: 50vh !important;
+  height: 60vh !important;
+}
+.newslatter {
+  display: none !important;
+
+}
+.landing-footer .footer .newslatter{
+  display: flex !important;
+  margin-top: 10px;
+  margin-bottom: 40px !important;
+  background-color: #fff;
+  color: #000;
+  padding-bottom: 40px;
+  position: relative;
+  bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.newslatter h2{
+  font-family: 'dion';
+  text-transform: uppercase;
+  font-size: 35px;
+  letter-spacing: 1px;
+  color: #000;
+}
+.newslatter p{
+  font-size: 20px;
+  font-family: 'LightInter';
+  color: #000;
+}
+.newslatter input{
+  border: 1px solid #818181;
+  padding: 15px;
+  width: 500px;
+}
+.newslatter input:focus{
+border-radius: none !important;
+outline: none;
+border: 2px solid #000;
+}
+.newslatter button{
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-family: LightInter;
+  padding: 20px 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.newslatter button svg{
+  font-size: 30px;
 }
 @media (max-width:1200px) {
   .pos,
@@ -369,6 +425,7 @@
   justify-content: center;
   flex-direction: column;
   height: 450px;
+  top: 200px;
 }
 
 .explore h2 {

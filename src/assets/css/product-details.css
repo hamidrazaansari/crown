@@ -639,6 +639,8 @@
         font-size: 14px;
         margin: 10px 0;
         letter-spacing: 1.5px;
+    }
+    .Sample-modal .content h2{
         margin-bottom: 0 !important;
     }
 
@@ -757,4 +759,9 @@
         white-space: nowrap;
         height: 21px;
     }
+}
+
+.Sample-modal h2{
+    margin-bottom: 3px !important;
+
 }

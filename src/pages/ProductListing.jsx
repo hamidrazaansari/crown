@@ -36,7 +36,6 @@ function ProductListing() {
 
 
   const location = useLocation();
-  const categoryId = location.state;
   const { categorySlug, subCategorySlug } = useParams();  
 
   const [pagination, setPagination] = useState({
@@ -49,13 +48,11 @@ function ProductListing() {
   useEffect(() => {
     async function fetchProduct() {
       try {
-        let url = `${API_URL}/products?categorySlug=${categorySlug}&limit=${5}&page=${pagination.page
+        let url = `${API_URL}/products?categorySlug=${categorySlug}&limit=${60}&page=${pagination.page
           }`;
-
         if (decorNumber) {
           url += `&decorNumber=${decorNumber}`;
         }
-
         if (selectedSizes.length) {
           for (let size of selectedSizes) {
             url += `&sizes=${size}`;
@@ -72,7 +69,9 @@ function ProductListing() {
           
         }
 
-        const response = await axios.get(url);
+
+        const response = await axios.get(url);  
+              
         setPagination({
           page: Number(response.data.page),
           totalRecords: Number(response.data.totalRecords),
@@ -92,10 +91,14 @@ function ProductListing() {
     selectedSizes,
     selectedDecor,
   ]);
+
+  
   useEffect(()=>{
     setSelectedSizes([]);
     setSelectedDecor([]);
     setSelectedFinish([]);
+    setSelectedSubCategory('')
+
   },[categorySlug])
 
   useEffect(() => {
@@ -116,13 +119,16 @@ function ProductListing() {
       try {
         let url = `${API_URL}/subCategories?limit=0&slug=${subCategorySlug}`;
         const response = await axios.get(url);
-        setSubCategory(response?.data?.body);
+        // setSubCategory(response?.data?.body);
       } catch (error) {
         console.log(error);
       }
     }
       fetchSubCategory();
   }, [subCategorySlug]);
+
+  console.log(subCategory);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -164,6 +170,8 @@ function ProductListing() {
     );
   };
   const handleDecorFilter = (sizeId) => {
+    console.log(sizeId);
+    
     setSelectedDecor((prev) =>
       prev.includes(sizeId)
         ? prev.filter((id) => id !== sizeId)
@@ -247,7 +255,7 @@ function ProductListing() {
                 </div>
 
                 {/* Other Filters */}
-                <h3 className="mt-3">FILTER BY FINISHES</h3>
+                {/* <h3 className="mt-3">FILTER BY FINISHES</h3>
                 <div className="row">
                   {finishes.map((finish) => (
                     <div className="col-6" key={finish._id}>
@@ -263,20 +271,21 @@ function ProductListing() {
                       </button>
                     </div>
                   ))}
-                </div>
+                </div> */}
 
                 {/* Category Filter */}
                 <h3 className="mt-3">FILTER BY CATEGORY</h3>
                 <Accordion>
                   <Accordion.Item eventKey="0">
-                    <Accordion.Header>Subcategory</Accordion.Header>
+                    <Accordion.Header>{!selectedSubCategory ? 'Subcategory' : selectedSubCategory}</Accordion.Header>
                     <Accordion.Body>
                       <ul className="list-unstyled ms-2">
                         {subCategory?.map((item) => (
                           <li key={item._id}>
                             <Link
                               to={`/${categorySlug}/${item.slug}`}
-                            >
+                              onClick={() => setSelectedSubCategory(item.name)}
+                              >
                               {item.name}
                             </Link>
                           </li>
@@ -370,7 +379,7 @@ function ProductListing() {
                 </div>
 
                 {/* Other Filters */}
-                <h3 className="mt-3">FILTER BY FINISHES</h3>
+                {/* <h3 className="mt-3">FILTER BY FINISHES</h3>
                 <div className="row">
                   {finishes.map((finish) => (
                     <div className="col-6" key={finish._id}>
@@ -386,21 +395,21 @@ function ProductListing() {
                       </button>
                     </div>
                   ))}
-                </div>
+                </div> */}
 
                 {/* Category Filter */}
                 <h3 className="mt-3">FILTER BY CATEGORY</h3>
                 <Accordion>
                   <Accordion.Item eventKey="0">
-                    <Accordion.Header>Subcategory</Accordion.Header>
+                    <Accordion.Header>{!selectedSubCategory ? 'Subcategory' : selectedSubCategory}</Accordion.Header>
                     <Accordion.Body>
                       <ul className="list-unstyled ms-2">
                         {subCategory?.map((item) => (
                           <li key={item._id}>
                             <Link
                               to={`/${categorySlug}/${item.slug}`}
-                              onClick={() => handleSubCategoryFilter(item._id)}
-                            >
+                              onClick={() => setSelectedSubCategory(item.name)}
+                              >
                               {item.name}
                             </Link>
                           </li>
@@ -416,7 +425,7 @@ function ProductListing() {
             <div className="col-lg-8 products-container">
               <div className="d-flex align-items-center justify-content-between">
                   <div>
-                    <h2>{catHeader?.name || "Default Title"}</h2>
+                    <h2>{!selectedSubCategory ? catHeader?.name  : selectedSubCategory || "Default Title"}</h2>
                     <p>{catHeader?.shortDescription || ""}</p>
                   </div>
                   <button className="sidebar-toggle d-lg-none d-block" onClick={handleShow}>

@@ -5,7 +5,8 @@ import { Accordion } from "react-bootstrap";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { API_URL } from "../utills/BaseUrl";
 import axios from "axios";
-import Img from "../assets/image/productbanner.png";
+import Img from "../assets/image/aqua-wall.png";
+
 import OtherPageFooter from "../components/OtherPageFooter";
 import Product1 from "../assets/image/product1.png";
 import getImageURL from "../utills/getImageURL";
@@ -50,7 +51,7 @@ function Application() {
   useEffect(() => {
     async function fetchProduct() {
       try {
-        let url = `${API_URL}/products?subCategorySlug=${subCategorySlug}&limit=${5}&page=${pagination.page
+        let url = `${API_URL}/products?subCategorySlug=${subCategorySlug}&limit=${60}&page=${pagination.page
           }`;
   
         if (decorNumber) {
@@ -224,7 +225,7 @@ function Application() {
                 </div>
 
                 {/* Other Filters */}
-                <h3 className="mt-3">FILTER BY FINISHES</h3>
+                {/* <h3 className="mt-3">FILTER BY FINISHES</h3>
                 <div className="row">
                   {finishes.map((finish) => (
                     <div className="col-6" key={finish._id}>
@@ -240,7 +241,7 @@ function Application() {
                       </button>
                     </div>
                   ))}
-                </div>
+                </div> */}
 
                 <button className="bg-light text-dark fw-bold" style={{fontFamily:"inter"}}>Apply</button>
               </div>
@@ -267,10 +268,10 @@ function Application() {
             <div className="product-banner d-lg-flex">
               <div>
                 <img src={Img} alt="" />
-                <div className="banner-text-container">
+                {/* <div className="banner-text-container">
                   <h2>{subCategory?.name || "Default Title"}</h2>
                   <div className="line"></div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -333,7 +334,7 @@ function Application() {
                 </div>
 
                 {/* Other Filters */}
-                <h3 className="mt-3">FILTER BY FINISHES</h3>
+                {/* <h3 className="mt-3">FILTER BY FINISHES</h3>
                 <div className="row">
                   {finishes.map((finish) => (
                     <div className="col-6" key={finish._id}>
@@ -349,7 +350,7 @@ function Application() {
                       </button>
                     </div>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -370,7 +371,7 @@ function Application() {
                   const imageUrl = getImageURL(product?.a4Image);
                   return (
                     <div className="col-lg-4 col-6" key={product._id}>
-                      <Link to={`/applicatio-details/${product._id}`}>
+                      <Link to={`/application-details/${product._id}`}>
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />
                           <div className="blur"></div>

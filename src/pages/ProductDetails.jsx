@@ -139,7 +139,7 @@ function ProductDetails() {
             <div className="bgWhite">
                 <div className="container ">
                     <div className="breadcrumb m-0 py-3 pb-0">
-                        <p><Link to="/">HOME</Link><span> / </span> <Link to="/" className='ms-2'>Exterior Compacts</Link> </p>
+                        <p><Link to="/">HOME</Link><span> / </span> <Link  className='ms-2'>Product Details</Link> </p>
                     </div>
                 </div>
             </div>

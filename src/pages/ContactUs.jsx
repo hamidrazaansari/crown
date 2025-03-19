@@ -245,7 +245,7 @@ function ContactUs() {
                                             {errors.mobile && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "62px" }}>{errors.mobile}</small>}
 
                                         </div>
-                                        <div className="col-lg-6">
+                                        <div className="col-lg-6 country-drop">
                                             <label htmlFor="country">Country*</label>
                                             <SelectSearch
                                                 options={countries}
@@ -258,20 +258,21 @@ function ContactUs() {
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-6" style={{ position: 'relative' }}>
+                                        <div className="col-6 country-drop" style={{ position: 'relative' }}>
                                             <div className='d-flex flex-column country'>
                                                 <label htmlFor="country">Feedback</label>
                                                 <SelectSearch
                                                     options={inquiryOptions}
                                                     value={formData.inquiryType}
                                                     onChange={(value) => handleChange("inquiryType", value)}
+                                                    placeholder='Select feedback'
 
                                                 />
                                                 {errors.inquiryType && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.inquiryType}</small>}
 
                                             </div>
                                         </div>
-                                        <div className="col-6 d-flex flex-column " style={{ position: 'relative' }}>
+                                        <div className="col-6 d-flex flex-column country-drop" style={{ position: 'relative' }}>
                                             <label htmlFor="mobile">Visitor Type</label>
                                             <SelectSearch
                                                 options={visitorOptions}

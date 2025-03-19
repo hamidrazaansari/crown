@@ -80,10 +80,14 @@
     margin-right: 16px;
 }
 .contactForm input{
-    border: none;
-    border-bottom: 1px solid #0000007a;
+    border: none !important;
+    border-bottom: 1px solid #0000007a !important;
     padding: 5px 0px;
     margin-bottom: 20px;
+}
+.country-drop .select-search-container:not(.select-search-is-disabled) .select-search-input:hover  {
+    border: none !important;
+    border-bottom: 1px solid #0000007a !important;
 }
 .contactForm input:focus{
     outline: none;

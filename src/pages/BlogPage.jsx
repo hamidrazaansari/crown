@@ -46,7 +46,7 @@ function BlogPage() {
                                 <div className="d-flex justify-content-between">
                                     <h2>What is the Laminates Sheets
                                         Manufacturing Process</h2>
-                                    <Link to={'/blog-details'}><button><GoArrowUpRight /> </button></Link>
+                                    <Link to={'/new-blog'}><button><GoArrowUpRight /> </button></Link>
                                 </div>
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>

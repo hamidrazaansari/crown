@@ -364,6 +364,12 @@ padding: 0 !important;
 .toggle-btn{
     color: #000;
 }
+.sidebar .accordion-button:focus{
+    box-shadow: none !important;
+}
+.sidebar .accordion-button::after {
+    filter: brightness(0) invert(1) !important; 
+}
 
 @media (max-width:1200px) {
     .product-box img {

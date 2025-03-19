@@ -10,11 +10,13 @@ import { API_URL } from '../utills/BaseUrl'
 import FB from '../assets/image/fb.png'
 import Insta from '../assets/image/insta.png'
 import Linkedin from '../assets/image/linkedin.png'
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 
 function Footer() {
     const [subCategory, setSubCategory] = useState('');
     const [category, setCategory] = useState('');
+    const [email , setEmail] = useState('')
 
         useEffect(() => {
             const fetchData = async () => {
@@ -40,9 +42,29 @@ function Footer() {
     
             fetchData();
         }, []);
+
+        const handleSubmit = () =>{
+            try {
+                const resp = axios.post(`${API_URL}/` , {email})
+                console.log(resp.data);
+                
+            } catch (error) {
+                console.log(error);
+                
+            }
+        }
     return (
         <>
+
             <div className='footer'>
+            <div className="newslatter">
+                  <h2>Be the first to know about new drops</h2>
+                  <p>Subscribe to our newsletter for early access, special deals, and the latest trends.</p>
+                  <div className="d-flex">
+                    <input type="text" value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Your Email" />
+                    <button onClick={handleSubmit}>SIGN UP <IoIosArrowRoundForward className="ms-2"/></button>
+                  </div>
+                </div>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-3 col-12 d-flex flex-column  resp">
@@ -88,7 +110,6 @@ function Footer() {
                                                 <li className='text-light my-2'>{item.name}</li>
                                         </Link>
                                     )
-
                                 })
                                 }
                             </ul>

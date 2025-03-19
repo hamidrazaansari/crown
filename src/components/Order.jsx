@@ -38,7 +38,7 @@ function Order() {
 
     const [orderData, setOrderData] = useState([]);
 
-    const { removeItemById , data , clearCart } = useContext(CounterContext);
+    const { removeItemById, data, clearCart } = useContext(CounterContext);
 
 
 
@@ -64,7 +64,7 @@ function Order() {
             })
             if (products.length > 0) {
                 toast.success(response.data.message)
-                clearCart()                
+                clearCart()
                 navigate('/thank-you')
 
             }
@@ -106,10 +106,10 @@ function Order() {
 
 
     const { values, setFieldValue } = addressFormik;
-    
+
     // console.log(city , state , country);
-    
-    
+
+
 
     const countries = Country.getAllCountries().map((country) => ({
         label: country.name,
@@ -130,7 +130,7 @@ function Order() {
         }))
         : [];
 
-        
+
 
     return (
         <div>
@@ -302,7 +302,7 @@ function Order() {
                             <h3>Orders</h3>
                             <hr />
                             {data.length > 0 ? (
-                                data  && data.map((item, index) => {
+                                data && data.map((item, index) => {
                                     const imageUrl = item.a4Image ? getImageURL(item.a4Image) : '';
                                     return (
                                         <div key={index} className="d-flex align-items-center" style={{ background: "#fff", padding: "5px", position: "relative" }}>
@@ -310,9 +310,11 @@ function Order() {
                                             <img src={imageUrl} alt="" />
                                             <div className="order-info mx-3">
                                                 <h2>{item.name}</h2>
-                                                <p>{item.type?.title}</p>
-                                                <p>{item.sizes?.map((cat, i) => (<span key={i}>{cat.title}, </span>))}</p>
-                                                <p>{item.categories?.map((cat, i) => (<span key={i}>{cat.name}</span>))}</p>
+                                                <p className="mb-1">
+                                                    <strong>Size :</strong> <span>A4</span>
+                                                </p>
+                                                <p><strong>Decor Number : </strong> {item.decorNumber || ''}</p>
+                                                <p><strong>Decor Series : </strong> {item.decorSeries?.title || ''}</p>
                                             </div>
                                         </div>
                                     );
