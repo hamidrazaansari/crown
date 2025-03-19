@@ -87,6 +87,12 @@ function Application() {
     selectedSizes,
     selectedDecor,
   ]);
+
+    useEffect(()=>{
+      setSelectedSizes([]);
+      setSelectedDecor([]);
+      setSelectedFinish([]);
+    },[subCategorySlug])
   
   
   useEffect(() => {
