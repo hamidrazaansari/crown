@@ -447,8 +447,8 @@
     .blog {
         padding: 40px 0;
         background-color: #ffffff;
-        position: sticky;
-        top: -100px;
+        position: unset;
+        top: 0;
         z-index: 1;
     }
 
