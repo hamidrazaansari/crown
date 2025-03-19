@@ -5,10 +5,11 @@ import OtherPageFooter from '../components/OtherPageFooter';
 import { Modal } from 'react-bootstrap';
 import { RxCross1 } from "react-icons/rx";
 import Eye from '../assets/image/eye.png';
-import CatalougeBanner from '../assets/image/catelog.png' 
+import CatalougeBanner from '../assets/image/catelog.png';
+
 // Import PDF files
 import Certificate1 from '../assets/image/certificates/20. CE CGS.pdf';
-import File from '../assets/image/file.png'
+import File from '../assets/image/file.png';
 
 import '../assets/css/certificate.css';
 import '../assets/css/catalouge.css';
@@ -17,16 +18,23 @@ import { Link } from 'react-router-dom';
 function Catalogue() {
     const [show, setShow] = useState(false);
     const [selectedPdf, setSelectedPdf] = useState(null);
+    const [selectedFilter, setSelectedFilter] = useState("All"); // State to store selected filter
 
     const certificates = [
-        { name: "01.  Crownlam laminates lab guardian collection", file: Certificate1 },
-        { name: "02.  Crownlam laminates lab guardian collection", file: Certificate1 },
-        { name: "03.  Crownlam laminates lab guardian collection", file: Certificate1 },
-        { name: "04.  Crownlam laminates lab guardian collection", file: Certificate1 },
-        { name: "05.  Crownlam laminates lab guardian collection", file: Certificate1 },
-        { name: "06.  Crownlam laminates lab guardian collection", file: Certificate1 },
-
+        { name: "01. Crownlam laminates lab guardian collection", file: Certificate1, application: "QBISS" },
+        { name: "02. Crownlam laminates lab guardian collection", file: Certificate1, application: "Tabillo" },
+        { name: "03. Crownlam laminates lab guardian collection", file: Certificate1, application: "Aqua Wall" },
+        { name: "04. Crownlam laminates lab guardian collection", file: Certificate1, application: "Kittop" },
+        { name: "05. Crownlam laminates lab guardian collection", file: Certificate1, application: "Fense" },
+        { name: "06. Crownlam laminates lab guardian collection", file: Certificate1, application: "Texpanel" },
+        { name: "06. Crownlam laminates lab guardian collection", file: Certificate1, application: "Crown XCL" },
+        { name: "06. Crownlam laminates lab guardian collection", file: Certificate1, application: "Lab Plus" },
     ];
+
+    // Filter the certificates based on selectedFilter
+    const filteredCertificates = selectedFilter === "All"
+        ? certificates
+        : certificates.filter(cert => cert.application.toLowerCase() === selectedFilter.toLowerCase());
 
     const handleShow = (pdfFile) => {
         setSelectedPdf(pdfFile);
@@ -72,40 +80,45 @@ function Catalogue() {
                     </div>
                 </div>
             </div>
-            <div className=" bgWhite">
+            <div className="bgWhite">
                 <div className="container catalogue-banner">
                     <img src={CatalougeBanner} alt="CatalougeBanner" />
                 </div>
             </div>
+
+            {/* Filter Buttons */}
             <div className='bgWhite'>
-            <div className="catalouge-btn  container d-flex flex-wrap justify-normal">
-                <button>Aqua Wall</button>
-                <button>Crown XCL</button>
-                <button>Fense</button>
-                <button>Kittop</button>
-                <button>Lab Plus</button>
-                <button>QBISS</button>
-                <button>Tabillo</button>
-                <button>Texpanel</button>
+                <div className="catalouge-btn container d-flex flex-wrap justify-normal">
+                    {["All", "Aqua Wall", "Crown XCL", "Fense", "Kittop", "Lab Plus", "QBISS", "Tabillo", "Texpanel"].map((category, index) => (
+                        <button 
+                            key={index} 
+                            className={selectedFilter === category ? "active-filter" : ""}
+                            onClick={() => setSelectedFilter(category)}
+                        >
+                            {category}
+                        </button>
+                    ))}
+                </div>
             </div>
-            </div>
-
-
 
             {/* Certificate List Section */}
             <div className="certificate-box bgWhite py-3 pb-5">
                 <div className="container px-5">
                     <h1>QUALITY Certificate</h1>
-                    {certificates.map((cert, index) => (
-                        <div className='d-flex align-items-center' key={index}>
-                            <div className="certification-box">
-                                <p>{cert.name}</p>
+                    {filteredCertificates.length > 0 ? (
+                        filteredCertificates.map((cert, index) => (
+                            <div className='d-flex align-items-center' key={index}>
+                                <div className="certification-box">
+                                    <p>{cert.name}</p>
+                                </div>
+                                <button className='certificate-btn' onClick={() => handleShow(cert.file)}>
+                                    Download <img src={File} alt="eye" />
+                                </button>
                             </div>
-                            <button className='certificate-btn' onClick={() => handleShow(cert.file)}>
-                                Download <img src={File} alt="eye" />
-                            </button>
-                        </div>
-                    ))}
+                        ))
+                    ) : (
+                        <p>No certificates available for "{selectedFilter}"</p>
+                    )}
                 </div>
             </div>
 

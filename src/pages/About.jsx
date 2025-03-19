@@ -21,10 +21,10 @@ function About() {
             <h3>
               Crown specializes in production of various kinds of Laminates
             </h3>
-            <button className="crownBtn">
+            {/* <button className="crownBtn">
               <span>Learn More</span>
               <FaArrowRight />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

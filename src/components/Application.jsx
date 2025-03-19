@@ -11,6 +11,7 @@ import Product1 from "../assets/image/product1.png";
 import getImageURL from "../utills/getImageURL";
 import { FaFilter } from "react-icons/fa6";
 import parse from 'html-react-parser'
+
 import { RxCross2 } from "react-icons/rx";
 import { Offcanvas } from "react-bootstrap";
 
@@ -24,8 +25,9 @@ function Application() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedSizes, setSelectedSizes] = useState([]);
-  const [selectedFinish, setSelectedFinish] = useState("");
-  const [selectedDecor, setSelectedDecor] = useState("");
+  const [selectedFinish, setSelectedFinish] = useState([]);
+  const [selectedDecor, setSelectedDecor] = useState([]);
+  const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const [catHeader, setCatHeader] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [show, setShow] = useState(false);
@@ -35,6 +37,7 @@ function Application() {
 
 
   const location = useLocation();
+  const categoryId = location.state;
   const {subCategorySlug } = useParams();  
 
   const [pagination, setPagination] = useState({
@@ -43,27 +46,28 @@ function Application() {
     totalPages: null,
   });
   const [decorNumber, setDecorNumber] = useState();
-
+  
   useEffect(() => {
     async function fetchProduct() {
       try {
         let url = `${API_URL}/products?subCategorySlug=${subCategorySlug}&limit=${5}&page=${pagination.page
           }`;
-
+  
         if (decorNumber) {
           url += `&decorNumber=${decorNumber}`;
         }
-
-        if (selectedDecor) {
-          url += `&decorSeries=${selectedDecor}`;
-        }
-
+        if (selectedDecor.length) {
+            for (let decor of selectedDecor) {
+              url += `&decorSeries=${decor}`;
+            }
+          }
+  
         if (selectedSizes.length) {
           for (let size of selectedSizes) {
             url += `&sizes=${size}`;
           }
         }
-
+  
         const response = await axios.get(url);
         setPagination({
           page: Number(response.data.page),
@@ -83,8 +87,8 @@ function Application() {
     selectedSizes,
     selectedDecor,
   ]);
-
-
+  
+  
   useEffect(() => {
     async function fetchSubCategory() {
       try {
@@ -98,7 +102,7 @@ function Application() {
     fetchSubCategory()
   }, [subCategorySlug]);
   
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -118,13 +122,20 @@ function Application() {
         setLoading(false);
       }
     };
-
+  
     fetchData();
   }, [subCategorySlug]);
 
   // **Handle Multi-Select Size Filter**
   const handleSizeFilter = (sizeId) => {
     setSelectedSizes((prev) =>
+      prev.includes(sizeId)
+        ? prev.filter((id) => id !== sizeId)
+        : [...prev, sizeId]
+    );
+  };
+  const handleDecorFilter = (sizeId) => {
+    setSelectedDecor((prev) =>
       prev.includes(sizeId)
         ? prev.filter((id) => id !== sizeId)
         : [...prev, sizeId]
@@ -154,7 +165,8 @@ function Application() {
       });
     }
   }
-    
+
+  
 
   return (
     <div>
@@ -194,12 +206,31 @@ function Application() {
                   {decorSeries.map((type) => (
                     <div className="col-6" key={type._id}>
                       <button
-                        onClick={() => setSelectedDecor(type._id)}
+                        onClick={() => handleDecorFilter(type._id)}
                         className={
                           selectedDecor == type._id ? "active-btn" : ""
                         }
                       >
                         {type.title}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Other Filters */}
+                <h3 className="mt-3">FILTER BY FINISHES</h3>
+                <div className="row">
+                  {finishes.map((finish) => (
+                    <div className="col-6" key={finish._id}>
+                      <button
+                        onClick={() => handleFinishFilter(finish._id)}
+                        className={
+                          selectedFinish.includes(finish._id)
+                            ? "active-btn"
+                            : ""
+                        }
+                      >
+                        {finish.fullName}
                       </button>
                     </div>
                   ))}
@@ -217,7 +248,7 @@ function Application() {
               <Link to="/">HOME</Link>
               <span> / </span>{" "}
               <Link to="/" className="ms-2">
-                APPLICATION
+                Application
               </Link>
             </p>
           </div>
@@ -239,7 +270,7 @@ function Application() {
           </div>
         </div>
       </div>
-      <div className="bgWhite listingHeader">
+            <div className="bgWhite listingHeader">
                 <div className="container">
                 <h1>{subCategory?.listingTitle}</h1>
                 <p className="mb-0">{parse(subCategory?.listingDescription || "")}</p>
@@ -284,9 +315,9 @@ function Application() {
                   {decorSeries.map((type) => (
                     <div className="col-6" key={type._id}>
                       <button
-                        onClick={() => setSelectedDecor(type._id)}
+                        onClick={() => handleDecorFilter(type._id)}
                         className={
-                          selectedDecor == type._id ? "active-btn" : ""
+                          selectedDecor.includes(type._id) ? "active-btn" : ""
                         }
                       >
                         {type.title}
@@ -313,28 +344,6 @@ function Application() {
                     </div>
                   ))}
                 </div>
-
-                {/* Category Filter */}
-                {/* <h3 className="mt-3">FILTER BY CATEGORY</h3>
-                <Accordion>
-                  <Accordion.Item eventKey="0">
-                    <Accordion.Header>Subcategory</Accordion.Header>
-                    <Accordion.Body>
-                      <ul className="list-unstyled ms-2">
-                        {subCategory?.map((item) => (
-                          <li key={item._id}>
-                            <Link
-                              to={`/${categorySlug}/${item.slug}`}
-                              onClick={() => handleSubCategoryFilter(item._id)}
-                            >
-                              {item.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion> */}
               </div>
             </div>
 
@@ -355,7 +364,7 @@ function Application() {
                   const imageUrl = getImageURL(product?.a4Image);
                   return (
                     <div className="col-lg-4 col-6" key={product._id}>
-                      <Link to={`/product-details/${product._id}`}>
+                      <Link to={`/applicatio-details/${product._id}`}>
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />
                           <div className="blur"></div>
@@ -426,5 +435,6 @@ function Application() {
     </div>
   );
 }
+
 
 export default Application;

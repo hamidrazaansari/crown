@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState , useEffect } from 'react';
 import '../assets/css/navbar.css';
 import CartIcon from '../assets/image/shopping-cart.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -12,6 +12,9 @@ import { BsCart3 } from "react-icons/bs";
 import Product1 from '../assets/image/product1.png'
 import { Modal, Button } from 'react-bootstrap';
 import EmptyCart from '../assets/image/cart-empty.png'
+import axios from 'axios';
+import { API_URL } from '../utills/BaseUrl';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -20,6 +23,23 @@ function Cart() {
   const [showSignin, setShowSignin] = useState(false);
   const [show, setShow] = useState(false);
   const [showAll, setShowAll] = useState(false);
+
+      const [category, setCategory] = useState('');
+  
+          useEffect(() => {
+              const fetchData = async () => {
+                  try {
+                      const response = await axios.get(`${API_URL}/categories`);
+                      setCategory(response.data.body[0]);
+                  } catch (err) {
+                      console.error(err);
+                  }
+              };
+      
+              fetchData();
+          }, []);
+
+          
   
   const sizes = data.sizes || [];
   const visibleSizes = showAll ? sizes : sizes.slice(0, 3);
@@ -38,7 +58,7 @@ function Cart() {
     if (count === 0) {
       navigate('/products', { state: id });
     } else {
-      navigate('/order', { state: data });
+      navigate('/order');
     }
     handleClose(); // Close modal on checkout
   };
@@ -47,6 +67,7 @@ function Cart() {
 
   return (
     <div>
+      
       <SingInModal show={showSignin} handleSigninModleClose={handleSigninModleClose} />
       <div className='cart'>
         <div onClick={handleShow} className='cart-btn'>
@@ -74,22 +95,13 @@ function Cart() {
                       <div className="d-flex">
                         <img src={imageUrl} alt="product" className="product-img" />
                         <div className='ms-2'>
-                          <h4>{item.name || 'Abstract'}</h4>
-                          <p><strong>Decor Series : </strong> {item.decorSeries?.title || 'Abstract'}</p>
-                          {/* <p>Size: {item.sizes?.map((cat) => (<span key={cat.title}>{cat.title}, </span>))}</p> */}
+                          <h4>{item.name || ''}</h4>
                           <p className="mb-1">
-                                <strong>Size :</strong> {item.sizes?.map((cat, index) => (
-                                    <span key={index}>
-                                        {cat.title}{index !== item.sizes?.length - 1 ? ", " : ""}
-                                    </span>
-                                ))}
-
-                                {sizes.length > 3 && (
-                                    <button className="toggle-btn" onClick={() => setShowAll(!showAll)}>
-                                        {showAll ? "See Less" : `${remainingCount} More`}
-                                    </button>
-                                )}
-                            </p>     
+                                <strong>Size :</strong> <span>A4</span>
+                          </p>    
+                          <p><strong>Decor Number : </strong> {item.decorNumber || ''}</p>
+                          <p><strong>Decor Series : </strong> {item.decorSeries?.title || ''}</p>
+ 
                         </div>
                       </div>
                       <div className='d-flex flex-column align-items-end justify-content-end'>
@@ -105,7 +117,7 @@ function Cart() {
               <div className='d-flex align-items-center justify-content-center flex-column emptyCart pt-4'>
                 <img src={EmptyCart} alt="Empty Cart" height={"115px"} />
                 <p className='text-center my-3'>Your cart is currently empty. Start adding products</p>
-                <button className='cart-btn' onClick={() => navigate('/products')}>Add Product</button>
+                <Link className='cart-btn' onClick={handleClose} to={`/${category?.slug}`}>Add Product</Link>
               </div>
             )}
 

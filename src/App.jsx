@@ -18,6 +18,7 @@ import ContactUs from "./pages/ContactUs"
 import Catalogue from "./pages/Catalogue"
 import Application from "./components/Application"
 import NewBlogDetails from "./pages/NewBlogDetails"
+import ApplicationDetails from "./components/ApplicationDetails"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<Landing/>}/>
         <Route path="/products" element={<ProductListing/>}/>
         <Route path="/product-details/:id" element={<ProductDetails/>}/>
+        <Route path="/application-details/:id" element={<ApplicationDetails/>}/>
         <Route path="/blog" element={<BlogPage/>}/>
         <Route path="/blog-details" element={<BlogDetails/>}/>
         <Route path="/environmental" element={<Env/>}/>

@@ -35,29 +35,16 @@ function Order() {
         country: '',
         pincode: '',
     })
-    const data = useLocation();
 
     const [orderData, setOrderData] = useState([]);
 
-    const { removeItemById } = useContext(CounterContext);
+    const { removeItemById , data , clearCart } = useContext(CounterContext);
 
-    useEffect(() => {
-        if (Array.isArray(data?.state)) {
-            setOrderData(data.state);
-        }
-    }, [data?.state]);
-
-
-    const handleRemoveItem = (indexToRemove, id) => {
-        const updatedOrders = orderData.filter((_, index) => index !== indexToRemove);
-        setOrderData(updatedOrders);
-        removeItemById(id)
-    };
 
 
     const handlePlaceOrder = async () => {
-        const products = orderData && orderData.length > 0
-            ? orderData.map(item => ({
+        const products = data && data.length > 0
+            ? data.map(item => ({
                 product: item._id,
                 qty: "1"
             }))
@@ -77,7 +64,7 @@ function Order() {
             })
             if (products.length > 0) {
                 toast.success(response.data.message)
-                removeItemById(products._id)
+                clearCart()                
                 navigate('/thank-you')
 
             }
@@ -104,7 +91,7 @@ function Order() {
 
     const handleGoto = () => {
 
-        navigate("/");
+        navigate("/exterior-laminate");
     };
 
     const addressFormik = useFormik({
@@ -144,9 +131,6 @@ function Order() {
         : [];
 
         
-    console.log(State.getStatesOfCountry(values.country));
-
-    console.log("Selected Country:", values.country);
 
     return (
         <div>
@@ -317,12 +301,12 @@ function Order() {
                         <div className="order-box">
                             <h3>Orders</h3>
                             <hr />
-                            {orderData.length > 0 ? (
-                                orderData.map((item, index) => {
+                            {data.length > 0 ? (
+                                data  && data.map((item, index) => {
                                     const imageUrl = item.a4Image ? getImageURL(item.a4Image) : '';
                                     return (
                                         <div key={index} className="d-flex align-items-center" style={{ background: "#fff", padding: "5px", position: "relative" }}>
-                                            <button className="cancelBtn" onClick={() => handleRemoveItem(index, item._id)}><RxCross2 /></button>
+                                            <button className="cancelBtn" onClick={() => removeItemById(item._id)}><RxCross2 /></button>
                                             <img src={imageUrl} alt="" />
                                             <div className="order-info mx-3">
                                                 <h2>{item.name}</h2>

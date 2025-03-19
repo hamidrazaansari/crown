@@ -13,8 +13,8 @@ import Linkedin from '../assets/image/linkedin.png'
 
 
 function Footer() {
-    const [category, setCategory] = useState('');
     const [subCategory, setSubCategory] = useState('');
+    const [category, setCategory] = useState('');
 
         useEffect(() => {
             const fetchData = async () => {
@@ -50,19 +50,19 @@ function Footer() {
                                     <img src={Logo} alt="logo" />
                             </div>
                             <div className='socal-link'>
-                                <div className="d-flex align-items-center">
+                                <a href='tel:+918564758228' className="d-flex align-items-center">
                                     <div className="footer-img">
                                         <img src={Call} alt="phone" />
                                     </div>
                                     <p className='mb-0'>+91 8564758228</p>
-                                </div>
+                                </a>
 
-                                <div className="d-flex align-items-center">
+                                <a href='mailto:crownlaminates@gmail.com' className="d-flex align-items-center">
                                     <div className="footer-img">
                                         <img src={Mail} alt="mail" style={{ height: "12px", width: "18px" , margin: "0 10px "}} />
                                     </div>
                                     <p className='mb-0'> crownlaminates@gmail.com</p>
-                                </div>
+                                </a>
 
                             </div>
                         </div>
@@ -73,7 +73,9 @@ function Footer() {
                                     <li> <Link to="/about">ABOUT</Link></li>
                                    <li>  <Link to="/blog">BLOG</Link></li>
                                     <li> <Link to="/contact">CONTACT US</Link></li>
-                                    <li> <Link to="/">PRIVACY POLICY</Link></li>
+                                    <li> <Link to="/certification">CERTIFICATION</Link></li>
+                                    <li> <Link to="/catalouge">CATALOUGE</Link></li>
+                                    {/* <li> <Link to="/">PRIVACY POLICY</Link></li> */}
                             </ul>
                         </div>
                         <div className="col-lg-3  col-6 d-flex flex-column resp">

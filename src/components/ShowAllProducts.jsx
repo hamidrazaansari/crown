@@ -90,7 +90,7 @@ function ShowAllProducts({ relatedProducts }) {
                 const imgUrl = getImageURL(product.a4Image)
                 return (
                   <>
-                    <Link to={`/product-details/${product._id}`}>
+                    <Link to={`/product-details/${product._id}`} key={product?._id}>
                       <div className="product-box">
                         <img src={imgUrl} alt="product1" />
                         <h4>{product.name}</h4>

@@ -19,6 +19,10 @@
     background-color: #E69B00;
     
 }
+.active-filter{
+    background-color: #E69B00 !important;
+
+}
 .catalogue-banner img{
     width: 100%;
    } 

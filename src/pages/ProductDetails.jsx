@@ -81,6 +81,7 @@ function ProductDetails() {
     // if (loading) return <p>Loading...</p>;
     // if (error) return <p>{error}</p>;
 
+    
 
 
     const handleShow = () => setShow(true);
@@ -109,32 +110,20 @@ function ProductDetails() {
     }, [products])
 
 
-    // const handleDownload = async () => {
-    //     try {
-    //         const imgURLHighResolution = getImageURL(products.highResolutionImage);
-    //         const proxyURL = "https://cors-anywhere.herokuapp.com/";
-
-    //         const response = await fetch(proxyURL + imgURLHighResolution, { mode: "cors" });
-    //         const blob = await response.blob();
-
-    //         const link = document.createElement("a");
-    //         link.href = URL.createObjectURL(blob);
-    //         link.download = "highResolutionImage.jpg";
-
-    //         document.body.appendChild(link);
-    //         link.click();
-    //         document.body.removeChild(link);
-    //     } catch (error) {
-    //         console.error("Error downloading the image:", error.message);
-    //         alert("Failed to download image. Please check the console.");
-    //     }
-    // };
-
     const handleDownload = () => {
-        let url = imgURL
+        let url = highResolutionImage; 
         console.log(url);
+        
+        // Check if the URL is a Google Drive link
+        if (url.includes("drive.google.com")) {
+            const fileId = url.match(/[-\w]{25,}/); // Extract file ID
+            
+            if (fileId) {
+                url = `https://drive.google.com/uc?export=download&id=${fileId[0]}`;
+            }
+        }
 
-        let fileExtension = url.split(".").pop(); // Get the file extension dynamically
+        let fileExtension = url.split(".").pop().split("?")[0]; // Get file extension dynamically
         saveAs(url, `${products.name}.${fileExtension}`); // Saves with correct extension
     };
 

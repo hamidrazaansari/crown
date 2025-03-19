@@ -1,7 +1,10 @@
 .footer {
   background-color: #000;
   padding: 40px 0;
+  height: 334px;
 }
+
+
 
 .footer .logo .img {
   height: 42px;
@@ -107,10 +110,20 @@
   margin-right: 15px;
 }
 .footer-bottom .socal{
-  align-items: end !important;
-  justify-content: end !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
+.pos {
+  position: relative !important;
+  top: 0px;
+}
+.pos {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  height: 50vh !important;
+}
 @media (max-width:1200px) {
   .pos,
   .footer,
@@ -153,9 +166,6 @@
     background: transparent;
     height: 80vh ;
   }
-  .footer-bottom .socal {
-    margin-left: 0px !important;
-}
 
   .footer-background {
     margin: 0;

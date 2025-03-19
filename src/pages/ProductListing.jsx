@@ -7,6 +7,7 @@ import { API_URL } from "../utills/BaseUrl";
 import axios from "axios";
 import Img from "../assets/image/productbanner.png";
 import OtherPageFooter from "../components/OtherPageFooter";
+import Product1 from "../assets/image/product1.png";
 import getImageURL from "../utills/getImageURL";
 import { FaFilter } from "react-icons/fa6";
 
@@ -23,8 +24,8 @@ function ProductListing() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedSizes, setSelectedSizes] = useState([]);
-  const [selectedFinish, setSelectedFinish] = useState("");
-  const [selectedDecor, setSelectedDecor] = useState("");
+  const [selectedFinish, setSelectedFinish] = useState([]);
+  const [selectedDecor, setSelectedDecor] = useState([]);
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const [catHeader, setCatHeader] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -55,13 +56,14 @@ function ProductListing() {
           url += `&decorNumber=${decorNumber}`;
         }
 
-        if (selectedDecor) {
-          url += `&decorSeries=${selectedDecor}`;
-        }
-
         if (selectedSizes.length) {
           for (let size of selectedSizes) {
             url += `&sizes=${size}`;
+          }
+        }
+        if (selectedDecor.length) {
+          for (let decor of selectedDecor) {
+            url += `&decorSeries=${decor}`;
           }
         }
 
@@ -90,6 +92,11 @@ function ProductListing() {
     selectedSizes,
     selectedDecor,
   ]);
+  useEffect(()=>{
+    setSelectedSizes([]);
+    setSelectedDecor([]);
+    setSelectedFinish([]);
+  },[categorySlug])
 
   useEffect(() => {
     async function fetchCategory() {
@@ -105,19 +112,17 @@ function ProductListing() {
   }, [categorySlug]);
 
   useEffect(() => {
-    async function fetchSubCategory(categoryId) {
+    async function fetchSubCategory() {
       try {
-        let url = `${API_URL}/subCategories?category=${categoryId}&limit=0&slug=${subCategorySlug}`;
+        let url = `${API_URL}/subCategories?limit=0&slug=${subCategorySlug}`;
         const response = await axios.get(url);
         setSubCategory(response?.data?.body);
       } catch (error) {
         console.log(error);
       }
     }
-    if (catHeader) {
-      fetchSubCategory(catHeader._id);
-    }
-  }, [catHeader]);
+      fetchSubCategory();
+  }, [subCategorySlug]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -137,7 +142,7 @@ function ProductListing() {
         setSizes(sizesRes.data.body);
         setDecorSeries(decorRes.data.body);
         setFinishes(finishesRes.data.body);
-        // setSubCategory(subCategoryRes.data.body);
+        setSubCategory(subCategoryRes.data.body);
         // setCatHeader(categoryRes.data.body);
       } catch (err) {
         setError("Error fetching data");
@@ -158,6 +163,13 @@ function ProductListing() {
         : [...prev, sizeId]
     );
   };
+  const handleDecorFilter = (sizeId) => {
+    setSelectedDecor((prev) =>
+      prev.includes(sizeId)
+        ? prev.filter((id) => id !== sizeId)
+        : [...prev, sizeId]
+    );
+  };
 
   const handleFinishFilter = (finishId) => {
     setSelectedFinish((prev) =>
@@ -166,31 +178,6 @@ function ProductListing() {
         : [...prev, finishId]
     );
   };
-
-  const handleSubCategoryFilter = (subCategoryId) => {
-    setSelectedSubCategory((prev) =>
-      prev === subCategoryId ? "" : subCategoryId
-    );
-  };
-
-  const filteredProducts = products.filter((product) => {
-    const sizeMatch =
-      selectedSizes.length === 0 ||
-      product.sizes?.some((size) => selectedSizes.includes(size._id));
-
-    const finishMatch =
-      selectedFinish === "" ||
-      product.sizeFinishes?.some((finish) => finish._id === selectedFinish);
-
-    const subCategoryMatch =
-      selectedSubCategory === "" ||
-      product.subCategories?.some((sub) => sub._id === selectedSubCategory);
-
-    const decorSeriesMatch =
-      selectedDecor === "" || product.decorSeries?._id === selectedDecor;
-
-    return sizeMatch && finishMatch && subCategoryMatch && decorSeriesMatch;
-  });
 
   function handlePrevious() {
     if (pagination.page > 1) {
@@ -260,7 +247,7 @@ function ProductListing() {
                 </div>
 
                 {/* Other Filters */}
-                {/* <h3 className="mt-3">FILTER BY FINISHES</h3>
+                <h3 className="mt-3">FILTER BY FINISHES</h3>
                 <div className="row">
                   {finishes.map((finish) => (
                     <div className="col-6" key={finish._id}>
@@ -276,7 +263,7 @@ function ProductListing() {
                       </button>
                     </div>
                   ))}
-                </div> */}
+                </div>
 
                 {/* Category Filter */}
                 <h3 className="mt-3">FILTER BY CATEGORY</h3>
@@ -289,7 +276,6 @@ function ProductListing() {
                           <li key={item._id}>
                             <Link
                               to={`/${categorySlug}/${item.slug}`}
-                              onClick={() => handleSubCategoryFilter(item._id)}
                             >
                               {item.name}
                             </Link>
@@ -372,9 +358,9 @@ function ProductListing() {
                   {decorSeries.map((type) => (
                     <div className="col-6" key={type._id}>
                       <button
-                        onClick={() => setSelectedDecor(type._id)}
+                        onClick={() => handleDecorFilter(type._id)}
                         className={
-                          selectedDecor == type._id ? "active-btn" : ""
+                          selectedDecor.includes(type._id) ? "active-btn" : ""
                         }
                       >
                         {type.title}

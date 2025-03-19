@@ -27,6 +27,7 @@
     color: #000;
     padding: 0 15px;
     margin: 0px;
+    margin-bottom: 10px;
 }
 
 .search-product .search-input {
@@ -423,7 +424,7 @@
 }
 
 .new-cart .product-img {
-    height: 80px;
+    height: 100px;
     width: 80px;
     object-fit: cover;
     border-radius: 7px;
@@ -768,7 +769,7 @@
         animation: slide 0.4slinear;
         position: absolute !important;
         z-index: 1 !important;
-        top: 33px;
+        top: 33px !important;
         box-shadow: 0px 1px 2px #d7d7d7 !important;
     }
     .product-dropdown .dropdown-menu.show {
