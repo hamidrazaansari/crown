@@ -12,7 +12,19 @@ import { toast } from "react-toastify";
 import Swal from 'sweetalert2'
 
 
-function InquiryModal({ show, handleClose  , inquiryType , productId }) {
+function InquiryModal({ show, handleClose  , inquiryType , productData ,categoryId , subCategoryId}) {
+
+useEffect(()=>{
+    console.log(productData);
+    setFormData((old)=>{
+        return {...old , product:productData?._id , decorSeries: productData?.decorSeries?._id , decorNumber:productData?.decorNumber ,     ...(categoryId && { category: categoryId }), ...(subCategoryId && { subCategory: subCategoryId }) }
+    })
+}, [productData , categoryId , subCategoryId])
+
+      
+
+    
+    
     const [countries , setCountries] = useState([])
     const [formData, setFormData] = useState({
         country: "",
@@ -21,7 +33,7 @@ function InquiryModal({ show, handleClose  , inquiryType , productId }) {
         mobile: "",
         message: "",
         inquiryType: inquiryType,
-        product:productId
+        
     });
 
     const [errors, setErrors] = useState({
@@ -73,9 +85,13 @@ function InquiryModal({ show, handleClose  , inquiryType , productId }) {
 
     const handleSubmit = async(e) => {
       e.preventDefault();
+        console.log(formData);
 
       try {
         const res = await axios.post(`${API_URL}/inquiries` , formData )
+
+        console.log('res' , res);
+        
         Swal.fire({
             title: "Thank you for reaching out! ",
             text: "Your inquiry has been successfully submitted. Our team will review your request and get back to you as soon as possible.",

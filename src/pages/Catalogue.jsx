@@ -22,9 +22,18 @@ function Catalogue() {
 
     const certificates = [
         { name: "01. Crownlam laminates lab guardian collection", file: Certificate1, application: "QBISS" },
+        { name: "44. Crownlam laminates lab guardian collection", file: Certificate1, application: "QBISS" },
+        { name: "56. Crownlam laminates lab guardian collection", file: Certificate1, application: "QBISS" },
+        { name: "99. Crownlam laminates lab guardian collection", file: Certificate1, application: "QBISS" },
         { name: "02. Crownlam laminates lab guardian collection", file: Certificate1, application: "Tabillo" },
         { name: "03. Crownlam laminates lab guardian collection", file: Certificate1, application: "Aqua Wall" },
         { name: "04. Crownlam laminates lab guardian collection", file: Certificate1, application: "Kittop" },
+        { name: "10. Crownlam laminates lab guardian collection", file: Certificate1, application: "Kittop" },
+        { name: "11. Crownlam laminates lab guardian collection", file: Certificate1, application: "Kittop" },
+        { name: "40. Crownlam laminates lab guardian collection", file: Certificate1, application: "Kittop" },
+        { name: "24. Crownlam laminates lab guardian collection", file: Certificate1, application: "Kittop" },
+        { name: "05. Crownlam laminates lab guardian collection", file: Certificate1, application: "Fense" },
+        { name: "10. Crownlam laminates lab guardian collection", file: Certificate1, application: "Fense" },
         { name: "05. Crownlam laminates lab guardian collection", file: Certificate1, application: "Fense" },
         { name: "06. Crownlam laminates lab guardian collection", file: Certificate1, application: "Texpanel" },
         { name: "06. Crownlam laminates lab guardian collection", file: Certificate1, application: "Crown XCL" },

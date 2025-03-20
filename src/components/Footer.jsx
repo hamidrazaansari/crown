@@ -44,8 +44,6 @@ function Footer() {
         fetchData();
     }, []);
 
-    console.log(email);
-
     const token = localStorage.getItem("authToken");
     
 

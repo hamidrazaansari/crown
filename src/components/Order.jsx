@@ -36,17 +36,17 @@ function Order() {
         pincode: '',
     })
 
-    const [orderData, setOrderData] = useState([]);
-
     const { removeItemById, data, clearCart } = useContext(CounterContext);
-
 
 
     const handlePlaceOrder = async () => {
         const products = data && data.length > 0
             ? data.map(item => ({
                 product: item._id,
-                qty: "1"
+                qty: "1",
+                ...(item.categoryId && { category: item.categoryId }),
+                ...(item.subCategoryId && { subCategory: item.subCategoryId }) 
+   
             }))
             : (toast.error("No data available"), []);
         try {
@@ -139,7 +139,7 @@ function Order() {
 
             <div className="container placeOrder">
                 <div className="row">
-                    <div className="col-md-8 order-md-0 order-1">
+                    <div className="col-lg-8 order-md-0 order-1">
                         <div className="order-form">
                             <h2>Delivery Address</h2>
                             <div className="row">
@@ -297,7 +297,7 @@ function Order() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4 order-md-1 order-0">
+                    <div className="col-lg-4 order-md-1 order-0">
                         <div className="order-box">
                             <h3>Orders</h3>
                             <hr />

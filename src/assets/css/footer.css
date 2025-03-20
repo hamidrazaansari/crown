@@ -680,4 +680,16 @@ border: 2px solid #000;
     bottom: 40px;
     z-index: 7;
   }
+  .newslatter input {
+    width: 180px;
+    padding: 4px 7px;
+    font-size: 12px;
+}
+.newslatter button {
+  padding: 3px 11px;
+  font-size: 11px;
+}
+.newslatter button svg {
+  font-size: 25px;
+}
 }

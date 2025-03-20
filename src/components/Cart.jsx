@@ -39,7 +39,6 @@ function Cart() {
               fetchData();
           }, []);
 
-          
   
   const sizes = data.sizes || [];
   const visibleSizes = showAll ? sizes : sizes.slice(0, 3);

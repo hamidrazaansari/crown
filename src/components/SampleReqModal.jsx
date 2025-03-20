@@ -12,7 +12,7 @@ import { ToastContainer } from 'react-toastify';
 
 
 
-function SampleReqModal({ show, handleSampleModleClose, data }) {
+function SampleReqModal({ show, handleSampleModleClose, data, categoryId, subCategoryId }) {
     const [showAll, setShowAll] = useState(false);
 
     const sizes = data.sizes || [];
@@ -21,7 +21,7 @@ function SampleReqModal({ show, handleSampleModleClose, data }) {
 
     const { addData } = useContext(CounterContext);
     const handeAddToCart = () => {
-        addData(data);
+        addData(data, categoryId, subCategoryId);
         handleSampleModleClose();
     }
 
@@ -30,33 +30,33 @@ function SampleReqModal({ show, handleSampleModleClose, data }) {
 
     return (
         <>
-                <ToastContainer/>
-        <Modal show={show} onHide={handleSampleModleClose}>
-            <button className='closeButton sample-modal-close' onClick={handleSampleModleClose}><RxCross1 /> </button>
-            <div className='Sample-modal'>
-                <div className="sample-box">
-                    <div className="d-flex">
-                        <div className="img-box">
-                            <img src={imageUrl} alt={data.name} />
-                        </div>
-                        <div className="content">
-                            <h3>ORDER A SAMPLE</h3>
-                            <h2>{data.name}</h2>
-                            <p className="mb-1">
-                                <strong>Size :</strong> <span>A4</span>
-                            </p>
-                            <p className="mb-1">
-                                <strong>Decor Number :</strong> <span>{data?.decorNumber}</span>
-                            </p>
-                            <p className="mb-1">
-                                <strong>Decor Series :</strong> <span>{data?.decorSeries?.title}</span>
-                            </p>
-                            <button onClick={handeAddToCart}><span><BsCart3 /></span> Add to Cart</button>
+            <ToastContainer />
+            <Modal show={show} onHide={handleSampleModleClose}>
+                <button className='closeButton sample-modal-close' onClick={handleSampleModleClose}><RxCross1 /> </button>
+                <div className='Sample-modal'>
+                    <div className="sample-box">
+                        <div className="d-flex">
+                            <div className="img-box">
+                                <img src={imageUrl} alt={data.name} />
+                            </div>
+                            <div className="content">
+                                <h3>ORDER A SAMPLE</h3>
+                                <h2>{data.name}</h2>
+                                <p className="mb-1">
+                                    <strong>Size :</strong> <span>A4</span>
+                                </p>
+                                <p className="mb-1">
+                                    <strong>Decor Number :</strong> <span>{data?.decorNumber}</span>
+                                </p>
+                                <p className="mb-1">
+                                    <strong>Decor Series :</strong> <span>{data?.decorSeries?.title}</span>
+                                </p>
+                                <button onClick={handeAddToCart}><span><BsCart3 /></span> Add to Cart</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </Modal>
+            </Modal>
         </>
 
     );

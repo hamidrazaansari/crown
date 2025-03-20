@@ -26,16 +26,20 @@ export const CounterProvider = ({ children }) => {
   }, [data, count]);
 
   // Function to add data to cart
-  const addData = (newData) => {
+  const addData = (newData, categoryId , subCategoryId) => {
+    // Check if the item already exists in the cart
     const isDuplicate = data.some(item => item._id === newData._id);
     if (isDuplicate) {
-      toast.error('This item is already in the cart!');
-      return;
+        toast.error('This item is already in the cart!');
+        return;
     }
 
-    setData(prevData => [...prevData, newData]);
+    // Add categoryId to newData
+    const updatedData = { ...newData, categoryId , subCategoryId };
+
+    setData(prevData => [...prevData, updatedData]);
     setCount(prevCount => prevCount + 1);
-  };
+};
 
   // Function to clear only checked data
   const clearCheckedData = () => {

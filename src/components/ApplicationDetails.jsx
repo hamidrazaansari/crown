@@ -6,7 +6,7 @@ import InquiryModal from '../components/InquiryModal'
 import SampleReqModal from '../components/SampleReqModal'
 import FullImageView from '../components/FullImageView'
 import File from '../assets/image/file.png'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams ,useLocation } from 'react-router-dom'
 import axios from 'axios'
 import { API_URL } from '../utills/BaseUrl'
 import OtherPageFooter from '../components/OtherPageFooter'
@@ -19,6 +19,9 @@ import { saveAs } from 'file-saver'
 
 function ApplicationDetails() {
     const { id } = useParams();
+        const location = useLocation();
+        const searchParams = new URLSearchParams(location.search);
+        const subCategoryId = searchParams.get("subCategoryId"); 
 
     const [show, setShow] = useState(false);
     const [showSample, setShowSample] = useState(false);
@@ -131,8 +134,8 @@ function ApplicationDetails() {
 
     return (
         <div>
-            <InquiryModal show={show} handleClose={handleClose} inquiryType={'PRODUCT'} productId={products._id} />
-            <SampleReqModal show={showSample} handleSampleModleClose={handleSampleModleClose} data={products} />
+            <InquiryModal show={show} handleClose={handleClose} inquiryType={'PRODUCT'} productData={products} subCategoryId={subCategoryId}  />
+            <SampleReqModal show={showSample} handleSampleModleClose={handleSampleModleClose} data={products} subCategoryId={subCategoryId} />
 
             <NavBar />
             <div className="bgWhite">

@@ -371,7 +371,7 @@ function Application() {
                   const imageUrl = getImageURL(product?.a4Image);
                   return (
                     <div className="col-lg-4 col-6" key={product._id}>
-                      <Link to={`/application-details/${product._id}`}>
+                      <Link to={`/application-details/${product._id}?subCategoryId=${subCategory._id}`}>
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />
                           <div className="blur"></div>

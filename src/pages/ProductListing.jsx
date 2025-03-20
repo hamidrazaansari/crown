@@ -30,12 +30,14 @@ function ProductListing() {
   const [catHeader, setCatHeader] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [show, setShow] = useState(false);
+  const [selectedSubCategoryId , setSelectedSubCategoryId] = useState('')
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
 
   const location = useLocation();
+  
   const { categorySlug, subCategorySlug } = useParams();  
 
   const [pagination, setPagination] = useState({
@@ -203,8 +205,6 @@ function ProductListing() {
     }
   }
 
-  
-
   return (
     <div>
       <NavBar />
@@ -284,7 +284,11 @@ function ProductListing() {
                           <li key={item._id}>
                             <Link
                               to={`/${categorySlug}/${item.slug}`}
-                              onClick={() => setSelectedSubCategory(item.name)}
+                              onClick={() =>{
+                                setSelectedSubCategory(item.name)
+                                setSelectedSubCategoryId(item._id)
+                              }
+                                }
                               >
                               {item.name}
                             </Link>
@@ -408,7 +412,12 @@ function ProductListing() {
                           <li key={item._id}>
                             <Link
                               to={`/${categorySlug}/${item.slug}`}
-                              onClick={() => setSelectedSubCategory(item.name)}
+                              onClick={() =>{
+                                setSelectedSubCategory(item.name)
+                                setSelectedSubCategoryId(item._id)
+                              }
+                                
+                              }
                               >
                               {item.name}
                             </Link>
@@ -438,7 +447,7 @@ function ProductListing() {
                   const imageUrl = getImageURL(product?.a4Image);
                   return (
                     <div className="col-lg-4 col-6" key={product._id}>
-                      <Link to={`/product-details/${product._id}`}>
+                      <Link to={`/product-details/${product._id}?categoryId=${catHeader._id}&subCategoryId=${selectedSubCategoryId}`}>
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />
                           <div className="blur"></div>
