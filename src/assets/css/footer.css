@@ -180,6 +180,15 @@ border: 2px solid #000;
 .newslatter button svg{
   font-size: 30px;
 }
+.footer-background {
+  margin: 0;
+  margin-bottom: -200px;
+  z-index: 1;
+  position: fixed;
+  bottom: 200px;
+  width: 100% !important;
+
+}
 @media (max-width:1200px) {
   .pos,
   .footer,
@@ -420,15 +429,11 @@ border: 2px solid #000;
 
 
 /* other page footer design  */
-
-.footer-background {
-  margin: 0;
-  margin-bottom: -200px;
-  z-index: 1;
-  position: fixed;
-  bottom: 200px;
-  width: 100% !important;
-
+.newslatter .mail-error{
+  position: absolute;
+  font-size: 10px;
+  bottom: 6px;
+  color: #f62626;
 }
 
 .explore {
@@ -550,7 +555,7 @@ border: 2px solid #000;
 
   .footer-background {
     margin: 0;
-    margin-bottom: -200px;
+    margin-bottom: 200px;
     z-index: 1;
     position: fixed;
     bottom: 2px;

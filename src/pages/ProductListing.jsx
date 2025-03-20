@@ -450,7 +450,7 @@ function ProductListing() {
                       <Link to={`/product-details/${product._id}?categoryId=${catHeader._id}&subCategoryId=${selectedSubCategoryId}`}>
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />
-                          <div className="blur"></div>
+                          {/* <div className="blur"></div> */}
                           <h4>{product.name}</h4>
                           <h4>{product.decorNumber}</h4>
                         </div>

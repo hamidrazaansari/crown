@@ -18,6 +18,7 @@ function Footer() {
     const [subCategory, setSubCategory] = useState('');
     const [category, setCategory] = useState('');
     const [email, setEmail] = useState('')
+    const [error , setError]=useState('')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -61,7 +62,7 @@ function Footer() {
 
         } catch (error) {
             toast.error(error.response?.data?.message)
-            console.log(error.response?.data);
+           setError(error.response?.data?.errors);
             
         }
     }
@@ -74,6 +75,9 @@ function Footer() {
                         <p>Subscribe to our newsletter for early access, special deals, and the latest trends.</p>
                         <div className="d-flex">
                             <input type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Your Email" />
+                            {error.email && (
+                                <p className='mail-error'>{error.email}</p>
+                            )}
                             <button onClick={handleSubmit}>SIGN UP <IoIosArrowRoundForward className="ms-2" /></button>
                         </div>
                     </div>

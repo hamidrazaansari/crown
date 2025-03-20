@@ -277,8 +277,8 @@ function Application() {
           </div>
         </div>
       </div>
-            <div className=" listingHeader">
-                <div className="container bgWhite">
+            <div className=" listingHeader bgWhite">
+                <div className="container ">
                 <h1>{subCategory?.listingTitle}</h1>
                 <p className="mb-0">{parse(subCategory?.listingDescription || "")}</p>
                 </div>
@@ -374,7 +374,7 @@ function Application() {
                       <Link to={`/application-details/${product._id}?subCategoryId=${subCategory._id}`}>
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />
-                          <div className="blur"></div>
+                          {/* <div className="blur"></div> */}
                           <h4>{product.name}</h4>
                           <h4>{product.decorNumber}</h4>
                         </div>
