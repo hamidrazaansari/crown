@@ -88,18 +88,18 @@ function Footer() {
                                     <img src={Logo} alt="logo" />
                                 </div>
                                 <div className='socal-link'>
-                                    <a href='tel:+918564758228' className="d-flex align-items-center">
+                                    <a href='tel:+913340660166' className="d-flex align-items-center">
                                         <div className="footer-img">
                                             <img src={Call} alt="phone" />
                                         </div>
-                                        <p className='mb-0'>+91 8564758228</p>
+                                        <p className='mb-0'>+91 33 4066 0166, 2283 0166 </p>
                                     </a>
 
-                                    <a href='mailto:crownlaminates@gmail.com' className="d-flex align-items-center">
+                                    <a href='mailto:kanishka@crownlam.com' className="d-flex align-items-center">
                                         <div className="footer-img">
                                             <img src={Mail} alt="mail" style={{ height: "12px", width: "18px", margin: "0 10px " }} />
                                         </div>
-                                        <p className='mb-0'> crownlaminates@gmail.com</p>
+                                        <p className='mb-0'>kanishka@crownlam.com</p>
                                     </a>
 
                                 </div>
@@ -112,7 +112,7 @@ function Footer() {
                                     <li>  <Link to="/blog">BLOG</Link></li>
                                     <li> <Link to="/contact">CONTACT US</Link></li>
                                     <li> <Link to="/certification">CERTIFICATION</Link></li>
-                                    <li> <Link to="/catalouge">CATALOUGE</Link></li>
+                                    <li> <Link to="/catalouge">CATALOGUE</Link></li>
                                     {/* <li> <Link to="/">PRIVACY POLICY</Link></li> */}
                                 </ul>
                             </div>

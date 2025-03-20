@@ -19,6 +19,8 @@ import Catalogue from "./pages/Catalogue"
 import Application from "./components/Application"
 import NewBlogDetails from "./pages/NewBlogDetails"
 import ApplicationDetails from "./components/ApplicationDetails"
+import LuxuryDetails from "./pages/LuxuryDetails"
+import SustainableDetails from "./pages/SustainableDetails"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
@@ -59,6 +61,14 @@ function App() {
         <Route
               path="/new-blog"
               element={<NewBlogDetails/>}
+            />
+        <Route
+              path="/luxury-details"
+              element={<LuxuryDetails/>}
+            />
+        <Route
+              path="/sustainabl-details"
+              element={<SustainableDetails/>}
             />
       
       </Routes>

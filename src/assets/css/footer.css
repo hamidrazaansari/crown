@@ -485,35 +485,38 @@ border: 2px solid #000;
 
   .explore h2 {
     font-family: 'dion';
-    font-size: 32px !important;
+    font-size: 25px !important;
     letter-spacing: 1px;
-    margin-left: 30px;
-  }
+    margin-left: 0px;
+}
 
   .explore {
     height: 450px;
-    top: 300px;
-  }
+    top: 25px;
+}
 
   .explore p {
     margin-left: 0px;
     width: 80%;
+    font-size: 20px;
   }
 
 
   .explore button {
     background-color: #E69B00;
     height: 45px;
-    width: 248px;
+    width: 208px;
     color: #fff;
     border: none;
     font-family: 'Kanit';
     letter-spacing: 1px;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 30px;
     border-radius: 5px;
   }
-
+  .footer-bottom .socal {
+    margin-left: 0px;
+}
   .newFooter h2 {
     font-family: "dionlight";
     margin: 20px 10px;
@@ -555,7 +558,7 @@ border: 2px solid #000;
 
   .footer-background {
     margin: 0;
-    margin-bottom: 200px;
+    margin-bottom: 0px;
     z-index: 1;
     position: fixed;
     bottom: 2px;

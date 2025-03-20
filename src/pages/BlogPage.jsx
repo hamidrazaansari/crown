@@ -3,8 +3,9 @@ import NavBar from '../components/NavBar'
 import OtherPageFooter from '../components/OtherPageFooter'
 import BlogBanner from '../assets/image/blog-banner.png'
 import Blog1 from '../assets/image/blog1.png'
-import Blog2 from '../assets/image/blog2.png'
-import Blog3 from '../assets/image/blog3.png'
+import Blog2 from '../assets/image/sustainable.jpg'
+import Blog3 from '../assets/image/luxury.jpg'
+import Blog4 from '../assets/image/blog3.png'
 import '../assets/css/blog.css'
 import { GoArrowUpRight } from "react-icons/go";
 import { Link } from 'react-router-dom'
@@ -31,6 +32,26 @@ function BlogPage() {
                     <div className="row">
                         <div className="col-lg-4 col-sm-6 col-12">
                             <div className="blog-box mx-3">
+                                <img src={Blog3} alt="blog1" />
+                                <div className="d-flex justify-content-between">
+                                    <h2>Beyond Wood & Stone: Why Luxury Homes are Choosing High-End Laminates</h2>
+                                    <Link to={'/luxury-details'}><button><GoArrowUpRight /> </button></Link>
+                                </div>
+                                <p>In the world of luxury home design, natural materials like wood and stone have long been the gold standard. However, wise homeowners and designers are increasingly turning to high-end laminates as a lighter, eco friendly, yet elegant and durable alternative. </p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-sm-6 col-12">
+                            <div className="blog-box mx-3">
+                                <img src={Blog2} alt="blog1" />
+                                <div className="d-flex justify-content-between">
+                                    <h2>Sustainable Luxury: Eco-Friendly Laminates for Modern Homes</h2>
+                                    <Link to={'/sustainabl-details'}><button><GoArrowUpRight /> </button></Link>
+                                </div>
+                                <p>Sustainability does not have to come at the cost of aesthetics or utility.Today’s homeowners and designers demand materials that are environmentally sustainable and safe, without compromising on the style quotient of their interiors. Crown high pressure laminates (HPL) provide an ideal solution, with their combination of premium looks, durability and eco-friendly properties. </p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-sm-6 col-12">
+                            <div className="blog-box mx-3">
                                 <img src={Blog1} alt="blog1" />
                                 <div className="d-flex justify-content-between">
                                     <h2>What is the Laminates Sheets Manufacturing Process</h2>
@@ -42,7 +63,7 @@ function BlogPage() {
                         <div className="col-lg-4 col-sm-6 col-12">
 
                             <div className="blog-box mx-3">
-                                <img src={Blog2} alt="blog1" />
+                                <img src={Blog4} alt="blog1" />
                                 <div className="d-flex justify-content-between">
                                     <h2>What is the Laminates Sheets
                                         Manufacturing Process</h2>

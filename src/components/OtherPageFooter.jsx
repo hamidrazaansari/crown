@@ -24,7 +24,7 @@ function OtherPageFooter() {
           <button onClick={handleShow}>Request a Quote <GoArrowUpRight /></button>
         </div>
         <div className="footer-background">
-          <img src={FooterImg} alt="footer image" className="img-fluid w-100" />
+          <img src={FooterImg} alt="footer image"  />
         </div>
         <div className="newFooter">
           <Footer />
