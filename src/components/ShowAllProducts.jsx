@@ -36,7 +36,7 @@ const PrevArrow = (props) => {
   };
 
 
-function ShowAllProducts({ relatedProducts }) {
+function ShowAllProducts({ relatedProducts , categoryId ,  subCategoryId }) {
   const settings = {
     dots: true,
     infinite: false,
@@ -72,6 +72,9 @@ function ShowAllProducts({ relatedProducts }) {
       }
     ]
   };
+
+  console.log(categoryId ,  subCategoryId);
+  
   return (
     <div className='allProduct bgWhite'>
       <div className="container">
@@ -90,7 +93,7 @@ function ShowAllProducts({ relatedProducts }) {
                 const imgUrl = getImageURL(product.a4Image)
                 return (
                   <>
-                    <Link to={`/product-details/${product._id}`} key={product?._id}>
+                    <Link to={`/product-details/${product._id}?categoryId=${categoryId}&subCategoryId=${subCategoryId}`} key={product?._id}>
                       <div className="product-box">
                         <img src={imgUrl} alt="product1" />
                         <h4>{product.name}</h4>

@@ -277,8 +277,8 @@ function Application() {
           </div>
         </div>
       </div>
-            <div className="bgWhite listingHeader">
-                <div className="container">
+            <div className=" listingHeader">
+                <div className="container bgWhite">
                 <h1>{subCategory?.listingTitle}</h1>
                 <p className="mb-0">{parse(subCategory?.listingDescription || "")}</p>
                 </div>
