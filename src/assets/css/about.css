@@ -355,7 +355,8 @@
   opacity: 0.6;
   line-height: 21px;
   font-family: kanit;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.9px;
+  color: #000 !important;
 }
 
 .heritage-section {
@@ -380,7 +381,7 @@
   text-align: left;
   text-wrap: auto;
   margin-top: 10px;
-  width: 47% !important;
+  width: 75% !important;
   font-size: 16px;
   color: #fff;
 }
@@ -1030,6 +1031,11 @@
 .about-company img {
   height: 115px;
 }
+.about-company h2{
+  font-family: dion;
+  font-size: 35px;
+  letter-spacing: 1.4px;
+}
 
 @media (max-width:1200px) {
   .crownSpecialize {
@@ -1101,8 +1107,8 @@
     opacity: 0.6;
     line-height: 21px;
     font-family: 'LightInter';
-    letter-spacing: 0.6px;
-    color: #000;
+    letter-spacing: 0.9px;
+    color: #000 !important;
   }
   .heritage-section .banner-item p {
     margin-left: 20px;

@@ -277,14 +277,14 @@ function Application() {
           </div>
         </div>
       </div>
-            <div className=" listingHeader bgWhite">
-                <div className="container ">
+            <div className=" listingHeader bgWhite pt-3">
+                <div className="container mb-0">
                 <h1>{subCategory?.listingTitle}</h1>
                 <p className="mb-0">{parse(subCategory?.listingDescription || "")}</p>
                 </div>
             </div>
       {/* Product Listing Section */}
-      <div className="product-listing py-5">
+      <div className="product-listing py-3">
         <div className="container">
           <div className="row">
             {/* Sidebar Filters */}

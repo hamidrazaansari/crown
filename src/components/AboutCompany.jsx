@@ -20,12 +20,10 @@ const AboutCompany = () => {
           <img src={logo} alt="crown logo" />
         </div>
         <div className="col-lg-8">
-          <p>
-          Whether for joinery or furniture production, laminates for interior/exterior use or any other advanced application, our versatile range offers elegant solutions for every design concept. 
-          </p>
-          <p>
-          Our curated collections inspired by the five elements — earth, water, fire, air, and aether — invite you into a realm of boundless creativity. At Crown Décor, innovation is at the heart of everything we do. Challenging conventions daily, we create exclusive, trend setting designs that redefine the essence of luxury.
-          </p>
+          <h2>KNOW US BETTER</h2>
+          <p>Whether for interiors, exteriors, joinery, furniture production or any other advanced application - our versatile range of laminates and compacts offer elegant, durable solutions for every surface.</p>
+          <p>Crown’s 10 advanced production lines produce over 30 million square meters of high-pressure laminates (HPL) annually. We offer laminated sheets and compacts in 6 sizes, with thicknesses ranging from 0.6 mm to 25 mm. Featuring 1200+ captivating decors and 120+ distinctive textures, our collection ensures an ideal match to complement every decorative surface you envision.</p>
+          <p>Our uncompromising commitment to quality is validated by our certifications including EN-438, CE, NEMA-LD3-2005, BIS, Green Label, Green Guard, Green Building, and FSC. Fully compliant with stringent European health, safety, and environmental regulations, our laminates embody sustainable excellence.</p>
         </div>
       </div>
     </div>

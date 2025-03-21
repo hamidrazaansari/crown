@@ -59,17 +59,17 @@ function NavBar() {
 
       {showModal && <NavModal onClose={closeModal} />}
 
-      <Navbar expand="lg" className="navbar sticky-top">
-        <Container>
-
+      <Navbar expand="lg" className="navbar sticky-top d-flex justify-content-between align-items-center px-5">
+        <>
           <Navbar.Brand >
             <Link to={'/'}>
               <img src={Logo} alt="Crown logo" />
             </Link>
           </Navbar.Brand>
+
           <div className="d-flex justify-content-between align-items-center " style={{ width: "80%", position: "relative" }}>
             <SearchBar />
-            
+
             <div className='d-lg-flex align-items-center d-none'>
 
               <Nav.Item href="/">
@@ -85,27 +85,27 @@ function NavBar() {
 
               <Nav.Item href="/">
                 <Link onClick={handleShow}>
-                  <img src={IndianFlag} alt="Indian  Flag" className='flagImg' />
+                  < img src={IndianFlag} alt="Indian  Flag" className='flagImg' />
                 </Link>
               </Nav.Item>
             </div>
             {/* Add Toggle Button for Mobile View */}
             <div className='d-lg-none d-block' >
-            <Cart />
+              <Cart />
             </div>
 
-            <button onClick={handleShowNav} className='bar d-lg-none d-block' > <FaBars/> </button>
+            <button onClick={handleShowNav} className='bar d-lg-none d-block' > <FaBars /> </button>
 
             <Offcanvas show={showNav} placement={'end'} onHide={handleNavClose} className='nav-col  d-lg-none d-block'>
               <Offcanvas.Body>
                 <div className="d-flex justify-content-center align-items-center flex-column  w-100 ">
-                    <div className="d-flex justify-center-between">
+                  <div className="d-flex justify-center-between">
                     <Nav.Item>
                       <Link onClick={handleShow}>
                         <img src={IndianFlag} alt="Indian Flag" className='flagImg' />
                       </Link>
                     </Nav.Item>
-                    </div>
+                  </div>
                   <div className='d-flex align-items-center flex-column'>
                     <Nav.Item>
                       <NavModal />
@@ -118,7 +118,7 @@ function NavBar() {
               </Offcanvas.Body>
             </Offcanvas>
           </div>
-        </Container>
+        </>
       </Navbar>
     </>
 

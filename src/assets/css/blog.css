@@ -1,8 +1,6 @@
 .blog {
     padding: 40px 0;
     background-color: #ffffff;
-    position: sticky;
-    top: -500px;
     z-index: 1;
 }
 
@@ -290,7 +288,9 @@
         font-size: 12px !important;
         margin: 10px 0 !important;
     }
-
+    .blog-box {
+        width: 215px !important;
+    }
 }
 
 @media (max-width:768px) {
@@ -332,7 +332,10 @@
         width: 98px;
         text-align: center;
     }
-
+    .pos {
+        height: 30vh !important;
+        top: 0 !important;
+    }
 
 }
 

@@ -16,6 +16,7 @@ import Experience from '../components/Experience'
 import Footer from '../components/Footer'
 
 function Landing() {
+
   return (
     <>
         <NavBar/>

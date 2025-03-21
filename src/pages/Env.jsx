@@ -35,8 +35,8 @@ export default function Env() {
             </div>
             <div className="SUSTAINABILITY bgWhite">
                 <div className="container">
-                    <h2>BEAUTY WITH SUSTAINABILITY</h2>
-                    <p>At Crown Lam, we envision a world where laminates do more than cover surfaces—they elevate them. We strive to be the go-to choice for architects, designers, and clients worldwide who seek luxury and longevity in every detail. Our commitment is to be a trusted supplier in every sense: delivering excellence in quality, aesthetics, and innovation across all our products.</p>
+                    <h2>Sustainability Policy</h2>
+                    <p>At Crown we believe that luxury should be enjoyed responsibly. Our planet is a sanctuary not only for human beings, but for every species of plant or animal life who live here. All of us have a responsibility to leave behind a clean and habitable planet for future generations. </p>
                 </div>
             </div>
 
@@ -49,8 +49,8 @@ export default function Env() {
                         </div>
                         <div className="col-lg-6 d-flex flex-column justify-content-center">
                             <h2>Enviroment</h2>
-                            <p>The world is more than just our planet; it's our sanctuary. Here, hope is expressed through love, emotions are embodied in relationships, magic intertwines with creativity, and strength is synonymous with beauty.</p>
-                            <p>This resilient and awe-inspiring home continuously captivates us, which is why at Crownlam, we are dedicated to ethical business practices and a responsible commitment to fostering a sustainable environment.</p>
+                            <p>We are committed to making the least possible environmental impact, conserving natural resources and ensuring that just as our products are safe for our customers, our production processes are in harmony with the environment. </p>
+                            {/* <p>This resilient and awe-inspiring home continuously captivates us, which is why at Crownlam, we are dedicated to ethical business practices and a responsible commitment to fostering a sustainable environment.</p> */}
                         </div>
                     </div>
                 </div>
@@ -58,28 +58,54 @@ export default function Env() {
 
             <div className="strategy bgWhite">
                 <div className="container">
-                    <h2 className='strategy-heading'>CROWN STRATEGY GROUP </h2>
-                    <p>At Crown Lam, we envision a world where laminates do more than cover surfaces—they elevate them. We strive to be the go-to choice for architects, designers, and clients worldwide who seek luxury and longevity in every detail. Our commitment is to be a trusted supplier in every sense: delivering excellence in quality, aesthetics, and innovation across all our products.</p>
-                    <div className="row px-4 mt-5">
+                    {/* <h2 className='strategy-heading'>CROWN STRATEGY GROUP </h2> */}
+                    {/* <p>At Crown Lam, we envision a world where laminates do more than cover surfaces—they elevate them. We strive to be the go-to choice for architects, designers, and clients worldwide who seek luxury and longevity in every detail. Our commitment is to be a trusted supplier in every sense: delivering excellence in quality, aesthetics, and innovation across all our products.</p> */}
+                    <div className="row px-4">
                         <div className="col-lg-4 col-md-6 col-12">
                             <div className="commitment-card">
                                 <img src={Commitment1} alt="Commitment" />
                                 <h3>Zero Liquid discharge</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                                <p>100% of waste water discharged during our production process, is recycled & reused, thus conserving a precious resource.  </p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6 col-12">
                             <div className="commitment-card">
                                 <img src={Commitment2} alt="" />
-                                <h3>RESPONSIBLE FORESTRY</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                                <h3>USE OF RENEWABLE ENERGY</h3>
+                                <p>100% of waste water discharged during our production process, is recycled & reused, thus conserving a precious resource.  </p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6 col-12">
                             <div className="commitment-card">
                                 <img src={Commitment3} alt="" />
-                                <h3>SAFE AND NON-HAZARDOUS PRODUCTS</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                                <h3>WASTE MINIMIZATION & RESOURCE RECOVERY</h3>
+                                <p>Minimum 80% of the solid waste from our production process is recycled, reused and repurposed, therefore minimizing environmental impact. 
+                                </p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-12">
+                            <div className="commitment-card">
+                                <img src={Commitment3} alt="" />
+                                <h3>AFFORESTATION INITIATIVE</h3>
+                                <p>In partnership with local communities and other business entities, we regularly undertake extensive afforestation drives around our production facilities, aiming to increase the green cover by minimum 10% each year.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-12">
+                            <div className="commitment-card">
+                                <img src={Commitment3} alt="" />
+                                <h3>RESPONSIBLE SOURCING & MANUFACTURING
+                                </h3>
+                                <p>Our FSC certification underscores our commitment to ensuring that all our wood based raw materials come from responsibly managed forests that prioritize conservation of bio diversity and natural habitats.
+                                     {/* Our ISO 14001:2015, Green Guard, Green Leaf, Green Label, EPD & IGBC certifications highlight our adherence to sustainable manufacturing  */}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-12">
+                            <div className="commitment-card">
+                                <img src={Commitment3} alt="" />
+                                <h3>SAFE, ECO-FRIENDLY PRODUCTS</h3>
+                                <p>Crown products are compliant with European Union’s REACH (Registration, Evaluation, Authorisation & Restriction of Chemicals) regulations and are certified to be free of hazardous chemicals or emissions.
+                                </p>
                             </div>
                         </div>
                     </div>

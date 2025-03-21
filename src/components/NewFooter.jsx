@@ -11,12 +11,6 @@ function NewFooter() {
   return (
     <div>
       {/* Section that triggers the effect */}
-      <div className="pos mt-5">
-        <div className="crown d-flex align-items-center justify-content-center">
-          <img src={logo} alt="logo" style={{width:"50%"}} />
-        </div>
-
-      </div>
       <Footer/>
       {/* Footer Section */}
       {/* <div className="newFooter" style={{ backgroundColor: "#000" }}>

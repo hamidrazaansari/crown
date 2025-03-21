@@ -57,28 +57,25 @@ const OurHeritage = () => {
           <div className="banner-item">
             <div className="heritage-info-container">
               <div className="year-highlight">
-                <span className="circle"></span>1995
+                <span className="circle"></span>VISION
               </div>
-              <h1>Our Heritage</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <button className="heritage-btn">
+              <h1>VISION & COMMITMENT </h1>
+              <p>We envision a world where laminates do more than cover surfaces—they elevate them. </p>
+              <p>We strive to be the “go-to” choice for architects, designers, OEMs and home owners worldwide, who seek luxury and utility in every detail. </p>
+              <p>Our commitment is to be a trusted supplier delivering excellence in aesthetics, quality and innovation, across all our products.</p>
+              {/* <button className="heritage-btn">
                 1955<span className="circles"></span>Our Heritage
-              </button>
+              </button> */}
             </div>
           </div>
 
           <div className="banner-item">
             <div className="heritage-info-container">
               <div className="year-highlight">
-                <span className="circle"></span>2000
+                <span className="circle"></span>VALUES
               </div>
-              <h1>Our Legacy</h1>
-              <p>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
+              <h1>Values We Cherish </h1>
+              <p>Leadership – Teamwork – Integrity – Ethics – Responsibility – Trust - Reliability
               </p>
               <button className="heritage-btn">
                 2000<span className="circles"></span>Our Legacy
