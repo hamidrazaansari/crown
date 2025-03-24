@@ -28,7 +28,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-        <Route path="/" element={<BlogPage/>}/>
+        {/* <Route path="/" element={<BlogPage/>}/> */}
+        <Route path="/" element={<Landing/>}/>
+
         </Routes>
       </BrowserRouter>
       {/* <CounterProvider>
