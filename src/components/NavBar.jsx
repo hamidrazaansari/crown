@@ -68,7 +68,7 @@ function NavBar() {
           </Navbar.Brand>
 
           <div className="d-flex justify-content-between align-items-center navbar-right-side" style={{ width: "80%", position: "relative" }}>
-            {/* <SearchBar /> */}
+            <SearchBar />
 
             <div className='d-lg-flex align-items-center d-none'>
 
