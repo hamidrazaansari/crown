@@ -1,12 +1,12 @@
 import React from "react"
-import { BrowserRouter , Route , Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Landing from "./pages/Landing"
 import ProductListing from "./pages/ProductListing"
 import ProductDetails from "./pages/ProductDetails"
 import ScrollToTop from "./components/ScrollToTop"
 import BlogPage from "./pages/BlogPage"
 import Env from "./pages/Env"
-import {CounterProvider} from '../src/context/CounterContext'
+import { CounterProvider } from '../src/context/CounterContext'
 import Order from "./components/Order"
 import About from "./pages/About"
 import Certificate from "./pages/Certificate"
@@ -21,14 +21,17 @@ import NewBlogDetails from "./pages/NewBlogDetails"
 import ApplicationDetails from "./components/ApplicationDetails"
 import LuxuryDetails from "./pages/LuxuryDetails"
 import SustainableDetails from "./pages/SustainableDetails"
-import NavBar from "./components/NavBar"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
   return (
     <>
-    <NavBar/>
-    {/* <CounterProvider>
+      <BrowserRouter>
+        <Routes>
+        <Route path="/" element={<BlogPage/>}/>
+        </Routes>
+      </BrowserRouter>
+      {/* <CounterProvider>
     <BrowserRouter>
     <ScrollToTop/>
       <Routes>
