@@ -19,7 +19,7 @@ function Landing() {
 
   return (
     <>
-        {/* <NavBar/> */}
+        <NavBar/>
         {/* <Hero/> */}
         <HorizontalScroll/>
         <About/>
