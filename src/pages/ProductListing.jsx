@@ -5,9 +5,7 @@ import { Accordion } from "react-bootstrap";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { API_URL } from "../utills/BaseUrl";
 import axios from "axios";
-import Img from "../assets/image/productbanner.png";
 import OtherPageFooter from "../components/OtherPageFooter";
-import Product1 from "../assets/image/product1.png";
 import getImageURL from "../utills/getImageURL";
 import { FaFilter } from "react-icons/fa6";
 import parse from 'html-react-parser'
@@ -129,8 +127,6 @@ function ProductListing() {
     fetchSubCategory();
   }, [subCategorySlug]);
 
-  console.log(subCategory);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -204,6 +200,8 @@ function ProductListing() {
       });
     }
   }
+
+  const bannerImg =  getImageURL(catHeader?.listingImage)
 
   return (
     <div>
@@ -322,7 +320,7 @@ function ProductListing() {
           <div className="product-main-banner">
             <div className="product-banner d-lg-flex">
               <div>
-                <img src={Img} alt="" />
+                <img src={bannerImg} alt={catHeader?.name} />
                 <div className="banner-text-container">
                   <h2>{catHeader?.name || "Default Title"}</h2>
                   <div className="line"></div>

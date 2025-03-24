@@ -94,6 +94,7 @@ function Application() {
       setSelectedDecor([]);
       setSelectedFinish([]);
     },[subCategorySlug])
+
   
   
   useEffect(() => {
@@ -173,6 +174,8 @@ function Application() {
     }
   }
 
+    const bannerImg =  getImageURL(subCategory?.listingImage)
+  
   
 
   return (
@@ -267,7 +270,7 @@ function Application() {
           <div className="product-main-banner">
             <div className="product-banner d-lg-flex">
               <div>
-                <img src={Img} alt="" />
+                <img src={bannerImg} alt="" />
                 {/* <div className="banner-text-container">
                   <h2>{subCategory?.name || "Default Title"}</h2>
                   <div className="line"></div>

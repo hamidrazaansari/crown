@@ -304,19 +304,19 @@
 
 /* Backgrounds for Active Categories */
 .decorative-active {
-    background: url(../image/interior.jpg);
-    background-size: contain;
+    background: url(../image/Category/exterior-laminate.jpg);
+    background-size: cover;
 }
 
 .interior-active {
-    background: url(../image/exterior.jpg);
-    background-size: contain;
+    background: url(../image/Category/interior-laminate.jpg);
+    background-size: cover;
 
 }
 
 .exterior-active {
-    background: url(../image/decorative.jpg);
-    background-size: contain;
+    background: url(../image/Category/decorative-laminate.jpg);
+    background-size: cover;
 
 }
 

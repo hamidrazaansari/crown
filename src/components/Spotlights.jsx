@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../assets/css/spotlight.css";
-import SpotLightImg from "../assets/image/qbiss.jpg";
-import SpotLightImg1 from "../assets/image/tabillo.jpg";
-import SpotLightImg2 from "../assets/image/kittop.jpg";
-import SpotLightImg3 from "../assets/image/aqua-wall.png";
+import AqvaWall from "../assets/image/SpotLight/Aqva-Wall.jpg";
+import Kittop from "../assets/image/SpotLight/Kittop.jpg";
+import Qbiss from "../assets/image/SpotLight/Qbiss.jpg";
+import Tabillo from "../assets/image/SpotLight/Tabillo.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Spotlights = () => {
   const [images] = useState([
-    { src: SpotLightImg1, title: "TABILLO" },
-    { src: SpotLightImg, title: "QBISS" },
-    { src: SpotLightImg2, title: "KITTOP" },
-    { src: SpotLightImg3, title: "AQUA WALL" },
+    { src: Tabillo, title: "TABILLO" },
+    { src: Qbiss, title: "QBISS" },
+    { src: Kittop, title: "KITTOP" },
+    { src: AqvaWall, title: "AQUA WALL" },
   ]);
 
   useEffect(() => {
