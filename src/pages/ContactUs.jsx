@@ -260,7 +260,7 @@ function ContactUs() {
                                     <div className="row">
                                         <div className="col-6 country-drop" style={{ position: 'relative' }}>
                                             <div className='d-flex flex-column country'>
-                                                <label htmlFor="country">Feedback</label>
+                                                <label htmlFor="country">Feedback*</label>
                                                 <SelectSearch
                                                     options={inquiryOptions}
                                                     value={formData.inquiryType}
@@ -273,7 +273,7 @@ function ContactUs() {
                                             </div>
                                         </div>
                                         <div className="col-6 d-flex flex-column country-drop" style={{ position: 'relative' }}>
-                                            <label htmlFor="mobile">Visitor Type</label>
+                                            <label htmlFor="mobile">Visitor Type*</label>
                                             <SelectSearch
                                                 options={visitorOptions}
                                                 value={formData.visitorType}

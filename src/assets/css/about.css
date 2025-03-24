@@ -1289,3 +1289,9 @@
     border-radius: 14px !important;
   }
 }
+
+@media (max-width:340px) {
+  .about-vid-box {
+    min-width: 295px !important;
+}
+}

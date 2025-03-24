@@ -12,15 +12,15 @@ function About() {
       <NavBar />
       <AboutCompany />
       <OurHeritage />
-      <Vison />
+      {/* <Vison /> */}
 
       {/* 🔹 Crown Specialize Section */}
       <div className="crownSection">
         <div className="container">
           <div className="crownSpecialize">
-            <h3>
+            {/* <h3>
               Crown specializes in production of various kinds of Laminates
-            </h3>
+            </h3> */}
             {/* <button className="crownBtn">
               <span>Learn More</span>
               <FaArrowRight />

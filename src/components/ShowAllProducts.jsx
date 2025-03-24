@@ -36,7 +36,7 @@ const PrevArrow = (props) => {
   };
 
 
-function ShowAllProducts({ relatedProducts , categoryId ,  subCategoryId }) {
+function ShowAllProducts({ relatedProducts , categoryId ,  subCategoryId , productId }) {
   const settings = {
     dots: true,
     infinite: false,
@@ -91,17 +91,22 @@ function ShowAllProducts({ relatedProducts , categoryId ,  subCategoryId }) {
             {
               relatedProducts && relatedProducts.map((product) => {
                 const imgUrl = getImageURL(product.a4Image)
-                return (
-                  <>
-                    <Link to={`/product-details/${product._id}?categoryId=${categoryId}&subCategoryId=${subCategoryId}`} key={product?._id}>
-                      <div className="product-box">
-                        <img src={imgUrl} alt="product1" />
-                        <h4>{product.name}</h4>
-                        <h4 className='text-start'>{product.decorNumber}</h4>
-                      </div>
-                    </Link>
-                  </>
-                )
+                if(productId === product._id){
+                  return ''
+                }
+                else
+                  return (
+                    <>
+                      <Link to={`/product-details/${product._id}?categoryId=${categoryId}&subCategoryId=${subCategoryId}`} key={product?._id}>
+                        <div className="product-box">
+                          <img src={imgUrl} alt="product1" />
+                          <h4>{product.name}</h4>
+                          <h4 className='text-start'>{product.decorNumber}</h4>
+                        </div>
+                      </Link>
+                    </>
+                  )
+
               })
             }
           </Slider>

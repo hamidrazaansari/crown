@@ -247,7 +247,7 @@ function ProductDetails() {
                     </div>
                 </div>
             </div>
-            <ShowAllProducts relatedProducts={relatedProducts}  categoryId={categoryId} subCategoryId={subCategoryId} />
+            <ShowAllProducts relatedProducts={relatedProducts}  categoryId={categoryId} subCategoryId={subCategoryId} productId={products._id} />
             <OtherPageFooter />
         </div>
     )

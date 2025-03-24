@@ -241,7 +241,7 @@ function ApplicationDetails() {
                     </div>
                 </div>
             </div>
-            <ShowAllProducts relatedProducts={relatedProducts} subCategoryId={subCategoryId} />
+            <ShowAllProducts relatedProducts={relatedProducts} subCategoryId={subCategoryId} productId={products._id} />
             <OtherPageFooter />
         </div>
     )

@@ -242,7 +242,9 @@ Link{
     position: relative;
     overflow: hidden;
     width: 100%;
-
+}
+.products-container{
+    margin-top: -23px !important;
 }
 .product-banner::before{
     display: none !important;

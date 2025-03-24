@@ -89,7 +89,7 @@ function Footer() {
                                 </div>
                                 <div className='socal-link'>
                                     <a href='tel:+913340660166' className="d-flex align-items-center">
-                                        <div className="footer-img">
+                                        <div className="footer-img footer-phone">
                                             <img src={Call} alt="phone" />
                                         </div>
                                         <p className='mb-0'>+91 33 4066 0166, 2283 0166 </p>
@@ -97,7 +97,7 @@ function Footer() {
 
                                     <a href='mailto:kanishka@crownlam.com' className="d-flex align-items-center">
                                         <div className="footer-img">
-                                            <img src={Mail} alt="mail" style={{ height: "12px", width: "18px", margin: "0 10px " }} />
+                                            <img src={Mail} alt="mail"  style={{ height: "12px", width: "18px", margin: "0 10px " }} />
                                         </div>
                                         <p className='mb-0'>kanishka@crownlam.com</p>
                                     </a>

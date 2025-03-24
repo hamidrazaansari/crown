@@ -543,6 +543,9 @@
         font-size: 13px;
         margin-left: -30px !important;
     }
+    .details-product p {
+        font-size: 13px;
+    }
 
     .details-product p .value {
         font-size: 13px;
@@ -566,7 +569,7 @@
     }
 
     .allProduct h2 {
-        font-size: 30px;
+        font-size: 20px;
     }
 
     .enq-btn {
@@ -753,15 +756,22 @@
         align-items: center;
         justify-content: center;
         margin: 0 2px;
-        padding: 2px 2px;
+        padding: 2px 7px;
         font-size: 8px;
         border-radius: 3px;
         white-space: nowrap;
         height: 21px;
     }
+    .img-ideecator img {
+        height: 35px;
+        object-fit: contain;
+        width: 35px !important;
+    }
+    .finish {
+        margin-left: 0px !important;
+    }
 }
 
 .Sample-modal h2{
     margin-bottom: 3px !important;
-
 }

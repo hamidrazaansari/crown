@@ -355,22 +355,22 @@ function Application() {
             </div>
 
             {/* Product Grid */}
-            <div className="col-lg-8 products-container">
+            <div className="col-lg-8 ">
               <div className="d-flex align-items-center justify-content-between">
                   <div>
-                    <h2>{subCategory?.name || "Default Title"}</h2>
-                    <p>{subCategory?.shortDescription || ""}</p>
+                    {/* <h2>{subCategory?.name || "Default Title"}</h2>
+                    <p>{subCategory?.shortDescription || ""}</p> */}
                   </div>
                   <button className="sidebar-toggle d-lg-none d-block" onClick={handleShow}>
                     {isSidebarOpen ? <RxCross2 /> : <FaFilter />}
                   </button>
               </div>
 
-              <div className="row mt-3">
+              <div className="row">
                 {products?.map((product) => {
                   const imageUrl = getImageURL(product?.a4Image);
                   return (
-                    <div className="col-lg-4 col-6" key={product._id}>
+                    <div className="col-lg-4 col-6 pt-0" key={product._id}>
                       <Link to={`/application-details/${product._id}?subCategoryId=${subCategory._id}`}>
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />

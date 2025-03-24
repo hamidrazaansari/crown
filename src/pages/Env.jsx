@@ -31,6 +31,11 @@ export default function Env() {
             <div className="env-banner bgWhite py-3">
                 <div className="container">
                     <img src={EnvImg} alt="" />
+                          <div className=" EnvHeader">
+                            <div className="container mb-0">
+                              <h1>Sustainable Luxury</h1>
+                            </div>
+                          </div>
                 </div>
             </div>
             <div className="SUSTAINABILITY bgWhite">

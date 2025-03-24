@@ -10,7 +10,7 @@ import OtherPageFooter from "../components/OtherPageFooter";
 import Product1 from "../assets/image/product1.png";
 import getImageURL from "../utills/getImageURL";
 import { FaFilter } from "react-icons/fa6";
-
+import parse from 'html-react-parser'
 import { RxCross2 } from "react-icons/rx";
 import { Offcanvas } from "react-bootstrap";
 
@@ -30,15 +30,15 @@ function ProductListing() {
   const [catHeader, setCatHeader] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [show, setShow] = useState(false);
-  const [selectedSubCategoryId , setSelectedSubCategoryId] = useState('')
+  const [selectedSubCategoryId, setSelectedSubCategoryId] = useState('')
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
 
   const location = useLocation();
-  
-  const { categorySlug, subCategorySlug } = useParams();  
+
+  const { categorySlug, subCategorySlug } = useParams();
 
   const [pagination, setPagination] = useState({
     page: 1,
@@ -68,12 +68,12 @@ function ProductListing() {
 
         if (subCategorySlug) {
           url += `&subCategorySlug=${subCategorySlug}`;
-          
+
         }
 
 
-        const response = await axios.get(url);  
-              
+        const response = await axios.get(url);
+
         setPagination({
           page: Number(response.data.page),
           totalRecords: Number(response.data.totalRecords),
@@ -94,14 +94,14 @@ function ProductListing() {
     selectedDecor,
   ]);
 
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     setSelectedSizes([]);
     setSelectedDecor([]);
     setSelectedFinish([]);
     setSelectedSubCategory('')
 
-  },[categorySlug])
+  }, [categorySlug])
 
   useEffect(() => {
     async function fetchCategory() {
@@ -126,11 +126,11 @@ function ProductListing() {
         console.log(error);
       }
     }
-      fetchSubCategory();
+    fetchSubCategory();
   }, [subCategorySlug]);
 
   console.log(subCategory);
-  
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -173,7 +173,7 @@ function ProductListing() {
   };
   const handleDecorFilter = (sizeId) => {
     console.log(sizeId);
-    
+
     setSelectedDecor((prev) =>
       prev.includes(sizeId)
         ? prev.filter((id) => id !== sizeId)
@@ -210,52 +210,52 @@ function ProductListing() {
       <NavBar />
       <Offcanvas className={'productlisting-Sidebar'} placement="end" show={show} onHide={handleClose}>
         <Offcanvas.Body>
-        <div className={`sidebar`}>
-          <button className="w-25 float-end border-0 sidebar-cancel-btn" onClick={handleClose}> <RxCross2/> </button>
-                <h3>Search by decor code</h3>
-                <input
-                  type="text"
-                  placeholder="search"
-                  className="search"
-                  value={decorNumber}
-                  onChange={(e) => setDecorNumber(e.target.value)}
-                />
+          <div className={`sidebar`}>
+            <button className="w-25 float-end border-0 sidebar-cancel-btn" onClick={handleClose}> <RxCross2 /> </button>
+            <h3>Search by decor code</h3>
+            <input
+              type="text"
+              placeholder="search"
+              className="search"
+              value={decorNumber}
+              onChange={(e) => setDecorNumber(e.target.value)}
+            />
 
-                {/* Size Filter */}
-                <h3 className="mt-3">FILTER BY SIZE</h3>
-                <div className="row">
-                  {sizes.map((size) => (
-                    <div className="col-6" key={size._id}>
-                      <button
-                        onClick={() => handleSizeFilter(size._id, size.title)}
-                        className={
-                          selectedSizes.includes(size._id) ? "active-btn" : ""
-                        }
-                      >
-                        {size.title}
-                      </button>
-                    </div>
-                  ))}
+            {/* Size Filter */}
+            <h3 className="mt-3">FILTER BY SIZE</h3>
+            <div className="row">
+              {sizes.map((size) => (
+                <div className="col-6" key={size._id}>
+                  <button
+                    onClick={() => handleSizeFilter(size._id, size.title)}
+                    className={
+                      selectedSizes.includes(size._id) ? "active-btn" : ""
+                    }
+                  >
+                    {size.title}
+                  </button>
                 </div>
+              ))}
+            </div>
 
-                <h3 className="mt-3">FILTER BY Decor Series</h3>
-                <div className="row">
-                  {decorSeries.map((type) => (
-                    <div className="col-6" key={type._id}>
-                      <button
-                        onClick={() => setSelectedDecor(type._id)}
-                        className={
-                          selectedDecor == type._id ? "active-btn" : ""
-                        }
-                      >
-                        {type.title}
-                      </button>
-                    </div>
-                  ))}
+            <h3 className="mt-3">FILTER BY Decor Series</h3>
+            <div className="row">
+              {decorSeries.map((type) => (
+                <div className="col-6" key={type._id}>
+                  <button
+                    onClick={() => setSelectedDecor(type._id)}
+                    className={
+                      selectedDecor == type._id ? "active-btn" : ""
+                    }
+                  >
+                    {type.title}
+                  </button>
                 </div>
+              ))}
+            </div>
 
-                {/* Other Filters */}
-                {/* <h3 className="mt-3">FILTER BY FINISHES</h3>
+            {/* Other Filters */}
+            {/* <h3 className="mt-3">FILTER BY FINISHES</h3>
                 <div className="row">
                   {finishes.map((finish) => (
                     <div className="col-6" key={finish._id}>
@@ -273,33 +273,33 @@ function ProductListing() {
                   ))}
                 </div> */}
 
-                {/* Category Filter */}
-                <h3 className="mt-3">FILTER BY CATEGORY</h3>
-                <Accordion>
-                  <Accordion.Item eventKey="0">
-                    <Accordion.Header>{!selectedSubCategory ? 'Subcategory' : selectedSubCategory}</Accordion.Header>
-                    <Accordion.Body>
-                      <ul className="list-unstyled ms-2">
-                        {subCategory?.map((item) => (
-                          <li key={item._id}>
-                            <Link
-                              to={`/${categorySlug}/${item.slug}`}
-                              onClick={() =>{
-                                setSelectedSubCategory(item.name)
-                                setSelectedSubCategoryId(item._id)
-                              }
-                                }
-                              >
-                              {item.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-                <button className="bg-light text-dark fw-bold" style={{fontFamily:"inter"}}>Apply</button>
-              </div>
+            {/* Category Filter */}
+            <h3 className="mt-3">FILTER BY CATEGORY</h3>
+            <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>{!selectedSubCategory ? 'Subcategory' : selectedSubCategory}</Accordion.Header>
+                <Accordion.Body>
+                  <ul className="list-unstyled ms-2">
+                    {subCategory?.map((item) => (
+                      <li key={item._id}>
+                        <Link
+                          to={`/${categorySlug}/${item.slug}`}
+                          onClick={() => {
+                            setSelectedSubCategory(item.name)
+                            setSelectedSubCategoryId(item._id)
+                          }
+                          }
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+            <button className="bg-light text-dark fw-bold" style={{ fontFamily: "inter" }}>Apply</button>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
 
@@ -330,6 +330,12 @@ function ProductListing() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className=" listingHeader bgWhite pt-3">
+        <div className="container mb-0">
+          <h1>{catHeader?.listingTitle}</h1>
+          <p className="mb-0">{parse(catHeader?.listingDescription || "")}</p>
         </div>
       </div>
       {/* Product Listing Section */}
@@ -412,13 +418,13 @@ function ProductListing() {
                           <li key={item._id}>
                             <Link
                               to={`/${categorySlug}/${item.slug}`}
-                              onClick={() =>{
+                              onClick={() => {
                                 setSelectedSubCategory(item.name)
                                 setSelectedSubCategoryId(item._id)
                               }
-                                
+
                               }
-                              >
+                            >
                               {item.name}
                             </Link>
                           </li>
@@ -433,16 +439,16 @@ function ProductListing() {
             {/* Product Grid */}
             <div className="col-lg-8 products-container">
               <div className="d-flex align-items-center justify-content-between">
-                  <div>
-                    <h2>{!selectedSubCategory ? catHeader?.name  : selectedSubCategory || "Default Title"}</h2>
-                    <p>{catHeader?.shortDescription || ""}</p>
-                  </div>
-                  <button className="sidebar-toggle d-lg-none d-block" onClick={handleShow}>
-                    {isSidebarOpen ? <RxCross2 /> : <FaFilter />}
-                  </button>
+                <div>
+                  <h2>{!selectedSubCategory ? '' : selectedSubCategory || ''}</h2>
+                  <p>{catHeader?.shortDescription || ""}</p>
+                </div>
+                <button className="sidebar-toggle d-lg-none d-block" onClick={handleShow}>
+                  {isSidebarOpen ? <RxCross2 /> : <FaFilter />}
+                </button>
               </div>
 
-              <div className="row mt-3">
+              <div className="row">
                 {products?.map((product) => {
                   const imageUrl = getImageURL(product?.a4Image);
                   return (
