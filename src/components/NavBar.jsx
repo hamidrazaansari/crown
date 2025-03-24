@@ -57,7 +57,7 @@ function NavBar() {
         </Offcanvas.Body>
       </Offcanvas>
 
-      {showModal && <NavModal onClose={closeModal} />}
+      {/* {showModal && <NavModal onClose={closeModal} />} */}
 
       <Navbar expand="lg" className="navbar sticky-top d-flex justify-content-between align-items-center flex-nowrap">
         <>
@@ -68,17 +68,17 @@ function NavBar() {
           </Navbar.Brand>
 
           <div className="d-flex justify-content-between align-items-center navbar-right-side" style={{ width: "80%", position: "relative" }}>
-            <SearchBar />
+            {/* <SearchBar /> */}
 
             <div className='d-lg-flex align-items-center d-none'>
 
               <Nav.Item href="/">
                 {/* <Link onMouseEnter={openModal}>Products</Link> */}
-                <NavModal />
+                {/* <NavModal /> */}
               </Nav.Item>
 
               <Nav.Item href="/">
-                <HoverDropdown />
+                {/* <HoverDropdown /> */}
               </Nav.Item>
 
               <Cart />
@@ -108,10 +108,10 @@ function NavBar() {
                   </div>
                   <div className='d-flex align-items-center flex-column'>
                     <Nav.Item>
-                      <NavModal />
+                      {/* <NavModal /> */}
                     </Nav.Item>
                     <Nav.Item>
-                      <HoverDropdown />
+                      {/* <HoverDropdown /> */}
                     </Nav.Item>
                   </div>
                 </div>
