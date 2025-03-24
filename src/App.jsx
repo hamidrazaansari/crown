@@ -65,13 +65,10 @@ function App() {
               path="/sustainabl-details"
               element={<SustainableDetails/>}
             /> 
-
-
-       {/* 
-        <Route path="/order" element={<Order/>}/>
         <Route path="/thank-you" element={<ThankYouPage/>}/>
 
-      */}
+        {/* <Route path="/order" element={<Order/>}/> */}
+
       
       </Routes>
     </BrowserRouter>
