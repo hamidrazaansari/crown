@@ -81,7 +81,7 @@ function NavBar() {
                 <HoverDropdown />
               </Nav.Item>
 
-              {/* <Cart /> */}
+              <Cart />
 
               <Nav.Item href="/">
                 <Link onClick={handleShow}>
@@ -91,7 +91,7 @@ function NavBar() {
             </div>
             {/* Add Toggle Button for Mobile View */}
             <div className='d-lg-none d-block' >
-              {/* <Cart /> */}
+              <Cart />
             </div>
 
             <button onClick={handleShowNav} className='bar d-lg-none d-block' > <FaBars /> </button>
