@@ -32,7 +32,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Landing/>}/>
-        <Route path="/products" element={<ProductListing/>}/>
+        {/* <Route path="/products" element={<ProductListing/>}/>
         <Route path="/product-details/:id" element={<ProductDetails/>}/>
         <Route path="/application-details/:id" element={<ApplicationDetails/>}/>
         <Route path="/blog" element={<BlogPage/>}/>
@@ -43,7 +43,6 @@ function App() {
         <Route path="/certification" element={<Certificate/>}/>
         <Route path="/cat" element={<ProductBanner/>}/>
         <Route path="/nav" element={<NavModal/>}/>
-        {/* <Route path="/cart" element={<Cart/>}/> */}
         <Route path="/thank-you" element={<ThankYouPage/>}/>
         <Route path="/contact" element={<ContactUs/>}/>
         <Route
@@ -69,7 +68,7 @@ function App() {
         <Route
               path="/sustainabl-details"
               element={<SustainableDetails/>}
-            />
+            /> */}
       
       </Routes>
     </BrowserRouter>
