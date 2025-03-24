@@ -1,12 +1,12 @@
 import React from "react"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter , Route , Routes } from "react-router-dom"
 import Landing from "./pages/Landing"
 import ProductListing from "./pages/ProductListing"
 import ProductDetails from "./pages/ProductDetails"
 import ScrollToTop from "./components/ScrollToTop"
 import BlogPage from "./pages/BlogPage"
 import Env from "./pages/Env"
-import { CounterProvider } from '../src/context/CounterContext'
+import {CounterProvider} from '../src/context/CounterContext'
 import Order from "./components/Order"
 import About from "./pages/About"
 import Certificate from "./pages/Certificate"
@@ -26,20 +26,13 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-        {/* <Route path="/" element={<BlogPage/>}/> */}
-        <Route path="/" element={<Landing/>}/>
-
-        </Routes>
-      </BrowserRouter>
-      {/* <CounterProvider>
+    <CounterProvider>
     <BrowserRouter>
     <ScrollToTop/>
       <Routes>
 
         <Route path="/" element={<Landing/>}/>
-        <Route path="/products" element={<ProductListing/>}/>
+        {/* <Route path="/products" element={<ProductListing/>}/>
         <Route path="/product-details/:id" element={<ProductDetails/>}/>
         <Route path="/application-details/:id" element={<ApplicationDetails/>}/>
         <Route path="/blog" element={<BlogPage/>}/>
@@ -75,11 +68,11 @@ function App() {
         <Route
               path="/sustainabl-details"
               element={<SustainableDetails/>}
-            />
+            /> */}
       
       </Routes>
     </BrowserRouter>
-    </CounterProvider> */}
+    </CounterProvider>
     </>
   )
 }
