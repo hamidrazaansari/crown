@@ -32,7 +32,11 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Landing/>}/>
-         <Route path="/products" element={<ProductListing/>}/>
+         {/* <Route path="/products" element={<ProductListing/>}/> */}
+         <Route
+              path="/:categorySlug/:subCategorySlug?"
+              element={<ProductListing />}
+            />
         <Route path="/product-details/:id" element={<ProductDetails/>}/>
        {/* <Route path="/application-details/:id" element={<ApplicationDetails/>}/>
         <Route path="/blog" element={<BlogPage/>}/>
