@@ -38,30 +38,22 @@ function App() {
               element={<ProductListing />}
             />
         <Route path="/product-details/:id" element={<ProductDetails/>}/>
-       {/* <Route path="/application-details/:id" element={<ApplicationDetails/>}/>
         <Route path="/blog" element={<BlogPage/>}/>
         <Route path="/blog-details" element={<BlogDetails/>}/>
-        <Route path="/environmental" element={<Env/>}/>
-        <Route path="/order" element={<Order/>}/>
-        <Route path="/about" element={<About/>}/>
-        <Route path="/certification" element={<Certificate/>}/>
-        <Route path="/cat" element={<ProductBanner/>}/>
-        <Route path="/nav" element={<NavModal/>}/>
-        <Route path="/thank-you" element={<ThankYouPage/>}/>
-        <Route path="/contact" element={<ContactUs/>}/>
-        <Route
-              path="/:categorySlug/:subCategorySlug?"
-              element={<ProductListing />}
-            />
-        <Route
-              path="/catalouge"
-              element={<Catalogue />}
-            />
         <Route
               path="/application/:subCategorySlug"
               element={<Application/>}
             />
+        <Route path="/application-details/:id" element={<ApplicationDetails/>}/>
+        <Route path="/environmental" element={<Env/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/certification" element={<Certificate/>}/>
+        <Route path="/contact" element={<ContactUs/>}/>
         <Route
+              path="/catalouge"
+              element={<Catalogue />}
+            />
+  <Route
               path="/new-blog"
               element={<NewBlogDetails/>}
             />
@@ -72,7 +64,14 @@ function App() {
         <Route
               path="/sustainabl-details"
               element={<SustainableDetails/>}
-            /> */}
+            /> 
+
+
+       {/* 
+        <Route path="/order" element={<Order/>}/>
+        <Route path="/thank-you" element={<ThankYouPage/>}/>
+
+      */}
       
       </Routes>
     </BrowserRouter>
