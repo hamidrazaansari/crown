@@ -96,12 +96,21 @@ function Order() {
 
     const addressFormik = useFormik({
         initialValues: {
-            country: null,
-            state: null,
-            city: null,
+            country: "",
+            state: "",
+            city: "",
         },
         onSubmit: (values) => console.log(JSON.stringify(values)),
     });
+    
+    // Reset state & city when country changes
+    useEffect(() => {
+        if (addressFormik.values.country) {
+            addressFormik.setFieldValue("state", "");
+            addressFormik.setFieldValue("city", "");
+        }
+    }, [addressFormik.values.country]);
+    
 
 
 
