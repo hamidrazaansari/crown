@@ -32,7 +32,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Landing/>}/>
-        {/* <Route path="/products" element={<ProductListing/>}/>
+        <Route path="/products" element={<ProductListing/>}/>
         <Route path="/product-details/:id" element={<ProductDetails/>}/>
         <Route path="/application-details/:id" element={<ApplicationDetails/>}/>
         <Route path="/blog" element={<BlogPage/>}/>
@@ -68,7 +68,7 @@ function App() {
         <Route
               path="/sustainabl-details"
               element={<SustainableDetails/>}
-            /> */}
+            />
       
       </Routes>
     </BrowserRouter>

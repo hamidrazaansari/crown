@@ -78,7 +78,7 @@ function NavBar() {
               </Nav.Item>
 
               <Nav.Item href="/">
-                {/* <HoverDropdown /> */}
+                <HoverDropdown />
               </Nav.Item>
 
               <Cart />
@@ -111,7 +111,7 @@ function NavBar() {
                       {/* <NavModal /> */}
                     </Nav.Item>
                     <Nav.Item>
-                      {/* <HoverDropdown /> */}
+                      <HoverDropdown />
                     </Nav.Item>
                   </div>
                 </div>
