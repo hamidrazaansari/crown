@@ -21,12 +21,14 @@ import NewBlogDetails from "./pages/NewBlogDetails"
 import ApplicationDetails from "./components/ApplicationDetails"
 import LuxuryDetails from "./pages/LuxuryDetails"
 import SustainableDetails from "./pages/SustainableDetails"
+import NavBar from "./components/NavBar"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
   return (
     <>
-    <CounterProvider>
+    <NavBar/>
+    {/* <CounterProvider>
     <BrowserRouter>
     <ScrollToTop/>
       <Routes>
@@ -43,7 +45,6 @@ function App() {
         <Route path="/certification" element={<Certificate/>}/>
         <Route path="/cat" element={<ProductBanner/>}/>
         <Route path="/nav" element={<NavModal/>}/>
-        {/* <Route path="/cart" element={<Cart/>}/> */}
         <Route path="/thank-you" element={<ThankYouPage/>}/>
         <Route path="/contact" element={<ContactUs/>}/>
         <Route
@@ -73,7 +74,7 @@ function App() {
       
       </Routes>
     </BrowserRouter>
-    </CounterProvider>
+    </CounterProvider> */}
     </>
   )
 }
