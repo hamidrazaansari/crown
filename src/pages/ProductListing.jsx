@@ -321,10 +321,10 @@ function ProductListing() {
             <div className="product-banner d-lg-flex">
               <div>
                 <img src={bannerImg} alt={catHeader?.name} />
-                <div className="banner-text-container">
+                {/* <div className="banner-text-container">
                   <h2>{catHeader?.name || "Default Title"}</h2>
                   <div className="line"></div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -435,11 +435,11 @@ function ProductListing() {
             </div>
 
             {/* Product Grid */}
-            <div className="col-lg-8 products-container">
+            <div className="col-lg-8 products-container mt-3">
               <div className="d-flex align-items-center justify-content-between">
                 <div>
                   <h2>{!selectedSubCategory ? '' : selectedSubCategory || ''}</h2>
-                  <p>{catHeader?.shortDescription || ""}</p>
+                  {/* <p>{catHeader?.shortDescription || ""}</p> */}
                 </div>
                 <button className="sidebar-toggle d-lg-none d-block" onClick={handleShow}>
                   {isSidebarOpen ? <RxCross2 /> : <FaFilter />}
