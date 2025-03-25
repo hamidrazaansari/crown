@@ -49,7 +49,7 @@ function App() {
         <Route path="/about" element={<About/>}/>
         <Route path="/certification" element={<Certificate/>}/>
         <Route path="/contact" element={<ContactUs/>}/>
-        <Route path="/order" element={<Order/>}/>
+        {/* <Route path="/order" element={<Order/>}/> */}
         <Route
               path="/catalouge"
               element={<Catalogue />}
@@ -68,8 +68,6 @@ function App() {
             /> 
         <Route path="/thank-you" element={<ThankYouPage/>}/>
 
-
-      
       </Routes>
     </BrowserRouter>
     </CounterProvider>
