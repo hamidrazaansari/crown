@@ -57,9 +57,9 @@ function Order() {
                 products,
                 address,
                 locality,
-                city,
-                state,
-                country,
+                city:"gkp",
+                state:"up",
+                country:"india",
                 pincode,
             })
             if (products.length > 0) {
@@ -94,50 +94,50 @@ function Order() {
         navigate("/exterior-laminate");
     };
 
-    const addressFormik = useFormik({
-        initialValues: {
-            country: "",
-            state: "",
-            city: "",
-        },
-        onSubmit: (values) => console.log(JSON.stringify(values)),
-    });
+    // const addressFormik = useFormik({
+    //     initialValues: {
+    //         country: "",
+    //         state: "",
+    //         city: "",
+    //     },
+    //     onSubmit: (values) => console.log(JSON.stringify(values)),
+    // });
     
-    // Reset state & city when country changes
-    useEffect(() => {
-        if (addressFormik.values.country) {
-            addressFormik.setFieldValue("state", "");
-            addressFormik.setFieldValue("city", "");
-        }
-    }, [addressFormik.values.country]);
+    // // Reset state & city when country changes
+    // useEffect(() => {
+    //     if (addressFormik.values.country) {
+    //         addressFormik.setFieldValue("state", "");
+    //         addressFormik.setFieldValue("city", "");
+    //     }
+    // }, [addressFormik.values.country]);
     
 
 
 
-    const { values, setFieldValue } = addressFormik;
+    // const { values, setFieldValue } = addressFormik;
 
     // console.log(city , state , country);
 
 
 
-    const countries = Country.getAllCountries().map((country) => ({
-        label: country.name,
-        value: country.isoCode, // Use `isoCode` instead of `id`
-    }));
+    // const countries = Country.getAllCountries().map((country) => ({
+    //     label: country.name,
+    //     value: country.isoCode, // Use `isoCode` instead of `id`
+    // }));
 
-    const states = values.country
-        ? State.getStatesOfCountry(values.country).map((state) => ({
-            label: state.name,
-            value: state.isoCode,
-        }))
-        : [];
+    // const states = values.country
+    //     ? State.getStatesOfCountry(values.country).map((state) => ({
+    //         label: state.name,
+    //         value: state.isoCode,
+    //     }))
+    //     : [];
 
-    const cities = values.state
-        ? City.getCitiesOfState(values.country, values.state).map((city) => ({
-            label: city.name,
-            value: city.name,
-        }))
-        : [];
+    // const cities = values.state
+    //     ? City.getCitiesOfState(values.country, values.state).map((city) => ({
+    //         label: city.name,
+    //         value: city.name,
+    //     }))
+    //     : [];
 
 
 
@@ -153,7 +153,7 @@ function Order() {
                             <h2>Delivery Address</h2>
                             <div className="row">
                                 <div className="col-12" style={{ position: 'relative' }}>
-                                    <div className='d-flex flex-column country'>
+                                    {/* <div className='d-flex flex-column country'>
                                         <Select
                                             options={countries}
                                             onChange={(option) => {
@@ -170,7 +170,7 @@ function Order() {
                                                 {error.country}
                                             </div>
                                         )}
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                             <div className="row">
@@ -224,7 +224,7 @@ function Order() {
                             </div>
                             <div className="row" >
 
-                                <div className="col-lg-4 state" style={{ position: 'relative' }}>
+                                {/* <div className="col-lg-4 state" style={{ position: 'relative' }}>
                                     <Select
                                         options={states}
                                         onChange={(option) => {
@@ -258,7 +258,7 @@ function Order() {
                                             {error.city}
                                         </div>
                                     )}
-                                </div>
+                                </div> */}
                                 <div className="col-lg-4  " style={{ position: 'relative' }}>
                                     <input
                                         type="text"
