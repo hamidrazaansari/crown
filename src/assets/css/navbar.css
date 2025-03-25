@@ -521,6 +521,9 @@
     font-size: 20px;
     color: #000000c7;
 }
+.navbar-resp{
+    width: 80%;
+}
 
 @media (min-width: 992px) {
     .cart .dropdown-menu {
@@ -864,5 +867,10 @@
         font-size: 14px;
         margin-right: -5px;
     }
-
+    .navbar-resp{
+        width: 73% !important;
+    }
+    .navbar{
+        flex-wrap: wrap;
+    }
 }
