@@ -468,6 +468,43 @@
 }
 
 
+.resp {
+  position: relative;
+}
+
+.logo img {
+  position: absolute;
+  top: -39px;
+  height: 130px !important;
+  left: 20px;
+}
+
+.socal-link {
+  position: absolute;
+  top: 80px;
+}
+
+.socal-link p {
+  font-size: 14px;
+}
+
+.footer-img {
+  height: 30px;
+  width: 30px;
+  background-color: #E69B00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 5px;
+  padding: 3px;
+}
+
+.footer-img img {
+  width: 80%;
+}
+
+
 @media (max-width:500px) {
   .newFooter h2 {
     font-family: "dionlight";
@@ -600,43 +637,12 @@
     font-size: 13px;
   }
 
+  .footer-phone{
+    width: 35px !important;
 }
 
-.resp {
-  position: relative;
 }
 
-.logo img {
-  position: absolute;
-  top: -39px;
-  height: 130px !important;
-  left: 20px;
-}
-
-.socal-link {
-  position: absolute;
-  top: 80px;
-}
-
-.socal-link p {
-  font-size: 14px;
-}
-
-.footer-img {
-  height: 30px;
-  width: 30px;
-  background-color: #E69B00;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin: 5px;
-  padding: 3px;
-}
-
-.footer-img img {
-  width: 80%;
-}
 
 @media (max-width:400px) {
   .socal-link {

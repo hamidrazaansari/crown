@@ -425,7 +425,7 @@
     }
 
     .blog-box h2 {
-        font-size: 20px !important;
+        font-size: 15px !important;
     }
 
     .blog .blog-box {
@@ -467,6 +467,7 @@
         padding-right: 0px;
         line-height: 18px;
     }
+
 }
 
 @media (max-width:400px) {

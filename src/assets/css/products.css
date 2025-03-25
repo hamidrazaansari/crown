@@ -511,6 +511,9 @@ padding: 0 !important;
     letter-spacing: 1px;
     height: 20px;
 }
+.allProduct .custom-prev-btn, .allProduct .custom-next-arrow {
+    top: -49px;
+}
 }
 
 @media (max-width:400px) {
