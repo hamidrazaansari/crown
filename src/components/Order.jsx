@@ -9,7 +9,6 @@ import getImageURL from '../utills/getImageURL';
 import { RxCross2 } from "react-icons/rx";
 import { toast, ToastContainer } from 'react-toastify';
 import { CounterContext } from '../context/CounterContext';
-import { useFormik } from "formik";
 import Select from "react-select";
 import { Country, State, City } from "country-state-city";
 
@@ -35,6 +34,12 @@ function Order() {
         country: '',
         pincode: '',
     })
+    const [values , setValues] = useState({
+        country: "",
+        state: "",
+        city: "",
+    })
+
 
     const { removeItemById, data, clearCart } = useContext(CounterContext);
 
@@ -45,8 +50,8 @@ function Order() {
                 product: item._id,
                 qty: "1",
                 ...(item.categoryId && { category: item.categoryId }),
-                ...(item.subCategoryId && { subCategory: item.subCategoryId }) 
-   
+                ...(item.subCategoryId && { subCategory: item.subCategoryId })
+
             }))
             : (toast.error("No data available"), []);
         try {
@@ -57,9 +62,9 @@ function Order() {
                 products,
                 address,
                 locality,
-                city:"gkp",
-                state:"up",
-                country:"india",
+                city,
+                state,
+                country,
                 pincode,
             })
             if (products.length > 0) {
@@ -102,42 +107,44 @@ function Order() {
     //     },
     //     onSubmit: (values) => console.log(JSON.stringify(values)),
     // });
-    
-    // // Reset state & city when country changes
-    // useEffect(() => {
-    //     if (addressFormik.values.country) {
-    //         addressFormik.setFieldValue("state", "");
-    //         addressFormik.setFieldValue("city", "");
-    //     }
-    // }, [addressFormik.values.country]);
-    
+
+    // Reset state & city when country changes
+    useEffect(() => {
+        if (values.country) {
+            // setValues("state", "");
+            // setValues("city", "");
+            setValues((old)=>{return { ...old , state: null , city:null }})
+
+        }
+    }, [values.country]);
 
 
 
-    // const { values, setFieldValue } = addressFormik;
+
+    // const {  setFieldValue } = addressFormik;
 
     // console.log(city , state , country);
 
 
 
-    // const countries = Country.getAllCountries().map((country) => ({
-    //     label: country.name,
-    //     value: country.isoCode, // Use `isoCode` instead of `id`
-    // }));
+    const countries = Country.getAllCountries().map((country) => ({
+        label: country.name,
+        value: country.isoCode, // Use `isoCode` instead of `id`
+    }));
 
-    // const states = values.country
-    //     ? State.getStatesOfCountry(values.country).map((state) => ({
-    //         label: state.name,
-    //         value: state.isoCode,
-    //     }))
-    //     : [];
+    const states = values.country
+        ? State.getStatesOfCountry(values.country).map((state) => ({
+            label: state.name,
+            value: state.isoCode,
+        }))
+        : [];
 
-    // const cities = values.state
-    //     ? City.getCitiesOfState(values.country, values.state).map((city) => ({
-    //         label: city.name,
-    //         value: city.name,
-    //     }))
-    //     : [];
+    const cities = values.state
+        ? City.getCitiesOfState(values.country, values.state).map((city) => ({
+            label: city.name,
+            value: city.name,
+        }))
+        : [];
 
 
 
@@ -153,13 +160,14 @@ function Order() {
                             <h2>Delivery Address</h2>
                             <div className="row">
                                 <div className="col-12" style={{ position: 'relative' }}>
-                                    {/* <div className='d-flex flex-column country'>
+                                    <div className='d-flex flex-column country'>
                                         <Select
                                             options={countries}
                                             onChange={(option) => {
-                                                setFieldValue("country", option.value);
-                                                setFieldValue("state", null);
-                                                setFieldValue("city", null);
+                                                // setFieldValue("country", option.value);
+                                                // setFieldValue("state", null);
+                                                // setFieldValue("city", null);
+                                                setValues((old)=>{return { ...old , country: option.value }})
                                                 setCountry(option.label)
                                             }}
                                             value={countries.find((c) => c.value === values.country) || null}
@@ -170,7 +178,7 @@ function Order() {
                                                 {error.country}
                                             </div>
                                         )}
-                                    </div> */}
+                                    </div>
                                 </div>
                             </div>
                             <div className="row">
@@ -224,12 +232,14 @@ function Order() {
                             </div>
                             <div className="row" >
 
-                                {/* <div className="col-lg-4 state" style={{ position: 'relative' }}>
+                                <div className="col-lg-4 state" style={{ position: 'relative' }}>
                                     <Select
                                         options={states}
                                         onChange={(option) => {
-                                            setFieldValue("state", option.value);
-                                            setFieldValue("city", null);
+                                            // setFieldValue("state", option.value);
+                                            // setFieldValue("city", null);
+                                            setValues((old)=>{return { ...old , state: option.value }})
+
                                             setState(option.label)
                                         }}
                                         value={states.find((s) => s.value === values.state) || null}
@@ -247,7 +257,11 @@ function Order() {
                                 <div className="col-lg-4  " style={{ position: 'relative' }}>
                                     <Select
                                         options={cities}
-                                        onChange={(option) => setFieldValue("city", option.value)}
+                                        onChange={(option) =>
+                                            //  setFieldValue("city", option.value)
+                                            setValues((old)=>{return { ...old , city: option.value }})
+
+                                            }
                                         value={cities.find((c) => c.value === values.city) || null}
                                         placeholder="Select City"
                                         isDisabled={!values.state}
@@ -258,7 +272,7 @@ function Order() {
                                             {error.city}
                                         </div>
                                     )}
-                                </div> */}
+                                </div>
                                 <div className="col-lg-4  " style={{ position: 'relative' }}>
                                     <input
                                         type="text"
