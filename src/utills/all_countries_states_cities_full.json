@@ -1,0 +1,231 @@
+[
+  {
+    "label": "Afghanistan",
+    "value": "AF",
+    "states": [
+      {
+        "label": "Badakhshan",
+        "value": "BDS",
+        "cities": [
+          "Fayzabad",
+          "Jurm",
+          "Khandud"
+        ]
+      },
+      {
+        "label": "Badghis",
+        "value": "BDG",
+        "cities": [
+          "Qala i Naw",
+          "Ghormach",
+          "Murghab"
+        ]
+      },
+      {
+        "label": "Baghlan",
+        "value": "BGL",
+        "cities": [
+          "Pul-e-Khumri",
+          "Baghlan",
+          "Dushi"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "United States",
+    "value": "US",
+    "states": [
+      {
+        "label": "California",
+        "value": "CA",
+        "cities": [
+          "Los Angeles",
+          "San Francisco",
+          "San Diego"
+        ]
+      },
+      {
+        "label": "New York",
+        "value": "NY",
+        "cities": [
+          "New York City",
+          "Buffalo",
+          "Rochester"
+        ]
+      },
+      {
+        "label": "Texas",
+        "value": "TX",
+        "cities": [
+          "Houston",
+          "Dallas",
+          "Austin"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "India",
+    "value": "IN",
+    "states": [
+      {
+        "label": "Maharashtra",
+        "value": "MH",
+        "cities": [
+          "Mumbai",
+          "Pune",
+          "Nagpur"
+        ]
+      },
+      {
+        "label": "Karnataka",
+        "value": "KA",
+        "cities": [
+          "Bangalore",
+          "Mysore",
+          "Mangalore"
+        ]
+      },
+      {
+        "label": "Tamil Nadu",
+        "value": "TN",
+        "cities": [
+          "Chennai",
+          "Coimbatore",
+          "Madurai"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Canada",
+    "value": "CA",
+    "states": [
+      {
+        "label": "Ontario",
+        "value": "ON",
+        "cities": [
+          "Toronto",
+          "Ottawa",
+          "Mississauga"
+        ]
+      },
+      {
+        "label": "Quebec",
+        "value": "QC",
+        "cities": [
+          "Montreal",
+          "Quebec City",
+          "Laval"
+        ]
+      },
+      {
+        "label": "British Columbia",
+        "value": "BC",
+        "cities": [
+          "Vancouver",
+          "Victoria",
+          "Kelowna"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Australia",
+    "value": "AU",
+    "states": [
+      {
+        "label": "New South Wales",
+        "value": "NSW",
+        "cities": [
+          "Sydney",
+          "Newcastle",
+          "Wollongong"
+        ]
+      },
+      {
+        "label": "Victoria",
+        "value": "VIC",
+        "cities": [
+          "Melbourne",
+          "Geelong",
+          "Ballarat"
+        ]
+      },
+      {
+        "label": "Queensland",
+        "value": "QLD",
+        "cities": [
+          "Brisbane",
+          "Gold Coast",
+          "Cairns"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Germany",
+    "value": "DE",
+    "states": [
+      {
+        "label": "Bavaria",
+        "value": "BY",
+        "cities": [
+          "Munich",
+          "Nuremberg",
+          "Augsburg"
+        ]
+      },
+      {
+        "label": "Berlin",
+        "value": "BE",
+        "cities": [
+          "Berlin"
+        ]
+      },
+      {
+        "label": "Hesse",
+        "value": "HE",
+        "cities": [
+          "Frankfurt",
+          "Wiesbaden",
+          "Darmstadt"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "United Kingdom",
+    "value": "GB",
+    "states": [
+      {
+        "label": "England",
+        "value": "ENG",
+        "cities": [
+          "London",
+          "Manchester",
+          "Birmingham"
+        ]
+      },
+      {
+        "label": "Scotland",
+        "value": "SCT",
+        "cities": [
+          "Edinburgh",
+          "Glasgow",
+          "Aberdeen"
+        ]
+      },
+      {
+        "label": "Wales",
+        "value": "WLS",
+        "cities": [
+          "Cardiff",
+          "Swansea",
+          "Newport"
+        ]
+      }
+    ]
+  }
+]

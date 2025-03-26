@@ -10,7 +10,8 @@ import { RxCross2 } from "react-icons/rx";
 import { toast, ToastContainer } from 'react-toastify';
 import { CounterContext } from '../context/CounterContext';
 import Select from "react-select";
-import { Country, State, City } from "country-state-city";
+import allCountriesData from "../utills/all_countries_states_cities_full.json"; 
+
 
 function Order() {
     const [name, setName] = useState('');
@@ -101,23 +102,16 @@ function Order() {
 
 
     // Reset state & city when country changes
-    useEffect(() => {
-        if (values.country) {
-            // setValues("state", "");
-            // setValues("city", "");
-            setValues((old)=>{return { ...old , state: null , city:null }})
+    // useEffect(() => {
+    //     if (values.country) {
+    //         // setValues("state", "");
+    //         // setValues("city", "");
+    //         setValues((old)=>{return { ...old , state: null , city:null }})
 
-        }
-    }, [values.country]);
+    //     }
+    // }, [values.country]);
 
-
-
-
-    // const {  setFieldValue } = addressFormik;
-
-    // console.log(city , state , country);
-
-
+    // Get States based on selected country
     const countries = [
         { label: "Afghanistan", value: "AF" },
         { label: "Aland Islands", value: "AX" },
@@ -265,6 +259,30 @@ function Order() {
         { label: "United Kingdom", value: "GB" },
         { label: "United States", value: "US" }
     ];
+
+    const states = values.country
+        ? allCountriesData
+              .find((country) => country.value === values.country)
+              ?.states.map((state) => ({
+                  label: state.label,
+                  value: state.value,
+              })) || []
+        : [];
+
+    // Get Cities based on selected state
+    const cities = values.state
+        ? allCountriesData
+              .find((country) => country.value === values.country)
+              ?.states.find((state) => state.value === values.state)
+              ?.cities.map((city) => ({
+                  label: city,
+                  value: city,
+              })) || []
+        : [];
+
+
+
+
         
 
     // const states = values.country
@@ -367,7 +385,7 @@ function Order() {
                             </div>
                             <div className="row" >
 
-                                {/* <div className="col-lg-4 state" style={{ position: 'relative' }}>
+                                <div className="col-lg-4 state" style={{ position: 'relative' }}>
                                     <Select
                                         options={states}
                                         onChange={(option) => {
@@ -407,7 +425,7 @@ function Order() {
                                             {error.city}
                                         </div>
                                     )}
-                                </div> */}
+                                </div>
                                 <div className="col-lg-4  " style={{ position: 'relative' }}>
                                     <input
                                         type="text"
