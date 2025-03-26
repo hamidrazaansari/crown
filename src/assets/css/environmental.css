@@ -274,6 +274,14 @@
     .optmization-box{
         margin: 10px 0;
     } 
+    .EnvHeader{
+        left: 94px;
+    }
+    .EnvHeader h1 {
+        font-family: 'dion';
+        color: #fff;
+        font-size: 30px;
+    }
     
 }
 @media (max-width:520px) {
@@ -342,6 +350,16 @@
 }
 .certificate-box h1, .companies h2{
     font-size: 30px;
+}
+.EnvHeader {
+    left: 37px;
+    top: 64px;
+    padding: 8px;
+    border-radius: 6px;
+}
+.EnvHeader h1 {
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 }
 

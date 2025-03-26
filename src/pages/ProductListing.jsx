@@ -296,7 +296,7 @@ function ProductListing() {
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
-            <button className="bg-light text-dark fw-bold" style={{ fontFamily: "inter" }}>Apply</button>
+            <button className="bg-light text-dark fw-bold" style={{ fontFamily: "inter" }} onClick={handleClose} disabled={!selectedDecor && !selectedSizes && !selectedSubCategory}>Apply</button>
           </div>
         </Offcanvas.Body>
       </Offcanvas>

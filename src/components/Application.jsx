@@ -39,7 +39,7 @@ function Application() {
 
   const location = useLocation();
   const categoryId = location.state;
-  const {subCategorySlug } = useParams();  
+  const { subCategorySlug } = useParams();
 
   const [pagination, setPagination] = useState({
     page: 1,
@@ -47,28 +47,28 @@ function Application() {
     totalPages: null,
   });
   const [decorNumber, setDecorNumber] = useState();
-  
+
   useEffect(() => {
     async function fetchProduct() {
       try {
         let url = `${API_URL}/products?subCategorySlug=${subCategorySlug}&limit=${60}&page=${pagination.page
           }`;
-  
+
         if (decorNumber) {
           url += `&decorNumber=${decorNumber}`;
         }
         if (selectedDecor.length) {
-            for (let decor of selectedDecor) {
-              url += `&decorSeries=${decor}`;
-            }
+          for (let decor of selectedDecor) {
+            url += `&decorSeries=${decor}`;
           }
-  
+        }
+
         if (selectedSizes.length) {
           for (let size of selectedSizes) {
             url += `&sizes=${size}`;
           }
         }
-  
+
         const response = await axios.get(url);
         setPagination({
           page: Number(response.data.page),
@@ -89,14 +89,14 @@ function Application() {
     selectedDecor,
   ]);
 
-    useEffect(()=>{
-      setSelectedSizes([]);
-      setSelectedDecor([]);
-      setSelectedFinish([]);
-    },[subCategorySlug])
+  useEffect(() => {
+    setSelectedSizes([]);
+    setSelectedDecor([]);
+    setSelectedFinish([]);
+  }, [subCategorySlug])
 
-  
-  
+
+
   useEffect(() => {
     async function fetchSubCategory() {
       try {
@@ -109,8 +109,8 @@ function Application() {
     }
     fetchSubCategory()
   }, [subCategorySlug]);
-  
-  
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -130,7 +130,7 @@ function Application() {
         setLoading(false);
       }
     };
-  
+
     fetchData();
   }, [subCategorySlug]);
 
@@ -174,61 +174,61 @@ function Application() {
     }
   }
 
-    const bannerImg =  getImageURL(subCategory?.listingImage)
-  
-  
+  const bannerImg = getImageURL(subCategory?.listingImage)
+
+
 
   return (
     <div>
       <NavBar />
       <Offcanvas className={'productlisting-Sidebar'} placement="end" show={show} onHide={handleClose}>
         <Offcanvas.Body>
-        <div className={`sidebar`}>
-          <button className="w-25 float-end border-0 sidebar-cancel-btn" onClick={handleClose}> <RxCross2/> </button>
-                <h3>Search by decor code</h3>
-                <input
-                  type="text"
-                  placeholder="search"
-                  className="search"
-                  value={decorNumber}
-                  onChange={(e) => setDecorNumber(e.target.value)}
-                />
+          <div className={`sidebar`}>
+            <button className="w-25 float-end border-0 sidebar-cancel-btn" onClick={handleClose}> <RxCross2 /> </button>
+            <h3>Search by decor code</h3>
+            <input
+              type="text"
+              placeholder="search"
+              className="search"
+              value={decorNumber}
+              onChange={(e) => setDecorNumber(e.target.value)}
+            />
 
-                {/* Size Filter */}
-                <h3 className="mt-3">FILTER BY SIZE</h3>
-                <div className="row">
-                  {sizes.map((size) => (
-                    <div className="col-6" key={size._id}>
-                      <button
-                        onClick={() => handleSizeFilter(size._id, size.title)}
-                        className={
-                          selectedSizes.includes(size._id) ? "active-btn" : ""
-                        }
-                      >
-                        {size.title}
-                      </button>
-                    </div>
-                  ))}
+            {/* Size Filter */}
+            <h3 className="mt-3">FILTER BY SIZE</h3>
+            <div className="row">
+              {sizes.map((size) => (
+                <div className="col-6" key={size._id}>
+                  <button
+                    onClick={() => handleSizeFilter(size._id, size.title)}
+                    className={
+                      selectedSizes.includes(size._id) ? "active-btn" : ""
+                    }
+                  >
+                    {size.title}
+                  </button>
                 </div>
+              ))}
+            </div>
 
-                <h3 className="mt-3">FILTER BY Decor Series</h3>
-                <div className="row">
-                  {decorSeries.map((type) => (
-                    <div className="col-6" key={type._id}>
-                      <button
-                        onClick={() => handleDecorFilter(type._id)}
-                        className={
-                          selectedDecor == type._id ? "active-btn" : ""
-                        }
-                      >
-                        {type.title}
-                      </button>
-                    </div>
-                  ))}
+            <h3 className="mt-3">FILTER BY Decor Series</h3>
+            <div className="row">
+              {decorSeries.map((type) => (
+                <div className="col-6" key={type._id}>
+                  <button
+                    onClick={() => handleDecorFilter(type._id)}
+                    className={
+                      selectedDecor == type._id ? "active-btn" : ""
+                    }
+                  >
+                    {type.title}
+                  </button>
                 </div>
+              ))}
+            </div>
 
-                {/* Other Filters */}
-                {/* <h3 className="mt-3">FILTER BY FINISHES</h3>
+            {/* Other Filters */}
+            {/* <h3 className="mt-3">FILTER BY FINISHES</h3>
                 <div className="row">
                   {finishes.map((finish) => (
                     <div className="col-6" key={finish._id}>
@@ -246,8 +246,8 @@ function Application() {
                   ))}
                 </div> */}
 
-                <button className="bg-light text-dark fw-bold" style={{fontFamily:"inter"}}>Apply</button>
-              </div>
+            <button className="bg-light text-dark fw-bold" style={{ fontFamily: "inter" }} onClick={handleClose} disabled={!selectedDecor && !selectedSizes}>Apply</button>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
 
@@ -280,12 +280,12 @@ function Application() {
           </div>
         </div>
       </div>
-            <div className=" listingHeader bgWhite pt-3">
-                <div className="container mb-0">
-                <h1>{subCategory?.listingTitle}</h1>
-                <p className="mb-0">{parse(subCategory?.listingDescription || "")}</p>
-                </div>
-            </div>
+      <div className=" listingHeader bgWhite pt-3">
+        <div className="container mb-0">
+          <h1>{subCategory?.listingTitle}</h1>
+          <p className="mb-0">{parse(subCategory?.listingDescription || "")}</p>
+        </div>
+      </div>
       {/* Product Listing Section */}
       <div className="product-listing py-3">
         <div className="container">
@@ -360,13 +360,13 @@ function Application() {
             {/* Product Grid */}
             <div className="col-lg-8 ">
               <div className="d-flex align-items-center justify-content-between">
-                  <div>
-                    {/* <h2>{subCategory?.name || "Default Title"}</h2>
+                <div>
+                  {/* <h2>{subCategory?.name || "Default Title"}</h2>
                     <p>{subCategory?.shortDescription || ""}</p> */}
-                  </div>
-                  <button className="sidebar-toggle d-lg-none d-block" onClick={handleShow}>
-                    {isSidebarOpen ? <RxCross2 /> : <FaFilter />}
-                  </button>
+                </div>
+                <button className="sidebar-toggle d-lg-none d-block" onClick={handleShow}>
+                  {isSidebarOpen ? <RxCross2 /> : <FaFilter />}
+                </button>
               </div>
 
               <div className="row">

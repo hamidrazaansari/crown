@@ -108,10 +108,10 @@ function NavBar() {
                   </div>
                   <div className='d-flex align-items-center flex-column'>
                     <Nav.Item>
-                      <NavModal />
+                      <HoverDropdown />
                     </Nav.Item>
                     <Nav.Item>
-                      <HoverDropdown />
+                      <NavModal />
                     </Nav.Item>
                   </div>
                 </div>
