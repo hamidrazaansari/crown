@@ -694,8 +694,8 @@
     }
 
     .closeButton {
-        top: 65px;
-        right: 5px;
+        top: 0px;
+        right: 0px;
     }
 
     .search-btn {

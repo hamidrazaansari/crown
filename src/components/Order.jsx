@@ -45,15 +45,18 @@ function Order() {
 
 
     const handlePlaceOrder = async () => {
-        const products = data && data.length > 0
-            ? data.map(item => ({
-                product: item._id,
-                qty: "1",
-                ...(item.categoryId && { category: item.categoryId }),
-                ...(item.subCategoryId && { subCategory: item.subCategoryId })
-
-            }))
-            : (toast.error("No data available"), []);
+        if (!data?.length) {
+            toast.error("No data available");
+            return;
+        }
+    
+        const products = data.map(({ _id, categoryId, subCategoryId }) => ({
+            product: _id,
+            qty: "1",
+            ...(categoryId && { category: categoryId }),
+            ...(subCategoryId && { subCategory: subCategoryId }),
+        }));
+    
         try {
             const response = await axios.post(`${API_URL}/orders`, {
                 name,
@@ -66,31 +69,28 @@ function Order() {
                 state,
                 country,
                 pincode,
-            })
-            if (products.length > 0) {
-                toast.success(response.data.message)
-                clearCart()
-                navigate('/thank-you')
-
-            }
-
+            });
+    
+            toast.success(response.data.message);
+            clearCart();
+            navigate('/thank-you');
         } catch (error) {
-            const errorData = error.response?.data?.errors
+            const errorData = error.response?.data?.errors || {};
             console.log(errorData);
             setError({
-                name: errorData?.name || '',
-                mobile: errorData?.mobile || '',
-                email: errorData?.email || '',
-                products: errorData?.products || '',
-                address: errorData?.address || '',
-                locality: errorData?.locality || '',
-                city: errorData?.city || '',
-                state: errorData?.state || '',
-                country: errorData?.country || '',
-                pincode: errorData?.pincode || '',
+                name: errorData.name || '',
+                mobile: errorData.mobile || '',
+                email: errorData.email || '',
+                products: errorData.products || '',
+                address: errorData.address || '',
+                locality: errorData.locality || '',
+                city: errorData.city || '',
+                state: errorData.state || '',
+                country: errorData.country || '',
+                pincode: errorData.pincode || '',
             });
         }
-    }
+    };
 
     const navigate = useNavigate();
 
@@ -99,14 +99,6 @@ function Order() {
         navigate("/exterior-laminate");
     };
 
-    // const addressFormik = useFormik({
-    //     initialValues: {
-    //         country: "",
-    //         state: "",
-    //         city: "",
-    //     },
-    //     onSubmit: (values) => console.log(JSON.stringify(values)),
-    // });
 
     // Reset state & city when country changes
     useEffect(() => {
@@ -126,25 +118,168 @@ function Order() {
     // console.log(city , state , country);
 
 
+    const countries = [
+        { label: "Afghanistan", value: "AF" },
+        { label: "Aland Islands", value: "AX" },
+        { label: "Albania", value: "AL" },
+        { label: "Algeria", value: "DZ" },
+        { label: "American Samoa", value: "AS" },
+        { label: "Andorra", value: "AD" },
+        { label: "Angola", value: "AO" },
+        { label: "Anguilla", value: "AI" },
+        { label: "Antarctica", value: "AQ" },
+        { label: "Antigua and Barbuda", value: "AG" },
+        { label: "Argentina", value: "AR" },
+        { label: "Armenia", value: "AM" },
+        { label: "Australia", value: "AU" },
+        { label: "Austria", value: "AT" },
+        { label: "Azerbaijan", value: "AZ" },
+        { label: "Bahamas", value: "BS" },
+        { label: "Bahrain", value: "BH" },
+        { label: "Bangladesh", value: "BD" },
+        { label: "Barbados", value: "BB" },
+        { label: "Belarus", value: "BY" },
+        { label: "Belgium", value: "BE" },
+        { label: "Belize", value: "BZ" },
+        { label: "Benin", value: "BJ" },
+        { label: "Bermuda", value: "BM" },
+        { label: "Bhutan", value: "BT" },
+        { label: "Bolivia", value: "BO" },
+        { label: "Bosnia and Herzegovina", value: "BA" },
+        { label: "Botswana", value: "BW" },
+        { label: "Brazil", value: "BR" },
+        { label: "British Indian Ocean Territory", value: "IO" },
+        { label: "Brunei Darussalam", value: "BN" },
+        { label: "Bulgaria", value: "BG" },
+        { label: "Burkina Faso", value: "BF" },
+        { label: "Burundi", value: "BI" },
+        { label: "Cambodia", value: "KH" },
+        { label: "Cameroon", value: "CM" },
+        { label: "Canada", value: "CA" },
+        { label: "Cape Verde", value: "CV" },
+        { label: "Central African Republic", value: "CF" },
+        { label: "Chad", value: "TD" },
+        { label: "Chile", value: "CL" },
+        { label: "China", value: "CN" },
+        { label: "Colombia", value: "CO" },
+        { label: "Comoros", value: "KM" },
+        { label: "Congo", value: "CG" },
+        { label: "Congo, The Democratic Republic of the", value: "CD" },
+        { label: "Costa Rica", value: "CR" },
+        { label: "Croatia", value: "HR" },
+        { label: "Cuba", value: "CU" },
+        { label: "Cyprus", value: "CY" },
+        { label: "Czech Republic", value: "CZ" },
+        { label: "Denmark", value: "DK" },
+        { label: "Djibouti", value: "DJ" },
+        { label: "Dominica", value: "DM" },
+        { label: "Dominican Republic", value: "DO" },
+        { label: "Ecuador", value: "EC" },
+        { label: "Egypt", value: "EG" },
+        { label: "El Salvador", value: "SV" },
+        { label: "Equatorial Guinea", value: "GQ" },
+        { label: "Eritrea", value: "ER" },
+        { label: "Estonia", value: "EE" },
+        { label: "Eswatini", value: "SZ" },
+        { label: "Ethiopia", value: "ET" },
+        { label: "Fiji", value: "FJ" },
+        { label: "Finland", value: "FI" },
+        { label: "France", value: "FR" },
+        { label: "Gabon", value: "GA" },
+        { label: "Gambia", value: "GM" },
+        { label: "Georgia", value: "GE" },
+        { label: "Germany", value: "DE" },
+        { label: "Ghana", value: "GH" },
+        { label: "Greece", value: "GR" },
+        { label: "Grenada", value: "GD" },
+        { label: "Guatemala", value: "GT" },
+        { label: "Guinea", value: "GN" },
+        { label: "Guinea-Bissau", value: "GW" },
+        { label: "Guyana", value: "GY" },
+        { label: "Haiti", value: "HT" },
+        { label: "Honduras", value: "HN" },
+        { label: "Hungary", value: "HU" },
+        { label: "Iceland", value: "IS" },
+        { label: "India", value: "IN" },
+        { label: "Indonesia", value: "ID" },
+        { label: "Iran", value: "IR" },
+        { label: "Iraq", value: "IQ" },
+        { label: "Ireland", value: "IE" },
+        { label: "Israel", value: "IL" },
+        { label: "Italy", value: "IT" },
+        { label: "Jamaica", value: "JM" },
+        { label: "Japan", value: "JP" },
+        { label: "Jordan", value: "JO" },
+        { label: "Kazakhstan", value: "KZ" },
+        { label: "Kenya", value: "KE" },
+        { label: "Kuwait", value: "KW" },
+        { label: "Kyrgyzstan", value: "KG" },
+        { label: "Laos", value: "LA" },
+        { label: "Latvia", value: "LV" },
+        { label: "Lebanon", value: "LB" },
+        { label: "Lesotho", value: "LS" },
+        { label: "Liberia", value: "LR" },
+        { label: "Libya", value: "LY" },
+        { label: "Liechtenstein", value: "LI" },
+        { label: "Lithuania", value: "LT" },
+        { label: "Luxembourg", value: "LU" },
+        { label: "Madagascar", value: "MG" },
+        { label: "Malawi", value: "MW" },
+        { label: "Malaysia", value: "MY" },
+        { label: "Maldives", value: "MV" },
+        { label: "Mali", value: "ML" },
+        { label: "Malta", value: "MT" },
+        { label: "Mexico", value: "MX" },
+        { label: "Moldova", value: "MD" },
+        { label: "Monaco", value: "MC" },
+        { label: "Mongolia", value: "MN" },
+        { label: "Morocco", value: "MA" },
+        { label: "Mozambique", value: "MZ" },
+        { label: "Myanmar", value: "MM" },
+        { label: "Namibia", value: "NA" },
+        { label: "Nepal", value: "NP" },
+        { label: "Netherlands", value: "NL" },
+        { label: "New Zealand", value: "NZ" },
+        { label: "Nigeria", value: "NG" },
+        { label: "Norway", value: "NO" },
+        { label: "Oman", value: "OM" },
+        { label: "Pakistan", value: "PK" },
+        { label: "Panama", value: "PA" },
+        { label: "Peru", value: "PE" },
+        { label: "Philippines", value: "PH" },
+        { label: "Poland", value: "PL" },
+        { label: "Portugal", value: "PT" },
+        { label: "Qatar", value: "QA" },
+        { label: "Romania", value: "RO" },
+        { label: "Russia", value: "RU" },
+        { label: "Saudi Arabia", value: "SA" },
+        { label: "Singapore", value: "SG" },
+        { label: "South Africa", value: "ZA" },
+        { label: "Spain", value: "ES" },
+        { label: "Sri Lanka", value: "LK" },
+        { label: "Sweden", value: "SE" },
+        { label: "Switzerland", value: "CH" },
+        { label: "Thailand", value: "TH" },
+        { label: "Turkey", value: "TR" },
+        { label: "United Arab Emirates", value: "AE" },
+        { label: "United Kingdom", value: "GB" },
+        { label: "United States", value: "US" }
+    ];
+        
 
-    const countries = Country.getAllCountries().map((country) => ({
-        label: country.name,
-        value: country.isoCode, // Use `isoCode` instead of `id`
-    }));
+    // const states = values.country
+    //     ? State.getStatesOfCountry(values.country).map((state) => ({
+    //         label: state.name,
+    //         value: state.isoCode,
+    //     }))
+    //     : [];
 
-    const states = values.country
-        ? State.getStatesOfCountry(values.country).map((state) => ({
-            label: state.name,
-            value: state.isoCode,
-        }))
-        : [];
-
-    const cities = values.state
-        ? City.getCitiesOfState(values.country, values.state).map((city) => ({
-            label: city.name,
-            value: city.name,
-        }))
-        : [];
+    // const cities = values.state
+    //     ? City.getCitiesOfState(values.country, values.state).map((city) => ({
+    //         label: city.name,
+    //         value: city.name,
+    //     }))
+    //     : [];
 
 
 
@@ -232,7 +367,7 @@ function Order() {
                             </div>
                             <div className="row" >
 
-                                <div className="col-lg-4 state" style={{ position: 'relative' }}>
+                                {/* <div className="col-lg-4 state" style={{ position: 'relative' }}>
                                     <Select
                                         options={states}
                                         onChange={(option) => {
@@ -272,7 +407,7 @@ function Order() {
                                             {error.city}
                                         </div>
                                     )}
-                                </div>
+                                </div> */}
                                 <div className="col-lg-4  " style={{ position: 'relative' }}>
                                     <input
                                         type="text"
