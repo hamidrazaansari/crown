@@ -25,7 +25,8 @@ function ProductDetails() {
     const categoryId = searchParams.get("categoryId"); 
     const subCategoryId = searchParams.get("subCategoryId"); 
     
-
+    const {category } = location.state || {};
+  
 
     const [show, setShow] = useState(false);
     const [showSample, setShowSample] = useState(false);
@@ -119,6 +120,8 @@ function ProductDetails() {
     }, [products])
 
 
+
+
     const handleDownload = () => {
         let url = highResolutionImage; 
         console.log(url);
@@ -147,7 +150,13 @@ function ProductDetails() {
             <div className="bgWhite">
                 <div className="container ">
                     <div className="breadcrumb m-0 py-3 pb-0">
-                        <p><Link to="/">HOME</Link><span> / </span> <Link  className='ms-2'>Product Details</Link> </p>
+                        <p>
+                        <Link to="/">HOME</Link>
+                        <span> / </span> 
+                        <Link  className='ms-2'>{category}</Link> 
+                        <span> / </span> 
+                        <Link  className='ms-2'>{products?.name}</Link> 
+                        </p>
                     </div>
                 </div>
             </div>
@@ -200,7 +209,7 @@ function ProductDetails() {
                                 </div>
 
                                 <div className="d-flex justify-content-start align-items-start">
-                                    <p><span className='key'>Decor Name </span></p>
+                                    <p><span className='key'>Decor Series </span></p>
                                     <p><span className='ms-1 value'>{products.decorSeries?.title}</span></p>
 
                                 </div>

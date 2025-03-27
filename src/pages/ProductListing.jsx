@@ -308,7 +308,7 @@ function ProductListing() {
               <Link to="/">HOME</Link>
               <span> / </span>{" "}
               <Link to="/" className="ms-2">
-                Exterior Compacts
+                {catHeader?.name}
               </Link>
             </p>
           </div>
@@ -451,7 +451,11 @@ function ProductListing() {
                   const imageUrl = getImageURL(product?.a4Image);
                   return (
                     <div className="col-lg-4 col-6" key={product._id}>
-                      <Link to={`/product-details/${product._id}?categoryId=${catHeader._id}&subCategoryId=${selectedSubCategoryId}`}>
+                      <Link to={`/product-details/${product._id}?categoryId=${catHeader._id}&subCategoryId=${selectedSubCategoryId}`}
+                        state={{ 
+                          category: catHeader.name, 
+                        }}
+                      >
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />
                           {/* <div className="blur"></div> */}

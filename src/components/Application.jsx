@@ -260,6 +260,10 @@ function Application() {
               <Link to="/" className="ms-2">
                 Application
               </Link>
+              <span> / </span>{" "}
+              <Link to="/" className="ms-2">
+                {subCategory?.listingTitle}
+              </Link>
             </p>
           </div>
         </div>
@@ -374,7 +378,11 @@ function Application() {
                   const imageUrl = getImageURL(product?.a4Image);
                   return (
                     <div className="col-lg-4 col-6 pt-0" key={product._id}>
-                      <Link to={`/application-details/${product._id}?subCategoryId=${subCategory._id}`}>
+                      <Link to={`/application-details/${product._id}?subCategoryId=${subCategory._id}`}
+                              state={{ 
+                                subCategory: subCategory?.listingTitle, 
+                              }}
+                      >
                         <div className="product-box">
                           <img src={imageUrl} alt={product.name} />
                           {/* <div className="blur"></div> */}

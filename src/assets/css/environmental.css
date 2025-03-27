@@ -114,14 +114,14 @@
     position: absolute;
     z-index: 5;
     padding: 20px;
-    top: 137px;
+    top: 115px;
     background: rgb(255 255 255 / 18%);
     box-shadow: 0 7px 42px 0 rgba(0, 0, 0, 0.057);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    left: 170px;
+    left: 70px;
     letter-spacing: 1px;
 }
 .EnvHeader h1{
@@ -275,7 +275,7 @@
         margin: 10px 0;
     } 
     .EnvHeader{
-        left: 94px;
+        left: 44px;
     }
     .EnvHeader h1 {
         font-family: 'dion';
@@ -352,13 +352,13 @@
     font-size: 30px;
 }
 .EnvHeader {
-    left: 37px;
-    top: 64px;
-    padding: 8px;
+    left: 17px;
+    top: 40px;
+    padding: 3px;
     border-radius: 6px;
 }
 .EnvHeader h1 {
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 5px;
 }
 }

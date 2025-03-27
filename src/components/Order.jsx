@@ -10,7 +10,7 @@ import { RxCross2 } from "react-icons/rx";
 import { toast, ToastContainer } from 'react-toastify';
 import { CounterContext } from '../context/CounterContext';
 import Select from "react-select";
-import allCountriesData from "../utills/all_countries_states_cities_full.json"; 
+import allCountriesData from "../utills/all_countries_states_cities_full.json";
 
 
 function Order() {
@@ -35,7 +35,7 @@ function Order() {
         country: '',
         pincode: '',
     })
-    const [values , setValues] = useState({
+    const [values, setValues] = useState({
         country: "",
         state: "",
         city: "",
@@ -50,14 +50,14 @@ function Order() {
             toast.error("No data available");
             return;
         }
-    
+
         const products = data.map(({ _id, categoryId, subCategoryId }) => ({
             product: _id,
             qty: "1",
             ...(categoryId && { category: categoryId }),
             ...(subCategoryId && { subCategory: subCategoryId }),
         }));
-    
+
         try {
             const response = await axios.post(`${API_URL}/orders`, {
                 name,
@@ -71,7 +71,7 @@ function Order() {
                 country,
                 pincode,
             });
-    
+
             toast.success(response.data.message);
             clearCart();
             navigate('/thank-you');
@@ -100,18 +100,6 @@ function Order() {
         navigate("/exterior-laminate");
     };
 
-
-    // Reset state & city when country changes
-    // useEffect(() => {
-    //     if (values.country) {
-    //         // setValues("state", "");
-    //         // setValues("city", "");
-    //         setValues((old)=>{return { ...old , state: null , city:null }})
-
-    //     }
-    // }, [values.country]);
-
-    // Get States based on selected country
     const countries = [
         { label: "Afghanistan", value: "AF" },
         { label: "Aland Islands", value: "AX" },
@@ -262,43 +250,23 @@ function Order() {
 
     const states = values.country
         ? allCountriesData
-              .find((country) => country.value === values.country)
-              ?.states.map((state) => ({
-                  label: state.label,
-                  value: state.value,
-              })) || []
+            .find((country) => country.value === values.country)
+            ?.states.map((state) => ({
+                label: state.label,
+                value: state.value,
+            })) || []
         : [];
 
     // Get Cities based on selected state
     const cities = values.state
         ? allCountriesData
-              .find((country) => country.value === values.country)
-              ?.states.find((state) => state.value === values.state)
-              ?.cities.map((city) => ({
-                  label: city,
-                  value: city,
-              })) || []
+            .find((country) => country.value === values.country)
+            ?.states.find((state) => state.value === values.state)
+            ?.cities.map((city) => ({
+                label: city,
+                value: city,
+            })) || []
         : [];
-
-
-
-
-        
-
-    // const states = values.country
-    //     ? State.getStatesOfCountry(values.country).map((state) => ({
-    //         label: state.name,
-    //         value: state.isoCode,
-    //     }))
-    //     : [];
-
-    // const cities = values.state
-    //     ? City.getCitiesOfState(values.country, values.state).map((city) => ({
-    //         label: city.name,
-    //         value: city.name,
-    //     }))
-    //     : [];
-
 
 
     return (
@@ -320,7 +288,7 @@ function Order() {
                                                 // setFieldValue("country", option.value);
                                                 // setFieldValue("state", null);
                                                 // setFieldValue("city", null);
-                                                setValues((old)=>{return { ...old , country: option.value }})
+                                                setValues((old) => { return { ...old, country: option.value } })
                                                 setCountry(option.label)
                                             }}
                                             value={countries.find((c) => c.value === values.country) || null}
@@ -391,7 +359,7 @@ function Order() {
                                         onChange={(option) => {
                                             // setFieldValue("state", option.value);
                                             // setFieldValue("city", null);
-                                            setValues((old)=>{return { ...old , state: option.value }})
+                                            setValues((old) => { return { ...old, state: option.value } })
 
                                             setState(option.label)
                                         }}
@@ -399,7 +367,6 @@ function Order() {
                                         placeholder="Select State"
                                         isDisabled={!values.country}
                                         className='mt-2'
-
                                     />
                                     {error.state && (
                                         <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
@@ -412,9 +379,9 @@ function Order() {
                                         options={cities}
                                         onChange={(option) =>
                                             //  setFieldValue("city", option.value)
-                                            setValues((old)=>{return { ...old , city: option.value }})
+                                            setValues((old) => { return { ...old, city: option.value } })
 
-                                            }
+                                        }
                                         value={cities.find((c) => c.value === values.city) || null}
                                         placeholder="Select City"
                                         isDisabled={!values.state}

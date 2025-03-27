@@ -29,7 +29,7 @@ export default function Env() {
                 </div>
             </div>
             <div className="env-banner bgWhite py-3">
-                <div className="container">
+                <div className="container" style={{position:'relative'}}>
                     <img src={EnvImg} alt="" />
                           <div className=" EnvHeader">
                             <div className="container mb-0">
