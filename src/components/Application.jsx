@@ -257,13 +257,12 @@ function Application() {
             <p className="mb-0">
               <Link to="/">HOME</Link>
               <span> / </span>{" "}
-              <Link to="/" className="ms-2">
+              <Link to={`/application/${subCategorySlug}`} className="ms-2">
                 Application
               </Link>
               <span> / </span>{" "}
-              <Link to="/" className="ms-2">
-                {subCategory?.listingTitle}
-              </Link>
+              <span  className='ms-2' style={{fontFamily:"dionlight" , fontSize:"13px" , color:"#000000c9" , letterSpacing:"2px"}}>{subCategory?.listingTitle}</span> 
+
             </p>
           </div>
         </div>

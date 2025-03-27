@@ -25,7 +25,7 @@ function ProductDetails() {
     const categoryId = searchParams.get("categoryId"); 
     const subCategoryId = searchParams.get("subCategoryId"); 
     
-    const {category } = location.state || {};
+    const {category , categorySlug } = location.state || {};
   
 
     const [show, setShow] = useState(false);
@@ -110,7 +110,7 @@ function ProductDetails() {
     useEffect(() => {
         async function fetchRelatedProduct() {
             try {
-                const response = await axios.get(`${API_URL}/products?category=${products?.categories[0]._id}`);
+                const response = await axios.get(`${API_URL}/products?category=${products?.categories[0]._id}&decorSeries=${products?.decorSeries?._id}`);
                 setRelatedProducts(response.data.body);
             } catch (error) {
                 console.error("Error fetching search results:", error);
@@ -139,7 +139,8 @@ function ProductDetails() {
         saveAs(url, `${products.name}.${fileExtension}`); // Saves with correct extension
     };
 
-
+    console.log(categorySlug);
+    
 
     return (
         <div>
@@ -152,10 +153,15 @@ function ProductDetails() {
                     <div className="breadcrumb m-0 py-3 pb-0">
                         <p>
                         <Link to="/">HOME</Link>
+                        {!category ? '' : <>
+                            <span> / </span>
+                            <Link to={`/${categorySlug}`}  className='ms-2'>{category}</Link> 
+                        </>
+                        }
+                       
                         <span> / </span> 
-                        <Link  className='ms-2'>{category}</Link> 
-                        <span> / </span> 
-                        <Link  className='ms-2'>{products?.name}</Link> 
+                        <span  className='ms-2' style={{fontFamily:"dionlight" , fontSize:"13px" , color:"#000000c9" , letterSpacing:"2px"}}>{products?.name}</span> 
+
                         </p>
                     </div>
                 </div>
@@ -192,15 +198,20 @@ function ProductDetails() {
                                 </div>
                                 <div className="d-flex justify-content-start align-items-start">
                                     <p><span className='key'>Product Category</span></p>
-                                    <p>
-                                        {products.categories?.map((cat) => (
-                                            <div key={cat._id}>
-                                                {cat.name}
-                                            </div>
-                                        )
-                                        )}
-                               
-                                    </p>
+                                    {!category ?
+                                            <p>
+                                            {products.categories?.map((cat) => (
+                                                <div key={cat._id}>
+                                                    {cat.name}
+                                                </div>
+                                            )
+                                            )}
+                                   
+                                        </p>
+                                        :
+                                        <p>{category}</p>
+                                }
+                            
                                 </div>
                                 <div className="d-flex justify-content-start align-items-start">
                                     <p><span className='key'>Decor Number </span></p>

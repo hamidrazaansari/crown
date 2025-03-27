@@ -307,7 +307,7 @@ function ProductListing() {
             <p className="mb-0">
               <Link to="/">HOME</Link>
               <span> / </span>{" "}
-              <Link to="/" className="ms-2">
+              <Link to={`/${categorySlug}`} className="ms-2">
                 {catHeader?.name}
               </Link>
             </p>
@@ -454,6 +454,7 @@ function ProductListing() {
                       <Link to={`/product-details/${product._id}?categoryId=${catHeader._id}&subCategoryId=${selectedSubCategoryId}`}
                         state={{ 
                           category: catHeader.name, 
+                          categorySlug:categorySlug
                         }}
                       >
                         <div className="product-box">

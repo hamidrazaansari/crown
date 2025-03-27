@@ -6,6 +6,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import { GoArrowUpRight } from "react-icons/go";
 import { Link } from 'react-router-dom';
 import Logo from '../assets/image/logo.png'
+import AboutVideo from '../assets/video/about-us.mp4'
 
 
 
@@ -27,7 +28,7 @@ function About() {
                     onPlay={() => setShowPlayIcon1(false)}
                     onPause={() => setShowPlayIcon1(true)}
                   >
-                    <source src={'https://media.istockphoto.com/id/1428253293/video/modern-european-complex-of-apartment-buildings-aerial-view.mp4?s=mp4-640x640-is&k=20&c=CrUZ4TKmLybyF1Lzf7RKiTh6KL7SX74ePBU_pOmwjaM='} type="video/webm" />
+                    <source src={AboutVideo} type="video/webm" />
                     Your browser does not support the video tag.
                   </video>
                   {showPlayIcon1 && (

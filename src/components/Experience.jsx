@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import "../assets/css/experience.css";
-import GalleryVideo3 from "../assets/image/video3.mp4";
+import GalleryVideo from "../assets/video/gallery-video.mp4";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -41,7 +41,7 @@ const Experience = () => {
           loop
           muted
           playsInline
-          src={'https://videocdn.cdnpk.net/videos/817ba419-38b3-4032-bd17-84ef6733a6af/horizontal/previews/watermarked/large.mp4'}
+          src={GalleryVideo}
           type="video/mp4"
         />
       </div>

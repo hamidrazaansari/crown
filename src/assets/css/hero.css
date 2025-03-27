@@ -89,6 +89,9 @@
     font-size: 0 !important;
     line-height: 0 !important;
 }
+.thank-you-wrapper{
+    top: 90px !important;
+}
 @media (max-width:992px) {
     .texts {
         position: absolute;

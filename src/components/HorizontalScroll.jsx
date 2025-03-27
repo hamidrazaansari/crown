@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import HeroBanner from '../assets/image/hero-banner.png'
 import WhiteLogo from '../assets/image/white-logo-crown.png'
+import bannerVideo from '../assets/video/banner.mp4'
 // import Logo from '../assets/image/'
 
 gsap.registerPlugin(ScrollTrigger);
@@ -56,7 +57,7 @@ function HorizontalScroll() {
                           loop
                           muted
                           playsInline
-                          src={'https://videocdn.cdnpk.net/videos/5550ee59-5c97-4dcd-ad4d-31ba4b8a0e9b/horizontal/previews/watermarked/large.mp4'}
+                          src={bannerVideo}
                           type="video/mp4"
                           style={{width:"100%" , height:"90vh " , objectFit:"cover"}}
                         />

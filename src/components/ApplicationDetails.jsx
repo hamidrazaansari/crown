@@ -6,7 +6,7 @@ import InquiryModal from '../components/InquiryModal'
 import SampleReqModal from '../components/SampleReqModal'
 import FullImageView from '../components/FullImageView'
 import File from '../assets/image/file.png'
-import { Link, useParams ,useLocation } from 'react-router-dom'
+import { Link, useParams ,useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { API_URL } from '../utills/BaseUrl'
 import OtherPageFooter from '../components/OtherPageFooter'
@@ -20,9 +20,11 @@ import { saveAs } from 'file-saver'
 function ApplicationDetails() {
     const { id } = useParams();
         const location = useLocation();
+        const navigate = useNavigate()
         const searchParams = new URLSearchParams(location.search);
         const subCategoryId = searchParams.get("subCategoryId"); 
         const {subCategory } = location.state || {};
+
 
 
     const [show, setShow] = useState(false);
@@ -145,11 +147,9 @@ function ApplicationDetails() {
                     <div className="breadcrumb m-0 py-3 pb-0">
                         <p><Link to="/">HOME</Link>
                         <span> / </span>
-                        <Link  className='ms-2'>Application</Link>
+                        <span onClick={()=>navigate(-1)}  className='ms-2' style={{fontFamily:"dionlight" , fontSize:"13px" , color:"#000000c9" , letterSpacing:"2px" , textTransform:'uppercase'}}>Application <span style={{fontFamily:"dion" ,  fontSize:"16px"}}> / </span> {subCategory}</span> 
                         <span> / </span>
-                        <Link  className='ms-2'>{subCategory}</Link>
-                        <span> / </span>
-                        <Link  className='ms-2'>{products?.name}</Link>
+                        <span  className='ms-2' style={{fontFamily:"dionlight" , fontSize:"13px" , color:"#000000c9" , letterSpacing:"2px" , textTransform:'uppercase'}}>{products?.name}</span> 
                          </p>
                     </div>
                 </div>
