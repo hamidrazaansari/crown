@@ -103,6 +103,11 @@ function Footer() {
                                     </a>
 
                                 </div>
+                                <div className="d-flex new-socal">
+                                    <Link to='https://www.facebook.com/crownlamination/' target='_blank'><div className='me-3'><img src={FB} alt="Fb" /></div></Link>
+                                    <Link to='https://www.instagram.com/crown_laminates_compacts/' target='_blank'><div className='me-3'><img src={Insta} alt="Insta" /></div></Link>
+                                    <Link to='https://www.linkedin.com/company/42304530' target='_blank'><div className='me-3'><img src={Linkedin} alt="Linkedin" /></div></Link>
+                                </div>
                             </div>
                             <div className="col-lg-3  col-6 d-flex flex-column  resp">
                                 <h2>Quick Links</h2>
@@ -174,16 +179,12 @@ function Footer() {
                 </div>
                 <div className="footer-bottom">
                     <div className="container">
-                        <div className="row">
+                        <div className="row d-flex align-items-center justify-content-between">
                             <div className="col-lg-8 col-12 d-flex flex-column justify-content-center ">
                                 <p>Copyright 2025 © Crown Laminates & Beyond. All rights reserved.</p>
                             </div>
-                            <div className="col-lg-4 d-flex flex-column socal">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <Link to='https://www.facebook.com/crownlamination/' target='_blank'><div className='me-3'><img src={FB} alt="Fb" /></div></Link>
-                                    <Link to='https://www.instagram.com/crown_laminates_compacts/' target='_blank'><div className='me-3'><img src={Insta} alt="Insta" /></div></Link>
-                                    <Link to='https://www.linkedin.com/company/42304530' target='_blank'><div className='me-3'><img src={Linkedin} alt="Linkedin" /></div></Link>
-                                </div>
+                            <div className="col-lg-4 " >
+                                <p style={{marginLeft:"105px"}}>Developed by <a target='_blank' style={{color:"#fff" , fontWeight:"600"}} href="https://www.estaglobal.in/">Estaglobal</a></p>
                             </div>
                         </div>
                     </div>

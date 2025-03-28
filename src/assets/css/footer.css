@@ -420,7 +420,6 @@
   transition: background-color 0.3sease;
 }
 
-
 /* other page footer design  */
 .newslatter .mail-error {
   position: absolute;
@@ -502,6 +501,11 @@
 
 .footer-img img {
   width: 80%;
+}
+.new-socal {
+  position: absolute;
+  top: 190px;
+  left: 18px;
 }
 
 

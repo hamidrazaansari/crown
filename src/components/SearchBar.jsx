@@ -58,7 +58,10 @@ function SearchBar() {
                         <Link to={`/product-details/${item._id}`} key={item._id}>
                             <div className='d-flex align-items-center my-3'>
                                 <img src={item.a4Image ? getImageURL(item.a4Image) : ''} alt="" className='search-img' />
-                                <p className='mb-0 ms-2'>{item.name}</p>
+                                <div>
+                                    <p className='mb-0 ms-2'>{item.name}</p>
+                                    <small className='me'>{item?.decorNumber}</small>
+                                </div>
                             </div>
                         </Link>
                     ))}

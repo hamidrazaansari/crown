@@ -14,7 +14,7 @@ const Spotlights = () => {
     { src: Tabillo, title: "TABILLO" },
     { src: Qbiss, title: "QBISS" },
     { src: Kittop, title: "KITTOP" },
-    { src: AqvaWall, title: "AQUA WALL" },
+    { src: AqvaWall, title: "AQVQ WALL" },
   ]);
 
   useEffect(() => {

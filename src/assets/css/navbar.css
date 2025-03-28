@@ -524,6 +524,18 @@
 .navbar-resp{
     width: 80%;
 }
+.search-box small{
+    font-size: 11px;
+    margin-left: 9px;
+    position: relative;
+    bottom: 5px;
+    font-family: LightInter;
+}
+.search-box p{
+    margin-bottom: 0px !important;
+    position: relative;
+    top: 5px;
+}
 
 @media (min-width: 992px) {
     .cart .dropdown-menu {
