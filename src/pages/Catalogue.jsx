@@ -8,7 +8,21 @@ import Eye from '../assets/image/eye.png';
 import CatalougeBanner from '../assets/image/catelog.png';
 
 // Import PDF files
-import Certificate1 from '../assets/image/certificates/20. CE CGS.pdf';
+import AQVAWALL from '../assets/image/Catalouge/Aqva Wall.pdf';
+import ARENA from '../assets/image/Catalouge/ARENA.pdf';
+import CrownCompact from '../assets/image/Catalouge/Crown Compact 2025.pdf';
+import Crowninstallation from '../assets/image/Catalouge/Crown Compact installation manual.pdf';
+import Fense from '../assets/image/Catalouge/Crown Fense.pdf';
+import Labplus from '../assets/image/Catalouge/Crown Labplus.pdf';
+import ExteriorCom from '../assets/image/Catalouge/Exterior Compact.pdf';
+import Kittop from '../assets/image/Catalouge/Kittop Catalog_INT.pdf';
+import QBISS from '../assets/image/Catalouge/QBISS.pdf';
+import TABILLO from '../assets/image/Catalouge/TABILLO INT.pdf';
+import TabilloInternational from '../assets/image/Catalouge/Tabillo International Look Book.pdf';
+import texpanel from '../assets/image/Catalouge/texpanel.pdf';
+import NOMARKS from '../assets/image/Catalouge/NO MARKS.pdf';
+
+
 import File from '../assets/image/file.png';
 
 import '../assets/css/certificate.css';
@@ -21,23 +35,19 @@ function Catalogue() {
     const [selectedFilter, setSelectedFilter] = useState("All"); // State to store selected filter
 
     const certificates = [
-        { name: "01. Crownlam laminates lab guardian collection", file: Certificate1, application: "QBISS" },
-        { name: "44. Crownlam laminates lab guardian collection", file: Certificate1, application: "QBISS" },
-        { name: "56. Crownlam laminates lab guardian collection", file: Certificate1, application: "QBISS" },
-        { name: "99. Crownlam laminates lab guardian collection", file: Certificate1, application: "QBISS" },
-        { name: "02. Crownlam laminates lab guardian collection", file: Certificate1, application: "Tabillo" },
-        { name: "03. Crownlam laminates lab guardian collection", file: Certificate1, application: "Aqua Wall" },
-        { name: "04. Crownlam laminates lab guardian collection", file: Certificate1, application: "Kittop" },
-        { name: "10. Crownlam laminates lab guardian collection", file: Certificate1, application: "Kittop" },
-        { name: "11. Crownlam laminates lab guardian collection", file: Certificate1, application: "Kittop" },
-        { name: "40. Crownlam laminates lab guardian collection", file: Certificate1, application: "Kittop" },
-        { name: "24. Crownlam laminates lab guardian collection", file: Certificate1, application: "Kittop" },
-        { name: "05. Crownlam laminates lab guardian collection", file: Certificate1, application: "Fense" },
-        { name: "10. Crownlam laminates lab guardian collection", file: Certificate1, application: "Fense" },
-        { name: "05. Crownlam laminates lab guardian collection", file: Certificate1, application: "Fense" },
-        { name: "06. Crownlam laminates lab guardian collection", file: Certificate1, application: "Texpanel" },
-        { name: "06. Crownlam laminates lab guardian collection", file: Certificate1, application: "Crown XCL" },
-        { name: "06. Crownlam laminates lab guardian collection", file: Certificate1, application: "Lab Plus" },
+        { name: "01. Aqva Wall", file: AQVAWALL, application: "Aqva Wall" },
+        { name: "02. Arena", file: ARENA, application: "Arena" },
+        { name: "03. Crown Compact 2025", file: CrownCompact, application: "Crown XCL" },
+        { name: "04. Crown Compact installation manual", file: Crowninstallation, application: "Crown XCL" },
+        { name: "05. Crown Fense", file: Fense, application: "Fense" },
+        { name: "06. Crown Labplus", file: Labplus, application: "Lab Plus" },
+        { name: "07. Exterior Compact", file: ExteriorCom, application: "Crown XCL" },
+        { name: "08. Kittop Catalog_INT", file: Kittop, application: "Kittop" },
+        { name: "09. QBISS", file: QBISS, application: "QBISS" },
+        { name: "10. TABILLO INT", file: TABILLO, application: "Tabillo" },
+        { name: "11. Tabillo International Look Book", file: TabilloInternational, application: "Tabillo" },
+        { name: "12. texpanel", file: texpanel, application: "Texpanel" },
+        { name: "13. NO MARKS", file: NOMARKS, application: "Texpanel" },
     ];
 
     // Filter the certificates based on selectedFilter
@@ -98,7 +108,7 @@ function Catalogue() {
             {/* Filter Buttons */}
             <div className='bgWhite'>
                 <div className="catalouge-btn container d-flex flex-wrap justify-normal">
-                    {["All", "Aqua Wall", "Crown XCL", "Fense", "Kittop", "Lab Plus", "QBISS", "Tabillo", "Texpanel"].map((category, index) => (
+                    {["All", "Aqva Wall", "Crown XCL", "Fense", "Kittop", "Lab Plus", "QBISS", "Tabillo", "Texpanel" , "Arena"].map((category, index) => (
                         <button 
                             key={index} 
                             className={selectedFilter === category ? "active-filter" : ""}

@@ -151,7 +151,7 @@ function Footer() {
                                                     </div>
                                                 )
                                             }
-                                            else {
+                                            else if (index <= 7)  {
                                                 return (
                                                     <div className="col-6">
                                                         <Link to={`/application/${item.slug}`}>
