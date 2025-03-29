@@ -5,7 +5,7 @@ import OtherPageFooter from '../components/OtherPageFooter';
 import { Modal } from 'react-bootstrap';
 import { RxCross1 } from "react-icons/rx";
 import Eye from '../assets/image/eye.png';
-import CatalougeBanner from '../assets/image/catelog.png';
+import CatalougeBanner from '../assets/image/Catalogue-banner.jpg';
 
 // Import PDF files
 import AQVAWALL from '../assets/image/Catalouge/Aqva Wall.pdf';
@@ -37,17 +37,17 @@ function Catalogue() {
     const certificates = [
         { name: "01. Aqva Wall", file: AQVAWALL, application: "Aqva Wall" },
         { name: "02. Arena", file: ARENA, application: "Arena" },
-        { name: "03. Crown Compact 2025", file: CrownCompact, application: "Crown XCL" },
-        { name: "04. Crown Compact installation manual", file: Crowninstallation, application: "Crown XCL" },
-        { name: "05. Crown Fense", file: Fense, application: "Fense" },
-        { name: "06. Crown Labplus", file: Labplus, application: "Lab Plus" },
-        { name: "07. Exterior Compact", file: ExteriorCom, application: "Crown XCL" },
-        { name: "08. Kittop Catalog_INT", file: Kittop, application: "Kittop" },
-        { name: "09. QBISS", file: QBISS, application: "QBISS" },
-        { name: "10. TABILLO INT", file: TABILLO, application: "Tabillo" },
-        { name: "11. Tabillo International Look Book", file: TabilloInternational, application: "Tabillo" },
-        { name: "12. texpanel", file: texpanel, application: "Texpanel" },
-        { name: "13. NO MARKS", file: NOMARKS, application: "Texpanel" },
+        { name: "03. Crown Compact 2025", file: CrownCompact, application: "Compact" },
+        { name: "04. Crown Compact installation manual", file: Crowninstallation, application: "Compact" },
+        { name: "05. Fense", file: Fense, application: "Fense" },
+        { name: "06. Labplus", file: Labplus, application: "Lab Plus" },
+        { name: "07. Exterior Compact", file: ExteriorCom, application: "Compact" },
+        { name: "08. Kittop", file: Kittop, application: "Kittop" },
+        { name: "09. Qbiss", file: QBISS, application: "QBISS" },
+        { name: "10. Tabillo", file: TABILLO, application: "Tabillo" },
+        { name: "11. Tabillo Look Book", file: TabilloInternational, application: "Tabillo" },
+        { name: "12. Texpanel", file: texpanel, application: "Texpanel" },
+        { name: "13. No Marks", file: NOMARKS, application: "Texpanel" },
     ];
 
     // Filter the certificates based on selectedFilter
@@ -108,7 +108,7 @@ function Catalogue() {
             {/* Filter Buttons */}
             <div className='bgWhite'>
                 <div className="catalouge-btn container d-flex flex-wrap justify-normal">
-                    {["All", "Aqva Wall", "Crown XCL", "Fense", "Kittop", "Lab Plus", "QBISS", "Tabillo", "Texpanel" , "Arena"].map((category, index) => (
+                    {["All", "Aqva Wall", "Compact", "Fense", "Kittop", "Lab Plus", "QBISS", "Tabillo", "Texpanel" , "Arena"].map((category, index) => (
                         <button 
                             key={index} 
                             className={selectedFilter === category ? "active-filter" : ""}
@@ -123,7 +123,7 @@ function Catalogue() {
             {/* Certificate List Section */}
             <div className="certificate-box bgWhite py-3 pb-5">
                 <div className="container px-5">
-                    <h1>QUALITY Certificate</h1>
+                    <h1>CROWN CATALOGUE</h1>
                     {filteredCertificates.length > 0 ? (
                         filteredCertificates.map((cert, index) => (
                             <div className='d-flex align-items-center' key={index}>

@@ -43,8 +43,9 @@ const NavModal = () => {
 
         fetchData();
     }, []);
-    
 
+    console.log(category);
+    
     return (
         <>
         <div className="product-menu d-lg-block d-none">
@@ -104,7 +105,7 @@ const NavModal = () => {
                                                     <div key={index} className="col-3">
                                                     <Link className="application-box" to={`/application/${item.slug}`}>
                                                         <img src={imgUrl} alt={item.name} />
-                                                        <h3 className="app-heading">{item.name}</h3>
+                                                        <h3 className="app-heading">{item.listingTitle}</h3>
                                                     </Link>
                                                 </div>
                                             )

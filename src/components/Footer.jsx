@@ -160,8 +160,6 @@ function Footer() {
                                                     </div>
                                                 )
                                             }
-
-
                                         })
                                         }
                                         {/* <div className="col-6">
@@ -180,8 +178,11 @@ function Footer() {
                 <div className="footer-bottom">
                     <div className="container">
                         <div className="row d-flex align-items-center justify-content-between">
-                            <div className="col-lg-8 col-12 d-flex flex-column justify-content-center ">
+                            <div className="col-lg-6 col-12 ">
                                 <p>Copyright 2025 © Crown Laminates & Beyond. All rights reserved.</p>
+                            </div>
+                            <div className="col-lg-2 col-12 ">
+                                <p><Link className='text-light' to={'/privacy'}>Privacy Policy</Link></p>
                             </div>
                             <div className="col-lg-4 " >
                                 <p style={{marginLeft:"105px"}}>Developed by <a target='_blank' style={{color:"#fff" , fontWeight:"600"}} href="https://www.estaglobal.in/">Estaglobal</a></p>

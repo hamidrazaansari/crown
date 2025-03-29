@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../assets/css/footer.css";
 import { Link } from "react-router-dom";
-import FooterImg from '../assets/image/aqua-wall.jpg'
+import FooterImg from '../assets/image/Request-a-quote.jpg'
 import { GoArrowUpRight } from "react-icons/go";
 import InquiryModal from "./InquiryModal";
 import Footer from "./Footer";

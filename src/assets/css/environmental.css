@@ -379,5 +379,27 @@
 }
 .strategy-heading{
     font-family: dion;
+}
 
+/* privacy policy */
+
+.privacy-policy {
+    padding: 30px 0;
+}
+
+.privacy-policy h1 , .privacy-policy h2 , .privacy-policy h3{
+    font-family: dion;
+    font-size: 25px;
+}
+.privacy-policy h2 {
+    font-size: 20px;
+
+}
+.privacy-policy h3 {
+    font-size: 16px;
+
+}
+.privacy-policy p , .privacy-policy p{
+    font-family: LightInter;
+    font-size: 15px;
 }

@@ -5,6 +5,7 @@ import Vison from "../components/Vison";
 import { FaArrowRight } from "react-icons/fa";
 import GlobeComponent from "../components/GlobeComponent";
 import OtherPageFooter from "../components/OtherPageFooter";
+import AboutVideo from '../assets/video/gallery-video.mp4'
 
 function About() {
   return (
@@ -15,18 +16,17 @@ function About() {
       {/* <Vison /> */}
 
       {/* 🔹 Crown Specialize Section */}
-      <div className="crownSection">
-        <div className="container">
-          <div className="crownSpecialize">
-            {/* <h3>
-              Crown specializes in production of various kinds of Laminates
-            </h3> */}
-            {/* <button className="crownBtn">
-              <span>Learn More</span>
-              <FaArrowRight />
-            </button> */}
-          </div>
-        </div>
+      <div class="crownSection">
+      <video
+                  className="custom-video"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  src={AboutVideo}
+                  type="video/webm"
+                >
+                </video>
       </div>
 
       {/* 🔹 Why Crown Laminates Section */}

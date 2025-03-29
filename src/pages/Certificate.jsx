@@ -5,14 +5,15 @@ import OtherPageFooter from '../components/OtherPageFooter';
 import { Modal } from 'react-bootstrap';
 import { RxCross1 } from "react-icons/rx";
 import Eye from '../assets/image/eye.png';
-import company1 from '../assets/image/company1.png';
-import company2 from '../assets/image/company2.png';
-import company3 from '../assets/image/company3.png';
-import company4 from '../assets/image/company4.png';
-import company5 from '../assets/image/company5.png';
-import company6 from '../assets/image/company6.png';
-import company7 from '../assets/image/company7.png';
-import company8 from '../assets/image/company8.png';
+import company1 from '../assets/image/certificate/CE.png';
+import company2 from '../assets/image/certificate/EN 438.jpg';
+import company3 from '../assets/image/certificate/FSC.png';
+import company4 from '../assets/image/certificate/green label.jpg';
+import company5 from '../assets/image/certificate/greenguard.jpg';
+import company6 from '../assets/image/certificate/indian green building council.jpg';
+import company7 from '../assets/image/certificate/INDIAN STANDARD.jpg';
+import company8 from '../assets/image/certificate/nema.png';
+;
 
 // Import PDF files
 import Certificate1 from '../assets/image/certificates/20. CE CGS.pdf';
@@ -122,28 +123,6 @@ function Certificate() {
                         <div className="row">
                             <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">
                                 <div className="company-logo">
-                                    <img src={company1} alt="" />
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">
-                                <div className="company-logo">
-                                    <img src={company2} alt="" />
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">
-                                <div className="company-logo">
-                                    <img src={company3} alt="" />
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">
-                                <div className="company-logo">
-                                    <img src={company4} alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">
-                                <div className="company-logo">
                                     <img src={company5} alt="" />
                                 </div>
                             </div>
@@ -154,12 +133,34 @@ function Certificate() {
                             </div>
                             <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">
                                 <div className="company-logo">
-                                    <img src={company7} alt="" />
+                                    <img src={company3} alt="" />
+                                </div>
+                            </div>
+                            <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">
+                                <div className="company-logo">
+                                    <img src={company1} alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">
+                                <div className="company-logo">
+                                    <img src={company4} alt="" />
+                                </div>
+                            </div>
+                            <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">
+                                <div className="company-logo">
+                                    <img src={company2} alt="" />
                                 </div>
                             </div>
                             <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">
                                 <div className="company-logo">
                                     <img src={company8} alt="" />
+                                </div>
+                            </div>
+                            <div className="col-lg-3 col-6 d-flex align-items-center justify-content-center">
+                                <div className="company-logo">
+                                    <img src={company7} alt="" />
                                 </div>
                             </div>
                         </div>

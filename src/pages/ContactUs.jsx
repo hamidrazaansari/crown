@@ -175,7 +175,7 @@ function ContactUs() {
             <div className="contact-us bgWhite">
                 <div className="container">
                     <h1>Contact us</h1>
-                    <p>Any question or remarks? Just write us a message!</p>
+                    {/* <p>Any question or remarks? Just write us a message!</p> */}
                     <div className="contact-box">
                         <div className="row">
                             <div className="col-lg-5">
@@ -260,12 +260,12 @@ function ContactUs() {
                                     <div className="row">
                                         <div className="col-6 country-drop" style={{ position: 'relative' }}>
                                             <div className='d-flex flex-column country'>
-                                                <label htmlFor="country">Feedback*</label>
+                                                <label htmlFor="country">Interested in*</label>
                                                 <SelectSearch
                                                     options={inquiryOptions}
                                                     value={formData.inquiryType}
                                                     onChange={(value) => handleChange("inquiryType", value)}
-                                                    placeholder='Select feedback'
+                                                    placeholder='Select Interested'
 
                                                 />
                                                 {errors.inquiryType && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.inquiryType}</small>}

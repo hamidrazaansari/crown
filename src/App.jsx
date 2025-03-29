@@ -21,6 +21,7 @@ import NewBlogDetails from "./pages/NewBlogDetails"
 import ApplicationDetails from "./components/ApplicationDetails"
 import LuxuryDetails from "./pages/LuxuryDetails"
 import SustainableDetails from "./pages/SustainableDetails"
+import Privacy from "./pages/Privacy"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
@@ -67,6 +68,7 @@ function App() {
               element={<SustainableDetails/>}
             /> 
         <Route path="/thank-you" element={<ThankYouPage/>}/>
+        <Route path="/privacy" element={<Privacy/>}/>
 
       </Routes>
     </BrowserRouter>

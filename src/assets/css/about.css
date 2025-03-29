@@ -526,27 +526,22 @@
 .crownSection {
   height: 100vh;
   width: 100%;
-  /* padding: 30px 0px; */
-  background: url("../image/about-img-2.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
-  background-attachment: fixed;
+  overflow: hidden;
   z-index: 7;
 }
 
-.crownSpecialize {
+.video-bg {
   position: absolute;
-  width: 50%;
-  z-index: 13;
-  left: 44%;
   top: 50%;
-  transform: translate(-40%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: -1; /* Puts video in the background */
 }
 
 .crownSpecialize h3 {
