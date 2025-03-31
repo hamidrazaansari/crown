@@ -1,1 +1,1 @@
-export const API_URL = 'http://43.204.97.70/server/api/v1'
+export const API_URL = 'https://crownlam.com/server/api/v1'
