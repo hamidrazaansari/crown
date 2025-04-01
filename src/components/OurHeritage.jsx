@@ -57,45 +57,31 @@ const OurHeritage = () => {
           <div className="banner-item">
             <div className="heritage-info-container">
               <div className="year-highlight">
-                <span className="circle"></span>VISION
               </div>
-              <h1>VISION & COMMITMENT </h1>
-              <p>We envision a world where laminates do more than cover surfaces—they elevate them. </p>
-              <p>We strive to be the “go-to” choice for architects, designers, OEMs and home owners worldwide, who seek luxury and utility in every detail. </p>
-              <p>Our commitment is to be a trusted supplier delivering excellence in aesthetics, quality and innovation, across all our products.</p>
-              {/* <button className="heritage-btn">
-                1955<span className="circles"></span>Our Heritage
-              </button> */}
+              <h1>45+ Years of Excellence in HPL Manufacturing</h1>
+              <p>With over 45 years of expertise, Crown has been at the forefront of HPL laminate and compact panel manufacturing, delivering innovation, durability, and design versatility.</p>
             </div>
           </div>
 
           <div className="banner-item">
             <div className="heritage-info-container">
               <div className="year-highlight">
-                <span className="circle"></span>VALUES
               </div>
-              <h1>Values We Cherish </h1>
-              <p>Leadership – Teamwork – Integrity – Ethics – Responsibility – Trust - Reliability
+              <h1>10+ Production Lines with State-of-the-Art Manufacturing</h1>
+              <p>Crown operates 10+ advanced production lines, ensuring high-capacity manufacturing of premium HPL laminates and compact panels. Our cutting-edge technology and precision engineering guarantee exceptional quality, durability, and design excellence for global markets.
               </p>
-              <button className="heritage-btn">
-                2000<span className="circles"></span>Our Legacy
-              </button>
             </div>
           </div>
 
           <div className="banner-item">
             <div className="heritage-info-container">
               <div className="year-highlight">
-                <span className="circle"></span>2010
+                {/* <span className="circle"></span> */}
               </div>
-              <h1>Modern Era</h1>
+              <h1>30+ Million Sq. Mt. Annual Production</h1>
               <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur.
+              Crown delivers 30+ million square meters of top-grade HPL laminates and compact panels annually. Our high-capacity manufacturing ensures us a preferred choice for global needs.
               </p>
-              <button className="heritage-btn">
-                2010<span className="circles"></span>Modern Era
-              </button>
             </div>
           </div>
         </Slider>

@@ -5,6 +5,9 @@ import AboutEnv from '../assets/image/AboutEnv.png'
 import Commitment1 from '../assets/image/sustainable-energy.png'
 import Commitment2 from '../assets/image/global-ecology.png'
 import Commitment3 from '../assets/image/environmental.png'
+import Commitment4 from '../assets/image/recycle-env.png'
+import Commitment5 from '../assets/image/eco-factory.png'
+import Commitment6 from '../assets/image/afforestation.png'
 import Timer from '../assets/image/timer.png'
 import Fectory from '../assets/image/fectory.png'
 import Trash from '../assets/image/trash.png'
@@ -41,7 +44,7 @@ export default function Env() {
             <div className="SUSTAINABILITY bgWhite">
                 <div className="container">
                     <h2>Sustainability Policy</h2>
-                    <p>At Crown we believe that luxury should be enjoyed responsibly. Our planet is a sanctuary not only for human beings, but for every species of plant or animal life who live here. All of us have a responsibility to leave behind a clean and habitable planet for future generations. </p>
+                    <p>At Crown, sustainability is at the heart of our innovation. We believe in harmonizing luxury with environmental responsibility, ensuring that our manufacturing processes and products contribute to a greener future.</p>
                 </div>
             </div>
 
@@ -54,7 +57,7 @@ export default function Env() {
                         </div>
                         <div className="col-lg-6 d-flex flex-column justify-content-center">
                             <h2>Enviroment</h2>
-                            <p>We are committed to making the least possible environmental impact, conserving natural resources and ensuring that just as our products are safe for our customers, our production processes are in harmony with the environment. </p>
+                            <p>By integrating eco-conscious practices with high-performance HPL laminates and compact panels, we are shaping a sustainable future while delivering premium quality and design excellence to our customers worldwide.</p>
                             {/* <p>This resilient and awe-inspiring home continuously captivates us, which is why at Crownlam, we are dedicated to ethical business practices and a responsible commitment to fostering a sustainable environment.</p> */}
                         </div>
                     </div>
@@ -69,47 +72,46 @@ export default function Env() {
                         <div className="col-lg-4 col-md-6 col-12">
                             <div className="commitment-card">
                                 <img src={Commitment1} alt="Commitment" />
-                                <h3>Zero Liquid discharge</h3>
-                                <p>100% of waste water discharged during our production process, is recycled & reused, thus conserving a precious resource.  </p>
+                                <h3>Renewable Energy</h3>
+                                <p>41% of our energy comes from wind and solar power, reducing our carbon footprint. </p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-12">
+                            <div className="commitment-card">
+                                <img src={Commitment6} alt="" />
+                                <h3>Water Conservation</h3>
+                                <p>We follow a Zero Liquid Discharge (ZLD) system, where 100% of wastewater is treated and reused, minimizing water wastage.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-12">
+                            <div className="commitment-card">
+                                <img src={Commitment4} alt="" />
+                                <h3>Waste Management</h3>
+                                <p>Through recycling, reusing, and repurposing, we achieve an 80% landfill diversion rate, significantly reducing production waste.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-12">
+                            <div className="commitment-card">
+                                <img src={Commitment3} alt="" />
+                                <h3>Forestry & Green Initiatives</h3>
+                                <p>We expand green cover by 10% annually in industrial zones and have contributed 1 lakh saplings to afforestation initiatives.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-12">
+                            <div className="commitment-card">
+                                <img src={Commitment5} alt="" />
+                                <h3>Product Safety & Compliance
+                                </h3>
+                                <p>Our laminates are non-hazardous, low-emission, and compliant with global safety standards to ensure a healthier environment.
+                                </p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6 col-12">
                             <div className="commitment-card">
                                 <img src={Commitment2} alt="" />
-                                <h3>USE OF RENEWABLE ENERGY</h3>
-                                <p>100% of waste water discharged during our production process, is recycled & reused, thus conserving a precious resource.  </p>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-12">
-                            <div className="commitment-card">
-                                <img src={Commitment3} alt="" />
-                                <h3>WASTE MINIMIZATION & RESOURCE RECOVERY</h3>
-                                <p>Minimum 80% of the solid waste from our production process is recycled, reused and repurposed, therefore minimizing environmental impact. 
-                                </p>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-12">
-                            <div className="commitment-card">
-                                <img src={Commitment3} alt="" />
-                                <h3>AFFORESTATION INITIATIVE</h3>
-                                <p>In partnership with local communities and other business entities, we regularly undertake extensive afforestation drives around our production facilities, aiming to increase the green cover by minimum 10% each year.</p>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-12">
-                            <div className="commitment-card">
-                                <img src={Commitment3} alt="" />
-                                <h3>RESPONSIBLE SOURCING & MANUFACTURING
-                                </h3>
-                                <p>Our FSC certification underscores our commitment to ensuring that all our wood based raw materials come from responsibly managed forests that prioritize conservation of bio diversity and natural habitats.
-                                     {/* Our ISO 14001:2015, Green Guard, Green Leaf, Green Label, EPD & IGBC certifications highlight our adherence to sustainable manufacturing  */}
-                                </p>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-12">
-                            <div className="commitment-card">
-                                <img src={Commitment3} alt="" />
-                                <h3>SAFE, ECO-FRIENDLY PRODUCTS</h3>
-                                <p>Crown products are compliant with European Union’s REACH (Registration, Evaluation, Authorisation & Restriction of Chemicals) regulations and are certified to be free of hazardous chemicals or emissions.
+                                <h3>Community Impact</h3>
+                                <p>Beyond our products, we invest in health, education, and social well-being programs for local communities.
                                 </p>
                             </div>
                         </div>

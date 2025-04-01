@@ -39,19 +39,16 @@ function About() {
             <div className="col-lg-8">
               <div className="row w-100">
                 {[
-                  { title: "Range", points: ["2000 SKUs", "1000 Textures"] },
-                  { title: "Distribution", points: ["1500+ dealerships pan India & abroad", "1500+ product showrooms"] },
-                  { title: "Quality", points: ["1500+ dealerships pan India & abroad", "1500+ product showrooms"] },
-                  { title: "Sizes", points: ["Wide range of dimensions available"] },
-                  { title: "Presence", points: ["Available in 60+ countries", "Global Warehousing"] },
-                  { title: "Sustainable", points: ["Wind & solar power usage", "Member of FSC, Greenguard etc."] }
+                  { title: "7 + HPL VERTICALS" },
+                  { title: "6 + SIZES"},
+                  { title: "1200 + DECORS" },
+                  { title: "120 + TRENDY TEXTURES" },
+                  { title: "500 +SATISFIED BUYERS"},
+                  { title: "5+GLOBAL WAREHOUSES READY STOCK AVAILABLE" }
                 ].map((item, index) => (
                   <div className="col-lg-4 col-md-6 col-6" key={index}>
                     <div className="crownBox">
                       <h3>{item.title}</h3>
-                      {item.points.map((point, idx) => (
-                        <p key={idx}>{point}</p>
-                      ))}
                     </div>
                   </div>
                 ))}

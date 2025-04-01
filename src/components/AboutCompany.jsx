@@ -16,14 +16,16 @@ const AboutCompany = () => {
       </div>
       <div className="row about-company">
         <div className="col-lg-4">
-          {/* <h1>ABOUT THE COMPANY</h1> */}
           <img src={logo} alt="crown logo" />
         </div>
         <div className="col-lg-8">
-          <h2>KNOW US BETTER</h2>
-          <p>Whether for interiors, exteriors, joinery, furniture production or any other advanced application - our versatile range of laminates and compacts offer elegant, durable solutions for every surface.</p>
-          <p>Crown’s 10 advanced production lines produce over 30 million square meters of high-pressure laminates (HPL) annually. We offer laminated sheets and compacts in 6 sizes, with thicknesses ranging from 0.6 mm to 25 mm. Featuring 1200+ captivating decors and 120+ distinctive textures, our collection ensures an ideal match to complement every decorative surface you envision.</p>
-          <p>Our uncompromising commitment to quality is validated by our certifications including EN-438, CE, NEMA-LD3-2005, BIS, Green Label, Green Guard, Green Building, and FSC. Fully compliant with stringent European health, safety, and environmental regulations, our laminates embody sustainable excellence.</p>
+          {/* <h2>KNOW US BETTER</h2> */}
+          <p>Crown is a leading manufacturer of High-Pressure Laminates (HPL) and compact panels, delivering innovative, high-performance surfacing solutions for global markets. With decades of expertise, we specialize in crafting durable, stylish, and sustainable laminates designed to elevate interiors and exteriors alike.</p>
+          <p>Our state-of-the-art manufacturing facilities in India, equipped with 10+ advanced production lines, produce a vast range of laminates, including decorative, interior, and exterior compact panels. From timeless wood grains to contemporary stone and abstract designs, our diverse portfolio caters to architects, designers, builders, and businesses worldwide.</p>
+          <p>At Crown, quality is our foundation. We adhere to international standards like EN, CE, NEMA, and FSC, ensuring our products meet stringent performance, safety, and environmental benchmarks. Our laminates are scratch-resistant, impact-resistant, UV-stable, and moisture-proof, making them ideal for high-traffic commercial spaces, residential interiors, and exterior cladding applications.</p>
+          <p>With a strong presence in Europe, the USA, and Australia, we empower businesses with top-grade Indian HPL laminates that offer unmatched durability, aesthetic appeal, and easy maintenance. Our commitment to sustainability drives us to use eco-friendly production processes, minimizing environmental impact while maximizing product lifespan.</p>
+          <p>At Crown, we don’t just manufacture laminates—we craft surfaces that inspire. Whether you are designing a luxury home, a commercial workspace, or a striking façade, our premium laminates deliver lasting beauty and performance.</p>
+          <p>Elevate Your Spaces with Innovation & Quality.</p>
         </div>
       </div>
     </div>

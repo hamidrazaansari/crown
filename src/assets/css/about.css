@@ -4,8 +4,8 @@
 }
 
 .about-vid-box {
-  height: 480px;
-  width: 530px;
+  height: 550px;
+  width: 560px;
   position: relative;
 }
 
@@ -34,11 +34,11 @@
 }
 
 .about .about-content h2 {
-  font-size: 40px;
+  font-size: 35px;
   font-family: dion;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   color: #000;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .about-content p {
-  font-size: 18px;
+  font-size: 17px;
   font-family: 'LightInter';
   color: #4f4e4e;
   line-height: 30px;
@@ -84,7 +84,7 @@
   padding: 10px 20px;
   font-family: "dion";
   letter-spacing: 2px;
-  margin-top: 10px;
+  margin-top: 0px;
   border-radius: 5px;
 }
 
@@ -104,6 +104,10 @@
   height: 100%;
   display: block;
   border-radius: 32px;
+}
+.heritage-info-container {
+  margin: 60px 0px 40px !important;
+  margin-left: 168px !important;
 }
 
 
@@ -990,8 +994,11 @@
 }
 
 .crowLaminationSection .crownBox {
-  height: 87%;
+  height: 88%;
   margin: 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .about-content img {
