@@ -675,6 +675,10 @@
     .heroBanner img {
         height: 470px !important;
     }
+    .nav-col{
+        margin-top: 64px ;
+        padding: 20px !important;
+    }
 }
 @media (max-width:767px) {
     .navbar-brand img {
@@ -847,6 +851,10 @@
 .menu-img h2{
     font-size: 15px !important;
     margin: 0 !important;
+}
+.nav-col {
+    margin-top: 100px;
+    padding: 20px !important;
 }
     
 }

@@ -43,11 +43,11 @@ function Catalogue() {
         { name: "06. Labplus", file: Labplus, application: "Lab Plus" },
         { name: "07. Exterior Compact", file: ExteriorCom, application: "Compact" },
         { name: "08. Kittop", file: Kittop, application: "Kittop" },
-        { name: "09. Qbiss", file: QBISS, application: "QBISS" },
+        { name: "09. Qbiss", file: QBISS, application: "Qbiss" },
         { name: "10. Tabillo", file: TABILLO, application: "Tabillo" },
         { name: "11. Tabillo Look Book", file: TabilloInternational, application: "Tabillo" },
         { name: "12. Texpanel", file: texpanel, application: "Texpanel" },
-        { name: "13. No Marks", file: NOMARKS, application: "Texpanel" },
+        { name: "13. No Marks", file: NOMARKS, application: "No Marks" },
     ];
 
     // Filter the certificates based on selectedFilter
@@ -108,7 +108,7 @@ function Catalogue() {
             {/* Filter Buttons */}
             <div className='bgWhite'>
                 <div className="catalouge-btn container d-flex flex-wrap justify-normal">
-                    {["All", "Aqva Wall", "Compact", "Fense", "Kittop", "Lab Plus", "QBISS", "Tabillo", "Texpanel" , "Arena"].map((category, index) => (
+                    {["All", "Aqva Wall", "Compact", "Fense", "Kittop", "Lab Plus", "Qbiss", "Tabillo", "Texpanel" , "Arena" , "No Marks"].map((category, index) => (
                         <button 
                             key={index} 
                             className={selectedFilter === category ? "active-filter" : ""}

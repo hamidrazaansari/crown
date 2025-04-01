@@ -18,7 +18,7 @@ function About() {
       {/* 🔹 Crown Specialize Section */}
       <div class="crownSection">
       <video
-                  className="custom-video"
+                  className="about-page-video"
                   autoPlay
                   loop
                   muted

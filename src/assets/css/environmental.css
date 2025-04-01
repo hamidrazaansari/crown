@@ -390,16 +390,21 @@
 .privacy-policy h1 , .privacy-policy h2 , .privacy-policy h3{
     font-family: dion;
     font-size: 25px;
+    letter-spacing: 1px;
+
 }
 .privacy-policy h2 {
     font-size: 20px;
+    letter-spacing: 1px;
+
 
 }
 .privacy-policy h3 {
     font-size: 16px;
 
 }
-.privacy-policy p , .privacy-policy p{
+.privacy-policy p, .privacy-policy p {
     font-family: LightInter;
-    font-size: 15px;
+    font-size: 16px;
+    letter-spacing: 1px;
 }

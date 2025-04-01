@@ -1,9 +1,7 @@
 .catalogue-banner{
-    background-color: #8F8749;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 0;
 }
 .catalouge-btn button{
     background-color: #FFFAF1;

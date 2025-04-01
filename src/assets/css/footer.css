@@ -197,6 +197,9 @@
 .footer-background img {
   width: 100%;
 }
+.esta{
+  margin-left: 105px;
+}
 
 @media (max-width:1200px) {
 
@@ -382,7 +385,14 @@
     width: 300px;
     padding: 10px;
   }
-
+  .new-socal {
+    position: absolute;
+    top: 48px !important;
+    left: 23px !important;
+}
+.esta{
+  margin-left: 0px;
+}
 }
 
 @media (max-width:767px) {
@@ -643,6 +653,9 @@
 
   .footer-phone{
     width: 35px !important;
+}
+.logo img {
+  top: -69px !important;
 }
 
 }

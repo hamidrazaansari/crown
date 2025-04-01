@@ -127,9 +127,11 @@ function Footer() {
                                 <ul>
                                     {category && category.map((item) => {
                                         return (
-                                            <Link to={`/${item.slug}`}>
-                                                <li className='text-light my-2'>{item.name}</li>
-                                            </Link>
+                                            <li>
+                                                <Link to={`/${item.slug}`}>
+                                                    <li className='text-light my-2'>{item.name}</li>
+                                                </Link>
+                                            </li>
                                         )
                                     })
                                     }
@@ -179,13 +181,13 @@ function Footer() {
                     <div className="container">
                         <div className="row d-flex align-items-center justify-content-between">
                             <div className="col-lg-6 col-12 ">
-                                <p>Copyright 2025 © Crown Laminates & Beyond. All rights reserved.</p>
+                                <p>Copyright 2025 © Crown Decor Pvt Ltd. All rights reserved.</p>
                             </div>
                             <div className="col-lg-2 col-12 ">
                                 <p><Link className='text-light' to={'/privacy'}>Privacy Policy</Link></p>
                             </div>
                             <div className="col-lg-4 " >
-                                <p style={{marginLeft:"105px"}}>Developed by <a target='_blank' style={{color:"#fff" , fontWeight:"600"}} href="https://www.estaglobal.in/">Estaglobal</a></p>
+                                <p className='esta'>Developed by <a target='_blank' style={{color:"#fff" , fontWeight:"600"}} href="https://www.estaglobal.in/">Estaglobal</a></p>
                             </div>
                         </div>
                     </div>
