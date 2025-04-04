@@ -55,9 +55,9 @@ function SearchBar() {
             {display && searchQuery && (
                 <div className="search-box">
                     {data.length > 0 && data.slice(0, 5).map((item) => (
-                        <Link to={`/product-details/${item._id}`} key={item._id}>
+                        <Link to={`/product-details/${item.slug}`} state={{slug:item.slug}} key={item._id}>
                             <div className='d-flex align-items-center my-3'>
-                                <img src={item.a4Image ? getImageURL(item.a4Image) : ''} alt="" className='search-img' />
+                                <img src={item.a4Image ? getImageURL(item.a4Image) : ''} alt={item.name} className='search-img' />
                                 <div>
                                     <p className='mb-0 ms-2'>{item.name}</p>
                                     <small className='me'>{item?.decorNumber}</small>

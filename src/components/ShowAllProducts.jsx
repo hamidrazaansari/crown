@@ -96,7 +96,9 @@ function ShowAllProducts({ relatedProducts , categoryId ,  subCategoryId , produ
                 else
                   return (
                     <>
-                      <Link to={`/product-details/${product._id}?categoryId=${categoryId}&subCategoryId=${subCategoryId}`} key={product?._id}>
+                      <Link to={`/product-details/${product.slug}`}
+                      state={{categoryId:categoryId ,subCategoryId:subCategoryId , slug:product.slug }}
+                      key={product?._id}>
                         <div className="product-box">
                           <img src={imgUrl} alt="product1" />
                           <h4>{product.name}</h4>
@@ -105,7 +107,6 @@ function ShowAllProducts({ relatedProducts , categoryId ,  subCategoryId , produ
                       </Link>
                     </>
                   )
-
               })
             }
           </Slider>
