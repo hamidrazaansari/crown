@@ -377,9 +377,11 @@ function Application() {
                   const imageUrl = getImageURL(product?.a4Image);
                   return (
                     <div className="col-lg-4 col-6 pt-0" key={product._id}>
-                      <Link to={`/application-details/${product._id}?subCategoryId=${subCategory._id}`}
+                      <Link to={`/application-details/${product.slug}`}
                               state={{ 
-                                subCategory: subCategory?.listingTitle, 
+                                subCategory: subCategory?.listingTitle,
+                                subCategoryId: subCategory._id, 
+                                slug:product?.slug
                               }}
                       >
                         <div className="product-box">

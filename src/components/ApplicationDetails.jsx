@@ -18,12 +18,9 @@ import { saveAs } from 'file-saver'
 
 
 function ApplicationDetails() {
-    const { id } = useParams();
         const location = useLocation();
         const navigate = useNavigate()
-        const searchParams = new URLSearchParams(location.search);
-        const subCategoryId = searchParams.get("subCategoryId"); 
-        const {subCategory } = location.state || {};
+        const {subCategory , subCategoryId  , slug} = location.state || {};
 
 
 
@@ -66,10 +63,10 @@ function ApplicationDetails() {
         setMatchingFinishes(selectedSizeObject ? selectedSizeObject.finishes : []);
     };
 
-    const fetchProducts = async (id, setProducts, setError, setLoading) => {
+    const fetchProducts = async (slug, setProducts, setError, setLoading) => {
         try {
             setLoading(true); // Ensure loading starts before fetching
-            const response = await axios.get(`${API_URL}/products/${id}`);
+            const response = await axios.get(`${API_URL}/products/bySlug/${slug}`);
             setProducts(response.data.body);
         } catch (err) {
             setError("Error fetching data");
@@ -80,9 +77,9 @@ function ApplicationDetails() {
     };
 
     useEffect(() => {
-        if (!id) return; // Prevent API call if id is undefined/null
-        fetchProducts(id, setProducts, setError, setLoading);
-    }, [id]);
+        if (!slug) return; // Prevent API call if id is undefined/null
+        fetchProducts(slug, setProducts, setError, setLoading);
+    }, [slug]);
 
 
     // if (loading) return <p>Loading...</p>;
@@ -164,7 +161,6 @@ function ApplicationDetails() {
                             {/* <h3 className='image-title'>STANDARD GRADE</h3> */}
                             <div className="img-box">
                                 {imageType === 'A4' ? <img src={imgURL} alt={products.name} /> : <img src={imgURLfullsheet} alt={products.name} />}
-                                {imageType === 'A4' ? <div className="a4">A4</div> : <div className="a4">Full Sheet</div>}
                             </div>
                             <div className="d-flex align-items-center justify-content-center">
                                 <div className="img-ideecator" onClick={() => { setImageType('A4') }}>

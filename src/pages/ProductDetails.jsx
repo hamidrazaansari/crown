@@ -17,15 +17,9 @@ import { saveAs } from 'file-saver'
 
 
 
-function ProductDetails() {
-    const { id } = useParams();
-    
+function ProductDetails() {    
     const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
-    const categoryId = searchParams.get("categoryId"); 
-    const subCategoryId = searchParams.get("subCategoryId"); 
-    
-    const {category , categorySlug } = location.state || {};
+    const {category , categorySlug  , categoryId ,subCategoryId , slug } = location.state || {};
   
 
     const [show, setShow] = useState(false);
@@ -72,7 +66,7 @@ function ProductDetails() {
     const fetchProducts = async (id, setProducts, setError, setLoading) => {
         try {
             setLoading(true); // Ensure loading starts before fetching
-            const response = await axios.get(`${API_URL}/products/${id}`);
+            const response = await axios.get(`${API_URL}/products/bySlug/${slug}`);
             setProducts(response.data.body);
         } catch (err) {
             setError("Error fetching data");
@@ -83,9 +77,9 @@ function ProductDetails() {
     };
 
     useEffect(() => {
-        if (!id) return; // Prevent API call if id is undefined/null
-        fetchProducts(id, setProducts, setError, setLoading);
-    }, [id]);
+        if (!slug) return; // Prevent API call if id is undefined/null
+        fetchProducts(slug, setProducts, setError, setLoading);
+    }, [slug]);
 
 
     // if (loading) return <p>Loading...</p>;

@@ -86,7 +86,6 @@ function ShowAllProducts({ relatedProducts , categoryId ,  subCategoryId , produ
 
 
         </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInUp">
           <Slider {...settings}>
             {
               relatedProducts && relatedProducts.map((product) => {
@@ -110,8 +109,6 @@ function ShowAllProducts({ relatedProducts , categoryId ,  subCategoryId , produ
               })
             }
           </Slider>
-        </ScrollAnimation>
-
       </div>
     </div>
   )
