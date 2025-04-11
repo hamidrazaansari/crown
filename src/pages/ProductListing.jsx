@@ -442,7 +442,7 @@ function ProductListing() {
                   {/* <p>{catHeader?.shortDescription || ""}</p> */}
                 </div>
                 <button className="sidebar-toggle d-lg-none d-block" onClick={handleShow}>
-                  {isSidebarOpen ? <RxCross2 /> : <FaFilter />}
+                  {isSidebarOpen ? <RxCross2 /> : <><FaFilter /> Filters</> }
                 </button>
               </div>
 

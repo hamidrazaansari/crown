@@ -101,7 +101,7 @@ function Certificate() {
             </div>
 
             {/* Certificate List Section */}
-            <div className="certificate-box bgWhite py-3">
+            <div className="certificate-box bgWhite py-3 pb-4">
                 <div className="container px-5">
                     <h1>Global Certification</h1>
                     {certificates.map((cert, index) => (
@@ -117,7 +117,7 @@ function Certificate() {
                 </div>
             </div>
 
-            <div className="companies bgWhite ">
+            <div className="companies bgWhite  py-0">
                 <div className="container">
                     <div className="company-box">
                         <div className="row">

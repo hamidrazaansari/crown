@@ -261,7 +261,7 @@ function Application() {
                 Application
               </Link>
               <span> / </span>{" "}
-              <span  className='ms-2' style={{fontFamily:"dionlight" , fontSize:"13px" , color:"#000000c9" , letterSpacing:"2px"}}>{subCategory?.listingTitle}</span> 
+              <span  className='ms-2' >{subCategory?.listingTitle}</span> 
 
             </p>
           </div>
@@ -368,7 +368,7 @@ function Application() {
                     <p>{subCategory?.shortDescription || ""}</p> */}
                 </div>
                 <button className="sidebar-toggle d-lg-none d-block" onClick={handleShow}>
-                  {isSidebarOpen ? <RxCross2 /> : <FaFilter />}
+                  {isSidebarOpen ? <RxCross2 /> : <><FaFilter /> Filters</>}
                 </button>
               </div>
 

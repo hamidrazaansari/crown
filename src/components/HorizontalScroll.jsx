@@ -46,6 +46,7 @@ function HorizontalScroll() {
   );
 
   return (
+    <div className="scroll">
     <div className="thank-you-container" ref={slider}>
       <div className="thank-you-wrapper panel">
         <div className="thank-you d-block">
@@ -71,6 +72,7 @@ function HorizontalScroll() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

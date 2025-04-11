@@ -255,7 +255,7 @@
     font-size: 17px;
     background: #fff;
     padding: 13px 20px;
-    font-family: 'dionlight';
+    font-family: 'dion';
     letter-spacing: 2px;
     float: inline-end;
     border-radius: 4px;
@@ -407,7 +407,7 @@
         text-align: center !important;
     }
     .category-box-active .texts .category-btn {
-        font-size: 11px;
+        font-size: 13px;
         padding: 5px 16px;
         left: -72px;
         bottom: -173px;
@@ -455,7 +455,7 @@
         margin-bottom: 50px !important;
     }
     .category-box-active .texts .category-btn {
-        font-size: 10px;
+        font-size: 13px;
         padding: 4px 9px;
         bottom: -194px;
         position: relative;
@@ -509,11 +509,11 @@
         
     }
     .category-box-active .texts .category-btn {
-        font-size: 8px;
+        font-size: 11px;
         padding: 5px 9px;
         bottom: -122px;
         text-align: center;
-        left: -32px;
+        left: -8px;
     }
     .category-box h4 {
         font-family: 'dion';

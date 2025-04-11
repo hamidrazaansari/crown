@@ -97,8 +97,24 @@
         position: absolute;
         top: 30%;
     }
+
+    
+    .heroBanner img, .heroBanner video {
+        height: 45vh !important;
+    }
     .thank-you-container .thank-you-wrapper .thank-you {
-        height: 90vh !important;
+        height: 45vh !important;
+    }
+    .thank-you-container .thank-you-wrapper {
+        width: 100%;
+        height: 45vh !important;
+    }
+     .scroll .pin-spacer{
+        height: 680px !important;
+        padding-bottom: 0 !important;
+    }
+    .about{
+        padding-top: 0 !important;
     }
     
 }
@@ -163,9 +179,22 @@
         background-position: center !important;
         background-size: cover !important;
     }
-
     .heroBanner img, .heroBanner video {
-        height: 90vh !important;
+        height: 40vh !important;
     }
-    
+    .thank-you-container .thank-you-wrapper .thank-you {
+        height: 40vh !important;
+    }
+    .thank-you-container .thank-you-wrapper {
+        width: 100%;
+        height: 40vh !important;
+    }
+     .scroll .pin-spacer{
+        height: 300px !important;
+        padding-bottom: 0 !important;
+    }
+    .about{
+        padding-top: 0 !important;
+    }
+
 }

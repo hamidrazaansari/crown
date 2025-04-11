@@ -4,7 +4,8 @@ import Blog2 from "../assets/image/sustainable.jpg";
 import Blog3 from "../assets/image/luxury.jpg";
 import "../assets/css/blog.css";
 import { Link } from "react-router-dom";
-import { GoArrowUpRight } from "react-icons/go";
+import { MdOutlineArrowOutward } from "react-icons/md";
+
 import logo from "../assets/image/logo.png";
 
 function Blog() {
@@ -45,7 +46,7 @@ function Blog() {
           <div className="d-flex align-items-center justify-content-between">
             <h3>WORLD OF CROWN LAMINATES</h3>
             <Link className="blog-btn" to={"/blog"}>
-              View All <GoArrowUpRight className="ms-1" />
+              View All <MdOutlineArrowOutward className="ms-1" />
             </Link>
           </div>
           <p className="heading-text">
@@ -59,7 +60,7 @@ function Blog() {
                   <h2>The Rise of Thin Laminates: Light Weight Luxury</h2>
                   <Link to={"/blog-details"}>
                     <button>
-                      <GoArrowUpRight />
+                      <MdOutlineArrowOutward />
                     </button>
                   </Link>
                 </div>
@@ -73,7 +74,7 @@ function Blog() {
                   <h2>Sustainable Luxury: Eco-Friendly Laminates for Modern Homes</h2>
                   <Link to={"/sustainabl-details"}>
                     <button>
-                      <GoArrowUpRight />
+                      <MdOutlineArrowOutward />
                     </button>
                   </Link>
                 </div>
@@ -87,7 +88,7 @@ function Blog() {
                   <h2>Beyond Wood & Stone: Why Luxury Homes are Choosing High-End Laminates</h2>
                   <Link to={"/luxury-details"}>
                     <button>
-                      <GoArrowUpRight />
+                      <MdOutlineArrowOutward />
                     </button>
                   </Link>
                 </div>

@@ -34,7 +34,7 @@ function NavBar() {
   return (
     <>
       {/* sidebar for country language select  */}
-      <Offcanvas show={show} placement={'end'} onHide={handleClose}>
+      {/* <Offcanvas show={show} placement={'end'} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Select Your Language</Offcanvas.Title>
         </Offcanvas.Header>
@@ -55,7 +55,7 @@ function NavBar() {
             </li>
           </ul>
         </Offcanvas.Body>
-      </Offcanvas>
+      </Offcanvas> */}
 
       {showModal && <NavModal onClose={closeModal} />}
 
@@ -100,13 +100,13 @@ function NavBar() {
               <Offcanvas.Body>
                 <div className="d-flex justify-content-center align-items-center flex-column  w-100 ">
                   <div className="d-flex justify-center-between">
-                    <Nav.Item>
+                    {/* <Nav.Item>
                       <Link onClick={handleShow}>
                         <img src={IndianFlag} alt="Indian Flag" className='flagImg' />
                       </Link>
-                    </Nav.Item>
+                    </Nav.Item> */}
                   </div>
-                  <div className='d-flex align-items-center flex-column'>
+                  <div className='d-flex align-items-md-center align-items-start flex-column'>
                     <Nav.Item>
                       <HoverDropdown />
                     </Nav.Item>

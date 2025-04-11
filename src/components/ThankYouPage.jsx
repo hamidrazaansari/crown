@@ -27,7 +27,7 @@ const ThankYouPage = () => {
               return 0; 
             }
           });
-        }, 1000); // Run every 1 second
+        }, 10000); // Run every 1 second
     
         // Cleanup the timer on component unmount
         return () => clearInterval(timer);
@@ -35,7 +35,7 @@ const ThankYouPage = () => {
     return (
         <>
         <NavBar/>
-                <div className='bgWhite' style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif', backgroundColor: '#f4f4f4', padding: '50px', paddingBottom:"80px" }}>
+                <div className='bgWhite thank-resp' style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif', backgroundColor: '#f4f4f4', padding: '50px', paddingBottom:"80px" }}>
             <div style={{ background: 'white', padding: '30px', borderRadius: '10px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', display: 'inline-block' }}>
             <div style={{ marginTop: '20px' }}>
                     <img 

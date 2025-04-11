@@ -103,7 +103,7 @@ function Footer() {
                                     </a>
 
                                 </div>
-                                <div className="d-flex new-socal">
+                                <div className="d-flex new-socal d-md-flex d-none">
                                     <Link to='https://www.facebook.com/crownlamination/' target='_blank'><div className='me-3'><img src={FB} alt="Fb" /></div></Link>
                                     <Link to='https://www.instagram.com/crown_laminates_compacts/' target='_blank'><div className='me-3'><img src={Insta} alt="Insta" /></div></Link>
                                     <Link to='https://www.linkedin.com/company/42304530' target='_blank'><div className='me-3'><img src={Linkedin} alt="Linkedin" /></div></Link>
@@ -127,7 +127,7 @@ function Footer() {
                                 <ul>
                                     {category && category.map((item) => {
                                         return (
-                                            <li>
+                                            <li >
                                                 <Link to={`/${item.slug}`}>
                                                     <li className='text-light my-2'>{item.name}</li>
                                                 </Link>
@@ -141,8 +141,7 @@ function Footer() {
                             <div className="col-lg-3  col-12 d-flex flex-column resp">
                                 <h2>Application</h2>
                                 <div className="line"></div>
-                                <ul>
-                                    <div className="row">
+                                    <ul className="row">
                                         {subCategory && subCategory.map((item, index) => {
                                             if (index <= 4) {
                                                 return (
@@ -155,7 +154,7 @@ function Footer() {
                                             }
                                             else if (index <= 7)  {
                                                 return (
-                                                    <div className="col-6">
+                                                    <div className="col-6 ">
                                                         <Link to={`/application/${item.slug}`}>
                                                             <li className='text-light'>{item.name}</li>
                                                         </Link>
@@ -170,15 +169,20 @@ function Footer() {
                                             <li> <Link to="/">TABILLO</Link></li>
                                             <li> <Link to="/">texpanel</Link></li>
                                     </div> */}
-                                    </div>
-                                </ul>
-
+                                    </ul>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
                 <div className="footer-bottom">
                     <div className="container">
+                    <div className="d-flex new-socal d-md-none d-block">
+                                <Link to='https://www.facebook.com/crownlamination/' target='_blank'><div className='me-3'><img src={FB} alt="Fb" /></div></Link>
+                                <Link to='https://www.instagram.com/crown_laminates_compacts/' target='_blank'><div className='me-3'><img src={Insta} alt="Insta" /></div></Link>
+                                <Link to='https://www.linkedin.com/company/42304530' target='_blank'><div className='me-3'><img src={Linkedin} alt="Linkedin" /></div></Link>
+                            </div>
                         <div className="row d-flex align-items-center justify-content-between">
                             <div className="col-lg-6 col-12 ">
                                 <p>Copyright 2025 © Crown Decor Pvt Ltd. All rights reserved.</p>

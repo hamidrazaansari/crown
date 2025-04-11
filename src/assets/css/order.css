@@ -144,6 +144,13 @@
     position: relative;
     bottom: 5px !important;
 }
+@media (max-width:992px) {
+    .thank-resp{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+}
 @media (max-width:500px) {
     .order-form p {
         font-family: inter;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import '../assets/css/blog.css'
 import '../assets/css/products.css'
@@ -17,36 +17,36 @@ import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 
 // Custom Prev Arrow
 const PrevArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <button className="custom-prev-btn" onClick={onClick}>
-        <FaArrowLeftLong />
-      </button>
-    );
-  };
-  
-  // Custom Next Arrow
-  const NextArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <button className="custom-next-arrow" onClick={onClick}>
-        <FaArrowRightLong />
-      </button>
-    );
-  };
+  const { onClick } = props;
+  return (
+    <button className="custom-prev-btn" onClick={onClick}>
+      <FaArrowLeftLong />
+    </button>
+  );
+};
+
+// Custom Next Arrow
+const NextArrow = (props) => {
+  const { onClick } = props;
+  return (
+    <button className="custom-next-arrow" onClick={onClick}>
+      <FaArrowRightLong />
+    </button>
+  );
+};
 
 
-function ShowAllProducts({ relatedProducts , categoryId ,  subCategoryId , productId }) {
+function ShowAllProducts({ relatedProducts, categoryId, subCategoryId, productId }) {
+
   const settings = {
     dots: true,
     infinite: false,
-    speed: 800,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     arrows: true,
-    draggable: true, 
-    swipe: true,      
-    touchMove: true,  
+    draggable: true,
+    swipe: true,
+    touchMove: true,
     cssEase: "ease-in-out",
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
@@ -61,55 +61,55 @@ function ShowAllProducts({ relatedProducts , categoryId ,  subCategoryId , produ
         breakpoint: 992, // Tablets
         settings: {
           slidesToShow: 2,
-          dots:false
+          dots: false
         }
       },
       {
         breakpoint: 768, // Mobile (small screens)
         settings: {
-          slidesToShow: 2
+          slidesToShow: 2,
+          slidesToScroll: 1,
         }
       }
     ]
   };
 
-  console.log(categoryId ,  subCategoryId);
-  
+
   return (
     <div className='allProduct bgWhite'>
       <div className="container">
         <ScrollAnimation animateIn="fadeInUp">
           <div className="d-flex align-items-center justify-content-between">
             <h2 className='mb-4'>Related Products</h2>
-            {/* <button className='view-all'>View All <GoArrowUpRight /></button> */}
           </div>
 
 
         </ScrollAnimation>
-          <Slider {...settings}>
-            {
-              relatedProducts && relatedProducts.map((product) => {
-                const imgUrl = getImageURL(product.a4Image)
-                if(productId === product._id){
-                  return ''
-                }
-                else
-                  return (
-                    <>
-                      <Link to={`/product-details/${product.slug}`}
-                      state={{categoryId:categoryId ,subCategoryId:subCategoryId , slug:product.slug }}
-                      key={product?._id}>
-                        <div className="product-box">
-                          <img src={imgUrl} alt="product1" />
-                          <h4>{product.name}</h4>
-                          <h4 className='text-start'>{product.decorNumber}</h4>
-                        </div>
-                      </Link>
-                    </>
-                  )
-              })
-            }
-          </Slider>
+        <Slider  {...settings}>
+          {relatedProducts && relatedProducts.length > 0 ? (
+            relatedProducts.map((product) => {
+              const imgUrl = getImageURL(product.a4Image);
+              if (productId === product._id) return null;
+              return (
+                <div key={product?._id}>
+                  <Link
+                    to={`/product-details/${product.slug}`}
+                    state={{ categoryId, subCategoryId, slug: product.slug }}
+                  >
+                    <div className="product-box">
+                      <img src={imgUrl} alt={product.name} />
+                      <h4>{product.name}</h4>
+                      <h4 className='text-start'>{product.decorNumber}</h4>
+                    </div>
+                  </Link>
+                </div>
+              );
+            })
+          ) : (
+            <p>Loading products...</p>
+          )}
+        </Slider>
+
       </div>
     </div>
   )

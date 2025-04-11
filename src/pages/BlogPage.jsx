@@ -7,7 +7,8 @@ import Blog2 from '../assets/image/sustainable.jpg'
 import Blog3 from '../assets/image/luxury.jpg'
 import Blog4 from '../assets/image/blog3.png'
 import '../assets/css/blog.css'
-import { GoArrowUpRight } from "react-icons/go";
+import { MdOutlineArrowOutward } from "react-icons/md";
+
 import { Link } from 'react-router-dom'
 
 function BlogPage() {
@@ -35,7 +36,7 @@ function BlogPage() {
                                 <img src={Blog3} alt="blog1" />
                                 <div className="d-flex justify-content-between">
                                     <h2>Beyond Wood & Stone: Why Luxury Homes are Choosing High-End Laminates</h2>
-                                    <Link to={'/luxury-details'}><button><GoArrowUpRight /> </button></Link>
+                                    <Link to={'/luxury-details'}><button><MdOutlineArrowOutward /> </button></Link>
                                 </div>
                                 <p>In the world of luxury home design, natural materials like wood and stone have long been the gold standard. However, wise homeowners and designers are increasingly turning to high-end laminates as a lighter, eco friendly, yet elegant and durable alternative. </p>
                             </div>
@@ -45,7 +46,7 @@ function BlogPage() {
                                 <img src={Blog2} alt="blog1" />
                                 <div className="d-flex justify-content-between">
                                     <h2>Sustainable Luxury: Eco-Friendly Laminates for Modern Homes</h2>
-                                    <Link to={'/sustainabl-details'}><button><GoArrowUpRight /> </button></Link>
+                                    <Link to={'/sustainabl-details'}><button><MdOutlineArrowOutward /> </button></Link>
                                 </div>
                                 <p>Sustainability does not have to come at the cost of aesthetics or utility.Today’s homeowners and designers demand materials that are environmentally sustainable and safe, without compromising on the style quotient of their interiors. Crown high pressure laminates (HPL) provide an ideal solution, with their combination of premium looks, durability and eco-friendly properties. </p>
                             </div>
@@ -55,7 +56,7 @@ function BlogPage() {
                                 <img src={Blog1} alt="blog1" />
                                 <div className="d-flex justify-content-between">
                                     <h2>What is the Laminates Sheets Manufacturing Process</h2>
-                                    <Link to={'/blog-details'}><button><GoArrowUpRight /> </button></Link>
+                                    <Link to={'/blog-details'}><button><MdOutlineArrowOutward /> </button></Link>
                                 </div>
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>
@@ -67,7 +68,7 @@ function BlogPage() {
                                 <div className="d-flex justify-content-between">
                                     <h2>What is the Laminates Sheets
                                         Manufacturing Process</h2>
-                                    <Link to={'/new-blog'}><button><GoArrowUpRight /> </button></Link>
+                                    <Link to={'/new-blog'}><button><MdOutlineArrowOutward /> </button></Link>
                                 </div>
                                 <p>Laminate sheets have gained popularity in recent times due to their aesthetic advantages, durability, and versatility. They are widely applicable in furniture making, wall paneling, and flooring.</p>
                             </div>

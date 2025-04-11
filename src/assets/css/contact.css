@@ -179,7 +179,7 @@
     }
     .contact-box img {
         position: absolute;
-        height: 45%;
+        height: 50%;
         top: unset;
         left: 20px;
         top: 45px;
@@ -189,6 +189,7 @@
             position: absolute;
     bottom: 0;
     left: 0;
+    padding-top: 0 !important;
     }
     .contact-info{
         width: 100%;

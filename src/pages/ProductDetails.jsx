@@ -154,7 +154,7 @@ function ProductDetails() {
                         }
                        
                         <span> / </span> 
-                        <span  className='ms-2' style={{fontFamily:"dionlight" , fontSize:"13px" , color:"#000000c9" , letterSpacing:"2px" , textTransform:"uppercase"}}>{products?.name}</span> 
+                        <span  className='ms-2'>{products?.name}</span> 
 
                         </p>
                     </div>
@@ -169,7 +169,7 @@ function ProductDetails() {
 
                             {/* <h3 className='image-title'>STANDARD GRADE</h3> */}
                             <div className="img-box">
-                                {imageType === 'A4' ? <img src={imgURL} alt={products.name} /> : <img src={imgURLfullsheet} alt={products.name} />}
+                                {imageType === 'A4' ? <img src={imgURL} alt={products.name} /> : <img src={imgURLfullsheet} className='full-sheet'  alt={products.name} />}
                                 {/* {imageType === 'A4' ? <div className="a4">A4</div> : <div className="a4">Full Sheet</div>} */}
                             </div>
                             <div className="d-flex align-items-center justify-content-center">
@@ -230,7 +230,7 @@ function ProductDetails() {
                                 </div>
 
                                 <div className="d-flex justify-content-start align-items-start">
-                                    <div className="key" style={{ marginLeft: "13px" }}>Finish</div>
+                                    <div className="key finishkey" style={{ marginLeft: "13px" }}>Finish</div>
                                     <div className="d-flex  finish">
                                         {visibleFinishes.map((finish) => (
                                             <div key={finish._id} className="finish-item">

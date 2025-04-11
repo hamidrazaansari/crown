@@ -241,7 +241,6 @@
   }
 
   .footer-background img {
-    width: unset;
   }
 
   .newFooter h2 {
@@ -261,7 +260,7 @@
 
   .explore p {
     margin-left: 0px;
-    width: 80%;
+    width: 100%;
   }
 
   .explore button {
@@ -386,9 +385,12 @@
     padding: 10px;
   }
   .new-socal {
-    position: absolute;
-    top: 48px !important;
-    left: 23px !important;
+    position: unset !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 .esta{
   margin-left: 0px;
@@ -530,21 +532,32 @@
 
   .explore h2 {
     font-family: 'dion';
-    font-size: 25px !important;
+    font-size: 20px !important;
     letter-spacing: 1px;
     margin-left: 0px;
   }
 
   .explore {
-    height: 450px;
-    top: 25px;
-  }
+    height: 250px;
+    top: 4px;
+}
+.explore button {
+  background-color: #E69B00;
+  height: 35px;
+  width: 146px;
+  color: #fff;
+  border: none;
+  font-family: 'Kanit';
+  letter-spacing: 1px;
+  font-size: 12px;
+  margin-top: 3px;
+  border-radius: 5px;
+}
 
-  .explore p {
-    margin-left: 0px;
-    width: 80%;
-    font-size: 20px;
-  }
+.footer-background img {
+  height: 100vh;
+  object-fit: cover;
+}
 
 
   .explore button {
@@ -609,6 +622,7 @@
     z-index: 1;
     position: fixed;
     bottom: 2px;
+    height: 100vh;
   }
 
   .pos,
@@ -687,8 +701,8 @@
   }
 
   .footer ul li a {
-    font-size: 13px !important;
-  }
+    font-size: 15px !important;
+}
 
   .resp {
     margin-left: 0px !important;

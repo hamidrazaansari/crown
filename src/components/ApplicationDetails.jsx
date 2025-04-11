@@ -144,9 +144,9 @@ function ApplicationDetails() {
                     <div className="breadcrumb m-0 py-3 pb-0">
                         <p><Link to="/">HOME</Link>
                         <span> / </span>
-                        <span onClick={()=>navigate(-1)}  className='ms-2' style={{fontFamily:"dionlight" , fontSize:"13px" , color:"#000000c9" , letterSpacing:"2px" , textTransform:'uppercase'}}>Application <span style={{fontFamily:"dion" ,  fontSize:"16px"}}> / </span> {subCategory}</span> 
+                        <span onClick={()=>navigate(-1)}  className='ms-2' >Application <span style={{fontFamily:"dion" ,  fontSize:"16px"}}> / </span> {subCategory}</span> 
                         <span> / </span>
-                        <span  className='ms-2' style={{fontFamily:"dionlight" , fontSize:"13px" , color:"#000000c9" , letterSpacing:"2px" , textTransform:'uppercase'}}>{products?.name}</span> 
+                        <span  className='ms-2' >{products?.name}</span> 
                          </p>
                     </div>
                 </div>
@@ -215,7 +215,7 @@ function ApplicationDetails() {
                                 </div>
 
                                 <div className="d-flex justify-content-start align-items-start">
-                                    <div className="key" style={{ marginLeft: "13px" }}>Finish</div>
+                                    <div className="key finishkey" style={{ marginLeft: "13px" }}>Finish</div>
                                     <div className="d-flex  finish">
                                         {visibleFinishes.map((finish) => (
                                             <div key={finish._id} className="finish-item">

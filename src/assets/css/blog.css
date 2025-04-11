@@ -28,7 +28,7 @@
     font-size: 17px;
     margin-bottom: 40px;
     letter-spacing: 1.2px;
-    color: #00000080;
+    color: #000;
 }
 
 .blog-box {
@@ -278,10 +278,10 @@
         font-family: 'LightInter';
         letter-spacing: 1px;
         width: 65%;
-        font-size: 13px;
+        font-size: 15px;
         margin-bottom: 16px;
         letter-spacing: 1.2px;
-        color: #00000080;
+        color: #000;
     }
 
     .blog-box h2 {
@@ -439,10 +439,10 @@
     }
 
     .blog-box p {
-        font-size: 10px;
+        font-size: 13px;
         margin: 0px 0px;
         letter-spacing: 1px;
-        color: #7a7a7a;
+        color: #000;
         padding-right: 0px;
         line-height: 12px;
     }
@@ -467,7 +467,14 @@
         padding-right: 0px;
         line-height: 18px;
     }
-
+    .blog-details-content .information p img {
+        height: 15px !important;
+        width: 15px !important;
+        margin-right: 8px !important;
+    }
+    .blog-details-content .information p{
+        font-size: 13px !important;
+    }
 }
 
 @media (max-width:400px) {
@@ -481,15 +488,17 @@
     }
 
     .blog-box h2 {
-        font-family: dionMedium;
+        font-family: dion;
         font-size: 12px !important;
         margin: 9px 0 !important;
-        letter-spacing: 0;
+        letter-spacing: 1;
+        text-transform: uppercase;
     }
 
     .blog-details p {
-        font-size: 15px !important;
+        font-size: 16px !important;
         padding: 0 !important;
+        color: #000;
     }
 
     .contact-box .contact-info img {

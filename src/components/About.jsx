@@ -15,6 +15,10 @@ function About() {
   return (
     <div className='about'>
       <div className="container">
+        <div className='heading'>
+          <h3>Crown is a leading manufacturer of High-Pressure Laminates (HPL) and compact panels, delivering innovative, high-performance surfacing solutions for global markets.</h3>
+        </div>
+
         <div className="row">
           <div className="col-lg-6 d-flex justify-content-center">
             <ScrollAnimation animateIn="fadeInUp">

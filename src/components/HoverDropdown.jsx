@@ -10,25 +10,35 @@ function HoverDropdown() {
   const handleMouseLeave = () => setShow(false);
 
   return (
-    <Dropdown
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      show={show} 
-      className='navDropdown'
-    >
-      <Dropdown.Toggle id="dropdown-basic" className='bg-transparent border-0 text-dark'>
-        MENU
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
+    <>
+      <div className='d-lg-none d-block ms-2'>
         <Dropdown.Item ><Link to={'/about'}>About Us </Link> </Dropdown.Item>
         <Dropdown.Item ><Link to={'/blog'}>Blog </Link></Dropdown.Item>
         <Dropdown.Item ><Link to={'/environmental'}>Environment </Link></Dropdown.Item>
         <Dropdown.Item ><Link to={'/certification'}>Certifications </Link></Dropdown.Item>
         <Dropdown.Item ><Link to={'/catalouge'}>Catalogue </Link></Dropdown.Item>
         <Dropdown.Item ><Link to={'/contact'}>Contact Us </Link></Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+      </div>
+      <Dropdown
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        show={show}
+        className='navDropdown d-lg-flex d-none'
+      >
+        <Dropdown.Toggle id="dropdown-basic" className='bg-transparent border-0 text-dark'>
+          MENU
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          <Dropdown.Item ><Link to={'/about'}>About Us </Link> </Dropdown.Item>
+          <Dropdown.Item ><Link to={'/blog'}>Blog </Link></Dropdown.Item>
+          <Dropdown.Item ><Link to={'/environmental'}>Environment </Link></Dropdown.Item>
+          <Dropdown.Item ><Link to={'/certification'}>Certifications </Link></Dropdown.Item>
+          <Dropdown.Item ><Link to={'/catalouge'}>Catalogue </Link></Dropdown.Item>
+          <Dropdown.Item ><Link to={'/contact'}>Contact Us </Link></Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </>
   );
 }
 
