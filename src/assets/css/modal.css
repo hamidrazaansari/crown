@@ -77,7 +77,7 @@
     display: block;
     position: relative;
     padding: 16px 38px !important;
-    left: -1143px !important;
+    left: -1264px !important;
     border-radius: 0 !important;
     box-shadow: none !important;
     width: 1630px !important;
@@ -167,3 +167,5 @@
 .swal2-confirm{
   background-color: #E69B00 !important;
 }
+
+

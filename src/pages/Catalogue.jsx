@@ -1,91 +1,103 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 import OtherPageFooter from '../components/OtherPageFooter';
-import { Modal } from 'react-bootstrap';
-import { RxCross1 } from "react-icons/rx";
-import Eye from '../assets/image/eye.png';
+import Files from '../assets/image/file.png';
 import CatalougeBanner from '../assets/image/Catalogue-banner.jpg';
 
 // Import PDF files
-import AQVAWALL from '../assets/image/Catalouge/Aqva Wall.pdf';
-import ARENA from '../assets/image/Catalouge/ARENA.pdf';
-import CrownCompact from '../assets/image/Catalouge/Crown Compact 2025.pdf';
-import Crowninstallation from '../assets/image/Catalouge/Crown Compact installation manual.pdf';
-import Fense from '../assets/image/Catalouge/Crown Fense.pdf';
-import Labplus from '../assets/image/Catalouge/Crown Labplus.pdf';
-import ExteriorCom from '../assets/image/Catalouge/Exterior Compact.pdf';
-import Kittop from '../assets/image/Catalouge/Kittop Catalog_INT.pdf';
-import QBISS from '../assets/image/Catalouge/QBISS.pdf';
-import TABILLO from '../assets/image/Catalouge/TABILLO INT.pdf';
-import TabilloInternational from '../assets/image/Catalouge/Tabillo International Look Book.pdf';
-import texpanel from '../assets/image/Catalouge/texpanel.pdf';
-import NOMARKS from '../assets/image/Catalouge/NO MARKS.pdf';
-
-
+// import AQVAWALL from '../assets/image/Catalouge/Aqva Wall.pdf';
+// import ARENA from '../assets/image/Catalouge/ARENA.pdf';
+// import CrownCompact from '../assets/image/Catalouge/Crown Compact 2025.pdf';
+// import Crowninstallation from '../assets/image/Catalouge/Crown Compact installation manual.pdf';
+// import Fense from '../assets/image/Catalouge/Crown Fense.pdf';
+// import Labplus from '../assets/image/Catalouge/Crown Labplus.pdf';
+// import ExteriorCom from '../assets/image/Catalouge/Exterior Compact.pdf';
+// import Kittop from '../assets/image/Catalouge/Kittop Catalog_INT.pdf';
+// import QBISS from '../assets/image/Catalouge/QBISS.pdf';
+// import TABILLO from '../assets/image/Catalouge/TABILLO INT.pdf';
+// import TabilloInternational from '../assets/image/Catalouge/Tabillo International Look Book.pdf';
+// import texpanel from '../assets/image/Catalouge/texpanel.pdf';
+// import NOMARKS from '../assets/image/Catalouge/NO MARKS.pdf';
 import File from '../assets/image/file.png';
-
 import '../assets/css/certificate.css';
 import '../assets/css/catalouge.css';
 import { Link } from 'react-router-dom';
+import { API_URL } from '../utills/BaseUrl';
+import axios from 'axios';
+import getImageURL from '../utills/getImageURL';
 
 function Catalogue() {
-    const [show, setShow] = useState(false);
-    const [selectedPdf, setSelectedPdf] = useState(null);
-    const [selectedFilter, setSelectedFilter] = useState("All"); // State to store selected filter
+    const [selectedFilter, setSelectedFilter] = useState("All");
+    const [catelouge, setCatelouge] = useState('')
+    const [catalogueCategories, setCatalogueCategories] = useState('')
 
-    const certificates = [
-        { name: "01. Aqva Wall", file: AQVAWALL, application: "Aqva Wall" },
-        { name: "02. Arena", file: ARENA, application: "Arena" },
-        { name: "03. Crown Compact 2025", file: CrownCompact, application: "Compact" },
-        { name: "04. Crown Compact installation manual", file: Crowninstallation, application: "Compact" },
-        { name: "05. Fense", file: Fense, application: "Fense" },
-        { name: "06. Labplus", file: Labplus, application: "Lab Plus" },
-        { name: "07. Exterior Compact", file: ExteriorCom, application: "Compact" },
-        { name: "08. Kittop", file: Kittop, application: "Kittop" },
-        { name: "09. Qbiss", file: QBISS, application: "Qbiss" },
-        { name: "10. Tabillo", file: TABILLO, application: "Tabillo" },
-        { name: "11. Tabillo Look Book", file: TabilloInternational, application: "Tabillo" },
-        { name: "12. Texpanel", file: texpanel, application: "Texpanel" },
-        { name: "13. No Marks", file: NOMARKS, application: "No Marks" },
-    ];
 
     // Filter the certificates based on selectedFilter
     const filteredCertificates = selectedFilter === "All"
-        ? certificates
-        : certificates.filter(cert => cert.application.toLowerCase() === selectedFilter.toLowerCase());
+        ? catelouge
+        : catelouge?.filter(cat => cat.category?._id === selectedFilter);
 
-    const handleShow = (pdfFile) => {
-        setSelectedPdf(pdfFile);
-        setShow(true);
-    };
+    console.log(catalogueCategories);
 
-    const handleClose = () => {
-        setShow(false);
-        setSelectedPdf(null);
+
+    useEffect(() => {
+        async function fetchcatelouge() {
+            try {
+                let url = `${API_URL}/catalogues`;
+                const response = await axios.get(url);
+                setCatelouge(response?.data?.body);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        async function fetchcatelougeCategory() {
+            try {
+                let url = `${API_URL}/catalogueCategories`;
+                const response = await axios.get(url);
+                setCatalogueCategories(response?.data?.body);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchcatelouge()
+        fetchcatelougeCategory()
+    }, [])
+
+
+
+
+    const handleViewCertificate = (pdfFile) => {
+        console.log(pdfFile);
+
+
+        const newWindow = window.open('', '_blank');
+        newWindow.document.write(`
+          <html>
+            <head>
+              <title>View Certificate</title>
+              <style>
+                html, body {
+                  margin: 0;
+                  height: 100%;
+                  overflow: hidden;
+                }
+                iframe {
+                  border: none;
+                  width: 100%;
+                  height: 100%;
+                }
+              </style>
+            </head>
+            <body>
+              <iframe src="${pdfFile}" title="Certificate PDF"></iframe>
+            </body>
+          </html>
+        `);
+        newWindow.document.close();
     };
 
     return (
         <div>
-            {/* Modal for displaying PDFs */}
-            <Modal className='certificate-modal' show={show} onHide={handleClose} centered size="lg">
-                <Modal.Body>
-                    <button className='certificate-cancel-btn' onClick={handleClose}>
-                        <RxCross1 />
-                    </button>
-                    <div className="display-certificate">
-                        {selectedPdf && (
-                            <iframe
-                                src={selectedPdf}
-                                width="500px"
-                                height="100%"
-                                style={{ border: 'none' }}
-                                title="Certificate PDF"
-                            ></iframe>
-                        )}
-                    </div>
-                </Modal.Body>
-            </Modal>
 
             <NavBar />
             <div className="bgWhite">
@@ -108,13 +120,13 @@ function Catalogue() {
             {/* Filter Buttons */}
             <div className='bgWhite'>
                 <div className="catalouge-btn container d-flex flex-wrap justify-normal">
-                    {["All", "Aqva Wall", "Compact", "Fense", "Kittop", "Lab Plus", "Qbiss", "Tabillo", "Texpanel" , "Arena" , "No Marks"].map((category, index) => (
-                        <button 
-                            key={index} 
-                            className={selectedFilter === category ? "active-filter" : ""}
-                            onClick={() => setSelectedFilter(category)}
+                    {catalogueCategories && catalogueCategories.map((category, index) => (
+                        <button
+                            key={index}
+                            className={selectedFilter === category._id ? "active-filter" : ""}
+                            onClick={() => setSelectedFilter(category._id)}
                         >
-                            {category}
+                            {category.name}
                         </button>
                     ))}
                 </div>
@@ -125,18 +137,24 @@ function Catalogue() {
                 <div className="container px-5">
                     <h1>CROWN CATALOGUE</h1>
                     {filteredCertificates.length > 0 ? (
-                        filteredCertificates.map((cert, index) => (
-                            <div className='d-flex align-items-center' key={index}>
-                                <div className="certification-box">
-                                    <p>{cert.name}</p>
+                        filteredCertificates.map((cert, index) => {
+                            const imageUrl = getImageURL(cert?.file);
+                            return (
+                                <div className='d-flex align-items-center' key={index}>
+                                    <div className="certification-box">
+                                        <p>{cert.name}</p>
+                                    </div>
+                                    <button className='certificate-btn' onClick={() => handleViewCertificate(imageUrl)}>
+                                        Download <img src={File} alt="eye" />
+                                    </button>
                                 </div>
-                                <button className='certificate-btn' onClick={() => handleShow(cert.file)}>
-                                    Download <img src={File} alt="eye" />
-                                </button>
-                            </div>
-                        ))
+                            );
+                        })
                     ) : (
-                        <p>No certificates available for "{selectedFilter}"</p>
+                    <div className='d-flex flex-column align-items-center justify-content-center'>
+                        <img src={Files} alt="eye" />
+                        <p>No certificates available</p>
+                    </div>
                     )}
                 </div>
             </div>

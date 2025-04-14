@@ -66,29 +66,9 @@
 .companies h2{
     margin-left: 35px;
 }
-.certification-box img{
-    position: fixed;
-    top: 100px;
-    right: 40%;
-    height: 350px;
-    width: 250px;
-}
-.display-certificate{
-    height: 100vh;
-    position: absolute;
-    z-index: 9999;
-    background-color: #0000002b;
-    left: 0;
 
-}
-.certificate-modal .modal-header{
-    border-bottom:  0 !important;
-}
-.certificate-modal .modal-body {
-    position: relative;
-    right: 146px;
-    top: 40px;
-}
+
+
 .certificate-modal .certificate-cancel-btn svg{
     height: 20px;
     width: 20px;
@@ -109,45 +89,6 @@
 .certificate-btn:hover{
     background-color: #e69b00 !important;
 }
-
-
-
-@media (max-width:500px) {
-    .company-logo img {
-        height: 76px;
-        width: 88px;
-    }
-    .certification-box p {
-        margin: 0 15px;
-        font-size: 17px;
-        color: #000;
-        letter-spacing: 1px;
-    }
-    .certification-box{
-        width: 100%;
-    }
-    .certificate-btn{
-        font-size: 12px !important;
-        border: 1px solid #e69b00 !important;
-
-    }
-
-    .display-certificate {
-        height: 60vh;
-        position: absolute;
-        z-index: 10005;
-        background-color: #0000002b;
-        left: 22px;
-    }
-    .display-certificate iframe{
-        width: 300px !important;
-    }
-    .certificate-modal .certificate-cancel-btn {
-        position: relative;
-        left: 286px !important;
-    }
-}
-
 /* new design  */
 
 .certification-box p {
@@ -182,9 +123,8 @@
     height: 19px;
     margin-left: 10px;
 }
-.certificate-modal .modal-content{
-    top: -30px !important;
-}
+
+
 .certificate-modal .certificate-cancel-btn {
     position: relative;
     left: 465px;
@@ -203,3 +143,27 @@
     box-shadow: 0px 2px 6px #00000014;
     border-radius: 5px;
 }
+
+
+
+@media (max-width:500px) {
+    .company-logo img {
+        height: 76px;
+        width: 88px;
+    }
+    .certification-box p {
+        margin: 0 15px;
+        font-size: 17px;
+        color: #000;
+        letter-spacing: 1px;
+    }
+    .certification-box{
+        width: 100% !important;
+    }
+    .certificate-btn{
+        font-size: 12px !important;
+        border: 1px solid #e69b00 !important;
+
+    }
+}
+

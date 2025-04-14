@@ -83,11 +83,11 @@ function NavBar() {
 
               <Cart />
 
-              <Nav.Item href="/">
+              {/* <Nav.Item href="/">
                 <Link onClick={handleShow}>
                   < img src={IndianFlag} alt="Indian  Flag" className='flagImg' />
                 </Link>
-              </Nav.Item>
+              </Nav.Item> */}
             </div>
             {/* Add Toggle Button for Mobile View */}
             <div className='d-lg-none d-block' >
