@@ -28,7 +28,7 @@ function Certificate() {
         useEffect(() => {
             async function fetchCategory() {
                 try {
-                    let url = `${API_URL}/certificates`;
+                    let url = `${API_URL}/certificates?limit=0&priority=ASC`;
                     const response = await axios.get(url);
                     setCertificates(response?.data?.body);
                 } catch (error) {

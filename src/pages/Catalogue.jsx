@@ -27,41 +27,50 @@ import axios from 'axios';
 import getImageURL from '../utills/getImageURL';
 
 function Catalogue() {
-    const [selectedFilter, setSelectedFilter] = useState("All");
+    const [selectedFilter, setSelectedFilter] = useState("");
     const [catelouge, setCatelouge] = useState('')
     const [catalogueCategories, setCatalogueCategories] = useState('')
 
 
     // Filter the certificates based on selectedFilter
-    const filteredCertificates = selectedFilter === "All"
-        ? catelouge
-        : catelouge?.filter(cat => cat.category?._id === selectedFilter);
+    // const filteredCertificates = selectedFilter === "All"
+    //     ? catelouge
+    //     : catelouge?.filter(cat => cat.category?._id === selectedFilter);
 
-    console.log(catalogueCategories);
 
 
     useEffect(() => {
-        async function fetchcatelouge() {
-            try {
-                let url = `${API_URL}/catalogues`;
-                const response = await axios.get(url);
-                setCatelouge(response?.data?.body);
-            } catch (error) {
-                console.log(error);
-            }
-        }
+
         async function fetchcatelougeCategory() {
             try {
-                let url = `${API_URL}/catalogueCategories`;
+                let url = `${API_URL}/catalogueCategories?limit=0&priority=ASC`;
                 const response = await axios.get(url);
                 setCatalogueCategories(response?.data?.body);
             } catch (error) {
                 console.log(error);
             }
         }
-        fetchcatelouge()
         fetchcatelougeCategory()
     }, [])
+
+    useEffect(() => {
+        async function fetchcatelouge() {
+            try {
+                let url = `${API_URL}/catalogues?limit=0&priority=ASC`;
+                if(selectedFilter){
+                    url+=`&category=${selectedFilter}`
+                }
+                const response = await axios.get(url);
+                setCatelouge(response?.data?.body);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchcatelouge()
+
+    }, [selectedFilter])
+    
+
 
 
 
@@ -120,6 +129,13 @@ function Catalogue() {
             {/* Filter Buttons */}
             <div className='bgWhite'>
                 <div className="catalouge-btn container d-flex flex-wrap justify-normal">
+                <button
+                            className={selectedFilter === '' ? "active-filter" : ""}
+                            onClick={() => setSelectedFilter('')}
+                        >
+                            All
+                        </button>
+
                     {catalogueCategories && catalogueCategories.map((category, index) => (
                         <button
                             key={index}
@@ -136,8 +152,8 @@ function Catalogue() {
             <div className="certificate-box bgWhite py-3 pb-5">
                 <div className="container px-5">
                     <h1>CROWN CATALOGUE</h1>
-                    {filteredCertificates.length > 0 ? (
-                        filteredCertificates.map((cert, index) => {
+                    {catelouge.length > 0 ? (
+                        catelouge.map((cert, index) => {
                             const imageUrl = getImageURL(cert?.file);
                             return (
                                 <div className='d-flex align-items-center' key={index}>
@@ -153,7 +169,7 @@ function Catalogue() {
                     ) : (
                     <div className='d-flex flex-column align-items-center justify-content-center'>
                         <img src={Files} alt="eye" />
-                        <p>No certificates available</p>
+                        <p>No catelouge available</p>
                     </div>
                     )}
                 </div>
