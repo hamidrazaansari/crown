@@ -116,8 +116,8 @@ function Footer() {
                                     <li> <Link to="/about">ABOUT</Link></li>
                                     <li>  <Link to="/blog">BLOG</Link></li>
                                     <li> <Link to="/contact">CONTACT US</Link></li>
-                                    <li> <Link to="/certification">CERTIFICATION</Link></li>
-                                    <li> <Link to="/catalouge">CATALOGUE</Link></li>
+                                    <li> <Link to="/certification">CERTIFICATIONS</Link></li>
+                                    <li> <Link to="/catalouge">CATALOGUES</Link></li>
                                     {/* <li> <Link to="/">PRIVACY POLICY</Link></li> */}
                                 </ul>
                             </div>

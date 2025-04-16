@@ -44,7 +44,7 @@ function About() {
                   { title: "1200 + DECORS" },
                   { title: "120 + TRENDY TEXTURES" },
                   { title: "500 +SATISFIED BUYERS"},
-                  { title: "5+GLOBAL WAREHOUSES READY STOCK AVAILABLE" }
+                  { title: "5 GLOBAL WAREHOUSE WITH READY STOCK AVAILABLE" }
                 ].map((item, index) => (
                   <div className="col-lg-4 col-md-6 col-6" key={index}>
                     <div className="crownBox">

@@ -16,7 +16,7 @@ function HoverDropdown() {
         <Dropdown.Item ><Link to={'/blog'}>Blog </Link></Dropdown.Item>
         <Dropdown.Item ><Link to={'/environmental'}>Environment </Link></Dropdown.Item>
         <Dropdown.Item ><Link to={'/certification'}>Certifications </Link></Dropdown.Item>
-        <Dropdown.Item ><Link to={'/catalouge'}>Catalogue </Link></Dropdown.Item>
+        <Dropdown.Item ><Link to={'/catalouge'}>Catalogues </Link></Dropdown.Item>
         <Dropdown.Item ><Link to={'/contact'}>Contact Us </Link></Dropdown.Item>
       </div>
       <Dropdown
