@@ -83,7 +83,7 @@ function Catalogue() {
         newWindow.document.write(`
           <html>
             <head>
-              <title>View Certificate</title>
+              <title>View</title>
               <style>
                 html, body {
                   margin: 0;
