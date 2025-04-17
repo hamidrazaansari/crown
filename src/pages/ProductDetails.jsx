@@ -19,8 +19,11 @@ import { saveAs } from 'file-saver'
 
 function ProductDetails() {    
     const location = useLocation();
-    const {category , categorySlug  , categoryId ,subCategoryId , slug } = location.state || {};
+    const {category , categorySlug  , categoryId ,subCategoryId  } = location.state || {};
   
+    const { slug } = useParams();
+    console.log(slug);
+    
 
     const [show, setShow] = useState(false);
     const [showSample, setShowSample] = useState(false);
@@ -133,7 +136,6 @@ function ProductDetails() {
         saveAs(url, `${products.name}.${fileExtension}`); // Saves with correct extension
     };
 
-    console.log(categorySlug);
     
 
     return (

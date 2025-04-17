@@ -38,7 +38,7 @@ function App() {
               path="/:categorySlug/:subCategorySlug?"
               element={<ProductListing />}
             />
-        <Route path="/product-details/:id" element={<ProductDetails/>}/>
+        <Route path="/product-details/:slug" element={<ProductDetails/>}/>
         <Route path="/blog" element={<BlogPage/>}/>
         <Route path="/blog-details" element={<BlogDetails/>}/>
         <Route
