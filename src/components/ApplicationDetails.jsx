@@ -20,9 +20,9 @@ import { saveAs } from 'file-saver'
 function ApplicationDetails() {
         const location = useLocation();
         const navigate = useNavigate()
-        const {subCategory , subCategoryId  , slug} = location.state || {};
+        const {subCategory , subCategoryId } = location.state || {};
 
-
+    const { slug } = useParams();
 
     const [show, setShow] = useState(false);
     const [showSample, setShowSample] = useState(false);

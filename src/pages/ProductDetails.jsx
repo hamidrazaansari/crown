@@ -22,7 +22,6 @@ function ProductDetails() {
     const {category , categorySlug  , categoryId ,subCategoryId  } = location.state || {};
   
     const { slug } = useParams();
-    console.log(slug);
     
 
     const [show, setShow] = useState(false);

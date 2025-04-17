@@ -45,7 +45,7 @@ function App() {
               path="/application/:subCategorySlug"
               element={<Application/>}
             />
-        <Route path="/application-details/:id" element={<ApplicationDetails/>}/>
+        <Route path="/application-details/:slug" element={<ApplicationDetails/>}/>
         <Route path="/environmental" element={<Env/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/certification" element={<Certificate/>}/>
