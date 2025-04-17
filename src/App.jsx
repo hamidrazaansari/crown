@@ -22,6 +22,7 @@ import ApplicationDetails from "./components/ApplicationDetails"
 import LuxuryDetails from "./pages/LuxuryDetails"
 import SustainableDetails from "./pages/SustainableDetails"
 import Privacy from "./pages/Privacy"
+import PdfViewer from "./components/PdfViewer"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
@@ -69,6 +70,7 @@ function App() {
             /> 
         <Route path="/thank-you" element={<ThankYouPage/>}/>
         <Route path="/privacy" element={<Privacy/>}/>
+        <Route path="/pdf" element={<PdfViewer/>}/>
 
       </Routes>
     </BrowserRouter>

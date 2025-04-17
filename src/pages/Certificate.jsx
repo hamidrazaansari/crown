@@ -17,13 +17,15 @@ import company8 from '../assets/image/certificate/nema.png';
 // Import PDF files
 
 import '../assets/css/certificate.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import getImageURL from '../utills/getImageURL';
 import { API_URL } from '../utills/BaseUrl';
 import axios from 'axios';
 
 function Certificate() {
     const[certificates , setCertificates]=useState('')
+
+    const navigate = useNavigate()
 
         useEffect(() => {
             async function fetchCategory() {
@@ -44,32 +46,33 @@ function Certificate() {
 
 
     const handleViewCertificate = (pdfFile) => {
-        console.log(pdfFile);
 
-        const newWindow = window.open('', '_blank');
-        newWindow.document.write(`
-          <html>
-            <head>
-              <title>View</title>
-              <style>
-                html, body {
-                  margin: 0;
-                  height: 100%;
-                  overflow: hidden;
-                }
-                iframe {
-                  border: none;
-                  width: 100%;
-                  height: 100%;
-                }
-              </style>
-            </head>
-            <body>
-              <iframe src="${pdfFile}" title="Certificate PDF"></iframe>
-            </body>
-          </html>
-        `);
-        newWindow.document.close();
+        navigate('/pdf' , {state:{pdfFile}})
+
+        // const newWindow = window.open('', '_blank');
+        // newWindow.document.write(`
+        //   <html>
+        //     <head>
+        //       <title>View</title>
+        //       <style>
+        //         html, body {
+        //           margin: 0;
+        //           height: 100%;
+        //           overflow: hidden;
+        //         }
+        //         iframe {
+        //           border: none;
+        //           width: 100%;
+        //           height: 100%;
+        //         }
+        //       </style>
+        //     </head>
+        //     <body>
+        //       <iframe src="https://docs.google.com/gview?url=${pdfFile}"></iframe>
+        //     </body>
+        //   </html>
+        // `);
+        // newWindow.document.close();
       };
 
     return (
