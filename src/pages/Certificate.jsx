@@ -104,9 +104,10 @@ function Certificate() {
                                 <div className="certification-box">
                                     <p>{cert.name}</p>
                                 </div>
-                                <button className='certificate-btn' onClick={() => handleViewCertificate(imgUrl)}>
+                                <button className='certificate-btn d-md-none d-block' onClick={() => handleViewCertificate(imgUrl)}>
                                     View 
                                 </button>
+                                <a href={imgUrl} target='_blank' className='certificate-btn d-md-flex d-none align-items-center justify-content-center'>View</a>
                             </div>
                         )  
                     }

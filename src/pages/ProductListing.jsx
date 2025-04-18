@@ -177,14 +177,6 @@ function ProductListing() {
     );
   };
 
-  const handleFinishFilter = (finishId) => {
-    setSelectedFinish((prev) =>
-      prev.includes(finishId)
-        ? prev.filter((id) => id !== finishId)
-        : [...prev, finishId]
-    );
-  };
-
   function handlePrevious() {
     if (pagination.page > 1) {
       setPagination((old) => {
@@ -201,7 +193,7 @@ function ProductListing() {
     }
   }
 
-  const bannerImg =  getImageURL(catHeader?.listingImage)
+  const bannerImg = getImageURL(catHeader?.listingImage)
 
   return (
     <div>
@@ -241,9 +233,9 @@ function ProductListing() {
               {decorSeries.map((type) => (
                 <div className="col-6" key={type._id}>
                   <button
-                    onClick={() => setSelectedDecor(type._id)}
+                    onClick={() => handleDecorFilter(type._id)}
                     className={
-                      selectedDecor == type._id ? "active-btn" : ""
+                      selectedDecor.includes(type._id) ? "active-btn" : ""
                     }
                   >
                     {type.title}
@@ -251,25 +243,6 @@ function ProductListing() {
                 </div>
               ))}
             </div>
-
-            {/* Other Filters */}
-            {/* <h3 className="mt-3">FILTER BY FINISHES</h3>
-                <div className="row">
-                  {finishes.map((finish) => (
-                    <div className="col-6" key={finish._id}>
-                      <button
-                        onClick={() => handleFinishFilter(finish._id)}
-                        className={
-                          selectedFinish.includes(finish._id)
-                            ? "active-btn"
-                            : ""
-                        }
-                      >
-                        {finish.fullName}
-                      </button>
-                    </div>
-                  ))}
-                </div> */}
 
             {/* Category Filter */}
             <h3 className="mt-3">FILTER BY CATEGORY</h3>
@@ -286,6 +259,7 @@ function ProductListing() {
                             setSelectedSubCategory(item.name)
                             setSelectedSubCategoryId(item._id)
                           }
+
                           }
                         >
                           {item.name}
@@ -386,25 +360,6 @@ function ProductListing() {
                   ))}
                 </div>
 
-                {/* Other Filters */}
-                {/* <h3 className="mt-3">FILTER BY FINISHES</h3>
-                <div className="row">
-                  {finishes.map((finish) => (
-                    <div className="col-6" key={finish._id}>
-                      <button
-                        onClick={() => handleFinishFilter(finish._id)}
-                        className={
-                          selectedFinish.includes(finish._id)
-                            ? "active-btn"
-                            : ""
-                        }
-                      >
-                        {finish.fullName}
-                      </button>
-                    </div>
-                  ))}
-                </div> */}
-
                 {/* Category Filter */}
                 <h3 className="mt-3">FILTER BY CATEGORY</h3>
                 <Accordion>
@@ -442,7 +397,7 @@ function ProductListing() {
                   {/* <p>{catHeader?.shortDescription || ""}</p> */}
                 </div>
                 <button className="sidebar-toggle d-lg-none d-block" onClick={handleShow}>
-                  {isSidebarOpen ? <RxCross2 /> : <><FaFilter /> Filters</> }
+                  {isSidebarOpen ? <RxCross2 /> : <><FaFilter /> Filters</>}
                 </button>
               </div>
 
@@ -452,12 +407,12 @@ function ProductListing() {
                   return (
                     <div className="col-lg-4 col-6" key={product._id}>
                       <Link to={`/product-details/${product.slug}`}
-                        state={{ 
-                          category: catHeader.name, 
-                          categorySlug:categorySlug, 
-                          categoryId:catHeader._id, 
-                          subCategoryId:selectedSubCategoryId,
-                          slug:product.slug
+                        state={{
+                          category: catHeader.name,
+                          categorySlug: categorySlug,
+                          categoryId: catHeader._id,
+                          subCategoryId: selectedSubCategoryId,
+                          slug: product.slug
                         }}
                       >
                         <div className="product-box">
