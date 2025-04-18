@@ -86,7 +86,7 @@ function Certificate() {
                         <p>
                             <Link to="/">HOME</Link>
                             <span> / </span>
-                            <Link to="/" className="ms-2">Certification</Link>
+                            <Link to="/certification" className="ms-2">Certifications</Link>
                         </p>
                     </div>
                 </div>

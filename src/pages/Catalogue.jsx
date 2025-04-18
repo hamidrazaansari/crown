@@ -57,8 +57,8 @@ function Catalogue() {
         async function fetchcatelouge() {
             try {
                 let url = `${API_URL}/catalogues?limit=0&priority=ASC`;
-                if(selectedFilter){
-                    url+=`&category=${selectedFilter}`
+                if (selectedFilter) {
+                    url += `&category=${selectedFilter}`
                 }
                 const response = await axios.get(url);
                 setCatelouge(response?.data?.body);
@@ -69,41 +69,41 @@ function Catalogue() {
         fetchcatelouge()
 
     }, [selectedFilter])
-    
 
 
 
 
 
-    const handleViewCertificate = (pdfFile) => {
-        console.log(pdfFile);
+
+    // const handleViewCertificate = (pdfFile) => {
+    //     console.log(pdfFile);
 
 
-        const newWindow = window.open('', '_blank');
-        newWindow.document.write(`
-          <html>
-            <head>
-              <title>View</title>
-              <style>
-                html, body {
-                  margin: 0;
-                  height: 100%;
-                  overflow: hidden;
-                }
-                iframe {
-                  border: none;
-                  width: 100%;
-                  height: 100%;
-                }
-              </style>
-            </head>
-            <body>
-              <iframe src="${pdfFile}" title="Certificate PDF"></iframe>
-            </body>
-          </html>
-        `);
-        newWindow.document.close();
-    };
+    //     const newWindow = window.open('', '_blank');
+    //     newWindow.document.write(`
+    //       <html>
+    //         <head>
+    //           <title>View</title>
+    //           <style>
+    //             html, body {
+    //               margin: 0;
+    //               height: 100%;
+    //               overflow: hidden;
+    //             }
+    //             iframe {
+    //               border: none;
+    //               width: 100%;
+    //               height: 100%;
+    //             }
+    //           </style>
+    //         </head>
+    //         <body>
+    //           <iframe src="${pdfFile}" title="Certificate PDF"></iframe>
+    //         </body>
+    //       </html>
+    //     `);
+    //     newWindow.document.close();
+    // };
 
     return (
         <div>
@@ -115,7 +115,7 @@ function Catalogue() {
                         <p>
                             <Link to="/">HOME</Link>
                             <span> / </span>
-                            <Link to="/" className="ms-2">Catalouge</Link>
+                            <Link to="/catalouge" className="ms-2">Catalogues</Link>
                         </p>
                     </div>
                 </div>
@@ -129,12 +129,12 @@ function Catalogue() {
             {/* Filter Buttons */}
             <div className='bgWhite'>
                 <div className="catalouge-btn container d-flex flex-wrap justify-normal">
-                <button
-                            className={selectedFilter === '' ? "active-filter" : ""}
-                            onClick={() => setSelectedFilter('')}
-                        >
-                            All
-                        </button>
+                    <button
+                        className={selectedFilter === '' ? "active-filter" : ""}
+                        onClick={() => setSelectedFilter('')}
+                    >
+                        All
+                    </button>
 
                     {catalogueCategories && catalogueCategories.map((category, index) => (
                         <button
@@ -160,17 +160,20 @@ function Catalogue() {
                                     <div className="certification-box">
                                         <p>{cert.name}</p>
                                     </div>
-                                    <button className='certificate-btn' onClick={() => handleViewCertificate(imageUrl)}>
+                                    {/* <button className='certificate-btn' onClick={() => handleViewCertificate(imageUrl)}>
                                         Download <img src={File} alt="eye" />
-                                    </button>
+                                    </button> */}
+                                    <a href={imageUrl} target='_blank' className='certificate-btn d-md-flex d-none align-items-center justify-content-center' >Download <img src={File} alt="eye" /></a>
+                                    <a href={imageUrl} download className='certificate-btn d-md-none d-flex align-items-center justify-content-center'>Download <img src={File} alt="eye" /></a>
+
                                 </div>
                             );
                         })
                     ) : (
-                    <div className='d-flex flex-column align-items-center justify-content-center'>
-                        <img src={Files} alt="eye" />
-                        <p>No catelouge available</p>
-                    </div>
+                        <div className='d-flex flex-column align-items-center justify-content-center'>
+                            <img src={Files} alt="eye" />
+                            <p>No catelouge available</p>
+                        </div>
                     )}
                 </div>
             </div>

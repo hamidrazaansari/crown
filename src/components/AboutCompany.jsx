@@ -9,7 +9,7 @@ const AboutCompany = () => {
         <p>
           <Link href="/">HOME</Link>
           <span> / </span>{" "}
-          <Link href="/" className="ms-2">
+          <Link href="/about" className="ms-2">
             About Us
           </Link>{" "}
         </p>

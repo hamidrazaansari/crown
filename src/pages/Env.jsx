@@ -26,7 +26,7 @@ export default function Env() {
                         <p>
                             <Link to="/">HOME</Link>
                             <span> / </span>
-                            <Link to="/" className="ms-2">Environment</Link>
+                            <Link to="/environmental" className="ms-2">Environment</Link>
                         </p>
                     </div>
                 </div>

@@ -18,7 +18,7 @@ function BlogPage() {
             <div className="blog-details">
                 <div className="container px-5">
                     <div className="breadcrumb">
-                        <p><Link to="/">HOME</Link><span> / </span> <Link to="/" className='ms-2'>Blog</Link> </p>
+                        <p><Link to="/">HOME</Link><span> / </span> <Link to="/blog" className='ms-2'>Blog</Link> </p>
                     </div>
                 </div>
                 <div className="container">

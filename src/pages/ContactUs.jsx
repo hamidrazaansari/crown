@@ -167,7 +167,7 @@ function ContactUs() {
                         <p>
                             <Link to="/">HOME</Link>
                             <span> / </span>
-                            <Link to="/" className="ms-2">CONTACT US</Link>
+                            <Link to="/contact" className="ms-2">CONTACT US</Link>
                         </p>
                     </div>
                 </div>

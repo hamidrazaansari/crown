@@ -95,7 +95,7 @@ function Footer() {
                                         <p className='mb-0'>+91 33 4066 0166, 2283 0166 </p>
                                     </a>
 
-                                    <a href='mailto:kanishka@crownlam.com' className="d-flex align-items-center">
+                                    <a href='mailto:kanishka@crownlam.com' className="d-flex align-items-center insta-res">
                                         <div className="footer-img">
                                             <img src={Mail} alt="mail"  style={{ height: "12px", width: "18px", margin: "0 10px " }} />
                                         </div>

@@ -13,7 +13,7 @@ const Privacy = () => {
                         <p>
                             <Link to="/">HOME</Link>
                             <span> / </span>
-                            <Link to="/" className="ms-2">Privacy Policy</Link>
+                            <Link to="/privacy" className="ms-2">Privacy Policy</Link>
                         </p>
                     </div>
                 </div>

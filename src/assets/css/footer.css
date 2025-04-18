@@ -600,13 +600,17 @@
 
   .socal-link {
     position: relative !important;
-    top: -24px !important;
-    left: 165px !important;
-  }
+    top: 30px !important;
+    left: -6px !important;
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
   .resp {
     margin-left: 0px !important;
-    margin-top: 30px !important;
+    margin-top: 60px !important;
     padding-left: 25px !important;
   }
 
@@ -665,33 +669,27 @@
     font-size: 13px;
   }
 
-  .footer-phone{
-    width: 35px !important;
+  .footer-phone {
+    width: 45px !important;
+    margin-left: 5px;
 }
 .logo img {
-  top: -69px !important;
+  top: -95px !important;
+}
+.socal-link p {
+  font-size: 13px;
+}
+.insta-res{
+  margin-left: 10px !important;
 }
 
 }
 
 
 @media (max-width:400px) {
-  .socal-link {
-    position: relative !important;
-    top: -24px !important;
-    left: 122px !important;
-    width: 56%;
-  }
-
+ 
   .socal-link p {
     font-size: 12px !important;
-  }
-
-  .logo img {
-    position: absolute;
-    top: -39px;
-    height: 90px !important;
-    left: 20px;
   }
 
   .footer-bottom .socal p {
@@ -704,11 +702,7 @@
     font-size: 15px !important;
 }
 
-  .resp {
-    margin-left: 0px !important;
-    margin-top: 20px !important;
-    padding-left: 31px !important;
-  }
+
 
   .newFooter h2 {
     margin: 10px 0px !important;
@@ -743,7 +737,5 @@
   .newslatter button svg {
     font-size: 25px;
   }
-  .footer-phone{
-    width: 37px;
-  }
+
 }
