@@ -1,4 +1,4 @@
-import logo from '../assets/image/logo.png'
+import logo from '../assets/image/logo without tagline.jpg'
 import { Link } from 'react-router-dom';
 
 const AboutCompany = () => {

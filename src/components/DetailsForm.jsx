@@ -67,7 +67,7 @@ function DetailsForm() {
                                 <input type="text" id="phone" />
                             </div>
 
-                            <button className='form-btn'>Enquire Now</button>
+                            <button className='form-btn'>Enquiry Now</button>
                         </div>
                     </div>
                 </div>

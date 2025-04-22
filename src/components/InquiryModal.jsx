@@ -207,7 +207,7 @@ useEffect(()=>{
                         </div>
 
                         <button className="form-btn" onClick={handleSubmit}>
-                            Enquire Now
+                            Enquiry Now
                         </button>
                     </div>
                 </div>

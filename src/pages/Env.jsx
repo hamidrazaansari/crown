@@ -69,21 +69,21 @@ export default function Env() {
                     {/* <h2 className='strategy-heading'>CROWN STRATEGY GROUP </h2> */}
                     {/* <p>At Crown Lam, we envision a world where laminates do more than cover surfaces—they elevate them. We strive to be the go-to choice for architects, designers, and clients worldwide who seek luxury and longevity in every detail. Our commitment is to be a trusted supplier in every sense: delivering excellence in quality, aesthetics, and innovation across all our products.</p> */}
                     <div className="row px-4">
-                        <div className="col-lg-4 col-md-6 col-12">
+                        <div className="col-lg-4 col-md-6 col-6">
                             <div className="commitment-card">
                                 <img src={Commitment1} alt="Commitment" />
                                 <h3>Renewable Energy</h3>
                                 <p>41% of our energy comes from wind and solar power, reducing our carbon footprint. </p>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-6 col-12">
+                        <div className="col-lg-4 col-md-6 col-6">
                             <div className="commitment-card">
                                 <img src={Commitment6} alt="" />
                                 <h3>Water Conservation</h3>
                                 <p>We follow a Zero Liquid Discharge (ZLD) system, where 100% of wastewater is treated and reused, minimizing water wastage.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-6 col-12">
+                        <div className="col-lg-4 col-md-6 col-6">
                             <div className="commitment-card">
                                 <img src={Commitment4} alt="" />
                                 <h3>Waste Management</h3>
@@ -91,14 +91,14 @@ export default function Env() {
                                 </p>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-6 col-12">
+                        <div className="col-lg-4 col-md-6 col-6">
                             <div className="commitment-card">
                                 <img src={Commitment3} alt="" />
                                 <h3>Forestry & Green Initiatives</h3>
                                 <p>We expand green cover by 10% annually in industrial zones and have contributed 1 lakh saplings to afforestation initiatives.</p>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-6 col-12">
+                        <div className="col-lg-4 col-md-6 col-6">
                             <div className="commitment-card">
                                 <img src={Commitment5} alt="" />
                                 <h3>Product Safety & Compliance
@@ -107,7 +107,7 @@ export default function Env() {
                                 </p>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-6 col-12">
+                        <div className="col-lg-4 col-md-6 col-6">
                             <div className="commitment-card">
                                 <img src={Commitment2} alt="" />
                                 <h3>Community Impact</h3>

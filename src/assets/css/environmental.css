@@ -361,6 +361,31 @@
     font-size: 15px;
     margin-bottom: 5px;
 }
+.envoirementabout{
+    padding: 10px 0;
+}
+.strategy .row{
+    padding: 0 !important;
+}
+.commitment-card img {
+    height: 55px;
+    margin: 10px 0;
+}
+.commitment-card h3 {
+    font-size: 15px;
+    padding: 0 0px 10px;
+    margin: 0px 10px;
+    line-height: 19px;
+}
+.commitment-card p {
+    padding: 0 0px;
+    font-size: 13px;
+    font-family: 'LightInter';
+    line-height: 17px !important;
+}
+.commitment-card{
+    height: 290px;
+}
 }
 
 /* new env design */

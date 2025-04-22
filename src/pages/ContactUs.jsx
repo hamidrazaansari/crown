@@ -184,8 +184,8 @@ function ContactUs() {
                                 </div>
                                 <div className="contact-info">
                                     <h2> Contact Information</h2>
-                                   <Link hrefLang='tel:+913340660166'><p><img src={Call} alt="phone" />+91 33 4066 0166, 2283 0166</p></Link> 
-                                    <Link hrefLang='mailto:kanishka@crownlam.com'><p><img src={Mail} alt="mail" style={{ height: "15px", width: '18px' }} />kanishka@crownlam.com</p></Link>
+                                   <a href='tel:+913340660166'><p><img src={Call} alt="phone" />+91 33 4066 0166, 2283 0166</p></a> 
+                                    <a href='mailto:kanishka@crownlam.com'><p><img src={Mail} alt="mail" style={{ height: "15px", width: '18px' }} />kanishka@crownlam.com</p></a>
 
                                     <strong ><img src={Location} alt="phone" />Global Contact Point</strong>
                                     <p className='add-para'>The Regency, Unit 3, 2nd Floor,

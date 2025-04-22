@@ -168,8 +168,6 @@ function ProductListing() {
     );
   };
   const handleDecorFilter = (sizeId) => {
-    console.log(sizeId);
-
     setSelectedDecor((prev) =>
       prev.includes(sizeId)
         ? prev.filter((id) => id !== sizeId)

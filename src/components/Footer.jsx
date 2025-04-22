@@ -71,8 +71,8 @@ function Footer() {
                 <ToastContainer />
                 <div className='footer'>
                     <div className="newslatter">
-                        <h2>Be the first to know about new drops</h2>
-                        <p>Subscribe to our newsletter for early access, special deals, and the latest trends.</p>
+                        <h2>Stay Inspired with Crown! </h2>
+                        <p>Subscribe to our newsletter for exhibition updates, and the latest in HPL news. </p>
                         <div className="d-flex">
                             <input type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Your Email" />
                             {error.email && (
