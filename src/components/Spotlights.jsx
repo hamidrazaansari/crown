@@ -6,6 +6,7 @@ import AqvaWall from "../assets/image/SpotLight/Aqva-Wall.jpg";
 import Kittop from "../assets/image/SpotLight/Kittop.jpg";
 import Qbiss from "../assets/image/SpotLight/Qbiss.jpg";
 import Tabillo from "../assets/image/SpotLight/Tabillo.jpeg";
+import Tabillo2 from "../assets/image/SpotLight/banner-crown.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,7 @@ const Spotlights = () => {
     { src: Qbiss, title: "QBISS" },
     { src: Kittop, title: "KITTOP" },
     { src: AqvaWall, title: "AQVA WALL" },
+    { src: Tabillo2, title: "Tabillo2" },
   ]);
 
   useEffect(() => {
