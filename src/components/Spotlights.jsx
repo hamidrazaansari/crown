@@ -12,11 +12,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Spotlights = () => {
   const [images] = useState([
+    { src: Tabillo2, title: "CROWN" },
     { src: Tabillo, title: "TABILLO" },
     { src: Qbiss, title: "QBISS" },
     { src: Kittop, title: "KITTOP" },
     { src: AqvaWall, title: "AQVA WALL" },
-    { src: Tabillo2, title: "CROWN" },
   ]);
 
   useEffect(() => {
