@@ -10,6 +10,11 @@
     width: 100%;
 }
 
+.Sample-modal .img-box img {
+    height: 235px !important;
+    width: 100%;
+}
+
 .img-box .a4 {
     height: 40px;
     width: 40px;

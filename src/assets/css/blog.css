@@ -67,7 +67,7 @@
     letter-spacing: 7px;
     text-align: left;
     margin: 20px;
-    width: 46px;
+    width: 45px;
     height: 45px;
     display: flex;
     align-items: center;
@@ -75,6 +75,7 @@
     border: 1px solid #000;
     border-radius: 50%;
     background: transparent;
+    padding: 15px;
 }
 
 .blog .custom-prev-btn,
@@ -118,7 +119,7 @@
 .blog-details p {
     font-family: asliInter;
     color: #22222278;
-    font-size: 15px;
+    font-size: 17px !important;
 }
 
 .blog-details .blog-heading {
@@ -212,11 +213,12 @@
 }
 
 .blog-details p {
-    font-size: 15px !important;
     padding: 0 !important;
 }
 
-
+.blog-box h2 {
+    color: #000;
+}
 
 @media (max-width:1400px) {
     .blog-box {
@@ -230,6 +232,7 @@
     .blog-box button {
         width: 40px !important;
         height: 40px !important;
+        padding: 12px;
     }
 
     .blog-details p {
@@ -474,6 +477,9 @@
     }
     .blog-details-content .information p{
         font-size: 13px !important;
+    }
+    .blog-box button{
+        padding: 7px !important;
     }
 }
 

@@ -8,6 +8,10 @@ import Calendar from '../assets/image/calender.png'
 import BlogImage from '../assets/image/blogimage.png'
 import RecentBlog from '../assets/image/recent-blog.png'
 import { Link } from 'react-router-dom'
+import Quality from '../assets/image/quality.jpg'
+import Sustainabilty from '../assets/image/sustainabilty.jpg'
+import TheRise from '../assets/image/therise.jpg'
+import Beyond from '../assets/image/beyond.jpg'
 
 function NewBlogDetails() {
     return (
@@ -16,7 +20,7 @@ function NewBlogDetails() {
             <div className="blog-details">
                 <div className="container px-5">
                     <div className="breadcrumb">
-                        <p><Link to="/">HOME</Link><span> / </span> <Link to="/" className='ms-2'>BLog</Link> </p>
+                        <p><Link to="/">HOME</Link><span> / </span> <Link to="/blog" className='ms-2'>BLog</Link> <span> / </span> <Link to="/quality-certification-in-luxury-laminates" className='ms-2'>Quality Certification in Luxury Laminates</Link></p>
                     </div>
                 </div>
                 <div className="container">
@@ -29,7 +33,7 @@ function NewBlogDetails() {
                                 <div className="d-flex information align-items-center">
                                     <p className="d-flex align-items-center justify-content-center"><img src={User} alt="user image" /> Admin</p>
                                     <div className="dot"></div>
-                                    <p className="d-flex align-items-center justify-content-center"><img src={Calendar} alt="user image" />March 10, 2025</p>
+                                    <p className="d-flex align-items-center justify-content-center"><img src={Calendar} alt="user image" />April 20, 2025</p>
                                 </div>
                                 <h1>Quality Certification in Luxury Laminates: Standards of Excellence & Compliance</h1>
                                 <p>For premium decorative surfaces, quality is the ultimate criteria. An ideal laminate should be one that combines visual appeal with functional utility, consumer safety and environmental sustainability. Many laminate brands make tall claims, but how does one actually validate their credibility? Trusted, globally accepted quality certifications reinforce the reputation of a genuinely high quality product.</p>
@@ -84,20 +88,30 @@ function NewBlogDetails() {
                             <div className="recent-blog">
                                 <h2>Recent Posts</h2>
                                 <div className="rcent-blog-box d-flex">
-                                    <img src={RecentBlog} alt="blog image" />
+                                    <img src={TheRise} alt="blog image" />
                                     <div>
-                                        <p>March 10, 2025</p>
-                                        <Link to={'/blog-details'}>
-                                            <h3>The Rise of Thin Laminates: Light Weight Luxury</h3>
+                                        <p>May 1, 2025</p>
+                                        <Link to={'/the-rise-of-thin-laminates'}>
+                                        <h3>The Rise of Thin Laminates: Light Weight Luxury</h3>
+                                        </Link>
+                                    </div>
+                                </div>
+
+                                <div className="rcent-blog-box d-flex">
+                                    <img src={Beyond} alt="blog image" />
+                                    <div>
+                                        <p>March 15, 2025</p>
+                                        <Link to={'/beyond-wood-and-stone'}>
+                                        <h3>Beyond Wood & Stone: Why Luxury Homes are Choosing High-End Laminates</h3>
                                         </Link>
                                     </div>
                                 </div>
                                 <div className="rcent-blog-box d-flex">
-                                    <img src={RecentBlog} alt="blog image" />
+                                    <img src={Sustainabilty} alt="blog image" />
                                     <div>
-                                        <p>March 10, 2024</p>
-                                        <Link to={'/new-blog'}>
-                                            <h3>What is the Laminates Sheets Manufacturing Process</h3>
+                                        <p>March 10, 2025</p>
+                                        <Link to={'/sustainabl-details'}>
+                                        <h3>Sustainable Luxury: Eco-Friendly Laminates for Modern Homes</h3>
                                         </Link>
                                     </div>
                                 </div>

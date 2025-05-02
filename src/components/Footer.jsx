@@ -92,7 +92,7 @@ function Footer() {
                                         <div className="footer-img footer-phone">
                                             <img src={Call} alt="phone" />
                                         </div>
-                                        <p className='mb-0'>+91 33 4066 0166, 2283 0166 </p>
+                                        <p className='mb-0'>+91 33 4066 0166, +91 33 2283 0166 </p>
                                     </a>
 
                                     <a href='mailto:kanishka@crownlam.com' className="d-flex align-items-center insta-res">

@@ -12,17 +12,19 @@ import About from "./pages/About"
 import Certificate from "./pages/Certificate"
 import ProductBanner from "./components/ProductBanner"
 import NavModal from "./components/NavModal"
-import BlogDetails from "./pages/BlogDetails"
+import BlogDetails from "./pages/TheRiseLaminates"
 import ThankYouPage from "./components/ThankYouPage"
 import ContactUs from "./pages/ContactUs"
 import Catalogue from "./pages/Catalogue"
 import Application from "./components/Application"
 import NewBlogDetails from "./pages/NewBlogDetails"
 import ApplicationDetails from "./components/ApplicationDetails"
-import LuxuryDetails from "./pages/LuxuryDetails"
+import LuxuryDetails from "./pages/BeyondWood"
 import SustainableDetails from "./pages/SustainableDetails"
 import Privacy from "./pages/Privacy"
 import PdfViewer from "./components/PdfViewer"
+import BeyondWood from "./pages/BeyondWood"
+import TheRiseLaminates from "./pages/TheRiseLaminates"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
@@ -41,7 +43,7 @@ function App() {
             />
         <Route path="/product-details/:slug" element={<ProductDetails/>}/>
         <Route path="/blog" element={<BlogPage/>}/>
-        <Route path="/blog-details" element={<BlogDetails/>}/>
+        <Route path="/the-rise-of-thin-laminates" element={<TheRiseLaminates/>}/>
         <Route
               path="/application/:subCategorySlug"
               element={<Application/>}
@@ -57,12 +59,12 @@ function App() {
               element={<Catalogue />}
             />
   <Route
-              path="/new-blog"
+              path="/quality-certification-in-luxury-laminates"
               element={<NewBlogDetails/>}
             />
         <Route
-              path="/luxury-details"
-              element={<LuxuryDetails/>}
+              path="/beyond-wood-and-stone"
+              element={<BeyondWood/>}
             />
         <Route
               path="/sustainabl-details"

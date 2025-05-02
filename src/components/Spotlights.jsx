@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Spotlights = () => {
   const [images] = useState([
-    { src: Tabillo2, title: "CROWN" },
+    { src: Tabillo2, title: "INTERZUM 2025" },
     { src: Tabillo, title: "TABILLO" },
     { src: Qbiss, title: "QBISS" },
     { src: Kittop, title: "KITTOP" },

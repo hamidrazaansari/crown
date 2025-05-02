@@ -7,6 +7,10 @@ import User from '../assets/image/admin.png'
 import Calendar from '../assets/image/calender.png'
 import BlogImage from '../assets/image/blogimage.png'
 import RecentBlog from '../assets/image/recent-blog.png'
+import Quality from '../assets/image/quality.jpg'
+import Sustainabilty from '../assets/image/sustainabilty.jpg'
+import TheRise from '../assets/image/therise.jpg'
+import Beyond from '../assets/image/beyond.jpg'
 import { Link } from 'react-router-dom'
 
 function SustainableDetails() {
@@ -16,7 +20,7 @@ function SustainableDetails() {
             <div className="blog-details">
                 <div className="container px-5">
                     <div className="breadcrumb">
-                        <p><Link to="/">HOME</Link><span> / </span> <Link to="/" className='ms-2'>BLog</Link> </p>
+                        <p><Link to="/">HOME</Link><span> / </span> <Link to="/blog" className='ms-2'>BLog</Link><span> / </span> <Link to="/sustainabl-details" className='ms-2'>Sustainable Luxury</Link> </p>
                     </div>
                 </div>
                 <div className="container">
@@ -55,20 +59,29 @@ function SustainableDetails() {
                             <div className="recent-blog">
                                 <h2>Recent Posts</h2>
                                 <div className="rcent-blog-box d-flex">
-                                    <img src={RecentBlog} alt="blog image" />
+                                    <img src={TheRise} alt="blog image" />
                                     <div>
-                                        <p>March 10, 2025</p>
-                                        <Link to={'/blog-details'}>
+                                        <p>May 1, 2025</p>
+                                        <Link to={'/the-rise-of-thin-laminates'}>
                                         <h3>The Rise of Thin Laminates: Light Weight Luxury</h3>
                                         </Link>
                                     </div>
                                 </div>
                                 <div className="rcent-blog-box d-flex">
-                                    <img src={RecentBlog} alt="blog image" />
+                                    <img src={Quality} alt="blog image" />
                                     <div>
-                                        <p>March 10, 2024</p>
-                                        <Link to={'/new-blog'}>
-                                        <h3>What is the Laminates Sheets Manufacturing Process</h3>
+                                        <p>April 20, 2025</p>
+                                        <Link to={'/quality-certification-in-luxury-laminates'}>
+                                        <h3>Quality Certification in Luxury Laminates: Standards of Excellence & Compliance</h3>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className="rcent-blog-box d-flex">
+                                    <img src={Beyond} alt="blog image" />
+                                    <div>
+                                        <p>March 15, 2025</p>
+                                        <Link to={'/beyond-wood-and-stone'}>
+                                        <h3>Beyond Wood & Stone: Why Luxury Homes are Choosing High-End Laminates</h3>
                                         </Link>
                                     </div>
                                 </div>

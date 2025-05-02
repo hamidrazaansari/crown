@@ -7,9 +7,9 @@ import getImageURL from "../utills/getImageURL";
 import { useNavigate, Link } from "react-router-dom";
 
 
-const NavModal = () => {
+const NavModal = ({handleNavClose}) => {
     const [show, setShow] = useState(false);
-    const [activeSection, setActiveSection] = useState("products"); // Tracks which section is active
+    const [activeSection, setActiveSection] = useState("products");
     const [data, setData] = useState([]);
     const [category, setCategory] = useState('');
 
@@ -117,9 +117,6 @@ const NavModal = () => {
                 </Dropdown>
             </div>
             <div className="d-lg-none d-block ">
-      
-                
-
                         <Dropdown.Item >
                             <div className="row">
                                 {/* Section Toggle Buttons */}
@@ -146,7 +143,7 @@ const NavModal = () => {
                                             {data && data.map((category) => {
                                                 const imageUrl = category.image ? getImageURL(category.image) : '';
                                                 return (
-                                                    <Link key={category._id} className="col-lg-4" to={`/${category.slug}`}>
+                                                    <Link key={category._id} className="col-lg-4" onClick={handleNavClose} to={`/${category.slug}`}>
                                                         <div className="menu-img">
                                                             <img src={imageUrl} className="img-fluid mb-2" alt={category.name} />
                                                             <h2 className="fs-5 ms-4">{category.name}</h2>
@@ -167,7 +164,7 @@ const NavModal = () => {
                                                 if (item.isAddedToNavigation == true)
                                                     return (
                                                         <div key={index} className="col-lg-3">
-                                                            <Link className="application-box" to={`/application/${item.slug}`}>
+                                                            <Link className="application-box" onClick={handleNavClose} to={`/application/${item.slug}`}>
                                                                 <img src={imgUrl} alt={item.name} />
                                                                 <h3 className="app-heading">{item.listingTitle}</h3>
                                                             </Link>
