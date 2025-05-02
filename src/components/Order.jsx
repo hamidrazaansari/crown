@@ -41,20 +41,22 @@ function Order() {
     
 
     useEffect(() => {
-        setCountry(Country.getAllCountries());
+        setCountry(Country.getAllCountries() || []);
     }, []);
 
     useEffect(() => {
         if (selectedCountry) {
-            setState(State.getStatesOfCountry(selectedCountry));
+            const states = State.getStatesOfCountry(selectedCountry) || [];
+            setState(states);
             setSelectedState('');
             setCity([]);
         }
     }, [selectedCountry]);
 
     useEffect(() => {
-        if (selectedState) {
-            setCity(City.getCitiesOfState(selectedCountry, selectedState));
+        if (selectedCountry && selectedState) {
+            const cities = City.getCitiesOfState(selectedCountry, selectedState) || [];
+            setCity(cities);
             setSelectedCity('');
         }
     }, [selectedState]);
