@@ -10,7 +10,7 @@ import { RxCross2 } from "react-icons/rx";
 import { toast, ToastContainer } from 'react-toastify';
 import { CounterContext } from '../context/CounterContext';
 import Select from "react-select";
-import allCountriesData from "../utills/all_countries_states_cities_full.json";
+import { State, City } from 'country-state-city';
 
 
 function Order() {
@@ -102,22 +102,22 @@ function Order() {
 
     const countries = [
         { label: "Afghanistan", value: "AF" },
-        // { label: "Aland Islands", value: "AX" },
-        // { label: "Albania", value: "AL" },
-        // { label: "Algeria", value: "DZ" },
-        // { label: "American Samoa", value: "AS" },
-        // { label: "Andorra", value: "AD" },
-        // { label: "Angola", value: "AO" },
-        // { label: "Anguilla", value: "AI" },
-        // { label: "Antarctica", value: "AQ" },
-        // { label: "Antigua and Barbuda", value: "AG" },
+        { label: "Aland Islands", value: "AX" },
+        { label: "Albania", value: "AL" },
+        { label: "Algeria", value: "DZ" },
+        { label: "American Samoa", value: "AS" },
+        { label: "Andorra", value: "AD" },
+        { label: "Angola", value: "AO" },
+        { label: "Anguilla", value: "AI" },
+        { label: "Antarctica", value: "AQ" },
+        { label: "Antigua and Barbuda", value: "AG" },
         { label: "Argentina", value: "AR" },
-        // { label: "Armenia", value: "AM" },
+        { label: "Armenia", value: "AM" },
         { label: "Australia", value: "AU" },
-        // { label: "Austria", value: "AT" },
-        // { label: "Azerbaijan", value: "AZ" },
-        // { label: "Bahamas", value: "BS" },
-        // { label: "Bahrain", value: "BH" },
+        { label: "Austria", value: "AT" },
+        { label: "Azerbaijan", value: "AZ" },
+        { label: "Bahamas", value: "BS" },
+        { label: "Bahrain", value: "BH" },
         { label: "Bangladesh", value: "BD" },
         { label: "Barbados", value: "BB" },
         { label: "Belarus", value: "BY" },
@@ -249,24 +249,13 @@ function Order() {
     ];
 
     const states = values.country
-        ? allCountriesData
-            .find((country) => country.value === values.country)
-            ?.states.map((state) => ({
-                label: state.label,
-                value: state.value,
-            })) || []
+        ? State.getAllStates().filter((state) => state.countryCode === values.country)
         : [];
 
-    // Get Cities based on selected state
     const cities = values.state
-        ? allCountriesData
-            .find((country) => country.value === values.country)
-            ?.states.find((state) => state.value === values.state)
-            ?.cities.map((city) => ({
-                label: city,
-                value: city,
-            })) || []
+        ? City.getAllCities().filter((city) => city.stateCode === values.state)
         : [];
+
 
 
     return (
@@ -355,18 +344,19 @@ function Order() {
 
                                 <div className="col-lg-4 state" style={{ position: 'relative' }}>
                                     <Select
-                                        options={states}
+                                        options={states.map((s) => ({ label: s.name, value: s.isoCode }))}
                                         onChange={(option) => {
-                                            // setFieldValue("state", option.value);
-                                            // setFieldValue("city", null);
-                                            setValues((old) => { return { ...old, state: option.value } })
-
-                                            setState(option.label)
+                                            setValues((old) => ({ ...old, state: option.value }));
+                                            setState(option.label); // Optional: to store readable name
                                         }}
-                                        value={states.find((s) => s.value === values.state) || null}
+                                        value={
+                                            states
+                                                .map((s) => ({ label: s.name, value: s.isoCode }))
+                                                .find((s) => s.value === values.state) || null
+                                        }
                                         placeholder="Select State"
                                         isDisabled={!values.country}
-                                        className='mt-2'
+                                        className="mt-2"
                                     />
                                     {error.state && (
                                         <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
@@ -375,17 +365,21 @@ function Order() {
                                     )}
                                 </div>
                                 <div className="col-lg-4  " style={{ position: 'relative' }}>
-                                    <Select
-                                        options={cities}
-                                        onChange={(option) =>
-                                            //  setFieldValue("city", option.value)
-                                            setValues((old) => { return { ...old, city: option.value } })
 
+                                    <Select
+                                        options={cities.map((c) => ({ label: c.name, value: c.name }))}
+                                        onChange={(option) => {
+                                            setValues((old) => ({ ...old, city: option.value }));
+                                            setCity(option.label);
+                                        }}
+                                        value={
+                                            cities
+                                                .map((c) => ({ label: c.name, value: c.name }))
+                                                .find((c) => c.value === values.city) || null
                                         }
-                                        value={cities.find((c) => c.value === values.city) || null}
                                         placeholder="Select City"
                                         isDisabled={!values.state}
-                                        className='mt-2'
+                                        className="mt-2"
                                     />
                                     {error.city && (
                                         <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>

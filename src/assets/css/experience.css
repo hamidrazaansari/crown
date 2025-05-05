@@ -51,20 +51,22 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin-top: 40px;
+    margin-top: 0px;
 }
 
 
 .experience {
   position: relative;
   text-align: center;
-  padding: 100px 0; /* Adjust spacing */
+  padding: 0px 0; /* Adjust spacing */
   overflow: hidden;
+  padding-top: 0;
 }
 
 .gallery-heading {
   position: relative;
   z-index: 10; /* Ensures heading stays on top */
+  margin-bottom: 40px;
 }
 
 .experience-middle-container {

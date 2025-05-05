@@ -2,6 +2,7 @@
     padding: 40px 0;
     background-color: #ffffff;
     z-index: 1;
+    padding-top: 0 !important;
 }
 
 .blog-heading {
