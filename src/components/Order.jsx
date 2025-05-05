@@ -11,6 +11,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import { CounterContext } from '../context/CounterContext';
 import Select from "react-select";
 import { State, City } from 'country-state-city';
+import CountryStateCity from './CountryStateCity';
+
 
 
 function Order() {
@@ -19,9 +21,8 @@ function Order() {
     const [email, setEmail] = useState('');
     const [address, setAddress] = useState('');
     const [locality, setLocality] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [country, setCountry] = useState('');
+    // const [city, setCity] = useState('');
+    // const [state, setState] = useState('');
     const [pincode, setPincode] = useState('');
     const [error, setError] = useState({
         name: '',
@@ -35,11 +36,18 @@ function Order() {
         country: '',
         pincode: '',
     })
-    const [values, setValues] = useState({
-        country: "",
-        state: "",
-        city: "",
-    })
+
+        const [country, setCountry] = useState(null);
+        const [currentState, setCurrentState] = useState(null);
+        const [currentCity, setCurrentCity] = useState(null);
+        
+
+
+    // const [values, setValues] = useState({
+    //     country: "",
+    //     state: "",
+    //     city: "",
+    // })
 
 
     const { removeItemById, data, clearCart } = useContext(CounterContext);
@@ -66,9 +74,9 @@ function Order() {
                 products,
                 address,
                 locality,
-                city,
-                state,
-                country,
+                city : currentCity.name,
+                state : currentState.name,
+                country: country.name,
                 pincode,
             });
 
@@ -100,161 +108,161 @@ function Order() {
         navigate("/exterior-laminate");
     };
 
-    const countries = [
-        { label: "Afghanistan", value: "AF" },
-        { label: "Aland Islands", value: "AX" },
-        { label: "Albania", value: "AL" },
-        { label: "Algeria", value: "DZ" },
-        { label: "American Samoa", value: "AS" },
-        { label: "Andorra", value: "AD" },
-        { label: "Angola", value: "AO" },
-        { label: "Anguilla", value: "AI" },
-        { label: "Antarctica", value: "AQ" },
-        { label: "Antigua and Barbuda", value: "AG" },
-        { label: "Argentina", value: "AR" },
-        { label: "Armenia", value: "AM" },
-        { label: "Australia", value: "AU" },
-        { label: "Austria", value: "AT" },
-        { label: "Azerbaijan", value: "AZ" },
-        { label: "Bahamas", value: "BS" },
-        { label: "Bahrain", value: "BH" },
-        { label: "Bangladesh", value: "BD" },
-        { label: "Barbados", value: "BB" },
-        { label: "Belarus", value: "BY" },
-        { label: "Belgium", value: "BE" },
-        { label: "Belize", value: "BZ" },
-        { label: "Benin", value: "BJ" },
-        { label: "Bermuda", value: "BM" },
-        { label: "Bhutan", value: "BT" },
-        { label: "Bolivia", value: "BO" },
-        { label: "Bosnia and Herzegovina", value: "BA" },
-        { label: "Botswana", value: "BW" },
-        { label: "Brazil", value: "BR" },
-        { label: "British Indian Ocean Territory", value: "IO" },
-        { label: "Brunei Darussalam", value: "BN" },
-        { label: "Bulgaria", value: "BG" },
-        { label: "Burkina Faso", value: "BF" },
-        { label: "Burundi", value: "BI" },
-        { label: "Cambodia", value: "KH" },
-        { label: "Cameroon", value: "CM" },
-        { label: "Canada", value: "CA" },
-        { label: "Cape Verde", value: "CV" },
-        { label: "Central African Republic", value: "CF" },
-        { label: "Chad", value: "TD" },
-        { label: "Chile", value: "CL" },
-        { label: "China", value: "CN" },
-        { label: "Colombia", value: "CO" },
-        { label: "Comoros", value: "KM" },
-        { label: "Congo", value: "CG" },
-        { label: "Congo, The Democratic Republic of the", value: "CD" },
-        { label: "Costa Rica", value: "CR" },
-        { label: "Croatia", value: "HR" },
-        { label: "Cuba", value: "CU" },
-        { label: "Cyprus", value: "CY" },
-        { label: "Czech Republic", value: "CZ" },
-        { label: "Denmark", value: "DK" },
-        { label: "Djibouti", value: "DJ" },
-        { label: "Dominica", value: "DM" },
-        { label: "Dominican Republic", value: "DO" },
-        { label: "Ecuador", value: "EC" },
-        { label: "Egypt", value: "EG" },
-        { label: "El Salvador", value: "SV" },
-        { label: "Equatorial Guinea", value: "GQ" },
-        { label: "Eritrea", value: "ER" },
-        { label: "Estonia", value: "EE" },
-        { label: "Eswatini", value: "SZ" },
-        { label: "Ethiopia", value: "ET" },
-        { label: "Fiji", value: "FJ" },
-        { label: "Finland", value: "FI" },
-        { label: "France", value: "FR" },
-        { label: "Gabon", value: "GA" },
-        { label: "Gambia", value: "GM" },
-        { label: "Georgia", value: "GE" },
-        { label: "Germany", value: "DE" },
-        { label: "Ghana", value: "GH" },
-        { label: "Greece", value: "GR" },
-        { label: "Grenada", value: "GD" },
-        { label: "Guatemala", value: "GT" },
-        { label: "Guinea", value: "GN" },
-        { label: "Guinea-Bissau", value: "GW" },
-        { label: "Guyana", value: "GY" },
-        { label: "Haiti", value: "HT" },
-        { label: "Honduras", value: "HN" },
-        { label: "Hungary", value: "HU" },
-        { label: "Iceland", value: "IS" },
-        { label: "India", value: "IN" },
-        { label: "Indonesia", value: "ID" },
-        { label: "Iran", value: "IR" },
-        { label: "Iraq", value: "IQ" },
-        { label: "Ireland", value: "IE" },
-        { label: "Israel", value: "IL" },
-        { label: "Italy", value: "IT" },
-        { label: "Jamaica", value: "JM" },
-        { label: "Japan", value: "JP" },
-        { label: "Jordan", value: "JO" },
-        { label: "Kazakhstan", value: "KZ" },
-        { label: "Kenya", value: "KE" },
-        { label: "Kuwait", value: "KW" },
-        { label: "Kyrgyzstan", value: "KG" },
-        { label: "Laos", value: "LA" },
-        { label: "Latvia", value: "LV" },
-        { label: "Lebanon", value: "LB" },
-        { label: "Lesotho", value: "LS" },
-        { label: "Liberia", value: "LR" },
-        { label: "Libya", value: "LY" },
-        { label: "Liechtenstein", value: "LI" },
-        { label: "Lithuania", value: "LT" },
-        { label: "Luxembourg", value: "LU" },
-        { label: "Madagascar", value: "MG" },
-        { label: "Malawi", value: "MW" },
-        { label: "Malaysia", value: "MY" },
-        { label: "Maldives", value: "MV" },
-        { label: "Mali", value: "ML" },
-        { label: "Malta", value: "MT" },
-        { label: "Mexico", value: "MX" },
-        { label: "Moldova", value: "MD" },
-        { label: "Monaco", value: "MC" },
-        { label: "Mongolia", value: "MN" },
-        { label: "Morocco", value: "MA" },
-        { label: "Mozambique", value: "MZ" },
-        { label: "Myanmar", value: "MM" },
-        { label: "Namibia", value: "NA" },
-        { label: "Nepal", value: "NP" },
-        { label: "Netherlands", value: "NL" },
-        { label: "New Zealand", value: "NZ" },
-        { label: "Nigeria", value: "NG" },
-        { label: "Norway", value: "NO" },
-        { label: "Oman", value: "OM" },
-        { label: "Pakistan", value: "PK" },
-        { label: "Panama", value: "PA" },
-        { label: "Peru", value: "PE" },
-        { label: "Philippines", value: "PH" },
-        { label: "Poland", value: "PL" },
-        { label: "Portugal", value: "PT" },
-        { label: "Qatar", value: "QA" },
-        { label: "Romania", value: "RO" },
-        { label: "Russia", value: "RU" },
-        { label: "Saudi Arabia", value: "SA" },
-        { label: "Singapore", value: "SG" },
-        { label: "South Africa", value: "ZA" },
-        { label: "Spain", value: "ES" },
-        { label: "Sri Lanka", value: "LK" },
-        { label: "Sweden", value: "SE" },
-        { label: "Switzerland", value: "CH" },
-        { label: "Thailand", value: "TH" },
-        { label: "Turkey", value: "TR" },
-        { label: "United Arab Emirates", value: "AE" },
-        { label: "United Kingdom", value: "GB" },
-        { label: "United States", value: "US" }
-    ];
+    // const countries = [
+    //     { label: "Afghanistan", value: "AF" },
+    //     { label: "Aland Islands", value: "AX" },
+    //     { label: "Albania", value: "AL" },
+    //     { label: "Algeria", value: "DZ" },
+    //     { label: "American Samoa", value: "AS" },
+    //     { label: "Andorra", value: "AD" },
+    //     { label: "Angola", value: "AO" },
+    //     { label: "Anguilla", value: "AI" },
+    //     { label: "Antarctica", value: "AQ" },
+    //     { label: "Antigua and Barbuda", value: "AG" },
+    //     { label: "Argentina", value: "AR" },
+    //     { label: "Armenia", value: "AM" },
+    //     { label: "Australia", value: "AU" },
+    //     { label: "Austria", value: "AT" },
+    //     { label: "Azerbaijan", value: "AZ" },
+    //     { label: "Bahamas", value: "BS" },
+    //     { label: "Bahrain", value: "BH" },
+    //     { label: "Bangladesh", value: "BD" },
+    //     { label: "Barbados", value: "BB" },
+    //     { label: "Belarus", value: "BY" },
+    //     { label: "Belgium", value: "BE" },
+    //     { label: "Belize", value: "BZ" },
+    //     { label: "Benin", value: "BJ" },
+    //     { label: "Bermuda", value: "BM" },
+    //     { label: "Bhutan", value: "BT" },
+    //     { label: "Bolivia", value: "BO" },
+    //     { label: "Bosnia and Herzegovina", value: "BA" },
+    //     { label: "Botswana", value: "BW" },
+    //     { label: "Brazil", value: "BR" },
+    //     { label: "British Indian Ocean Territory", value: "IO" },
+    //     { label: "Brunei Darussalam", value: "BN" },
+    //     { label: "Bulgaria", value: "BG" },
+    //     { label: "Burkina Faso", value: "BF" },
+    //     { label: "Burundi", value: "BI" },
+    //     { label: "Cambodia", value: "KH" },
+    //     { label: "Cameroon", value: "CM" },
+    //     { label: "Canada", value: "CA" },
+    //     { label: "Cape Verde", value: "CV" },
+    //     { label: "Central African Republic", value: "CF" },
+    //     { label: "Chad", value: "TD" },
+    //     { label: "Chile", value: "CL" },
+    //     { label: "China", value: "CN" },
+    //     { label: "Colombia", value: "CO" },
+    //     { label: "Comoros", value: "KM" },
+    //     { label: "Congo", value: "CG" },
+    //     { label: "Congo, The Democratic Republic of the", value: "CD" },
+    //     { label: "Costa Rica", value: "CR" },
+    //     { label: "Croatia", value: "HR" },
+    //     { label: "Cuba", value: "CU" },
+    //     { label: "Cyprus", value: "CY" },
+    //     { label: "Czech Republic", value: "CZ" },
+    //     { label: "Denmark", value: "DK" },
+    //     { label: "Djibouti", value: "DJ" },
+    //     { label: "Dominica", value: "DM" },
+    //     { label: "Dominican Republic", value: "DO" },
+    //     { label: "Ecuador", value: "EC" },
+    //     { label: "Egypt", value: "EG" },
+    //     { label: "El Salvador", value: "SV" },
+    //     { label: "Equatorial Guinea", value: "GQ" },
+    //     { label: "Eritrea", value: "ER" },
+    //     { label: "Estonia", value: "EE" },
+    //     { label: "Eswatini", value: "SZ" },
+    //     { label: "Ethiopia", value: "ET" },
+    //     { label: "Fiji", value: "FJ" },
+    //     { label: "Finland", value: "FI" },
+    //     { label: "France", value: "FR" },
+    //     { label: "Gabon", value: "GA" },
+    //     { label: "Gambia", value: "GM" },
+    //     { label: "Georgia", value: "GE" },
+    //     { label: "Germany", value: "DE" },
+    //     { label: "Ghana", value: "GH" },
+    //     { label: "Greece", value: "GR" },
+    //     { label: "Grenada", value: "GD" },
+    //     { label: "Guatemala", value: "GT" },
+    //     { label: "Guinea", value: "GN" },
+    //     { label: "Guinea-Bissau", value: "GW" },
+    //     { label: "Guyana", value: "GY" },
+    //     { label: "Haiti", value: "HT" },
+    //     { label: "Honduras", value: "HN" },
+    //     { label: "Hungary", value: "HU" },
+    //     { label: "Iceland", value: "IS" },
+    //     { label: "India", value: "IN" },
+    //     { label: "Indonesia", value: "ID" },
+    //     { label: "Iran", value: "IR" },
+    //     { label: "Iraq", value: "IQ" },
+    //     { label: "Ireland", value: "IE" },
+    //     { label: "Israel", value: "IL" },
+    //     { label: "Italy", value: "IT" },
+    //     { label: "Jamaica", value: "JM" },
+    //     { label: "Japan", value: "JP" },
+    //     { label: "Jordan", value: "JO" },
+    //     { label: "Kazakhstan", value: "KZ" },
+    //     { label: "Kenya", value: "KE" },
+    //     { label: "Kuwait", value: "KW" },
+    //     { label: "Kyrgyzstan", value: "KG" },
+    //     { label: "Laos", value: "LA" },
+    //     { label: "Latvia", value: "LV" },
+    //     { label: "Lebanon", value: "LB" },
+    //     { label: "Lesotho", value: "LS" },
+    //     { label: "Liberia", value: "LR" },
+    //     { label: "Libya", value: "LY" },
+    //     { label: "Liechtenstein", value: "LI" },
+    //     { label: "Lithuania", value: "LT" },
+    //     { label: "Luxembourg", value: "LU" },
+    //     { label: "Madagascar", value: "MG" },
+    //     { label: "Malawi", value: "MW" },
+    //     { label: "Malaysia", value: "MY" },
+    //     { label: "Maldives", value: "MV" },
+    //     { label: "Mali", value: "ML" },
+    //     { label: "Malta", value: "MT" },
+    //     { label: "Mexico", value: "MX" },
+    //     { label: "Moldova", value: "MD" },
+    //     { label: "Monaco", value: "MC" },
+    //     { label: "Mongolia", value: "MN" },
+    //     { label: "Morocco", value: "MA" },
+    //     { label: "Mozambique", value: "MZ" },
+    //     { label: "Myanmar", value: "MM" },
+    //     { label: "Namibia", value: "NA" },
+    //     { label: "Nepal", value: "NP" },
+    //     { label: "Netherlands", value: "NL" },
+    //     { label: "New Zealand", value: "NZ" },
+    //     { label: "Nigeria", value: "NG" },
+    //     { label: "Norway", value: "NO" },
+    //     { label: "Oman", value: "OM" },
+    //     { label: "Pakistan", value: "PK" },
+    //     { label: "Panama", value: "PA" },
+    //     { label: "Peru", value: "PE" },
+    //     { label: "Philippines", value: "PH" },
+    //     { label: "Poland", value: "PL" },
+    //     { label: "Portugal", value: "PT" },
+    //     { label: "Qatar", value: "QA" },
+    //     { label: "Romania", value: "RO" },
+    //     { label: "Russia", value: "RU" },
+    //     { label: "Saudi Arabia", value: "SA" },
+    //     { label: "Singapore", value: "SG" },
+    //     { label: "South Africa", value: "ZA" },
+    //     { label: "Spain", value: "ES" },
+    //     { label: "Sri Lanka", value: "LK" },
+    //     { label: "Sweden", value: "SE" },
+    //     { label: "Switzerland", value: "CH" },
+    //     { label: "Thailand", value: "TH" },
+    //     { label: "Turkey", value: "TR" },
+    //     { label: "United Arab Emirates", value: "AE" },
+    //     { label: "United Kingdom", value: "GB" },
+    //     { label: "United States", value: "US" }
+    // ];
 
-    const states = values.country
-        ? State.getAllStates().filter((state) => state.countryCode === values.country)
-        : [];
+    // const states = values.country
+    //     ? State.getAllStates().filter((state) => state.countryCode === values.country)
+    //     : [];
 
-    const cities = values.state
-        ? City.getAllCities().filter((city) => city.stateCode === values.state)
-        : [];
+    // const cities = values.state
+    //     ? City.getAllCities().filter((city) => city.stateCode === values.state)
+    //     : [];
 
 
 
@@ -268,29 +276,6 @@ function Order() {
                     <div className="col-lg-8 order-md-0 order-1">
                         <div className="order-form">
                             <h2>Delivery Address</h2>
-                            <div className="row">
-                                <div className="col-12" style={{ position: 'relative' }}>
-                                    <div className='d-flex flex-column country'>
-                                        <Select
-                                            options={countries}
-                                            onChange={(option) => {
-                                                // setFieldValue("country", option.value);
-                                                // setFieldValue("state", null);
-                                                // setFieldValue("city", null);
-                                                setValues((old) => { return { ...old, country: option.value } })
-                                                setCountry(option.label)
-                                            }}
-                                            value={countries.find((c) => c.value === values.country) || null}
-                                            placeholder="Select Country"
-                                        />
-                                        {error.country && (
-                                            <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "75px" }}>
-                                                {error.country}
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
                             <div className="row">
                                 <div className="col-lg-6" style={{ position: 'relative' }}>
                                     <input
@@ -322,6 +307,27 @@ function Order() {
                             </div>
                             <div className="row">
                                 <div className="col-12" style={{ position: 'relative' }}>
+                                    <div className='d-flex flex-column country'>
+                                        <CountryStateCity setCountry={setCountry} country={country} currentCity={currentCity} setCurrentCity={setCurrentCity} currentState={currentState} setCurrentState={setCurrentState} error={error}  />                                       
+
+                                        {/* <Select
+                                            options={countries}
+                                            onChange={(option) => {
+                                                // setFieldValue("country", option.value);
+                                                // setFieldValue("state", null);
+                                                // setFieldValue("city", null);
+                                                setValues((old) => { return { ...old, country: option.value } })
+                                                setCountry(option.label)
+                                            }}
+                                            value={countries.find((c) => c.value === values.country) || null}
+                                            placeholder="Select Country"
+                                        />
+                                      */}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-12" style={{ position: 'relative' }}>
                                     <textarea name="address" id="address" placeholder='Address' onChange={(e) => setAddress(e.target.value)} />
                                     {error.address && (
                                         <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
@@ -331,7 +337,7 @@ function Order() {
                                 </div>
                             </div>
                             <div className="row"  >
-                                <div className="col-12" style={{ position: 'relative' }}>
+                                <div className="col-lg-8" style={{ position: 'relative' }}>
                                     <input type="text" placeholder='Apartment, suite, etc. (Optional)' onChange={(e) => setLocality(e.target.value)} />
                                     {error.locality && (
                                         <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
@@ -339,10 +345,28 @@ function Order() {
                                         </div>
                                     )}
                                 </div>
+                                <div className="col-lg-4  " style={{ position: 'relative' }}>
+                                    <input
+                                        type="text"
+                                        placeholder="PIN code"
+                                        value={pincode}
+                                        onChange={(e) => {
+                                            const value = e.target.value;
+                                            if (/^\d*$/.test(value)) {
+                                                setPincode(value);
+                                            }
+                                        }}
+                                    />
+                                    {error.pincode && (
+                                        <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
+                                            {error.pincode}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                             <div className="row" >
 
-                                <div className="col-lg-4 state" style={{ position: 'relative' }}>
+                                {/* <div className="col-lg-4 state" style={{ position: 'relative' }}>
                                     <Select
                                         options={states.map((s) => ({ label: s.name, value: s.isoCode }))}
                                         onChange={(option) => {
@@ -386,25 +410,8 @@ function Order() {
                                             {error.city}
                                         </div>
                                     )}
-                                </div>
-                                <div className="col-lg-4  " style={{ position: 'relative' }}>
-                                    <input
-                                        type="text"
-                                        placeholder="PIN code"
-                                        value={pincode}
-                                        onChange={(e) => {
-                                            const value = e.target.value;
-                                            if (/^\d*$/.test(value)) {
-                                                setPincode(value);
-                                            }
-                                        }}
-                                    />
-                                    {error.pincode && (
-                                        <div style={{ color: 'red', fontSize: "11px", position: "absolute", top: "65px" }}>
-                                            {error.pincode}
-                                        </div>
-                                    )}
-                                </div>
+                                </div> */}
+
                             </div>
                             <div className="row"  >
                                 <div className="col-12" style={{ position: 'relative' }}>
