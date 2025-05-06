@@ -21,8 +21,6 @@ function Order() {
     const [email, setEmail] = useState('');
     const [address, setAddress] = useState('');
     const [locality, setLocality] = useState('');
-    // const [city, setCity] = useState('');
-    // const [state, setState] = useState('');
     const [pincode, setPincode] = useState('');
     const [error, setError] = useState({
         name: '',
@@ -37,9 +35,9 @@ function Order() {
         pincode: '',
     })
 
-        const [country, setCountry] = useState(null);
-        const [currentState, setCurrentState] = useState(null);
-        const [currentCity, setCurrentCity] = useState(null);
+        const [country, setCountry] = useState('');
+        const [currentState, setCurrentState] = useState('');
+        const [currentCity, setCurrentCity] = useState('');
         
 
 
@@ -84,8 +82,8 @@ function Order() {
             clearCart();
             navigate('/thank-you');
         } catch (error) {
+            console.log(error);
             const errorData = error.response?.data?.errors || {};
-            console.log(errorData);
             setError({
                 name: errorData.name || '',
                 mobile: errorData.mobile || '',
