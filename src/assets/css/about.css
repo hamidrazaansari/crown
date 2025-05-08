@@ -290,15 +290,14 @@
   z-index: 1;
 }
 
-.thank-you-container .thank-you-wrapper .thank-you.is-2,
-.appBar .navbarContainer .navbarWrapper .mainNavbar.is-2 {
+.thank-you-container .thank-you-wrapper .thank-you.is-2, .appBar .navbarContainer .navbarWrapper .mainNavbar.is-2 {
   position: absolute;
   left: 0%;
   top: 0%;
   right: 0%;
   bottom: 0%;
   z-index: 3;
-  background-color: #000;
+  background-color: #0B0B0F;
   color: #fff;
   height: 100%;
 }

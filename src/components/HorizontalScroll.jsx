@@ -6,6 +6,7 @@ import HeroBanner from '../assets/image/hero-banner.png'
 import WhiteLogo from '../assets/image/white-logo-crown.png'
 import bannerVideo from '../assets/video/banner.mp4'
 // import Logo from '../assets/image/'
+import WebsiteBanner from '../assets/image/Websitebanner.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,7 +68,7 @@ function HorizontalScroll() {
         <div className="thank-you is-2">
           <div className="content">
             <div className="textBlock ctext">
-              <img src={WhiteLogo} alt="white logo" className="w-75" />
+              <img src={WebsiteBanner} alt="white logo" className="w-75" />
             </div>
           </div>
         </div>
