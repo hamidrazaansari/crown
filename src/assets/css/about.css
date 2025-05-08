@@ -333,6 +333,7 @@
 }
 
 
+
 /* New Style  */
 
 .about-company-section .breadcrumb a,
@@ -996,6 +997,9 @@
 .heading{
   display: none
 }
+.width{
+  width: 75% !important;
+}
 
 .crowLaminationSection .crownBox {
   height: 88%;
@@ -1315,6 +1319,10 @@
     line-height: 40px;
     font-size: 25px;
   }
+  .width{
+    width: 100% !important;
+  }
+
 }
 
 @media (max-width:400px) {
