@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import "../assets/css/products.css";
-import { Accordion } from "react-bootstrap";
+import { Accordion, AccordionBody } from "react-bootstrap";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { API_URL } from "../utills/BaseUrl";
 import axios from "axios";
