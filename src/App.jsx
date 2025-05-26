@@ -25,6 +25,7 @@ import Privacy from "./pages/Privacy"
 import PdfViewer from "./components/PdfViewer"
 import BeyondWood from "./pages/BeyondWood"
 import TheRiseLaminates from "./pages/TheRiseLaminates"
+import SearchList from "./pages/SearchList"
 // import FullViewImg from "./components/FullViewImg"
 function App() {
 
@@ -73,6 +74,7 @@ function App() {
         <Route path="/thank-you" element={<ThankYouPage/>}/>
         <Route path="/privacy" element={<Privacy/>}/>
         <Route path="/pdf" element={<PdfViewer/>}/>
+        <Route path="/searchlist" element={<SearchList/>}/>
 
       </Routes>
     </BrowserRouter>

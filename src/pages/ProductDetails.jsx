@@ -82,11 +82,6 @@ function ProductDetails() {
         if (!slug) return; // Prevent API call if id is undefined/null
         fetchProducts(slug, setProducts, setError, setLoading);
     }, [slug]);
-
-
-    // if (loading) return <p>Loading...</p>;
-    // if (error) return <p>{error}</p>;
-
     
 
 
@@ -114,6 +109,10 @@ function ProductDetails() {
         }
         fetchRelatedProduct()
     }, [products])
+
+    useEffect(()=>{
+        handleShow()
+    } , [])
 
 
 

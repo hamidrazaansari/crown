@@ -1,23 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import OtherPageFooter from '../components/OtherPageFooter';
-import Files from '../assets/image/file.png';
 import CatalougeBanner from '../assets/image/Catalogue-banner.jpg';
-
-// Import PDF files
-// import AQVAWALL from '../assets/image/Catalouge/Aqva Wall.pdf';
-// import ARENA from '../assets/image/Catalouge/ARENA.pdf';
-// import CrownCompact from '../assets/image/Catalouge/Crown Compact 2025.pdf';
-// import Crowninstallation from '../assets/image/Catalouge/Crown Compact installation manual.pdf';
-// import Fense from '../assets/image/Catalouge/Crown Fense.pdf';
-// import Labplus from '../assets/image/Catalouge/Crown Labplus.pdf';
-// import ExteriorCom from '../assets/image/Catalouge/Exterior Compact.pdf';
-// import Kittop from '../assets/image/Catalouge/Kittop Catalog_INT.pdf';
-// import QBISS from '../assets/image/Catalouge/QBISS.pdf';
-// import TABILLO from '../assets/image/Catalouge/TABILLO INT.pdf';
-// import TabilloInternational from '../assets/image/Catalouge/Tabillo International Look Book.pdf';
-// import texpanel from '../assets/image/Catalouge/texpanel.pdf';
-// import NOMARKS from '../assets/image/Catalouge/NO MARKS.pdf';
+import { Modal } from 'react-bootstrap';
+import "../assets/css/product-details.css";
+import "../assets/css/details.css";
+import SelectSearch from "react-select-search";
+import "react-select-search/style.css";
 import File from '../assets/image/file.png';
 import '../assets/css/certificate.css';
 import '../assets/css/catalouge.css';
@@ -28,87 +17,191 @@ import getImageURL from '../utills/getImageURL';
 
 function Catalogue() {
     const [selectedFilter, setSelectedFilter] = useState("");
-    const [catelouge, setCatelouge] = useState('')
-    const [catalogueCategories, setCatalogueCategories] = useState('')
+    const [catelouge, setCatelouge] = useState([]);
+    const [catalogueCategories, setCatalogueCategories] = useState([]);
+    const [show, setShow] = useState(false);
+    const [isDownload, setIsDownload] = useState(false);
 
+    const [countries, setCountries] = useState([]);
+    const [imageToDownload, setImageToDownload] = useState('');
 
-    // Filter the certificates based on selectedFilter
-    // const filteredCertificates = selectedFilter === "All"
-    //     ? catelouge
-    //     : catelouge?.filter(cat => cat.category?._id === selectedFilter);
+    const [formData, setFormData] = useState({
+        country: "",
+        name: "",
+        email: "",
+        mobile: "",
+        message: "",
+        inquiryType: "GENERAL"
+    });
 
+    const [errors, setErrors] = useState({});
+
+    const handleClose = () => setShow(false);
+
+    const handleChange = (field, value) => {
+        const newErrors = { ...errors };
+
+        if (field === "name" && !/^[a-zA-Z\s]*$/.test(value)) {
+            newErrors.name = "Name cannot contain numbers or special characters.";
+            setErrors(newErrors);
+            return;
+        }
+
+        if (field === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+            newErrors.email = "Enter a valid email address.";
+        } else if (field === "mobile" && !/^\d*$/.test(value)) {
+            newErrors.mobile = "Mobile number can only contain numbers.";
+            return;
+        } else if (field === "country" && !value) {
+            newErrors.country = "Please select a country.";
+        } else {
+            newErrors[field] = "";
+        }
+
+        setErrors(newErrors);
+        setFormData({ ...formData, [field]: value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post(`${API_URL}/inquiries`, formData);
+            console.log(res);
+
+            if (res.status === 200) {
+                localStorage.setItem('catalogueToken', 'true'); // Store flag/token
+                setIsDownload(true);
+                setShow(false);
+                window.open(imageToDownload, '_blank');
+                setFormData({
+                    country: "",
+                    name: "",
+                    email: "",
+                    mobile: "",
+                    message: "",
+                    inquiryType: "GENERAL"
+                });
+            }
+        } catch (error) {
+            const errData = error.response?.data?.errors || {};
+            setErrors(errData);
+            console.error(error);
+        }
+    };
+
+    useEffect(() => {
+        const token = localStorage.getItem('catalogueToken');
+        if (token) {
+            setIsDownload(true);
+        }
+    }, []);
 
 
     useEffect(() => {
+        axios.get("https://restcountries.com/v3.1/all")
+            .then((response) => {
+                const countryOptions = response.data.map((country) => ({
+                    value: country.name.common,
+                    name: country.name.common,
+                }));
+                setCountries(countryOptions.sort((a, b) => a.name.localeCompare(b.name)));
+            })
+            .catch((error) => console.error("Error fetching countries:", error));
+    }, []);
 
-        async function fetchcatelougeCategory() {
+    useEffect(() => {
+        async function fetchCatalogueCategories() {
             try {
-                let url = `${API_URL}/catalogueCategories?limit=0&priority=ASC`;
-                const response = await axios.get(url);
-                setCatalogueCategories(response?.data?.body);
+                const response = await axios.get(`${API_URL}/catalogueCategories?limit=0&priority=ASC`);
+                setCatalogueCategories(response.data.body || []);
             } catch (error) {
                 console.log(error);
             }
         }
-        fetchcatelougeCategory()
-    }, [])
+        fetchCatalogueCategories();
+    }, []);
 
     useEffect(() => {
-        async function fetchcatelouge() {
+        async function fetchCatalogue() {
             try {
                 let url = `${API_URL}/catalogues?limit=0&priority=ASC`;
-                if (selectedFilter) {
-                    url += `&category=${selectedFilter}`
-                }
+                if (selectedFilter) url += `&category=${selectedFilter}`;
                 const response = await axios.get(url);
-                setCatelouge(response?.data?.body);
+                setCatelouge(response.data.body || []);
             } catch (error) {
                 console.log(error);
             }
         }
-        fetchcatelouge()
-
-    }, [selectedFilter])
-
-
-
-
-
-
-    // const handleViewCertificate = (pdfFile) => {
-    //     console.log(pdfFile);
-
-
-    //     const newWindow = window.open('', '_blank');
-    //     newWindow.document.write(`
-    //       <html>
-    //         <head>
-    //           <title>View</title>
-    //           <style>
-    //             html, body {
-    //               margin: 0;
-    //               height: 100%;
-    //               overflow: hidden;
-    //             }
-    //             iframe {
-    //               border: none;
-    //               width: 100%;
-    //               height: 100%;
-    //             }
-    //           </style>
-    //         </head>
-    //         <body>
-    //           <iframe src="${pdfFile}" title="Certificate PDF"></iframe>
-    //         </body>
-    //       </html>
-    //     `);
-    //     newWindow.document.close();
-    // };
+        fetchCatalogue();
+    }, [selectedFilter]);
 
     return (
         <div>
+            {/* Modal */}
+            <Modal show={show} onHide={handleClose}>
+                <div className="modal-form">
+                    <div className="form">
+                        <h4>Fill The Details</h4>
+
+                        <div className="d-flex flex-column" style={{ position: "relative" }}>
+                            <label>Country</label>
+                            <SelectSearch
+                                search
+                                options={countries}
+                                value={formData.country}
+                                onChange={(val) => handleChange("country", val)}
+                                placeholder="Select Country"
+                            />
+                            {errors.country && <small className="error-text">{errors.country}</small>}
+                        </div>
+
+                        <div className="d-flex flex-column" style={{ position: "relative" }}>
+                            <label>Name</label>
+                            <input
+                                type="text"
+                                value={formData.name}
+                                onChange={(e) => handleChange("name", e.target.value)}
+                            />
+                            {errors.name && <small className="error-text">{errors.name}</small>}
+                        </div>
+
+                        <div className="d-flex flex-column" style={{ position: "relative" }}>
+                            <label>Email</label>
+                            <input
+                                type="email"
+                                value={formData.email}
+                                onChange={(e) => handleChange("email", e.target.value)}
+                            />
+                            {errors.email && <small className="error-text">{errors.email}</small>}
+                        </div>
+
+                        <div className="d-flex flex-column" style={{ position: "relative" }}>
+                            <label>Mobile</label>
+                            <input
+                                type="text"
+                                value={formData.mobile}
+                                onChange={(e) => handleChange("mobile", e.target.value)}
+                            />
+                            {errors.mobile && <small className="error-text">{errors.mobile}</small>}
+                        </div>
+
+                        <div className="d-flex flex-column" style={{ position: "relative" }}>
+                            <label>Message</label>
+                            <textarea
+                                rows={3}
+                                value={formData.message}
+                                onChange={(e) => handleChange("message", e.target.value)}
+                            />
+                        </div>
+
+                        <button className="form-btn" onClick={handleSubmit}>Enquiry Now</button>
+                    </div>
+                </div>
+            </Modal>
 
             <NavBar />
+
+            {/* Breadcrumb and Banner */}
             <div className="bgWhite">
                 <div className="container">
                     <div className="breadcrumb m-0">
@@ -120,6 +213,7 @@ function Catalogue() {
                     </div>
                 </div>
             </div>
+
             <div className="bgWhite">
                 <div className="container catalogue-banner">
                     <img src={CatalougeBanner} alt="CatalougeBanner" />
@@ -127,54 +221,57 @@ function Catalogue() {
             </div>
 
             {/* Filter Buttons */}
-            <div className='bgWhite'>
-                <div className="catalouge-btn container d-flex flex-wrap justify-normal">
+            <div className="bgWhite">
+                <div className="catalouge-btn container d-flex flex-wrap">
                     <button
-                        className={selectedFilter === '' ? "active-filter" : ""}
-                        onClick={() => setSelectedFilter('')}
+                        className={selectedFilter === "" ? "active-filter" : ""}
+                        onClick={() => setSelectedFilter("")}
                     >
                         All
                     </button>
-
-                    {catalogueCategories && catalogueCategories.map((category, index) => (
+                    {catalogueCategories.map((cat) => (
                         <button
-                            key={index}
-                            className={selectedFilter === category._id ? "active-filter" : ""}
-                            onClick={() => setSelectedFilter(category._id)}
+                            key={cat._id}
+                            className={selectedFilter === cat._id ? "active-filter" : ""}
+                            onClick={() => setSelectedFilter(cat._id)}
                         >
-                            {category.name}
+                            {cat.name}
                         </button>
                     ))}
                 </div>
             </div>
 
-            {/* Certificate List Section */}
+            {/* Catalogue List */}
             <div className="certificate-box bgWhite py-3 pb-5">
                 <div className="container px-5">
                     <h1>CROWN CATALOGUE</h1>
-                    {catelouge.length > 0 ? (
-                        catelouge.map((cert, index) => {
-                            const imageUrl = getImageURL(cert?.file);
-                            return (
-                                <div className='d-flex align-items-center' key={index}>
-                                    <div className="certification-box">
-                                        <p>{cert.name}</p>
-                                    </div>
-                                    {/* <button className='certificate-btn' onClick={() => handleViewCertificate(imageUrl)}>
-                                        Download <img src={File} alt="eye" />
-                                    </button> */}
-                                    <a href={imageUrl} target='_blank' className='certificate-btn d-md-flex d-none align-items-center justify-content-center' >Download <img src={File} alt="eye" /></a>
-                                    <a href={imageUrl} download className='certificate-btn d-md-none d-flex align-items-center justify-content-center'>Download <img src={File} alt="eye" /></a>
-
+                    {catelouge.length > 0 ? catelouge.map((cert, index) => {
+                        const imageUrl = getImageURL(cert?.file);
+                        return (
+                            <div className="d-flex align-items-center" key={index}>
+                                <div className="certification-box">
+                                    <p>{cert.name}</p>
                                 </div>
-                            );
-                        })
-                    ) : (
-                        <div className='d-flex flex-column align-items-center justify-content-center'>
-                            <img src={Files} alt="eye" />
-                            <p>No catelouge available</p>
-                        </div>
-                    )}
+                                <a
+                                    href={isDownload ? imageUrl : '#'}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="certificate-btn d-md-flex d-none align-items-center justify-content-center"
+                                    onClick={(e) => {
+                                        const tokenExists = localStorage.getItem('catalogueToken');
+                                        if (!tokenExists) {
+                                            e.preventDefault();
+                                            setImageToDownload(imageUrl);
+                                            setShow(true);
+                                        }
+                                    }}
+                                >
+                                    Download <img src={File} alt="file" />
+                                </a>
+                                <a href={imageUrl} download className='certificate-btn d-md-none d-flex align-items-center justify-content-center'>Download <img src={File} alt="eye" /></a>
+                            </div>
+                        );
+                    }) : <p>No catalogues found.</p>}
                 </div>
             </div>
 

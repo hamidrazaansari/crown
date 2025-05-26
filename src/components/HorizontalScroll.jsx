@@ -68,7 +68,7 @@ function HorizontalScroll() {
         <div className="thank-you is-2">
           <div className="content">
             <div className="textBlock ctext">
-              <img src={WebsiteBanner} alt="white logo" className="width " />
+              <img src={WhiteLogo} alt="white logo" className="width " />
             </div>
           </div>
         </div>

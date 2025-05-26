@@ -37,6 +37,18 @@ function SearchBar() {
 
     const navigate = useNavigate();
 
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            navigate('/searchlist', { state: { data, searchQuery } })
+        }
+        else ''
+    }
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        navigate('/searchlist', { state: { data, searchQuery } })
+    }
+
     return (
         <>
             <div className='search-product'>
@@ -48,14 +60,15 @@ function SearchBar() {
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onBlur={() => setTimeout(() => setDisplay(false), 350)}
                     onFocus={() => searchQuery && setDisplay(true)}
+                    onKeyDown={handleKeyPress}
                 />
-                <button className='search-btn'> <IoSearchOutline /> </button>
+                <button className='search-btn' onClick={handleSearch}> <IoSearchOutline /> </button>
             </div>
 
             {display && searchQuery && (
                 <div className="search-box">
                     {data.length > 0 && data.slice(0, 5).map((item) => (
-                        <Link to={`/product-details/${item.slug}`} state={{slug:item.slug}} key={item._id}>
+                        <Link to={`/product-details/${item.slug}`} state={{ slug: item.slug }} key={item._id}>
                             <div className='d-flex align-items-center my-3'>
                                 <img src={item.a4Image ? getImageURL(item.a4Image) : ''} alt={item.name} className='search-img' />
                                 <div>
