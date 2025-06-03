@@ -74,7 +74,7 @@ function App() {
         <Route path="/thank-you" element={<ThankYouPage/>}/>
         <Route path="/privacy" element={<Privacy/>}/>
         <Route path="/pdf" element={<PdfViewer/>}/>
-        <Route path="/searchlist" element={<SearchList/>}/>
+        <Route path="/search" element={<SearchList/>}/>
 
       </Routes>
     </BrowserRouter>

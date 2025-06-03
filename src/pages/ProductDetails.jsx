@@ -110,9 +110,15 @@ function ProductDetails() {
         fetchRelatedProduct()
     }, [products])
 
-    useEffect(()=>{
-        handleShow()
-    } , [])
+    
+
+// useEffect(() => {
+//   const timer = setTimeout(() => {
+//     handleShow();
+//   }, 5000); // 5000 milliseconds = 5 seconds
+
+//   return () => clearTimeout(timer); // Cleanup the timeout on unmount
+// }, []);
 
 
 

@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import { API_URL } from '../utills/BaseUrl';
 import axios from 'axios';
 import getImageURL from '../utills/getImageURL';
+import { RxCross1 } from 'react-icons/rx';
 
 function Catalogue() {
     const [selectedFilter, setSelectedFilter] = useState("");
@@ -140,6 +141,8 @@ function Catalogue() {
             {/* Modal */}
             <Modal show={show} onHide={handleClose}>
                 <div className="modal-form">
+                <button className="closeButton" onClick={handleClose}><RxCross1 /></button>
+                    
                     <div className="form">
                         <h4>Fill The Details</h4>
 

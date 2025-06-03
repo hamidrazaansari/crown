@@ -39,14 +39,14 @@ function SearchBar() {
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
-            navigate('/searchlist', { state: { data, searchQuery } })
+            navigate('/search', { state: { data, searchQuery } })
         }
         else ''
     }
 
     const handleSearch = (e) => {
         e.preventDefault();
-        navigate('/searchlist', { state: { data, searchQuery } })
+        navigate('/search', { state: { data, searchQuery } })
     }
 
     return (

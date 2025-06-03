@@ -70,8 +70,6 @@ export const CounterProvider = ({ children }) => {
     localStorage.removeItem('cartData');
     localStorage.removeItem('cartCount');
   };
-
-  console.log(data);
   
 
   return (
