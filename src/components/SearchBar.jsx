@@ -11,6 +11,27 @@ function SearchBar() {
     const [data, setData] = useState([]);
     const [category, setCategory] = useState([]);
     const [display, setDisplay] = useState(false);
+     const [pagination, setPagination] = useState({
+          page: 1,
+          totalRecords: null,
+          totalPages: null,
+        });
+    
+          function handlePrevious() {
+        if (pagination.page > 1) {
+          setPagination((old) => {
+            return { ...old, page: old.page - 1 };
+          });
+        }
+      }
+    
+      function handleNext() {
+        if (pagination.page < pagination.totalPages) {
+          setPagination((old) => {
+            return { ...old, page: old.page + 1 };
+          });
+        }
+      }
 
     useEffect(() => {
         if (!searchQuery.trim()) return; // Run only when searchQuery is not empty
@@ -39,14 +60,14 @@ function SearchBar() {
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
-            navigate('/search', { state: { data, searchQuery } })
+            navigate(`/search?query=${searchQuery}`, { state: { data, searchQuery , pagination } })
         }
         else ''
     }
 
     const handleSearch = (e) => {
         e.preventDefault();
-        navigate('/search', { state: { data, searchQuery } })
+        navigate(`/search?query=${searchQuery}`, { state: { data, searchQuery  } })
     }
 
     return (

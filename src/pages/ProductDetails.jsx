@@ -112,13 +112,13 @@ function ProductDetails() {
 
     
 
-// useEffect(() => {
-//   const timer = setTimeout(() => {
-//     handleShow();
-//   }, 5000); // 5000 milliseconds = 5 seconds
+useEffect(() => {
+  const timer = setTimeout(() => {
+    handleShow();
+  }, 5000); // 5000 milliseconds = 5 seconds
 
-//   return () => clearTimeout(timer); // Cleanup the timeout on unmount
-// }, []);
+  return () => clearTimeout(timer); // Cleanup the timeout on unmount
+}, []);
 
 
 

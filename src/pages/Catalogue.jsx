@@ -70,7 +70,7 @@ function Catalogue() {
             console.log(res);
 
             if (res.status === 200) {
-                localStorage.setItem('catalogueToken', 'true'); // Store flag/token
+                sessionStorage.setItem('catalogueToken', 'true'); // Store flag/token
                 setIsDownload(true);
                 setShow(false);
                 window.open(imageToDownload, '_blank');
@@ -91,7 +91,7 @@ function Catalogue() {
     };
 
     useEffect(() => {
-        const token = localStorage.getItem('catalogueToken');
+        const token = sessionStorage.getItem('catalogueToken');
         if (token) {
             setIsDownload(true);
         }
@@ -261,7 +261,7 @@ function Catalogue() {
                                     rel="noreferrer"
                                     className="certificate-btn d-md-flex d-none align-items-center justify-content-center"
                                     onClick={(e) => {
-                                        const tokenExists = localStorage.getItem('catalogueToken');
+                                        const tokenExists = sessionStorage.getItem('catalogueToken');
                                         if (!tokenExists) {
                                             e.preventDefault();
                                             setImageToDownload(imageUrl);

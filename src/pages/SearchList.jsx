@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import "../assets/css/products.css";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import OtherPageFooter from "../components/OtherPageFooter";
 import getImageURL from "../utills/getImageURL";
 import { FaFilter } from "react-icons/fa6";
 import parse from 'html-react-parser'
 import { RxCross2 } from "react-icons/rx";
 import bannerImg from '../assets/image/productbannermain.png'
-
+import axios from "axios";
+import { API_URL } from "../utills/BaseUrl";
 
 
 function SearchList() {
@@ -19,14 +20,14 @@ function SearchList() {
   const [show, setShow] = useState(false);
   const [selectedSubCategoryId, setSelectedSubCategoryId] = useState('')
 
-  
-    const [pagination, setPagination] = useState({
-      page: 1,
-      totalRecords: null,
-      totalPages: null,
-    });
 
-      function handlePrevious() {
+  const [pagination, setPagination] = useState({
+    page: 1,
+    totalRecords: null,
+    totalPages: null,
+  });
+
+  function handlePrevious() {
     if (pagination.page > 1) {
       setPagination((old) => {
         return { ...old, page: old.page - 1 };
@@ -46,17 +47,36 @@ function SearchList() {
   const handleShow = () => setShow(true);
 
 
-  const location = useLocation();
 
-  const data = location.state?.data;
-  const searchQuery = location.state?.searchQuery;
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get('query');
 
-useEffect(() => {
-  setProducts(data)
 
-}, [data])
 
-  
+  useEffect(() => {
+    async function fetchData() {
+      try {
+
+        const response = await axios.get(`${API_URL}/products?searchQuery=${searchQuery}&limit=${60}&page=${pagination.page}`)
+
+        setPagination({
+          page: Number(response.data.page),
+          totalRecords: Number(response.data.totalRecords),
+          totalPages: Number(response.data.totalPages),
+        });
+
+        setProducts(response.data?.body)
+
+
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData()
+  }, [searchQuery , pagination.page])
+
+
   return (
     <div>
       <NavBar />
@@ -66,7 +86,7 @@ useEffect(() => {
             <p className="mb-0">
               <Link to="/">HOME</Link>
               <span> / </span>{" "}
-              <Link to={`/searchlist`} className="ms-2">
+              <Link to={`/search`} className="ms-2">
                 Search = {searchQuery}
               </Link>
             </p>
@@ -79,7 +99,7 @@ useEffect(() => {
           <div className="product-main-banner">
             <div className="product-banner d-lg-flex">
               <div>
-                <img src={bannerImg} alt={''} />
+                <img src={bannerImg} alt={'image'} />
               </div>
             </div>
           </div>
