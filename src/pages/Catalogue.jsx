@@ -32,7 +32,7 @@ function Catalogue() {
         email: "",
         mobile: "",
         message: "",
-        inquiryType: "GENERAL"
+        inquiryType: "CATALOGUE"
     });
 
     const [errors, setErrors] = useState({});
@@ -67,7 +67,6 @@ function Catalogue() {
         e.preventDefault();
         try {
             const res = await axios.post(`${API_URL}/inquiries`, formData);
-            console.log(res);
 
             if (res.status === 200) {
                 sessionStorage.setItem('catalogueToken', 'true'); // Store flag/token
@@ -80,7 +79,7 @@ function Catalogue() {
                     email: "",
                     mobile: "",
                     message: "",
-                    inquiryType: "GENERAL"
+                    inquiryType: "CATALOGUE"
                 });
             }
         } catch (error) {

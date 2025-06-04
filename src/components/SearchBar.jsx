@@ -60,14 +60,16 @@ function SearchBar() {
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
-            navigate(`/search?query=${searchQuery}`, { state: { data, searchQuery , pagination } })
+            navigate(`/search?query=${searchQuery}`)
+            setDisplay(false)   
         }
         else ''
     }
 
     const handleSearch = (e) => {
         e.preventDefault();
-        navigate(`/search?query=${searchQuery}`, { state: { data, searchQuery  } })
+        navigate(`/search?query=${searchQuery}`)
+        setDisplay(false)
     }
 
     return (

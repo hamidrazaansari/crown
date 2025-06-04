@@ -27,7 +27,7 @@ function Certificate() {
     const [imageToDownload, setImageToDownload] = useState(null);
     const [countries, setCountries] = useState([]);
     const [formData, setFormData] = useState({
-        country: "", name: "", email: "", mobile: "", message: "", inquiryType: "GENERAL"
+        country: "", name: "", email: "", mobile: "", message: "", inquiryType: "CERTIFICATE"
     });
     const [errors, setErrors] = useState({});
 
@@ -80,13 +80,13 @@ function Certificate() {
     };
 
     const handleSubmit = async (e) => {
-        console.log(formData);
-        
+
         e.preventDefault();
         try {
             const res = await axios.post(`${API_URL}/inquiries`, formData);
 
             if (res.status === 200) {
+                sessionStorage.setItem('certificateToken', 'true'); // Store flag/token
                 setImageToDownload(true);
                 setShow(false);
                 window.open(imageToDownload, '_blank');
@@ -96,7 +96,7 @@ function Certificate() {
                     email: "",
                     mobile: "",
                     message: "",
-                    inquiryType: "GENERAL"
+                    inquiryType: "CERTIFICATE"
                 });
             }
         } catch (error) {
@@ -105,6 +105,13 @@ function Certificate() {
             console.error(error);
         }
     };
+
+    useEffect(() => {
+        const token = sessionStorage.getItem('certificateToken');
+        if (token) {
+            setImageToDownload(true);
+        }
+    }, []);
 
     return (
         <div>
@@ -185,9 +192,16 @@ function Certificate() {
                                 </div>
                                 <button
                                     className='certificate-btn d-md-flex d-none align-items-center justify-content-center'
-                                    onClick={() => {
-                                        setImageToDownload(imgUrl);
-                                        setShow(true);
+                                     onClick={(e) => {
+                                        const tokenExists = sessionStorage.getItem('certificateToken');
+                                        if (!tokenExists) {
+                                            e.preventDefault();
+                                            setImageToDownload(imgUrl);
+                                            setShow(true);
+                                        }
+                                        else{
+                                            window.open(imgUrl, '_blank');
+                                        }
                                     }}
                                 >
                                     View
