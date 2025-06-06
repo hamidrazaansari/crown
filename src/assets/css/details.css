@@ -122,6 +122,16 @@
 .select-search-select ul li:hover{
     background-color: #dedede !important;
 }
+.modal-form .form .stdropdown-input input{
+    border: none !important;
+}
+.modal-form .form .stsearch-box{
+    border: 1px solid #000000ac !important;
+    border-radius: 6px;
+    height: 48px;
+    box-shadow: none;
+    outline: none;
+}
 
 @media (max-width:992px) {
     .info {

@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "../assets/css/product-details.css";
@@ -10,22 +10,22 @@ import axios from "axios";
 import { API_URL } from "../utills/BaseUrl";
 import { toast } from "react-toastify";
 import Swal from 'sweetalert2'
+import { CountrySelect } from "react-country-state-city";
 
 
-function InquiryModal({ show, handleClose  , inquiryType , productData ,categoryId , subCategoryId}) {
+function InquiryModal({ show, handleClose, inquiryType, productData, categoryId, subCategoryId }) {
 
-useEffect(()=>{
-    console.log(productData);
-    setFormData((old)=>{
-        return {...old , product:productData?._id , decorSeries: productData?.decorSeries?._id , decorNumber:productData?.decorNumber ,     ...(categoryId && { category: categoryId }), ...(subCategoryId && { subCategory: subCategoryId }) }
-    })
-}, [productData , categoryId , subCategoryId])
+    useEffect(() => {
+        console.log(productData);
+        setFormData((old) => {
+            return { ...old, product: productData?._id, decorSeries: productData?.decorSeries?._id, decorNumber: productData?.decorNumber, ...(categoryId && { category: categoryId }), ...(subCategoryId && { subCategory: subCategoryId }) }
+        })
+    }, [productData, categoryId, subCategoryId])
 
-      
 
-    
-    
-    const [countries , setCountries] = useState([])
+
+
+
     const [formData, setFormData] = useState({
         country: "",
         name: "",
@@ -33,7 +33,7 @@ useEffect(()=>{
         mobile: "",
         message: "",
         inquiryType: inquiryType,
-        
+
     });
 
     const [errors, setErrors] = useState({
@@ -42,7 +42,7 @@ useEffect(()=>{
         email: "",
         mobile: "",
         message: "",
-        product:''
+        product: ''
     });
 
 
@@ -83,21 +83,23 @@ useEffect(()=>{
         setFormData({ ...formData, [field]: value });
     };
 
-    const handleSubmit = async(e) => {
-      e.preventDefault();
-        console.log(formData);
+    console.log(formData);
+    
 
-      try {
-        const res = await axios.post(`${API_URL}/inquiries` , formData )
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-        console.log('res' , res);
-        
-        Swal.fire({
-            title: "Thank you for reaching out! ",
-            text: "Your inquiry has been successfully submitted. Our team will review your request and get back to you as soon as possible.",
-            icon: "success"
-          });
-            handleClose()  
+        try {
+            const res = await axios.post(`${API_URL}/inquiries`, formData)
+
+            console.log('res', res);
+
+            Swal.fire({
+                title: "Thank you for reaching out! ",
+                text: "Your inquiry has been successfully submitted. Our team will review your request and get back to you as soon as possible.",
+                icon: "success"
+            });
+            handleClose()
             setFormData({
                 country: "",
                 name: "",
@@ -105,33 +107,22 @@ useEffect(()=>{
                 mobile: "",
                 inquiryType: inquiryType, // Keep inquiryType
                 product: productId,       // Keep productId
-              });
-      } catch (error) {
+            });
+        } catch (error) {
 
-        const errrData = error.response?.data?.errors        
-        setErrors({
-            country: errrData.country,
-            name: errrData.name,
-            email: errrData.email,
-            mobile: errrData.mobile 
-        })
-      }
+            const errrData = error.response?.data?.errors
+            setErrors({
+                country: errrData.country,
+                name: errrData.name,
+                email: errrData.email,
+                mobile: errrData.mobile
+            })
+        }
 
 
 
     };
 
-    useEffect(() => {
-        axios.get("https://restcountries.com/v3.1/all")
-            .then((response) => {
-                const countryOptions = response.data.map((country) => ({
-                    value: country.name.common, // Country code
-                    name: country.name.common, // Country name
-                }));
-                setCountries(countryOptions.sort((a, b) => a.name.localeCompare(b.name)));
-            })
-            .catch((error) => console.error("Error fetching countries:", error));
-    }, []);
 
     return (
         <div className="inquiry-modal">
@@ -144,20 +135,21 @@ useEffect(()=>{
                         <h4>Fill The Details</h4>
 
                         {/* Country Selection */}
-                        <div className="d-flex flex-column" style={{position:"relative"}}>
+                        <div className="d-flex flex-column" style={{ position: "relative" }}>
                             <label htmlFor="country">Country</label>
-                            <SelectSearch
-                                search
-                                options={countries}
-                                value={formData.country}
-                                onChange={(value) => handleChange("country", value)}
-                                placeholder="Select Country"
+                            <CountrySelect
+
+                                containerClassName="form-group border-none"
+                                inputClassName=""
+                                onChange={(_country) => handleChange("country" , _country?.name)}
+                                onTextChange={(_txt) => console.log(_txt)}
+                                placeHolder="Select Country"
                             />
                             {errors.country && <small style={{ color: 'red', fontSize: "11px", position: "absolute", top: "72px" }}>{errors.country}</small>}
                         </div>
 
                         {/* Name Input */}
-                        <div className="d-flex flex-column" style={{position:'relative'}}>
+                        <div className="d-flex flex-column" style={{ position: 'relative' }}>
                             <label htmlFor="name">Name</label>
                             <input
                                 type="text"
@@ -169,7 +161,7 @@ useEffect(()=>{
                         </div>
 
                         {/* Email Input */}
-                        <div className="d-flex flex-column" style={{position:'relative'}}>
+                        <div className="d-flex flex-column" style={{ position: 'relative' }}>
                             <label htmlFor="email">Email</label>
                             <input
                                 type="email"
@@ -181,7 +173,7 @@ useEffect(()=>{
                         </div>
 
                         {/* mobile Input */}
-                        <div className="d-flex flex-column" style={{position:'relative'}}>
+                        <div className="d-flex flex-column" style={{ position: 'relative' }}>
                             <label htmlFor="mobile">Mobile Number</label>
                             <input
                                 type="text"
@@ -193,7 +185,7 @@ useEffect(()=>{
 
                         </div>
 
-                        <div className="d-flex flex-column" style={{position:'relative'}}>
+                        <div className="d-flex flex-column" style={{ position: 'relative' }}>
                             <label htmlFor="message">Meassge</label>
                             <textarea
                                 type="text"
@@ -207,7 +199,7 @@ useEffect(()=>{
                         </div>
 
                         <button className="form-btn" onClick={handleSubmit}>
-                            Enquiry Now
+                            Enquire Now
                         </button>
                     </div>
                 </div>

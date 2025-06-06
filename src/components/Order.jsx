@@ -14,7 +14,6 @@ import { State, City } from 'country-state-city';
 import CountryStateCity from './CountryStateCity';
 
 
-
 function Order() {
     const [name, setName] = useState('');
     const [mobile, setMobile] = useState('');

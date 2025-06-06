@@ -259,7 +259,7 @@ useEffect(() => {
                                 <p className='desc'>{products.sortDescriptopns}</p>
 
                                 <div className=" mt-4">
-                                    <button className='enq-btn' onClick={handleShow}>Enquiry Now</button>
+                                    <button className='enq-btn' onClick={handleShow}>Enquire Now</button>
                                     <button className='sample-btn' onClick={handleSampleModleShow}>Sample Request</button>
                                 </div>
                             </div>

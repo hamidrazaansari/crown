@@ -19,6 +19,7 @@ import { Modal } from 'react-bootstrap';
 import SelectSearch from "react-select-search";
 import "react-select-search/style.css";
 import { RxCross1 } from "react-icons/rx";
+import { CountrySelect } from 'react-country-state-city';
 
 
 function Certificate() {
@@ -120,7 +121,7 @@ function Certificate() {
                 <div className="modal-form">
                     <button className="closeButton" onClick={handleClose}><RxCross1 /></button>
                     <div className="form">
-                        <h4>Fill The Details</h4>
+                        <h4>To View The Certificates Fill The Details</h4>
                         {[
                             { label: "Country", field: "country", type: "select" },
                             { label: "Name", field: "name", type: "text" },
@@ -131,12 +132,13 @@ function Certificate() {
                             <div key={i} className="d-flex flex-column" style={{ position: 'relative' }}>
                                 <label htmlFor={field}>{label}</label>
                                 {type === "select" ? (
-                                    <SelectSearch
-                                        search
-                                        options={countries}
-                                        value={formData[field]}
-                                        onChange={(val) => handleChange(field, val)}
-                                        placeholder={`Select ${label}`}
+                                    <CountrySelect
+
+                                        containerClassName="form-group border-none"
+                                        inputClassName=""
+                                        onChange={(_country) => handleChange("country", _country?.name)}
+                                        onTextChange={(_txt) => console.log(_txt)}
+                                        placeHolder="Select Country"
                                     />
                                 ) : type === "textarea" ? (
                                     <textarea
@@ -159,7 +161,7 @@ function Certificate() {
                                 )}
                             </div>
                         ))}
-                        <button className="form-btn" onClick={handleSubmit}>Enquiry Now</button>
+                        <button className="form-btn" onClick={handleSubmit}>View Now</button>
                     </div>
                 </div>
             </Modal>
@@ -192,14 +194,14 @@ function Certificate() {
                                 </div>
                                 <button
                                     className='certificate-btn d-md-flex d-none align-items-center justify-content-center'
-                                     onClick={(e) => {
+                                    onClick={(e) => {
                                         const tokenExists = sessionStorage.getItem('certificateToken');
                                         if (!tokenExists) {
                                             e.preventDefault();
                                             setImageToDownload(imgUrl);
                                             setShow(true);
                                         }
-                                        else{
+                                        else {
                                             window.open(imgUrl, '_blank');
                                         }
                                     }}

@@ -15,6 +15,7 @@ import { API_URL } from '../utills/BaseUrl';
 import axios from 'axios';
 import getImageURL from '../utills/getImageURL';
 import { RxCross1 } from 'react-icons/rx';
+import { CountrySelect } from 'react-country-state-city';
 
 function Catalogue() {
     const [selectedFilter, setSelectedFilter] = useState("");
@@ -143,17 +144,18 @@ function Catalogue() {
                 <button className="closeButton" onClick={handleClose}><RxCross1 /></button>
                     
                     <div className="form">
-                        <h4>Fill The Details</h4>
+                        <h4>To Download The Catalogues Fill The Details</h4>
 
                         <div className="d-flex flex-column" style={{ position: "relative" }}>
                             <label>Country</label>
-                            <SelectSearch
-                                search
-                                options={countries}
-                                value={formData.country}
-                                onChange={(val) => handleChange("country", val)}
-                                placeholder="Select Country"
-                            />
+                                    <CountrySelect
+
+                                        containerClassName="form-group border-none"
+                                        inputClassName=""
+                                        onChange={(_country) => handleChange("country", _country?.name)}
+                                        onTextChange={(_txt) => console.log(_txt)}
+                                        placeHolder="Select Country"
+                                    />
                             {errors.country && <small className="error-text">{errors.country}</small>}
                         </div>
 
@@ -196,7 +198,7 @@ function Catalogue() {
                             />
                         </div>
 
-                        <button className="form-btn" onClick={handleSubmit}>Enquiry Now</button>
+                        <button className="form-btn" onClick={handleSubmit}>Download Now</button>
                     </div>
                 </div>
             </Modal>
