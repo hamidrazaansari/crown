@@ -14,11 +14,13 @@ import Spotlights from '../components/Spotlights'
 import NewFooter from '../components/NewFooter'
 import Experience from '../components/Experience'
 import Footer from '../components/Footer'
+import AddModal from '../components/AddModal'
 
 function Landing() {
 
   return (
     <>
+      {/* <AddModal/> */}
         <NavBar/>
         {/* <Hero/> */}
         <HorizontalScroll/>
